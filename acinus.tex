@@ -13,6 +13,7 @@
 	\usepackage[pdftex]{graphicx}
 \fi
  
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}                          % Standard Latex-Fonts
 \usepackage{lmodern}                              % nice fonts
 \usepackage{babel}                                % change language in \documentclass
@@ -25,6 +26,7 @@
 \usepackage{microtype}                            % for nicer typography
 \usepackage{lipsum}                               % for blind-text (\lipsum)
 \usepackage[numbers,square,sort&compress]{natbib} % nice bibliography
+\usepackage{scrtime}
 %\usepackage{endfloat}                            % floats at the end, use [nomarker] if "Figure x approx. here" is undesired
 %\usepackage{setspace}                            % to set doublespacing or some other ugly typographic crutch.
 %\doublespacing
@@ -73,27 +75,26 @@
 \newcommand{\imsize}{\linewidth}
 
 
-\title{Title}
-\author{Your Name}
-\date{Version of \today}
+\title{Acinar growth over lung development}
+\author{David Haberthür \and Marco Stampanoni \and Johannes C. Schittny}
+\subtitle{(SVN-revision: \svnkw{LastChangedRevision}, compiled \today, \thistime)}
+\date{\today}
  
 \begin{document}
 \maketitle
-\todo{write the document!}
  
 \begin{abstract}
 Abstract
 \end{abstract}
  
 \ifhtml
-\emph{Did you sort out all todos?}
+	\emph{Did you sort out all todos?}
 \else
-\listoftodos
+	\listoftodos
 \fi
  
-\tableofcontents
- 
 \section{first section}
+david haberhtür 
 \lipsum[1]
  
 \section{second section}
