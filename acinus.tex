@@ -1,0 +1,113 @@
+\documentclass[a4paper,twoside,abstract=true,english,pdftex]{scrartcl}
+ 
+\newif\ifhtml
+ 
+% HTML generation (.doc-conversion) > set html to true and use htlatex. else set html to false
+%\htmltrue
+\htmlfalse
+ 
+\ifhtml % In case of web format output...
+	\def\pgfsysdriver{pgfsys-tex4ht.def}            % converts TikZ-Images to .svg. nice!
+	\usepackage[dvips]{graphicx}
+\else
+	\usepackage[pdftex]{graphicx}
+\fi
+ 
+\usepackage[T1]{fontenc}                          % Standard Latex-Fonts
+\usepackage{lmodern}                              % nice fonts
+\usepackage{babel}                                % change language in \documentclass
+\usepackage{siunitx}                              % better than SIUnits, uses \SI{10}{\micro\meter}
+\usepackage{svn-multi}                            % to add SVN-Versioning-Info
+\usepackage{subfig}                               % subfigures
+\usepackage{booktabs}                             % nice tables
+\usepackage{fancyhdr}                             % nice header
+\usepackage{tikz}                                 % extremely nice drawings
+\usepackage{microtype}                            % for nicer typography
+\usepackage{lipsum}                               % for blind-text (\lipsum)
+\usepackage[numbers,square,sort&compress]{natbib} % nice bibliography
+%\usepackage{endfloat}                            % floats at the end, use [nomarker] if "Figure x approx. here" is undesired
+%\usepackage{setspace}                            % to set doublespacing or some other ugly typographic crutch.
+%\doublespacing
+%\onehalfspacing
+%\singlespacing
+ 
+\ifhtml
+	\usepackage{index}
+	\usepackage{color}
+	\newindex{todo}{todo}{tnd}{Todo List} 
+	\newcommand{\todo}[1]{\textcolor{red}{[To do: #1]}\index[todo]{#1}}
+	\usepackage{hyperref}
+\else
+	\usepackage{lineno}
+	% line numbers
+	\linenumbers
+	%%\pagewiselinenumbers
+	\modulolinenumbers[2]
+	\usepackage{lmodern}
+	\usepackage[backref,pdftex]{hyperref}			% backref generates link from references back to text
+	\usepackage[all]{hypcap}                        % make hyperref work nicely with captions
+	\usepackage[]{todonotes} 		                % [disable]
+\hypersetup{colorlinks=false,%
+        pdfauthor={David Haberthür},%
+        pdftitle={Title},%
+        pdfsubject={Subject},%
+        pdfkeywords={keyword1, keyword2},%
+        pdfborder={0 0 0},% > no border around links, but...
+        colorlinks=true % ... colored (true > no border, use "false" for final output)
+        }
+\fi
+ 
+%% Subversion Information
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+\svnid{$Id$} 
+ 
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyfoot[OR]{\tiny \href{\svnkw{HeadURL}}{Revision \svnkw{LastChangedRevision}} --- last commit on \svnkw{LastChangedDate} --- page \thepage}
+\fancyfoot[EL]{\tiny page \thepage\ --- \href{\svnkw{HeadURL}}{Revision \svnkw{LastChangedRevision}} --- last commit on \svnkw{LastChangedDate}}
+ 
+\newcommand{\imsize}{\linewidth}
+
+
+\title{Title}
+\author{Your Name}
+\date{Version of \today}
+ 
+\begin{document}
+\maketitle
+\todo{write the document!}
+ 
+\begin{abstract}
+Abstract
+\end{abstract}
+ 
+\ifhtml
+\emph{Did you sort out all todos?}
+\else
+\listoftodos
+\fi
+ 
+\tableofcontents
+ 
+\section{first section}
+\lipsum[1]
+ 
+\section{second section}
+\lipsum[1]
+ 
+\section{third section}
+\lipsum[1]
+ 
+\bibliographystyle{unsrtnat}
+\bibliography{../references} % since my LaTeX-files sit in folders like p:\#docs\thisdocument\file.tex and the reference.bib is saved in p:\#doc
+ 
+\appendix
+\section{appendix}
+\lipsum[1]
+ 
+\end{document}
+
