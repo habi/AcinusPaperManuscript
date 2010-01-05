@@ -1,37 +1,34 @@
-\documentclass[a4paper,twoside,abstract=true,english,pdftex]{scrartcl}
+\documentclass[a4paper,DIC=calc,twoside,abstract=true]{scrartcl}
  
 \newif\ifhtml
  
 % HTML generation (.doc-conversion) > set html to true and use htlatex. else set html to false
-%\htmltrue
+\htmltrue
 \htmlfalse
  
 \ifhtml % In case of web format output...
-	\def\pgfsysdriver{pgfsys-tex4ht.def}            % converts TikZ-Images to .svg. nice!
+	\def\pgfsysdriver{pgfsys-tex4ht.def}
 	\usepackage[dvips]{graphicx}
 \else
 	\usepackage[pdftex]{graphicx}
 \fi
  
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}                          % Standard Latex-Fonts
-\usepackage{lmodern}                              % nice fonts
-\usepackage{babel}                                % change language in \documentclass
-\usepackage{siunitx}                              % better than SIUnits, uses \SI{10}{\micro\meter}
-\usepackage{svn-multi}                            % to add SVN-Versioning-Info
-\usepackage{subfig}                               % subfigures
-\usepackage{booktabs}                             % nice tables
-\usepackage{fancyhdr}                             % nice header
-\usepackage{tikz}                                 % extremely nice drawings
-\usepackage{microtype}                            % for nicer typography
-\usepackage{lipsum}                               % for blind-text (\lipsum)
+\usepackage[T1]{fontenc}	% Standard Latex-Fonts
+\usepackage[english]{babel}	% change language in \documentclass
+\usepackage{siunitx}
+\usepackage{svn-multi}      % to add SVN-Versioning-Info
+\usepackage{subfig}         % subfigures
+\usepackage{booktabs}		% nice tables
+\usepackage{fancyhdr}		% nice header
+\usepackage{tikz}			% extremely nice drawings
+\usepackage{microtype}		% for nicer typography
+\usepackage{lipsum}		    % for blind-text (\lipsum[1])
 \usepackage[numbers,square,sort&compress]{natbib} % nice bibliography
 \usepackage{scrtime}
-%\usepackage{endfloat}                            % floats at the end, use [nomarker] if "Figure x approx. here" is undesired
-%\usepackage{setspace}                            % to set doublespacing or some other ugly typographic crutch.
-%\doublespacing
-%\onehalfspacing
-%\singlespacing
+\usepackage{setspace}
+	%\doublespacing
+	%\onehalfspacing
  
 \ifhtml
 	\usepackage{index}
@@ -40,26 +37,13 @@
 	\newcommand{\todo}[1]{\textcolor{red}{[To do: #1]}\index[todo]{#1}}
 	\usepackage{hyperref}
 \else
-	\usepackage{lineno}
-	% line numbers
-	\linenumbers
-	%%\pagewiselinenumbers
-	\modulolinenumbers[2]
-	\usepackage{lmodern}
+	\usepackage{lineno}\linenumbers\modulolinenumbers[2]
 	\usepackage[backref,pdftex]{hyperref}			% backref generates link from references back to text
 	\usepackage[all]{hypcap}                        % make hyperref work nicely with captions
 	\usepackage[]{todonotes} 		                % [disable]
-\hypersetup{colorlinks=false,%
-        pdfauthor={David Haberthür},%
-        pdftitle={Title},%
-        pdfsubject={Subject},%
-        pdfkeywords={keyword1, keyword2},%
-        pdfborder={0 0 0},% > no border around links, but...
-        colorlinks=true % ... colored (true > no border, use "false" for final output)
-        }
 \fi
  
-%% Subversion Information
+% Subversion Information
 \svnidlong
 {$HeadURL$}
 {$LastChangedDate$}
@@ -74,41 +58,81 @@
  
 \newcommand{\imsize}{\linewidth}
 
-
-\title{Acinar growth over lung development}
-\author{David Haberthür \and Marco Stampanoni \and Johannes C. Schittny}
-\subtitle{(SVN-revision: \svnkw{LastChangedRevision}, compiled \today, \thistime)}
-\date{\today}
+\newcommand{\footremember}[2]{\footnote{#2}	\newcounter{#1}\setcounter{#1}{\value{footnote}}}
+\newcommand{\footrecall}[1]{\footnotemark[\value{#1}]}
  
+\title{Acinar growth over lung development}
+\subtitle{Revision \svnkw{LastChangedRevision} | \today, \thistime}
+\author{%
+	David Haberthür\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}%
+	\and Marco Stampanon\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}\footremember{eth}{Institute for Biomedical Engineering, Swiss Federal Institute of Technology and University of Zürich, Switzerland}%
+	\and Johannes C. Schittny\footrecall{ana}%
+	}
+\date{\today}
+
 \begin{document}
 \maketitle
- 
+
 \begin{abstract}
 Abstract
 \end{abstract}
- 
-\ifhtml
-	\emph{Did you sort out all todos?}
-\else
-	\listoftodos
-\fi
- 
-\section{first section}
-david haberhtür 
-\lipsum[1]
- 
-\section{second section}
-\lipsum[1]
- 
-\section{third section}
-\lipsum[1]
- 
+
+\section{Introduction}\label{sec:Introduction}
+\begin{itemize}
+	\item Gas exchange region of the terminal airway space
+	\begin{itemize}
+		\item Functional Lung unit $\rightarrow$ Acinus
+		\item Expanding size
+	\end{itemize}
+	\item Prior Models
+	\begin{itemize}
+		\item Alveolarization
+		\item Late Alveolarization
+		\item Microvascular Maturation~\cite{Mund2008}
+	\end{itemize}
+       	\item Visualization of rat lung acini over the postnatal lung development $\rightarrow$ acini seem to grow to a greater extent than expected.
+	\item SRXTM
+	\begin{itemize}
+		\item Classic SRXTM
+		\item WF-SRXTM~\cite{Haberthuer2010}
+	\end{itemize}
+\end{itemize}
+
+\section{Materials \& Methods}\label{sec:MM}
+\begin{itemize}
+	\item Rat Lung samples
+	\begin{itemize}
+		\item Instillation
+		\item Osmium-staining
+		\item Paraffin embedding
+	\end{itemize}
+	\item WF-SRXTM
+	\begin{itemize}
+		\item X-rays $\rightarrow$ Sample Penetration $\rightarrow$ Szintillator $\rightarrow$ CCD $\rightarrow$ Sinograms $\rightarrow$ Reconstruction
+		\item Multiple Subscans, Optimized Amount of Projections
+		\item Increased field of view as compared to conventional SRXTM
+		\item Details in~\cite{Haberthuer2010}
+	\end{itemize}
+	\item Extraction of Alveolus
+	\begin{itemize}
+		\item Morphological Criteria $\rightarrow$ Detection of ``Entrance Point'' into Acinus
+		\item Threshold based, seeded Region Growing
+		\item Pixel Volume counting
+	\end{itemize}	
+\end{itemize}
+
+\section{Results}\label{sec:Results}
+
+\section{Discussion}\label{sec:Discussion}
+
+\section{Acknowledgments}
+\begin{itemize}
+	\item Xris
+	\item Mohammed
+	\item Sebastien
+	\item SNF
+\end{itemize}
 \bibliographystyle{unsrtnat}
-\bibliography{../references} % since my LaTeX-files sit in folders like p:\#docs\thisdocument\file.tex and the reference.bib is saved in p:\#doc
- 
-\appendix
-\section{appendix}
-\lipsum[1]
+\bibliography{../references}
  
 \end{document}
-
