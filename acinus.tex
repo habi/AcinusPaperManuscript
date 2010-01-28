@@ -1,5 +1,10 @@
-\documentclass[a4paper,DIC=calc,twoside,abstract=true]{scrartcl}
- 
+\documentclass[%
+	paper=a4,%
+	DIV=calc,%
+	twoside=true,%
+	draft=true,%
+	abstract=false]{scrartcl}
+
 \newif\ifhtml
  
 % HTML generation (.doc-conversion) > set html to true and use htlatex. else set html to false
@@ -16,16 +21,16 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}	% Standard Latex-Fonts
 \usepackage[english]{babel}	% change language in \documentclass
-\usepackage{siunitx}
-\usepackage{svn-multi}      % to add SVN-Versioning-Info
-\usepackage{subfig}         % subfigures
+\usepackage[alsoload=synchem,binary]{siunitx}
+\usepackage{svn-multi}		% to add SVN-Versioning-Info
+\usepackage{subfig}			% subfigures
 \usepackage{booktabs}		% nice tables
 \usepackage{fancyhdr}		% nice header
 \usepackage{tikz}			% extremely nice drawings
 \usepackage{microtype}		% for nicer typography
-\usepackage{lipsum}		    % for blind-text (\lipsum[1])
 \usepackage[numbers,square,sort&compress]{natbib} % nice bibliography
 \usepackage{scrtime}
+\usepackage[version=3]{mhchem}
 \usepackage{setspace}
 	%\doublespacing
 	%\onehalfspacing
@@ -53,8 +58,8 @@
  
 \pagestyle{fancy}
 \fancyfoot{}
-\fancyfoot[OR]{\tiny \href{\svnkw{HeadURL}}{Revision \svnkw{LastChangedRevision}} --- last commit on \svnkw{LastChangedDate} --- page \thepage}
-\fancyfoot[EL]{\tiny page \thepage\ --- \href{\svnkw{HeadURL}}{Revision \svnkw{LastChangedRevision}} --- last commit on \svnkw{LastChangedDate}}
+\fancyfoot[OR]{\tiny \href{\svnkw{HeadURL}}{Revision \svnkw{LastChangedRevision}} --- last committed on \svnkw{LastChangedDate} --- page \thepage}
+\fancyfoot[EL]{\tiny page \thepage\ --- \href{\svnkw{HeadURL}}{Revision \svnkw{LastChangedRevision}} --- last committed on \svnkw{LastChangedDate}}
  
 \newcommand{\imsize}{\linewidth}
 
@@ -62,10 +67,10 @@
 \newcommand{\footrecall}[1]{\footnotemark[\value{#1}]}
  
 \title{Acinar growth over lung development}
-\subtitle{Revision \svnkw{LastChangedRevision} | \today, \thistime}
+%\subtitle{Revision \svnkw{LastChangedRevision} | \today, \thistime}
 \author{%
 	David Haberthür\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}%
-	\and Marco Stampanon\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}\footremember{eth}{Institute for Biomedical Engineering, Swiss Federal Institute of Technology and University of Zürich, Switzerland}%
+	\and Marco Stampanoni\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}\footremember{eth}{Institute for Biomedical Engineering, Swiss Federal Institute of Technology and University of Zürich, Switzerland}%
 	\and Johannes C. Schittny\footrecall{ana}%
 	}
 \date{\today}
@@ -74,7 +79,7 @@
 \maketitle
 
 \begin{abstract}
-Abstract
+Here be the Abstract\ldots
 \end{abstract}
 
 \section{Introduction}\label{sec:Introduction}
@@ -99,26 +104,39 @@ Abstract
 \end{itemize}
 
 \section{Materials \& Methods}\label{sec:MM}
+\subsection{Rat lung samples}
+Rat lung samples, prepared according to \cite{Tschanz2002,Luyet2002} were used as test objects. Briefly, lungs of Sprague-Dawley rats were filled with \SI{2.5}{\percent} glutaraldehyde (\cf{CH2(CH2CHO)2}) in \SI{0.03}{\Molar} potassium-phosphate buffer (pH 7.4) by instillation via tracheotomy at a constant pressure of \SI{20}{\centi\meter} water column. In order to prevent recoiling of the lung, this pressure was maintained during glutaraldehyde-fixation for a minimum of two hours. Subsequently, the lungs were dissected free and immersed in toto in the same fixative at a temperature of \SI{4}{\celsius} for at least \SI{24}{\hour}.
+
+The samples were postfixed with \SI{1}{\percent} osmium tetroxide (\cf{OsO4}) and stained with \SI{4}{\percent} uranyl nitrate (\cf{UO2(NO3)2}) to increase the x-ray absorption contrast, dehydrated in a graded series of ethanol and embedded in paraffin using Histoclear (Merck KGaA, Darmstadt, Germany) as an intermedium. The lung samples were mounted onto standard scanning electron microscopy sample holders (PLANO GmbH, Wetzlar, Germany) using paraffin~\cite{Tsuda2008}.
+
+The handling of animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern, Switzerland.
+
+\subsection{Tomographic data acquisition}
+The experiments were performed at the TOMCAT beamline at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland~\cite{Stampanoni2006a}. The samples were scanned at \SI{12.6}{\kilo\electronvolt}. After penetration through the sample, the x-rays were converted into visible light by a YAG:Ce scintillator (\SI{18}{\micro\meter} thickness, Crismatec Saint-Gobain, Nemours, France). Projections were magnified by diffraction limited microscope optics (10\(\times\) magnification) and digitized by a high-resolution 2048\(\times\)2048 pixel CCD camera (pco.2000, PCO AG, Kelheim, Germany) with \SI{14}{\bit} dynamic range. The detector was operated in 2\(\times\)2 binning mode. As a result, the pixel size was \SI{1.48}{\micro\meter} and the exposure time was \SI{175}{\milli\second}.
+
+To study the alveolar septa, a resolution in the order of one micron is required. Since we selectively wanted to choose an alveolus/multiple alveoli, a large sample volume had to be scanned. Usually, a large field of view resulting in a large sample volume can only be acquired with low magnification and vice-versa. Thus, the full volume of our samples would not have fit inside the field of view of the TOMCAT beamline at the chosen optical properties (\(1.52\times1.52\times\)\SI{1.52}{\milli\meter}).
+
+To enhance the field of view of the TOMCAT beamline at the chosen configuration, we obtained tomographic datasets using a so called wide field scan~\cite{Haberthuer2010}. Briefly, several partial scans with an optimized amount of projections spanning an enlarged field of view have been independently acquired. Prior to reconstructing the tomographic dataset, these projections have been merged to one large projection spanning the desired field of view. With this approach we increased the available field of view at TOMCAT three-fold, while keeping the voxel size and reconstruction quality on the desired level and avoiding the aforementioned trade-off between voxel size and sample volume.
+
+\subsection{Visualization and Extraction of Acini}
+The tomographic datasets of the sample three-dimensionally analyzed and visualized using MeVisLab (Version 2.0 (2009-06-09 Release), MeVis Medical Solutions AG and Fraunhofer MEVIS - Institute for Medical Image Computing, Bremen, Germany). The tomograhic dateset was loaded, processed and visualized\todo{Write exact details of processing network}. Airway segments were extracted using a threshold interval based region growing algorithm~\cite{Zucker1976}. A seed point for the region growing algorithm was manually defined inside the terminal broncioloe/alveolar duct on one of the most proximal slices. The segmented airways have been visualized and cropped to a promising region of interest and exported as DICOM-file to facilitate further processing using ImageJ~\cite{Abramoff2004} and the Stepanizer\todo{This is just placeholder-blabla at the moment\ldots}.
+
 \begin{itemize}
-	\item Rat Lung samples
-	\begin{itemize}
-		\item Instillation
-		\item Osmium-staining
-		\item Paraffin embedding
-	\end{itemize}
-	\item WF-SRXTM
-	\begin{itemize}
-		\item X-rays $\rightarrow$ Sample Penetration $\rightarrow$ Szintillator $\rightarrow$ CCD $\rightarrow$ Sinograms $\rightarrow$ Reconstruction
-		\item Multiple Subscans, Optimized Amount of Projections
-		\item Increased field of view as compared to conventional SRXTM
-		\item Details in~\cite{Haberthuer2010}
-	\end{itemize}
-	\item Extraction of Alveolus
+	\item Extraction of Acinus
 	\begin{itemize}
 		\item Morphological Criteria $\rightarrow$ Detection of ``Entrance Point'' into Acinus
 		\item Threshold based, seeded Region Growing
 		\item Pixel Volume counting
-	\end{itemize}	
+	\end{itemize}
+	\item Data to measure:
+	\begin{itemize}
+		\item Acinar volume
+		\item Acinar surface
+		\item Number of alveoli
+		\item Mean alveolar volume
+		\item Total alveolar volume
+		\item Total ductal volume
+	\end{itemize}
 \end{itemize}
 
 \section{Results}\label{sec:Results}
@@ -127,7 +145,7 @@ Abstract
 
 \section{Acknowledgments}
 \begin{itemize}
-	\item Xris
+	\item Xris, Fede
 	\item Mohammed
 	\item Sebastien
 	\item SNF
