@@ -5,48 +5,29 @@
 	draft=true,%
 	abstract=false]{scrartcl}
 
-\newif\ifhtml
- 
-% HTML generation (.doc-conversion) > set html to true and use htlatex. else set html to false
-\htmltrue
-\htmlfalse
- 
-\ifhtml % In case of web format output...
-	\def\pgfsysdriver{pgfsys-tex4ht.def}
-	\usepackage[dvips]{graphicx}
-\else
-	\usepackage[pdftex]{graphicx}
-\fi
- 
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}	% Standard Latex-Fonts
-\usepackage[english]{babel}	% change language in \documentclass
-\usepackage[alsoload=synchem,binary]{siunitx}
-\usepackage{svn-multi}		% to add SVN-Versioning-Info
-\usepackage{subfig}			% subfigures
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage[load-configurations=binary]{siunitx}
+	\DeclareSIUnit\Molar{\textsc{m}}
+\usepackage{svn-multi}	% to add SVN-Versioning-Info
+\usepackage{subfig}		% subfigures
 \usepackage{booktabs}		% nice tables
 \usepackage{fancyhdr}		% nice header
-\usepackage{tikz}			% extremely nice drawings
-\usepackage{microtype}		% for nicer typography
+\usepackage{tikz}
+\usepackage{pgfplots}
 \usepackage[numbers,square,sort&compress]{natbib} % nice bibliography
 \usepackage{scrtime}
 \usepackage[version=3]{mhchem}
 \usepackage{setspace}
 	%\doublespacing
 	%\onehalfspacing
- 
-\ifhtml
-	\usepackage{index}
-	\usepackage{color}
-	\newindex{todo}{todo}{tnd}{Todo List} 
-	\newcommand{\todo}[1]{\textcolor{red}{[To do: #1]}\index[todo]{#1}}
-	\usepackage{hyperref}
-\else
-	\usepackage{lineno}\linenumbers\modulolinenumbers[2]
-	\usepackage[backref,pdftex]{hyperref}			% backref generates link from references back to text
-	\usepackage[all]{hypcap}                        % make hyperref work nicely with captions
-	\usepackage[]{todonotes} 		                % [disable]
-\fi
+\usepackage{lineno}
+	%\linenumbers\modulolinenumbers[2]
+\usepackage{lastpage}	
+\usepackage[]{todonotes} 		                % [disable]
+\usepackage[backref]{hyperref} 	% backref generates link from references back to text
  
 % Subversion Information
 \svnidlong
@@ -58,12 +39,12 @@
  
 \pagestyle{fancy}
 \fancyfoot{}
-\fancyfoot[OR]{\tiny \href{\svnkw{HeadURL}}{Revision \svnkw{LastChangedRevision}} --- last committed on \svnkw{LastChangedDate} --- page \thepage}
-\fancyfoot[EL]{\tiny page \thepage\ --- \href{\svnkw{HeadURL}}{Revision \svnkw{LastChangedRevision}} --- last committed on \svnkw{LastChangedDate}}
+\fancyfoot[OR]{\tiny \href{\svnkw{HeadURL}}{Rev. \svnkw{LastChangedRevision}}, commited on \svnkw{LastChangedDate} --- Page \thepage\ of \pageref{LastPage}}
+\fancyfoot[EL]{\tiny Page \thepage\ of \pageref{LastPage} --- \href{\svnkw{HeadURL}}{Revision \svnkw{LastChangedRevision}}, committed on \svnkw{LastChangedDate}}
  
 \newcommand{\imsize}{\linewidth}
 
-\newcommand{\footremember}[2]{\footnote{#2}	\newcounter{#1}\setcounter{#1}{\value{footnote}}}
+\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}
 \newcommand{\footrecall}[1]{\footnotemark[\value{#1}]}
  
 \title{Acinar growth over lung development}
@@ -116,13 +97,14 @@ The experiments were performed at the TOMCAT beamline at the Swiss Light Source,
 
 To study the alveolar septa, a resolution in the order of one micron is required. Since we selectively wanted to choose an alveolus/multiple alveoli, a large sample volume had to be scanned. Usually, a large field of view resulting in a large sample volume can only be acquired with low magnification and vice-versa. Thus, the full volume of our samples would not have fit inside the field of view of the TOMCAT beamline at the chosen optical properties (\(1.52\times1.52\times\)\SI{1.52}{\milli\meter}).
 
-To enhance the field of view of the TOMCAT beamline at the chosen configuration, we obtained tomographic datasets using a so called wide field scan~\cite{Haberthuer2010}. Briefly, several partial scans with an optimized amount of projections spanning an enlarged field of view have been independently acquired. Prior to reconstructing the tomographic dataset, these projections have been merged to one large projection spanning the desired field of view. With this approach we increased the available field of view at TOMCAT three-fold, while keeping the voxel size and reconstruction quality on the desired level and avoiding the aforementioned trade-off between voxel size and sample volume.
+To enhance the field of view of the TOMCAT beamline at the chosen optical configuration, we obtained tomographic datasets using a so called wide field scan~\cite{Haberthuer2010}. Briefly, several partial scans with an optimized amount of projections spanning an enlarged field of view have been independently acquired. Prior to reconstructing the tomographic dataset, these projections have been merged to one large projection spanning the desired field of view. With this approach we increased the available field of view at TOMCAT three-fold, while keeping the voxel size and reconstruction quality on the desired level and avoiding the aforementioned trade-off between voxel size and sample volume.
 
 \subsection{Visualization and Extraction of Acini}
-The tomographic datasets of the sample three-dimensionally analyzed and visualized using MeVisLab (Version 2.0 (2009-06-09 Release), MeVis Medical Solutions AG and Fraunhofer MEVIS - Institute for Medical Image Computing, Bremen, Germany). The tomograhic dateset was loaded, processed and visualized\todo{Write exact details of processing network}. Airway segments were extracted using a threshold interval based region growing algorithm~\cite{Zucker1976}. A seed point for the region growing algorithm was manually defined inside the terminal broncioloe/alveolar duct on one of the most proximal slices. The segmented airways have been visualized and cropped to a promising region of interest and exported as DICOM-file to facilitate further processing using ImageJ~\cite{Abramoff2004} and the Stepanizer\todo{This is just placeholder-blabla at the moment\ldots}.
+The tomographic datasets of the sample three-dimensionally analyzed and visualized using MeVisLab (Version 2.1 (2010-07-26 Release), MeVis Medical Solutions AG and Fraunhofer MEVIS - Institute for Medical Image Computing, Bremen, Germany). The tomograhic dateset was loaded, processed and visualized\todo{Write exact details of processing network}. Airway segments were extracted using a threshold interval based region growing algorithm~\cite{Zucker1976}. A seed point for the region growing algorithm was manually defined inside the terminal broncioloe/alveolar duct on one of the most proximal slices. The segmented airways have been visualized and cropped to a promising region of interest and exported as DICOM-file to facilitate further processing using ImageJ~\cite{Abramoff2004} and the Stepanizer~\cite{Tschanz2010}.
 
 \begin{itemize}
 	\item Extraction of Acinus
+	\item Manhole Covers
 	\begin{itemize}
 		\item Morphological Criteria $\rightarrow$ Detection of ``Entrance Point'' into Acinus
 		\item Threshold based, seeded Region Growing
@@ -140,6 +122,36 @@ The tomographic datasets of the sample three-dimensionally analyzed and visualiz
 \end{itemize}
 
 \section{Results}\label{sec:Results}
+For each day and sample we extracted multiple acini with the \emph{Manhole Cover}-method. The volumes of the extracted acini are shown in \autoref{fig:plot}.
+\begin{figure}[htb]
+	\centering
+	\begin{tikzpicture}
+		\pgfplotsset{every axis plot/.append style={thick,semitransparent}}
+		\begin{semilogyaxis}[
+			xlabel=Acinus,
+			ylabel=	{Volume [\si{\micro\litre}]},
+			legend pos=outer north east,
+			]
+			\addplot+[mark=none]
+				table [x=Segment,y=Volume] {plots/R108C04At.txt};
+			\addplot+[mark=none]
+				table [x=Segment,y=Volume] {plots/R108C10C.txt};
+			\addplot+[mark=none]
+				table [x=Segment,y=Volume] {plots/R108C21D.txt};
+			\addplot+[mark=none]
+				table [x=Segment,y=Volume] {plots/R108C36A.txt};
+			\addplot+[mark=none]
+				table [x=Segment,y=Volume] {plots/R108C60B.txt};
+			\legend{R108C04At,%
+				R108C10C,%
+				R108C21D,%
+				R108C36A,%
+				R108C60B}		
+		\end{semilogyaxis}
+	\end{tikzpicture}
+	\caption{Volumes of the extracted acini}
+	\label{fig:plot}
+\end{figure}
 
 \section{Discussion}\label{sec:Discussion}
 

@@ -1,0 +1,125 @@
+Segment	Volume	Threshold Interval	Kommentar
+0	1.926E-01	40-80	
+1	8.748E-02	20	
+2	6.876E-02	21	
+3	1.040E-01	19	in Phase-Change
+4	1.229E-02	18	in Phase-Change
+5	7.708E-02	19	
+6	4.227E-02	19	
+7	8.159E-02	20	
+8	3.298E-02	19	
+9	2.239E-01	21	multiple acini? (Img 1)
+10	4.843E-02	20	
+11	5.117E-02	1-65	
+12	1.854E-01	13	
+13	2.801E-01	20	multiple acini?
+14	2.443E-01	14	Threshold 15 overshoots greatly
+15	8.013E-02	20	
+16	1.931E-01	20	
+17	3.349E-01	5	Heavily out of sample (Manhole Cover at beginning of Airway)
+18	1.520E-01	22	Fills a whole slice of the tip of the sample
+19	1.103E-01	21	Fills partial top, maybe multiple acini (Img 2)
+20	5.683E-02	21	
+21	2.502E-02	21	
+22	3.494E-01	5	Fills Tip/Side of Sample
+23	1.118E-01	13	
+24	9.736E-02	22	OOS
+25	1.006E-01	19	
+26	1.263E-01	16	
+27	2.021E-01	24	
+28	1.627E-01	12	OOS
+29	1.450E-01	20	
+30	2.583E-02	9	in Phase-Change
+31	4.429E-02	21	
+32	8.957E-02	9	
+33	9.511E-02	19	
+34	5.285E-03	18	
+35	1.075E-02	21	
+36	2.592E-02	21	
+37	4.606E-02	22	
+38	6.047E-02	1-79	
+39	7.507E-02	1-119	
+40	3.197E-02	1-119	
+41	2.114E-02	1-114	
+42	1.072E-01	1-137	
+43	3.860E-02	1-120	
+44	1.062E+00	1-94	
+45	1.823E-02	1-122	
+46	1.160E-01	1-111	
+47	2.840E-01	1-111	
+48	4.611E-02	1-121	
+49	1.047E-01	1-116	
+50	2.317E-02	1-146	
+51	4.453E-02	1-139	
+52	6.153E-03	1-145	
+53	9.859E-02	3	greatly underestimated, because of Threshold
+54	4.849E-02	1-66	
+55	1.160E-02	1-127	
+56	6.629E-03	1-142	
+57	1.759E-02	1-144	
+58	2.156E-02	1-151	
+59	1.150E-02	1-150	
+60	1.469E-02	1-124	
+61	1.182E-02	1-146
+62	2.041E-02	1-115
+63	8.603E-03	1-142
+64	1.996E-02	1-135
+65	2.453E-02	1-115
+66	5.464E-02	1-96
+67	4.834E-02	1-96
+68	8.767E-03	1-135
+69	1.031E-02	1-147
+70	2.041E-02	1-157
+71	1.889E-02	1-128
+72	8.012E-03	1-137
+73	6.544E-02	1-92
+74	7.430E-02	1-121
+75	3.432E-02	1-120
+76	2.300E-02	1-121
+77	4.065E-02	1-112	
+78	2.676E-02	1-133	
+79	3.684E-02	1-121	
+80	1.604E-02	1-112	Out of Sample
+81	1.000E+00		Not useable, since Manhole cover is out of sample
+82	1.600E-02	1-117	
+83	5.788E-03	1-138	
+84	1.000E+00		Not useable, since Manhole is covered by adjacent one
+85	1.317E-02	1-142	
+86	3.550E-03	1-151	
+87	1.903E-01	1-171	
+88	1.944E-02	1-128	
+89	2.539E-02	1-153	
+90	9.887E-03	1-153	
+91	8.384E-03	1-153	
+92	8.251E-03	1-132	
+93	8.581E-04	1-154	
+94	8.687E-01	0-60	includes several Manhole Covers
+95	1.145E-03	1-135	
+96	2.807E-03	1-127	
+97	1.000E+00		Not useable, since Manholce cover is covered by next one.
+98	2.395E-02	1-139	
+99	1.000E+00		Not useable, since Manholce cover is covered by next one.
+100	5.097E-03	1-94	
+101	1.245E-03	1-130	
+102	1.000E+00		Not useable, since Manholce cover is covered by next one.
+103	1.858E-02	1-118	
+104	1.858E-02	1-118	
+105	1.935E-02	1-122	
+106	2.538E-03	1-158	
+107	2.238E-02	1-159	
+108	2.408E-03	1-159	
+109	4.008E-03	1-130	
+110	3.825E-02	1-113	
+111	9.472E-03	1-127	
+112	8.996E-03	1-141	
+113	2.100E-03	1-155	
+114	1.357E-01	1-103	Out of Sample
+115	4.855E-02	1-105	Out of Sample
+116	1.797E-02	1-115	
+117	3.712E-02	1-122	
+118	5.728E-02	1-123	
+119	1.000E+00		Manhole Cover covered by another Manhole Cover
+120	1.000E+00		Manhole Cover covered by another Manhole Cover
+121	2.176E-02	1-115	
+122	1.000E+00		Manhole Cover covered by another Manhole Cover
+123	1.000E+00		Manhole Cover covered by another Manhole Cover
