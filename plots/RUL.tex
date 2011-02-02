@@ -1,0 +1,48 @@
+% !TEX root = ../acinus.tex
+
+% \documentclass{article}
+% \usepackage{tikz,pgfplots}
+% \usepackage{siunitx}
+% \usepackage[graphics,tightpage,active]{preview}
+% \PreviewEnvironment{tikzpicture}
+% \newcommand{\imsize}{\linewidth}
+% \newlength\imagewidth           % needed for scalebars
+% \newlength\imagescale           % ditto
+% \begin{document}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{tikzpicture}
+		%\tikzset{every mark/.append style={scale=4}}
+		%\pgfplotsset{every axis legend/.append style={at={(0.8,0.08)},anchor=base}}
+		\begin{axis}[%
+			legend pos=south east,%
+			scale only axis,%		
+			%ultra thick,%
+			xlabel={Days},%
+			ylabel={Volume [\si{\centi\meter\cubed}]},%
+			xlabel near ticks,%
+			ylabel near ticks,%
+			xtick = data,%
+			%ytick = {0,5,...,35},%
+			%ymajorgrids=true%
+			]
+			\addplot [red,%
+				mark=square*,%
+				semitransparent,%
+				error bars/.cd,y dir=both,y explicit]
+				coordinates {
+ 					(4,0.305) +- (0.015,0.015)
+					(10,0.508) +- (0.022,0.022)
+					(21,1.048) +- (0.041,0.041)
+					(36,2.062) +- (0.063,0.063)
+					(60,2.964) +- (0.087,0.087)};
+		\legend{RLL}
+		\end{axis}
+		\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \end{document}
+%Day	average	standard deviation	standard error of mean
+%4	0.305	0.035	0.015
+%10	0.508	0.048	0.022
+%21	1.048	0.092	0.041
+%36	2.062	0.141	0.063
+%60	2.964	0.194	0.087

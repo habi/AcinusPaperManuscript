@@ -64,6 +64,8 @@ Here be the Abstract\ldots
 \end{abstract}
 
 \section{Introduction}\label{sec:Introduction}
+The pulmonary acinus (gas-exchange area which is ventilated by one purely conducting airway) represents the functional unit of the lung parenchyma. Due a restricted availability of high resolution three-dimensional imaging methods the knowledge about the development of the pulmonary acini is limited. Using synchrotron radiation based tomographic microscopy \cite{Haberthuer2010a} we developed a method to evaluate the volume of single acini throughout postnatal lung development.
+
 \begin{itemize}
 	\item Gas exchange region of the terminal airway space
 	\begin{itemize}
@@ -93,7 +95,7 @@ The samples were postfixed with \SI{1}{\percent} osmium tetroxide (\cf{OsO4}) an
 The handling of animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern, Switzerland.
 
 \subsection{Tomographic data acquisition}
-The experiments were performed at the TOMCAT beamline at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland~\cite{Stampanoni2006a}. The samples were scanned at \SI{12.6}{\kilo\electronvolt}. After penetration through the sample, the x-rays were converted into visible light by a YAG:Ce scintillator (\SI{18}{\micro\meter} thickness, Crismatec Saint-Gobain, Nemours, France). Projections were magnified by diffraction limited microscope optics (10\(\times\) magnification) and digitized by a high-resolution 2048\(\times\)2048 pixel CCD camera (pco.2000, PCO AG, Kelheim, Germany) with \SI{14}{\bit} dynamic range. The detector was operated in 2\(\times\)2 binning mode. As a result, the pixel size was \SI{1.48}{\micro\meter} and the exposure time was \SI{175}{\milli\second}.
+The experiments were performed at the TOMCAT beamline at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland~\cite{Stampanoni2006a}. The samples were scanned at \SI{12.6}{\kilo\electronvolt}. After penetration through the sample, the x-rays were converted into visible light by a YAG:Ce scintillator (\SI{18}{\micro\meter} thickness, Crismatec Saint-Gobain, Nemours, France). Projections were magnified by diffraction limited microscope optics (10\(\times\) magnification) and digitized by a high-resolution 2048\(\times\)2048 pixel CCD camera (pco.2000, PCO AG, Kelheim, Germany) with \SI{14}{\bit} dynamic range. The detector was operated in 2\(\times\)2 binning mode. As a result, the pixel size was \SI{1.48}{\micro\meter} and the exposure time was \SI{175}{\milli\second}\todo{already mention Wide-Field Scanning here?}.
 
 To study the alveolar septa, a resolution in the order of one micron is required. Since we selectively wanted to choose an alveolus/multiple alveoli, a large sample volume had to be scanned. Usually, a large field of view resulting in a large sample volume can only be acquired with low magnification and vice-versa. Thus, the full volume of our samples would not have fit inside the field of view of the TOMCAT beamline at the chosen optical properties (\(1.52\times1.52\times\)\SI{1.52}{\milli\meter}).
 
@@ -123,44 +125,58 @@ The tomographic datasets of the sample three-dimensionally analyzed and visualiz
 
 \section{Results}\label{sec:Results}
 For each day and sample we extracted multiple acini with the \emph{Manhole Cover}-method. The volumes of the extracted acini are shown in \autoref{fig:plot}.
-\begin{figure}[htb]
+
+\begin{figure}
 	\centering
 	\begin{tikzpicture}
-		\pgfplotsset{every axis plot/.append style={thick,semitransparent}}
+		\pgfplotsset{every axis plot/.append style={semitransparent,only marks}}
 		\begin{semilogyaxis}[
 			xlabel=Acinus,
 			ylabel=	{Volume [\si{\micro\litre}]},
 			legend pos=outer north east,
 			]
-			\addplot+[mark=none]
-				table [x=Segment,y=Volume] {plots/R108C04At.txt};
-			\addplot+[mark=none]
-				table [x=Segment,y=Volume] {plots/R108C10C.txt};
-			\addplot+[mark=none]
-				table [x=Segment,y=Volume] {plots/R108C21D.txt};
-			\addplot+[mark=none]
-				table [x=Segment,y=Volume] {plots/R108C36A.txt};
-			\addplot+[mark=none]
-				table [x=Segment,y=Volume] {plots/R108C60B.txt};
+			\addplot
+				table [x=Segment,y=Volume] {plots/R108C04.txt};
+			\addplot
+				table [x=Segment,y=Volume] {plots/R108C10.txt};
+			\addplot
+				table [x=Segment,y=Volume] {plots/R108C21.txt};
+			\addplot
+				table [x=Segment,y=Volume] {plots/R108C36.txt};
+			\addplot
+				table [x=Segment,y=Volume] {plots/R108C60.txt};
 			\legend{%
-				R108C04At,%
-				R108C10C,%
-				R108C21D,%
-				R108C36A,%
-				R108C60B}		
+				Day 04,%
+				Day 10,%
+				Day 21,%
+				Day 36,%
+				Day 60}		
 		\end{semilogyaxis}
 	\end{tikzpicture}
 	\caption{Volumes of the extracted acini}
 	\label{fig:plot}
 \end{figure}
 
+\begin{figure}
+	\centering
+	\pgfplotsset{width=.5\linewidth}
+	\subfloat[Mean acinar volumes]{\input{plots/Acini}}\\%
+	\subfloat[Mean right lower lung lobe (RLL) volumes]{\input{plots/RUL}}\\%
+	\subfloat[Volume increase based on day 4]{\input{plots/RULvsAcini}}%
+	\caption{Plot of increase in Volume for both Acini (\ref{plot:acini}) and right lower lung lobe (RLL, \ref{plot:rul}). While the volume of the right lower lung lobe increases approximately 10-fold over the first 2 months after birth, we see an approximately 33-fold increase in mean volume for the extracted acini from day \numrange{4}{60}.}
+	\label{plot}
+\end{figure}
+
+We observed an approximately thirty-three-fold increase of the mean acinar volume during the postnatal lung development from days \numrange{4}{60} (33.25-fold, from \SIrange{0.00260}{0.08646}{\micro\litre}). During the same period the volume of the right lower lung lobe increases only approximately ten-fold (9.72-fold, from \SIrange{0.305}{2.964}{\centi\metre\cubed}, see \cite{Tschanz2003}), which results in an acinar growth 3.4 times larger than the right lower lung lobe volume.
+
 \section{Discussion}\label{sec:Discussion}
+We hypothesize that this large increase of the acinar volume can only be achieved by a conversion of the \numrange{2}{4} most distal purely conducting airways into alveolar ducts between birth and adulthood. As a consequence \numrange{4}{16} small acini have to be merged to a larger one. We expect that the increased complexity of the adult acini influences both ventilation and particle deposition.
 
 \section{Acknowledgments}
 \begin{itemize}
-	\item Xris, Fede
+	\item Xris, Fede, Bernd
 	\item Mohammed
-	\item Sebastien
+	\item Sebastien? Or is he also on the author list?
 	\item SNF
 \end{itemize}
 \bibliographystyle{unsrtnat}
