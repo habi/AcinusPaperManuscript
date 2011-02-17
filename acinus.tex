@@ -25,7 +25,7 @@
 \usepackage{lineno}
 	\linenumbers\modulolinenumbers[2]
 \usepackage{lastpage}	
-\usepackage{todonotes}
+\usepackage[colorinlistoftodos,shadow]{todonotes}
 \usepackage{xspace}
 \usepackage[autostyle]{csquotes}
 \usepackage[backref]{hyperref}
@@ -57,6 +57,10 @@
 \newcommand{\Eg}{E.\,g.}
 \newcommand{\twod}{2\textsc{d}\xspace}
 \newcommand{\threed}{3\textsc{d}\xspace}
+
+\newcommand{\todomarco}[2][]{\todo[color=cyan!62!white,, #1]{Marco: #2}}
+\newcommand{\todojcs}[2][]{\todo[color=magenta!62!white, #1]{Johannes: #2}}
+\newcommand{\todome}[2][]{\todo[color=yellow!62!white, #1]{David: #2}}
  
 \title{Acinar growth over lung development}
 \subtitle{Revision \svnkw{LastChangedRevision} | Typeset on \today\ at \thistime}
@@ -75,34 +79,34 @@
 Here be the Abstract\ldots
 \end{abstract}
 
+\listoftodos
+
 \section{Introduction}\label{sec:Introduction}
 The pulmonary acinus (the gas-exchange volume in the lung which is ventilated by one purely conducting airway~\cite{Rodriguez1987}) represents the functional unit of the lung parenchyma. Due a restricted availability of high resolution three-dimensional imaging methods the knowledge about the development of the pulmonary acini is limited. Using synchrotron radiation based tomographic microscopy \cite{Haberthuer2010a} we developed a method to evaluate the volume of single acini throughout postnatal lung development\todo{Why did we want to do that? Do we need to list/explain existing prior models?}. In pre-experiments assessing the lung structure using three-dimensiona visualizations of synchrotron radiation based tomographic microscopy datasets we have seen that the functinal lung units---the so-called acini---seen to grow to a larger extent than expected from \emph{simple} lung development.
 
-The lung structure can be assessed using using stereology~\cite{Hsia2010}, as shown by \citet{Tschanz2002}. Such an analysis is generally based on serial sections of the sample, thus the extracted information is a two-dimensional description \blockquote[\cite{Tschanz2002}]{of the parenchymal air space geometry and, due to geometric laws, it is not allowed to extrapolate these \twod statements directly to \threed structures}. With stereological methods it is farily easy to extract global volume information \todo{From a region, from a ROI?}, but it not easily possible to extract such information from a functional unit of any organ, since it cannot easily be judged which detail on the microscopy slide belong to which functional unit in the three-dimensional compound.
-
-
-\begin{itemize}
-	\item Classic SRXTM
-	\item WF-SRXTM~\cite{Haberthuer2010}
-\end{itemize}
+The lung structure can be assessed using using stereology~\cite{Hsia2010}, as shown by \citet{Tschanz2002}. Such an analysis is generally based on serial sections of the sample, thus the extracted information is a two-dimensional description \blockquote[\cite{Tschanz2002}]{of the parenchymal air space geometry and, due to geometric laws, it is not allowed to extrapolate these \twod statements directly to \threed structures}. With stereological methods it is farily easy to extract global volume information\todojcs{From a region, from a ROI?}, but it not easily possible to extract such information from a functional unit of any organ, since it cannot easily be judged which detail on the microscopy slide belong to which functional unit in the three-dimensional compound.
 
 \section{Materials \& Methods}\label{sec:MM}
 \subsection{Rat lung samples}
-Rat lung samples, prepared according to \cite{Tschanz2002,Luyet2002} were used as test objects. Briefly, lungs of Sprague-Dawley rats were filled with \SI{2.5}{\percent} glutaraldehyde (\cf{CH2(CH2CHO)2}) in \SI{0.03}{\Molar} potassium-phosphate buffer (pH 7.4) by instillation via tracheotomy at a constant pressure of \SI{20}{\centi\meter} water column. In order to prevent recoiling of the lung, this pressure was maintained during glutaraldehyde-fixation for a minimum of two hours. Subsequently, the lungs were dissected free and immersed in toto in the same fixative at a temperature of \SI{4}{\celsius} for at least \SI{24}{\hour}.
+We used rat lung samples, prepared according to \cite{Tschanz2002,Luyet2002}. Briefly, lungs of Sprague-Dawley rats were instilled with \SI{2.5}{\percent} glutaraldehyde (\cf{CH2(CH2CHO)2}) in \SI{0.03}{\Molar} potassium-phosphate buffer (pH 7.4) at a constant pressure of \SI{20}{\centi\meter} water column via tracheotomy. This pressure was maintained during the fixation (in the same fixative at \SI{4}{\celsius} for at least \SI{24}{\hour}) in order to prevent a recoiling and to preserve a mid-respiratory\todojcs{Is mid-respiratory true, or is this full volume?} state of the lung.
 
-The samples were postfixed with \SI{1}{\percent} osmium tetroxide (\cf{OsO4}) and stained with \SI{4}{\percent} uranyl nitrate (\cf{UO2(NO3)2}) to increase the x-ray absorption contrast, dehydrated in a graded series of ethanol and embedded in paraffin using Histoclear (Merck KGaA, Darmstadt, Germany) as an intermedium. The lung samples were mounted onto standard scanning electron microscopy sample holders (PLANO GmbH, Wetzlar, Germany) using paraffin~\cite{Tsuda2008}.
+To prepare the samples for tomographic imaging, they were postfixed with \SI{1}{\percent} osmium tetroxide (\cf{OsO4}) and stained with \SI{4}{\percent} uranyl nitrate (\cf{UO2(NO3)2}) to increase the x-ray absorption contrast, dehydrated in a graded series of ethanol and embedded in paraffin using Histoclear (Merck KGaA, Darmstadt, Germany) as an intermedium. Subsequently, the lung samples were mounted onto standard scanning electron microscopy sample holders (PLANO GmbH, Wetzlar, Germany) using paraffin~\cite{Tsuda2008}. After this processing, the samples can be regarded as inert and can be kept as long as desired prior to tomographic scanning.
 
 The handling of animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern, Switzerland.
 
-\subsection{Tomographic data acquisition}
-The experiments were performed at the TOMCAT beamline at the Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland~\cite{Stampanoni2006a}. The samples were scanned at \SI{12.6}{\kilo\electronvolt}. After penetration through the sample, the x-rays were converted into visible light by a YAG:Ce scintillator (\SI{18}{\micro\meter} thickness, Crismatec Saint-Gobain, Nemours, France). Projections were magnified by diffraction limited microscope optics (10\(\times\) magnification) and digitized by a high-resolution 2048\(\times\)2048 pixel CCD camera (pco.2000, PCO AG, Kelheim, Germany) with \SI{14}{\bit} dynamic range. The detector was operated in 2\(\times\)2 binning mode. As a result, the pixel size was \SI{1.48}{\micro\meter} and the exposure time was \SI{175}{\milli\second}\todo{already mention Wide-Field Scanning here?}.
+\subsection{Tomographic data acquisition}\label{sec:tomcat}
+All tomographic experiments for this publication were performed at the \href{http://www.psi.ch/sls/tomcat/}{TOMCAT beamline} at the \href{http://www.psi.ch/sls/}{Swiss Light Source}, \href{http://www.psi.ch/}{Paul Scherrer Institut}, Villigen, Switzerland~\cite{Stampanoni2006a}. The samples were scanned at \SI{20.0}{\kilo\electronvolt}. After penetration through the sample, the x-rays were converted into visible light by a \SI{20}{\micro\meter} thick Pr:LuAG scintillator (Pr:\cf{Lu3Al5O12}\todomarco{Is the chemical composition I deduced correct?}, from Crismatec Saint-Gobain, Nemours, France\todomarco{Correct?}). A 10\(\times\) magnifying, diffraction limited microscope optics was used to magnify the image on the scintillator screen and a high-resolution 2048\(\times\)2048 pixel CCD camera (pco.2000, PCO AG, Kelheim, Germany) with \SI{14}{\bit} dynamic range was used to digitize this image. For noise-reduction and speed purposes we operated the detector in 2\(\times\)2 binning mode. As a result, the pixel size was \SI{1.48}{\micro\meter} and the exposure time was between \SIrange{160}{180}{\milli\second}.
 
-To study the alveolar septa, a resolution in the order of one micron is required. Since we selectively wanted to choose an alveolus/multiple alveoli, a large sample volume had to be scanned. Usually, a large field of view resulting in a large sample volume can only be acquired with low magnification and vice-versa. Thus, the full volume of our samples would not have fit inside the field of view of the TOMCAT beamline at the chosen optical properties (\(1.52\times1.52\times\)\SI{1.52}{\milli\meter}).
+To be able to distinguish the alveolar septa \todojcs{How thick are they in the rat: approx.~\SI{8}{\micro\meter}?} in the resulting tomographic images, a resolution in the order of one micron is required. Since we selectively wanted to extract single acini\todo{Do we have data on how \emph{large} they are? Or did we just scan large?}, we additionally needed to acquire tomographic scans with a large volume, thus a large field of view. With any imaging method usually, a large field of view can only be acquired with low magnification and vice-versa. Thus, the full volume of our samples would not have fit inside the classic field of view of the TOMCAT beamline at the aforementioned optical properties (\(1.52\times1.52\times\)\SI{1.52}{\milli\meter}).
 
-To enhance the field of view of the TOMCAT beamline at the chosen optical configuration, we obtained tomographic datasets using a so called wide field scan~\cite{Haberthuer2010}. Briefly, several partial scans with an optimized amount of projections spanning an enlarged field of view have been independently acquired. Prior to reconstructing the tomographic dataset, these projections have been merged to one large projection spanning the desired field of view. With this approach we increased the available field of view at TOMCAT three-fold, while keeping the voxel size and reconstruction quality on the desired level and avoiding the aforementioned trade-off between voxel size and sample volume.
+Nevertheless, the stated parameters at the beginning of \autoref{sec:tomcat} are correct; we simply enhanced the field of view of the TOMCAT beamline at the chosen optical configuration. This enhancement was done with the so called wide-field scanning protocol~\cite{Haberthuer2010}. Briefly, several partial scans covering the desired field of view have been independently acquired. After acquisition, the partial projections are merged to one large projection spanning the desired field of view. The merging of the single projections was implemented on the tomographic reconstruction cluster\todo{Thank Fede!}, thus we were able to use the classic tomographic reconstruction workflow at TOMCAT~\cite{Hintermueller2010}.
+
+With this approach we increased the available field of view at TOMCAT three-fold, while keeping both voxel size and reconstruction quality on the desired level and avoiding the aforementioned trade-off between voxel size and sample volume\todo{MOAR!}.
+
+Resulting in approx. 2944\(\times\)2944\(\times\)1024 single datasets, three on top of each other \(\rightarrow\)9-fold increase in recorded volume as compared to classic tomography @TOMCAT.
 
 \subsection{Visualization and Extraction of Acini}
-The tomographic datasets of the sample three-dimensionally analyzed and visualized using MeVisLab (Version 2.1 (2010-07-26 Release), MeVis Medical Solutions AG and Fraunhofer MEVIS - Institute for Medical Image Computing, Bremen, Germany). The tomograhic dateset was loaded, processed and visualized\todo{Write exact details of processing network}. Airway segments were extracted using a threshold interval based region growing algorithm~\cite{Zucker1976}. A seed point for the region growing algorithm was manually defined inside the terminal broncioloe/alveolar duct on one of the most proximal slices. The segmented airways have been visualized and cropped to a promising region of interest and exported as DICOM-file to facilitate further processing using ImageJ~\cite{Abramoff2004} and the Stepanizer~\cite{Tschanz2010}.
+The tomographic datasets of the sample three-dimensionally analyzed and visualized using \href{http://mevislab.de}{MeVisLab} (Version 2.1 (2010-07-26 Release)~\cite{Bitter2007}, MeVis Medical Solutions AG and Fraunhofer MEVIS - Institute for Medical Image Computing, Bremen, Germany). The tomograhic dateset was loaded, processed and visualized\todo{Write exact details of processing network}. Airway segments were extracted using a threshold interval based region growing algorithm~\cite{Zucker1976}. A seed point for the region growing algorithm was manually defined inside the terminal broncioloe/alveolar duct on one of the most proximal slices. The segmented airways have been visualized and cropped to a promising region of interest and exported as DICOM-file to facilitate further processing using \href{http://rsbweb.nih.gov/ij/}{ImageJ}~\cite{Abramoff2004} and the \href{http://stepanizer.com/}{Stepanizer}~\cite{Tschanz2010}.
 
 \begin{itemize}
 	\item Extraction of Acinus
@@ -124,7 +128,7 @@ The tomographic datasets of the sample three-dimensionally analyzed and visualiz
 \end{itemize}
 
 \section{Results}\label{sec:Results}
-For each day and sample we extracted multiple\todo{how many exactly?} acini with the \emph{Manhole Cover}-method.
+For each day and sample we extracted multiple \todome{how many exactly?} acini with the \emph{Manhole Cover}-method.
 
 The data has been analyzed using R (Version 2.12.1 (2010-12-16)~\cite{R}. A summary of the extracted acinar volumes is shown in \autoref{tab:summary}
 
@@ -157,9 +161,9 @@ The data has been analyzed using R (Version 2.12.1 (2010-12-16)~\cite{R}. A summ
 \end{table}
 
 
-\begin{figure}
+\begin{figure}[htb]
 	\centering
-	\input{plots/BoxPlotAcini}
+	\input{plots/BoxPlotAcini_edited}
 	\caption{BoxPlot of Data with removed outliers}
 	\label{fig:boxplot}
 \end{figure}
