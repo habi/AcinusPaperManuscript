@@ -1,8 +1,7 @@
 \documentclass[%
 	paper=a4,%
-	DIV=calc,%
 	twoside=true,%
-	draft=true,%
+	draft=false,%
 	abstract=false]{scrartcl}
 
 \usepackage[utf8]{inputenc}
@@ -11,23 +10,25 @@
 \usepackage{graphicx}
 \usepackage[load-configurations=binary]{siunitx}
 	\DeclareSIUnit\Molar{\textsc{m}}
-\usepackage{svn-multi}	% to add SVN-Versioning-Info
-\usepackage{subfig}		% subfigures
-\usepackage{booktabs}		% nice tables
-\usepackage{fancyhdr}		% nice header
+\usepackage{svn-multi}
+\usepackage{subfig}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
 \usepackage{tikz}
 \usepackage{pgfplots}
-\usepackage[numbers,square,sort&compress]{natbib} % nice bibliography
+\usepackage[numbers,square,sort&compress]{natbib}
 \usepackage{scrtime}
 \usepackage[version=3]{mhchem}
 \usepackage{setspace}
 	%\doublespacing
 	%\onehalfspacing
 \usepackage{lineno}
-	%\linenumbers\modulolinenumbers[2]
+	\linenumbers\modulolinenumbers[2]
 \usepackage{lastpage}	
-\usepackage[]{todonotes} 		                % [disable]
-\usepackage[backref]{hyperref} 	% backref generates link from references back to text
+\usepackage{todonotes}
+\usepackage{xspace}
+\usepackage[autostyle]{csquotes}
+\usepackage[backref]{hyperref}
  
 % Subversion Information
 \svnidlong
@@ -39,22 +40,33 @@
  
 \pagestyle{fancy}
 \fancyfoot{}
-\fancyfoot[OR]{\tiny \href{\svnkw{HeadURL}}{Rev. \svnkw{LastChangedRevision}}, commited on \svnkw{LastChangedDate} --- Page \thepage\ of \pageref{LastPage}}
-\fancyfoot[EL]{\tiny Page \thepage\ of \pageref{LastPage} --- \href{\svnkw{HeadURL}}{Revision \svnkw{LastChangedRevision}}, committed on \svnkw{LastChangedDate}}
+\fancyfoot[OR]{\tiny Typeset on \today\ at \thistime\ from \href{\svnkw{HeadURL}}{Revision \svnkw{LastChangedRevision}}, committed on \svnkw{LastChangedDate} | Page \thepage\ of \pageref{LastPage}}
+\fancyfoot[EL]{\tiny Page \thepage\ of \pageref{LastPage} | Typeset on \today\ at \thistime\ from \href{\svnkw{HeadURL}}{Revision \svnkw{LastChangedRevision}}, committed on \svnkw{LastChangedDate}}
  
 \newcommand{\imsize}{\linewidth}
 
 \newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}
 \newcommand{\footrecall}[1]{\footnotemark[\value{#1}]}
+
+\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\newcommand{\ie}{i.\,e.}
+\newcommand{\Ie}{I.\,e.}
+\newcommand{\eg}{e.\,g.}
+\newcommand{\Eg}{E.\,g.}
+\newcommand{\twod}{2\textsc{d}\xspace}
+\newcommand{\threed}{3\textsc{d}\xspace}
  
 \title{Acinar growth over lung development}
-%\subtitle{Revision \svnkw{LastChangedRevision} | \today, \thistime}
+\subtitle{Revision \svnkw{LastChangedRevision} | Typeset on \today\ at \thistime}
+
 \author{%
 	David Haberthür\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}%
 	\and Marco Stampanoni\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}\footremember{eth}{Institute for Biomedical Engineering, Swiss Federal Institute of Technology and University of Zürich, Switzerland}%
 	\and Johannes C. Schittny\footrecall{ana}%
 	}
-\date{\today}
+\date{}
 
 \begin{document}
 \maketitle
@@ -64,26 +76,14 @@ Here be the Abstract\ldots
 \end{abstract}
 
 \section{Introduction}\label{sec:Introduction}
-The pulmonary acinus (gas-exchange area which is ventilated by one purely conducting airway) represents the functional unit of the lung parenchyma. Due a restricted availability of high resolution three-dimensional imaging methods the knowledge about the development of the pulmonary acini is limited. Using synchrotron radiation based tomographic microscopy \cite{Haberthuer2010a} we developed a method to evaluate the volume of single acini throughout postnatal lung development.
+The pulmonary acinus (the gas-exchange volume in the lung which is ventilated by one purely conducting airway~\cite{Rodriguez1987}) represents the functional unit of the lung parenchyma. Due a restricted availability of high resolution three-dimensional imaging methods the knowledge about the development of the pulmonary acini is limited. Using synchrotron radiation based tomographic microscopy \cite{Haberthuer2010a} we developed a method to evaluate the volume of single acini throughout postnatal lung development\todo{Why did we want to do that? Do we need to list/explain existing prior models?}. In pre-experiments assessing the lung structure using three-dimensiona visualizations of synchrotron radiation based tomographic microscopy datasets we have seen that the functinal lung units---the so-called acini---seen to grow to a larger extent than expected from \emph{simple} lung development.
+
+The lung structure can be assessed using using stereology~\cite{Hsia2010}, as shown by \citet{Tschanz2002}. Such an analysis is generally based on serial sections of the sample, thus the extracted information is a two-dimensional description \blockquote[\cite{Tschanz2002}]{of the parenchymal air space geometry and, due to geometric laws, it is not allowed to extrapolate these \twod statements directly to \threed structures}. With stereological methods it is farily easy to extract global volume information \todo{From a region, from a ROI?}, but it not easily possible to extract such information from a functional unit of any organ, since it cannot easily be judged which detail on the microscopy slide belong to which functional unit in the three-dimensional compound.
+
 
 \begin{itemize}
-	\item Gas exchange region of the terminal airway space
-	\begin{itemize}
-		\item Functional Lung unit $\rightarrow$ Acinus
-		\item Expanding size
-	\end{itemize}
-	\item Prior Models
-	\begin{itemize}
-		\item Alveolarization
-		\item Late Alveolarization
-		\item Microvascular Maturation~\cite{Mund2008}
-	\end{itemize}
-       	\item Visualization of rat lung acini over the postnatal lung development $\rightarrow$ acini seem to grow to a greater extent than expected.
-	\item SRXTM
-	\begin{itemize}
-		\item Classic SRXTM
-		\item WF-SRXTM~\cite{Haberthuer2010}
-	\end{itemize}
+	\item Classic SRXTM
+	\item WF-SRXTM~\cite{Haberthuer2010}
 \end{itemize}
 
 \section{Materials \& Methods}\label{sec:MM}
@@ -124,37 +124,44 @@ The tomographic datasets of the sample three-dimensionally analyzed and visualiz
 \end{itemize}
 
 \section{Results}\label{sec:Results}
-For each day and sample we extracted multiple acini with the \emph{Manhole Cover}-method. The volumes of the extracted acini are shown in \autoref{fig:plot}.
+For each day and sample we extracted multiple\todo{how many exactly?} acini with the \emph{Manhole Cover}-method.
+
+The data has been analyzed using R (Version 2.12.1 (2010-12-16)~\cite{R}. A summary of the extracted acinar volumes is shown in \autoref{tab:summary}
+
+% FROM R
+%summary(Data)
+%       D4                D10                 D21                 D36                D60           
+% Min.   :2.32e-05   Min.   : 0.000510   Min.   : 0.000858   Min.   : 0.00608   Min.   :3.320e-06  
+% 1st Qu.:9.15e-04   1st Qu.: 0.004510   1st Qu.: 0.010095   1st Qu.: 0.03130   1st Qu.:2.615e-02  
+% Median :2.14e-03 & 0.007520   Median : 0.021600   Median : 0.04830   Median :5.370e-02  
+% Mean   :3.64e-03   Mean   : 0.009208   Mean   : 0.030228   Mean   : 0.05526   Mean   :6.227e-02  
+% 3rd Qu.:6.07e-03   3rd Qu.: 0.012800   3rd Qu.: 0.045300   3rd Qu.: 0.07630   3rd Qu.:8.480e-02  
+% Max.   :1.35e-02 & 0.025200 & 0.098600 & 0.13900 &1.740e-01  
+% NA's   :3.30e+01   NA's   :37.000000   NA's   :51.000000   NA's   :41.00000   NA's   :5.200e+01  
+\begin{table}
+	\centering
+	\caption{Summary of the extracted Data. All volumes are givenin \si{\micro\litre}}
+	\begin{tabular}{rccccc}
+		\toprule
+		& Day 04 & Day 10 & Day 21 & Day 36 & Day 60\\
+		\midrule
+		Minimum 						& \num{2.32e-05} & \num{0.000510} & \num{0.000858} & \num{0.00608} & \num{3.320e-06}\\
+		1\superscript{st} Quantile 	& \num{9.15e-04} & \num{0.004510} & \num{0.010095} & \num{0.03130} & \num{2.615e-02}\\
+		Median 							& \num{2.14e-03} & \num{0.007520} & \num{0.021600} & \num{0.04830} & \num{5.370e-02}\\
+		Mean 							& \num{3.64e-03} & \num{0.009208} & \num{0.030228} & \num{0.05526} & \num{6.227e-02}\\
+		3\superscript{rd} Quantile 	& \num{6.07e-03} & \num{0.012800} & \num{0.045300} & \num{0.07630} & \num{8.480e-02}\\
+		Maximum 						& \num{1.35e-02} & \num{0.025200} & \num{0.098600} & \num{0.13900} & \num{1.740e-01}\\
+		\bottomrule
+	\end{tabular}
+	\label{tab:summary}
+\end{table}
+
 
 \begin{figure}
 	\centering
-	\begin{tikzpicture}
-		\pgfplotsset{every axis plot/.append style={semitransparent,only marks}}
-		\begin{semilogyaxis}[
-			xlabel=Acinus,
-			ylabel=	{Volume [\si{\micro\litre}]},
-			legend pos=outer north east,
-			]
-			\addplot
-				table [x=Segment,y=Volume] {plots/R108C04.txt};
-			\addplot
-				table [x=Segment,y=Volume] {plots/R108C10.txt};
-			\addplot
-				table [x=Segment,y=Volume] {plots/R108C21.txt};
-			\addplot
-				table [x=Segment,y=Volume] {plots/R108C36.txt};
-			\addplot
-				table [x=Segment,y=Volume] {plots/R108C60.txt};
-			\legend{%
-				Day 04,%
-				Day 10,%
-				Day 21,%
-				Day 36,%
-				Day 60}		
-		\end{semilogyaxis}
-	\end{tikzpicture}
-	\caption{Volumes of the extracted acini}
-	\label{fig:plot}
+	\input{plots/BoxPlotAcini}
+	\caption{BoxPlot of Data with removed outliers}
+	\label{fig:boxplot}
 \end{figure}
 
 \begin{figure}
