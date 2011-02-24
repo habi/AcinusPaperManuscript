@@ -26,7 +26,7 @@
 	\linenumbers\modulolinenumbers[2]
 \usepackage{lastpage}	
 \usepackage{xspace}
-\usepackage[colorinlistoftodos,shadow]{todonotes}
+\usepackage[disable,colorinlistoftodos,shadow]{todonotes}
 \usepackage[autostyle]{csquotes}
 \usepackage[backref]{hyperref}
  
@@ -40,8 +40,8 @@
  
 \pagestyle{fancy}
 \fancyfoot{}
-\fancyfoot[OR]{\tiny Typeset on \today\ at \thistime\ from \href{\svnkw{HeadURL}}{Revision \svnkw{LastChangedRevision}}, committed on \svnkw{LastChangedDate} | Page \thepage\ of \pageref{LastPage}}
-\fancyfoot[EL]{\tiny Page \thepage\ of \pageref{LastPage} | Typeset on \today\ at \thistime\ from \href{\svnkw{HeadURL}}{Revision \svnkw{LastChangedRevision}}, committed on \svnkw{LastChangedDate}}
+\fancyfoot[OR]{\tiny Typeset on \today\ at \thistime\ from \href{\svnkw{HeadURL}}{SVN-Version \svnkw{LastChangedRevision}} | Page \thepage\ of \pageref{LastPage}}
+\fancyfoot[EL]{\tiny Page \thepage\ of \pageref{LastPage} | Typeset on \today\ at \thistime\ from \href{\svnkw{HeadURL}}{SVN-Version \svnkw{LastChangedRevision}}}
  
 \newcommand{\imsize}{\linewidth}
 
@@ -122,23 +122,23 @@ Airway segments were extracted using a threshold interval based region growing a
 	\item Pixel Volume counting
 \end{itemize}
 
-\begin{figure}
-	\centering
-	\subfloat[Segmentation Start]{%
-		\missingfigure{First Segmentation of Dataset; One Manhole Cover, no sub-division}%
-		\label{subfig:segmentation}%
-		}\\
-	\subfloat[Segmentation End]{%
-		\missingfigure{Lots of Manhole Covers, Only conducting airways visible in green dataset}%
-		\label{subfig:segmentation end}%
-		}\\		
-	\subfloat[Manhole Covers in \threed]{%
-		\missingfigure{Manhole Covers}%
-		\label{subfig:manhole covers}%
-		}
-	\caption{Visualization of MeVisLab work flow. \subref{subfig:segmentation}: \threed Segmentation with Sample (grey), extracted Airway Segment (green) and one Manhole Cover (red). \subref{subfig:manhole covers} Close-up of Manhole Covers in \threed}
-	\label{fig:workflow}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\subfloat[Segmentation Start]{%
+		%\missingfigure{First Segmentation of Dataset; One Manhole Cover, no sub-division}%
+%		\label{subfig:segmentation}%
+%		}\\
+%	\subfloat[Segmentation End]{%
+		%\missingfigure{Lots of Manhole Covers, Only conducting airways visible in green dataset}%
+%		\label{subfig:segmentation end}%
+%		}\\		
+%	\subfloat[Manhole Covers in \threed]{%
+		%\missingfigure{Manhole Covers}%
+%		\label{subfig:manhole covers}%
+%		}
+%	\caption{Visualization of MeVisLab work flow. \subref{subfig:segmentation}: \threed Segmentation with Sample (grey), extracted Airway Segment (green) and one Manhole Cover (red). \subref{subfig:manhole covers} Close-up of Manhole Covers in \threed}
+%	\label{fig:workflow}
+%\end{figure}
 
 \subsubsection{Data Extraction}
 The segmented airways have been visualized and cropped to a promising region of interest and exported as DICOM-file to facilitate further processing using \href{http://rsbweb.nih.gov/ij/}{ImageJ}~\cite{Abramoff2004} and the \href{http://stepanizer.com/}{Stepanizer}~\cite{Tschanz2010}.
