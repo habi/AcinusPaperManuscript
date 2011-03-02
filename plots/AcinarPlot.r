@@ -2,7 +2,8 @@ Data<-read.csv("AcinusExtractionDataFileWithoutOutliers.csv",head=TRUE,sep=";")
 boxplot(Data)
 
 summary(Data)
- 
+sd(Data,na.rm=TRUE)
+
 quantile(Data$D4,na.rm=TRUE)
 quantile(Data$D10,na.rm=TRUE)
 quantile(Data$D21,na.rm=TRUE)
