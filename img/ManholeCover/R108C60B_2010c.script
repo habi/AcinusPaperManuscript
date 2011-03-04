@@ -1,0 +1,322 @@
+Window {
+  //----------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------------
+  Vertical "Acinus Segmentation" {
+    expandY = Yes
+    Horizontal {
+      Box "Marker Definition" {
+        expandY = Yes
+        Horizontal {
+          expandX = No
+          Label "Set Markers in the Viewer below. Adjust Geometry on the right, if necessary |" {}
+          Field ClipPlaneSetter.layout { }
+        }
+        Viewer ClipPlaneSetter.self {
+          type = SoRenderArea
+        }
+      }
+      Vertical {
+        Box "Manhole Covers Settings" {
+          layout = Grid
+          Horizontal {
+            Field XMarkerClipPlanes.markerListIndex {
+              title = "Current Plane:"
+              step = 1
+              x = 0 y = 0
+            }
+            Field XMarkerListContainer.numItems {
+              title = "/"           
+              x = 0 y = 2
+            }
+          }
+          Field StylePalette.currentColor {
+            x = 0 y = 1
+          }
+          Button XMarkerListContainer.delete {
+            title = "Delete this Cover and Marker"
+            x = 1 y = 0
+          }
+          Button XMarkerListContainer.deleteAll {
+            title = "Delete ALL Covers and Markers"
+            x = 1 y = 1
+          }
+        }
+        Box "Geometry for current Marker" {
+          expandX = 1
+          layout = Grid
+          Field XMarkerClipPlanes.planeRadius {
+            title = "Radius [mm]:"
+            x = 0 y = 0
+          }
+          Field XMarkerClipPlanes.planeThickness {
+            title = "Height [mm]:"
+            x = 1 y = 0
+          }
+          expandX = No
+          Field XMarkerClipPlanes.shiftOffset {
+            title = "Offset [mm]:"
+            x = 0 y = 1
+          }
+          CheckBox XMarkerClipPlanes.shiftPlane {
+            title = "Do Shift Plane"
+            x = 1 y = 1
+          }
+        }
+      
+        Box "Manipulate Manhole Covers" {
+          expandX = Yes
+          layout = Grid
+          Box "Current Marker" {
+            x = 0 y = 0
+            Field XMarkerClipPlanes.add {}
+            Field XMarkerClipPlanes.addAll {}
+          }
+          Box "All Markers" {
+            x = 1 y = 0
+            Field XMarkerClipPlanes.delete {}
+            Field XMarkerClipPlanes.deleteAll {}
+          }
+         
+        }
+        Box "Save Markers" {
+          Field SaveBase.baseDir { 
+            title = "Saving to:" 
+          }
+          Field SaveBase.filename { 
+            title = "as:"
+          }
+          Horizontal {
+            Button SaveBase.save {}
+            Field SaveBase.status {}
+          }
+          Horizontal {
+            Button LoadBase.load {}
+            Field LoadBase.status {}
+          }
+        }
+      }
+      Vertical {
+        Box "Region Growing"  {
+          Box "Threshold" {
+            expandX = No
+            Horizontal {
+              CheckBox RegionGrowingMacro.autoThreshold {
+              }
+              Field RegionGrowingMacro.intervalSize {
+                title = "Interval (%):"
+                step = 1
+                stepstep = 10
+                slider = yes
+                dependsOn = RegionGrowingMacro.autoThreshold
+              }
+            }
+            Horizontal {
+              Field RegionGrowingMacro.lowerThreshold {
+                dependsOn = !RegionGrowingMacro.autoThreshold
+                step = 1
+                stepstep = 10
+              }            
+              Field RegionGrowingMacro.upperThreshold {
+                dependsOn = !RegionGrowingMacro.autoThreshold
+                step = 1
+                stepstep = 10
+              }
+            }
+          }
+          Horizontal {
+            Button RegionGrowingMacro.update {
+              title = "Update Region Growing"
+            }
+            Field RegionGrowingMacro.autoUpdateMode {
+              title = "Update Mode:"
+            }
+            ProgressBar RegionGrowingMacro.theProgressBar {
+              expandX = Yes
+            }
+          }
+          Button RegionGrowingMacro.clear {
+            title = "Clear Region Growing"
+          }
+        }
+        Box "Skeleton" {
+          Horizontal {
+            Button DtfSkeletonization.update {
+              title = "(Re)Calculate Skeleton"
+            }
+            Field DtfSkeletonization.autoUpdateMode {
+              title = "Update Mode:"
+            }
+          }
+        }
+      }
+    }
+    Horizontal {
+      expandY = Yes
+      Box "2D Viewer" {
+        expandY = Yes
+        expandX = Yes
+        Viewer RegionGrowingViewer.self {
+          type = SoRenderArea
+        }
+      }
+      Box "Viewer" {
+        expandY = Yes
+        Horizontal {
+          Button Toggle_Sample.noBypass {
+            title = "Sample"
+          }
+          Button Toggle_Marker.on {
+            title ="Marker"
+          }
+          Button Toggle_Segment.on {
+            title ="Segment"
+          }
+          Field SoGVRVolumeRenderer.alphaFactor {
+            title = "Segment Alpha"
+          }
+          Button Toggle_Skeleton.on {
+            title ="Skeleton"
+          }
+        }
+        Viewer FinalViewer.self {
+        }
+        Horizontal {
+          Button FinalViewer.viewAll {}
+        }
+      }
+    }
+  }
+  //----------------------------------------------------------------------------------
+  Vertical "Acinar Volume" {
+    expandY = Yes
+    Horizontal {
+      expandY = Yes
+      Box Viewers {
+        expandY = Yes
+        Vertical {
+          expandY = Yes
+          Box "2D-Viewer" {
+            expandY = Yes
+            Field ClipPlaneSetter.layout {}
+            Viewer ClipPlaneSetter.self {
+              expandY = Yes
+              type = SoRenderArea
+            }
+          }
+          Box "Acinus Segmentation" {
+            expandY = Yes
+            Horizontal {
+              Field XMarkerClipPlanes.markerListIndex {
+                title = "Use marker Nr. "
+                step = 1
+              }
+              Label "for the segmentation of the acinus behind its manhole cover" {}
+            }
+            Horizontal {
+              expandY = Yes
+              Vertical {
+                expandY = Yes
+                Box {
+                  expandY = Yes
+                  Viewer AcinusRegionGrowing.viewerSelf {
+                    expandY = Yes
+                    type = SoRenderArea
+                  }
+                }
+                Box "Threshold" {
+                  expandX = No
+                  Horizontal {
+                    CheckBox AcinusRegionGrowing.autoThreshold {
+                    }
+                    Field AcinusRegionGrowing.intervalSize {
+                      title = "Interval (%):"
+                      step = 1
+                      stepstep = 10
+                      slider = yes
+                      dependsOn = AcinusRegionGrowing.autoThreshold
+                    }
+                  }
+                  Horizontal {
+                    Field AcinusRegionGrowing.lowerThreshold {
+                      dependsOn = !AcinusRegionGrowing.autoThreshold
+                      step = 1
+                      stepstep = 10
+                    }            
+                    Field AcinusRegionGrowing.upperThreshold {
+                      dependsOn = !AcinusRegionGrowing.autoThreshold
+                      step = 1
+                      stepstep = 10
+                    }
+                  }
+                }
+                Horizontal {
+                  Button AcinusRegionGrowing.update {
+                    title = "Update Region Growing"
+                  }
+                  Field AcinusRegionGrowing.autoUpdateMode {
+                    title = "Update Mode:"
+                  }
+                  ProgressBar AcinusRegionGrowing.theProgressBar {
+                    expandX = Yes
+                  }
+                }
+                Button AcinusRegionGrowing.clear {
+                  title = "Clear Region Growing"
+                }
+              }
+            }
+          }
+        }
+      }
+      Box "3D-Viewer" {
+        expandY = Yes
+        Horizontal {
+          Button Toggle_Sample.noBypass {
+            title = "Sample"
+          }
+          Button Toggle_Marker.on {
+            title ="Marker"
+          }
+          Button Toggle_Segment.on {
+            title ="Segment"
+          }
+          Field SoGVRVolumeRenderer.alphaFactor {
+            title = "Segment Alpha"
+          }
+          Button Toggle_Skeleton.on {
+            title ="Skeleton"
+          }
+        }
+        Viewer Acinus3DViewer.self {}
+        Horizontal {
+          Button Acinus3DViewer.viewAll {}
+        }
+        Box "Volume" {
+          Horizontal {
+            expandX = No          
+            Field XMarkerClipPlanes.markerListIndex {
+              title = "Marker Number:"
+              step = 1
+            }
+            Field XMarkerListContainer.numItems {
+              title = "/"
+            }
+          }
+          Field VolumeCalculator.oa {
+            title = "Volume of selected Acinus [ul]:"
+          }
+          Horizontal {
+            Field AcinusSaver.filename {
+              title = "Save as:"
+            }
+          }
+          Horizontal {
+            Button AcinusSaver.save {}
+            Field AcinusSaver.status {}
+          }
+        }
+      }
+    }
+  }
+  //----------------------------------------------------------------------------------
+}
