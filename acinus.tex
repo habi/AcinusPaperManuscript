@@ -1,9 +1,8 @@
 \documentclass[%
-	draft=false,
+	draft=true,
 	paper=a4,%
 	twoside=true,%
-	draft=false,%
-	abstract=false]{scrartcl}
+	abstract=true]{scrartcl}
 
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -68,12 +67,14 @@
 
 \newcommand{\subfigureautorefname}{\figureautorefname} % make \autoref work with \subfloat
  
-\title{Acinar growth over lung development}
-\subtitle{Revision \svnkw{LastChangedRevision} | Typeset on \today\ at \thistime}
+\title{Running Title: Acinar growth over lung development}
+\subtitle{Typeset on \today\ at \thistime\ from Rev \svnkw{LastChangedRevision} (\svnday.\svnmonth.\svnyear\ \svnhour:\svnminute)}
 
 \author{%
 	David Haberthür\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}%
-	\and Marco Stampanoni\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}\footremember{eth}{Institute for Biomedical Engineering, Swiss Federal Institute of Technology and University of Zürich, Switzerland}%
+	\and Sébastien Barré\footrecall{ana}%
+	\and Lilian Salm\footrecall{ana}%
+	\and Marco Stampanoni\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}\ \footremember{eth}{Institute for Biomedical Engineering, Swiss Federal Institute of Technology and University of Zürich, Switzerland}%
 	\and Johannes C. Schittny\footrecall{ana}%
 	}
 \date{}
@@ -86,11 +87,18 @@
 \begin{abstract}
 Here be the Abstract\ldots
 \end{abstract}
-
 \listoftodos
-
+\clearpage
 \section{Introduction}\label{sec:Introduction}
-Due a restricted availability of high resolution three-dimensional imaging methods the knowledge about the development of the functional unit of the lung is limited. These functional units of the lung parenchyma are the so called pulmonary acini, which correspond to the gas-exchange volume in the lung which is ventilated by one purely conducting airway~\cite{Rodriguez1987}, see \autoref{fig:acinus schematic}.\todo{Add info about size of acini and some more information} Using synchrotron radiation based tomographic microscopy \cite{Haberthuer2010a} we developed a method to evaluate the volume of single acini throughout postnatal lung development\todo{Why did we want to do that? Do we need to list/explain existing prior models?}. In pre-experiments assessing the lung structure using three-dimensional visualizations of synchrotron radiation based tomographic microscopy datasets we have seen that the functional lung units---the so-called acini---seen to grow to a larger extent than expected from \emph{simple} lung development.
+Due a restricted availability of high resolution three-dimensional (\threed) imaging methods the knowledge about the development of the functional unit of the lung is limited. These functional units of the lung parenchyma are the so called pulmonary acini, which correspond to the gas-exchange volume in the lung which is ventilated by one purely conducting airway~\cite{Rodriguez1987}, see \autoref{fig:acinus schematic}.
+
+Using synchrotron radiation based tomographic microscopy \cite{Haberthuer2010a} we developed a method to evaluate the volume of single acini throughout postnatal lung development.
+
+\begin{itemize}
+	\item adult rat at day 60 as example
+	\item Volume of the functional lung units only determinable through \threed analysis including extraction of single acini
+	\item Alveolar number counting with STEPanizer~\cite{Tschanz2011} $\rightarrow$ complete description of the functional units.
+\end{itemize}
 
 \renewcommand{\imsize}{.618\linewidth}
 \begin{figure}
@@ -121,29 +129,35 @@ The lung structure can be assessed using stereology~\cite{Hsia2010}, as shown by
 
 \section{Materials \& Methods}\label{sec:MM}
 \subsection{Rat lung samples}
-We used rat lung samples, prepared according to \cite{Tschanz2002,Luyet2002}. Briefly, lungs of Sprague-Dawley rats were instilled with \SI{2.5}{\percent} glutaraldehyde (\cf{CH2(CH2CHO)2}) in \SI{0.03}{\Molar} potassium-phosphate buffer (pH 7.4) at a constant pressure of \SI{20}{\centi\meter} water column via tracheotomy. This pressure was maintained during the fixation (in the same fixative at \SI{4}{\celsius} for at least \SI{24}{\hour}) in order to prevent a recoiling and to preserve a mid-respiratory \todojcs{Is mid-respiratory true, or is this full volume?} state of the lung.
+Adult rat lung, day 60. Prepared according to \cite{Tschanz2002,Luyet2002}\todojcs{Which Publication should cite?}.
 
-To prepare the samples for tomographic imaging, they were postfixed with \SI{1}{\percent} osmium tetroxide (\cf{OsO4}) and stained with \SI{4}{\percent} uranyl nitrate (\cf{UO2(NO3)2}) to increase the x-ray absorption contrast, dehydrated in a graded series of ethanol and embedded in paraffin using Histoclear (Merck KGaA, Darmstadt, Germany) as an intermedium. Subsequently, the lung samples were mounted onto standard scanning electron microscopy sample holders (PLANO GmbH, Wetzlar, Germany) using paraffin~\cite{Tsuda2008}. After this processing, the samples can be regarded as inert and can be kept as long as desired prior to tomographic scanning.
+Briefly recapitulated, lung of 60 days old Sprague-Dawley rats were instilled with \SI{2.5}{\percent} glutaraldehyde (\cf{CH2(CH2CHO)2}) in \SI{0.03}{\Molar} potassium-phosphate buffer (pH 7.4) at a constant pressure of \SI{20}{\centi\meter} water column. At this applied pressure, the rat lung reaches its mid-respiratory volume. The instillation was performed via tracheotomy after opening the chest cavity and severing the diaphragm. After instillation and removal of the lung from the chest cavity, the instillation pressure was maintained during fixation (in the same fixative at \SI{4}{\celsius} for at least \SI{24}{\hour}) in order to prevent a recoiling of the lung.
 
-The handling of animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern, Switzerland.
+After fixation, the samples were prepared for tomographic imaging, by postfixation with \SI{1}{\percent} osmium tetroxide (\cf{OsO4}) and staining with \SI{4}{\percent} uranyl nitrate (\cf{UO2(NO3)2}) to increase the x-ray absorption contrast. Using Histoclear (Merck KGaA, Darmstadt, Germany) as an intermedium the samples were then dehydrated in a graded series of ethanol and embedded in paraffin prior to mounting them onto standard scanning electron microscopy sample holders (PLANO GmbH, Wetzlar, Germany) also using paraffin~\cite{Tsuda2008}.
 
 \subsection{Tomographic data acquisition}\label{sec:tomcat}
-All tomographic experiments for this publication were performed at the \href{http://www.psi.ch/sls/tomcat/}{TOMCAT beamline} at the \href{http://www.psi.ch/sls/}{Swiss Light Source}, \href{http://www.psi.ch/}{Paul Scherrer Institut}, Villigen, Switzerland~\cite{Stampanoni2006a}. The samples were scanned at \SI{20.0}{\kilo\electronvolt}. After penetration through the sample, the x-rays were converted into visible light by a \SI{20}{\micro\meter} thick LuAG:Ce scintillator (Lutetium Aluminum Garnet activated by cerium, \cf{Lu3Al5O12}, from \href{http://www.crytur.cz/}{Crytur Ltd.}, Turnov, Czech Republic). A 10\(\times\) magnifying, diffraction limited microscope optics was used to magnify the image on the scintillator screen and a high-resolution 2048\(\times\)2048 pixel CCD camera (pco.2000, PCO AG, Kelheim, Germany) with \SI{14}{\bit} dynamic range was used to digitize this image. For noise-reduction and speed purposes we operated the detector in 2\(\times\)2 binning mode. As a result, the pixel size was \SI{1.48}{\micro\meter} and the exposure time was between \SIrange{160}{180}{\milli\second}.
+The tomographic experiments were performed at the \href{http://www.psi.ch/sls/tomcat/}{TOMCAT beamline} at the \href{http://www.psi.ch/sls/}{Swiss Light Source}, \href{http://www.psi.ch/}{Paul Scherrer Institut}, Villigen, Switzerland~\cite{Stampanoni2006a}. The samples were scanned at \SI{20.0}{\kilo\electronvolt}. After penetration through the sample, the x-rays were converted into visible light by a \SI{20}{\micro\meter} thick LuAG:Ce scintillator (Lutetium Aluminum Garnet activated by cerium, \cf{Lu3Al5O12}, from \href{http://www.crytur.cz/}{Crytur Ltd.}, Turnov, Czech Republic).
 
-To be able to distinguish the alveolar septa \todojcs{How thick are they in the rat: approx.~\SI{8}{\micro\meter}?} in the resulting tomographic images, a resolution in the order of one micron is required. Since we selectively wanted to extract a large amount of single acini\footnote{\citet{Weibel1997} estimated that a human lung consists of \num{30000} acini.}\todo{Do we have data on how many and how large acini there are in the rat lung?}, we not only needed to acquire high resolution tomographic scans, but a acquire a dataset with a large volume in high resolution. Usually---with classic microscopy based imaging methods---a large field of view can only be acquired with low magnification and vice-versa. Thus, the full volume of our samples would not have fit inside the classic field of view of the TOMCAT beamline at the aforementioned optical properties (1.52\(\times\)1.52\(\times\)\SI{1.52}{\milli\meter}).
+A 10\(\times\) magnifying, diffraction limited microscope optics was used to magnify the image on the \SI{18}{\micro\meter} thick Cerium doped Yttrium Aluminium Garnet (YAG) (\cf{Y3Al5O12}) scintillator screen. Subequently, a high-resolution 2048\(\times\)2048 pixel CCD camera (\href{http://www.pco.de/sensitive-cameras/pco2000/}{pco.2000}, \href{http://www.pco.de/}{PCO AG}, Kelheim, Germany) with \SI{14}{\bit} dynamic range was used to digitize this magnified image. To reduce imaging noise and increase the acquisition speed, we operated the detector in 2\(\times\)2 binning mode. As a result, the pixel size was \SI{1.48}{\micro\meter} and the exposure time was between \SIrange{160}{180}{\milli\second}. The details of the beamline setup have been described by \citet{Stampanoni2006a}.
 
-Nevertheless, the scannig parameters described at the beginning of \autoref{sec:tomcat} are correct; we did enhance the field of view of the TOMCAT beamline at the chosen optical configuration. This enhancement was done with the so called wide-field scanning protocol~\cite{Haberthuer2010}. Briefly, several partial scans covering the desired field of view have been independently acquired. After acquisition, the partial projections are merged to one large projection spanning the desired field of view. The merging of the single projections was implemented on the tomographic reconstruction cluster, thus we were able to use the classic tomographic reconstruction workflow at TOMCAT. The details of the beamline setup and reconstruction workflow have been described in details by \citet{Stampanoni2006a} and \citet{Hintermueller2010}.
+To be able to safely distinguish the alveolar septa (approx.~\SIrange{3}{8}{\micro\meter} thick\todojcs{Correct?}) the tomographic images used for analysis of the functional units of the lung need to have a resolution in the order of one to two microns. Since we selectively wanted to extract a large amount of single acini\todo{Do we have data on how many and how large acini there are in the rat lung? $\rightarrow$ Sébastien}, we not only needed to acquire high resolution tomographic scans, but a acquire a dataset with both large volume and very high resolution. Usually---with classic microscopy based imaging methods---a large field of view can only be acquired with low magnification and vice-versa. Thus, the full volume of our samples would not have fit inside the classic field of view of the TOMCAT beamline at the aforementioned optical properties (1.52\(\times\)1.52\(\times\)\SI{1.52}{\milli\meter}). To overcome this problem, we enhanced the enhance the field of view of the TOMCAT beamline at the chosen optical configuration. This enhancement was done with the so called wide-field scanning protocol, described prior by \citet{Haberthuer2010}.
 
-With this approach we increased the lateral field of view at TOMCAT three-fold, while keeping both voxel size and reconstruction quality on the desired level and avoiding the aforementioned trade-off between voxel size and sample volume. Since we also performed a so called stacked scan in relation to the z-axis of the tomographic setup, we even further increased the field of view and recorded volume of our samples. Finally, we acqured tomographic dataset of approximately 3000\(\times\)3000\(\times\)3072 pixels \todo{Or do we give exact sizes, between 2938 and 2946 px?} with \SI{1.48}{\micro\meter} pixel size. This corresponds to a 9-fold increase in recorded volume as compared to one classic scan at TOMCAT, giving us the advantage of both high resolution images and large visible sample volume.
+Briefly summarized, the wide-field scanning process merges several independently acquired partial tomographics scans which altogether cover the desired field of view. After acquisition, single projections of the partial scans are merged to one large projection spanning the desired field of view. The merging of the single projections was implemented on the tomographic reconstruction cluster of seven \SI{64}{\bit} Opteron machines with four cores and \SI{8}{\giga\byte} RAM each. This implementation on the cluster made it possible to use the classic tomographic reconstruction workflow at TOMCAT, which has been described in detail by \citet{Hintermueller2010}.
+
+With this approach we increased the lateral field of view at TOMCAT three-fold, while keeping both voxel size and reconstruction quality on the desired level and avoiding the aforementioned trade-off between voxel size and sample volume. Since we also performed a so called stacked scan in relation to the z-axis of the tomographic setup, we even further increased the field of view and recorded volume of our samples. Finally, we acquired tomographic dataset of approximately 3000\(\times\)3000\(\times\)3072 pixels with \SI{1.48}{\micro\meter} pixel size. This corresponds to a 9-fold increase in recorded volume as compared to one classic scan at TOMCAT, giving us the advantage of both high resolution images and large visible sample volume.
 
 \subsection{Visualization and Extraction of Acini}
 The tomographic datasets of the sample were three-dimensionally analyzed and visualized using \href{http://mevislab.de}{MeVisLab} (Version 2.1 (2010-07-26 Release)~\cite{Bitter2007}, MeVis Medical Solutions AG and Fraunhofer MEVIS - Institute for Medical Image Computing, Bremen, Germany). The calculations have been performed on a Dell Precision T7500 work station (\SI{24}{\giga\byte} RAM, Intel Xeon CPU X5550 at \SI{2.66}{\giga\hertz}, Windows 7 Professional \SI{64}{\bit}).
 
 \subsubsection{Preprocessing}
-The tomographic datasets obtaied at TOMCAT were converted from a stack of TIFF-files to the native GVR format of MeVisLab, a multi-resolution \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Octree&oldid=409131920}{octree}-based image format. This permitted us to interactively perform the visualization and analysis on a lower resolution prior to the final analysis.
+The tomographic datasets obtaied at TOMCAT were converted from a stack of TIFF-files to the native GVR format of MeVisLab, a multi-resolution \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Octree&oldid=409131920}{octree}-based image format. This permitted us to easily switch between resolutuions in the dataset to interactively perform the visualization and analysis on a lower resolution prior to the final analysis on full resolution datasets.
 
 \subsubsection{Manhole Covers}\label{sec:manhole covers}
 On binned datasets we extracted conducting airway segments (see \autoref{fig:acinus schematic}) using a threshold interval based region growing algorithm~\cite{Zucker1976}. A seed point for the region growing algorithm was manually defined inside the terminal bronchiole or alveolar duct on one of the most proximal slices of the dataset (shown in \autoref{subfig:sample}). This approach made it possible to extract a connected airway segment, which was then further divided in conducting and gas-exchanging airways. This division was performed with manually placed circular segmentations stoppers, which we dubbed manhole covers (shown as red discs in \autoref{subfig:airway segment} and \subref*{subfig:extracted acini}). The manhole covers were manually placed in the airway segment based on morphological criteria, \ie on changes in the airway wall structure which mark the entrance point into the acinus.
+
+\begin{figure}
+\missingfigure{Show the definition of the manhole covers on two dimensional data, including segmentation of conducting airway (green) and gas-exchanging acinus (yellow)}
+\end{figure}
 
 Using a separate region growing module, we subsequently extracted single acini from the datasets (shown as yellow volumes in \autoref{subfig:extracted acini}) automatically. The manhole covers\footnote{The manhole covers were implemented through a \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{custom module (\emph{XMarkerClipPlanes})} by Milo Hindennach, a member of the MeVis Developer team.} placed in the first step are fully defined through their diameter and \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Surface_normal&oldid=411684319}{surface normal}. This made it possible to automatically define the seed point for additional region growing modules used for the extraction of the single acini. We simply flipped the direction of the surface normal and placed the seed point along this vector slightly behind the manhole cover, inside the acinar airspace. The only manual work left was the iterative selection of the correct grayvalue threshold used for the region growing segmentation.
 
@@ -194,21 +208,33 @@ Using a separate region growing module, we subsequently extracted single acini f
 	\todo[inline]{Do we want to keep \autoref{subfig:extracted acini} or \ref{subfig:extracted acini2} (semitransparent or opaque sample)?}
 \end{figure}
 
-The volume of the single acini was determined using the product of segmented voxels with the voxel volume, tabulated and prepared for analysis. The segmented acini were also exported to single \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Digital_Imaging_and_Communications_in_Medicine&oldid=415023605}{DICOM} files to facilitate eventual further processing in either MeVisLab, \href{http://rsbweb.nih.gov/ij/}{ImageJ}~\cite{Abramoff2004} or the \href{http://stepanizer.com/}{Stepanizer}~\cite{Tschanz2010}.
+The volume of the single acini was calculated by multiplying the amount of segmented voxels with the voxel volume, tabulated in several Excel-Files and prepared for analysis. The segmented acini were also exported to single \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Digital_Imaging_and_Communications_in_Medicine&oldid=415023605}{DICOM} stacks to facilitate further processing in either MeVisLab, \href{http://rsbweb.nih.gov/ij/}{ImageJ}~\cite{Abramoff2004} or the \href{http://stepanizer.com/}{Stepanizer}~\cite{Tschanz2011}, as defined lateron.
+
+\begin{itemize}
+	\item Overlay of acini with Original dataset to use them in STEPanizer
+\end{itemize}
+
+\section{Stereological Analysis}
+\begin{itemize}
+	\item Quick rundown on Stereology, including “how to do it correctly”/ATS guidelines by \citet{Hsia2010}.
+	\item STEPanizer; webbased tool, counting with line pairs and automatic tabulation in Excel-Files.
+	\item Analysis for Volume and Surface, comparison of MeVisLab and STEPanizer-data.
+\end{itemize}
 
 \section{Results}\label{sec:Results}
-For each day and sample we extracted multiple \todome{how many exactly?} acini with the Manhole Cover-method described in \autoref{sec:manhole covers}. A summary of the data from the extracted acinar volumes is shown in \autoref{tab:summary}. The data has been analyzed using R (Version 2.12.1 (2010-12-16)~\cite{R}. 
+For each day and sample we extracted multiple \todome{how many exactly?} acini with the Manhole Cover-method described in \autoref{sec:manhole covers}. A summary of the data from the extracted acinar volumes is shown in \autoref{tab:summary}. The data has been analyzed using R (Version 2.12.1 (2010-12-16)~\cite{R} in RStudio (\url{http://rstudio.org/}, Version 0.94.84). 
 
 % FROM R
-%summary(Data)
-%       D4                D10                 D21                 D36                D60           
-% Min.   :2.32e-05   Min.   : 0.000510   Min.   : 0.000858   Min.   : 0.00608   Min.   :3.320e-06  
-% 1st Qu.:9.15e-04   1st Qu.: 0.004510   1st Qu.: 0.010095   1st Qu.: 0.03130   1st Qu.:2.615e-02  
-% Median :2.14e-03 & 0.007520   Median : 0.021600   Median : 0.04830   Median :5.370e-02  
-% Mean   :3.64e-03   Mean   : 0.009208   Mean   : 0.030228   Mean   : 0.05526   Mean   :6.227e-02  
-% 3rd Qu.:6.07e-03   3rd Qu.: 0.012800   3rd Qu.: 0.045300   3rd Qu.: 0.07630   3rd Qu.:8.480e-02  
-% Max.   :1.35e-02 & 0.025200 & 0.098600 & 0.13900 &1.740e-01  
-% NA's   :3.30e+01   NA's   :37.000000   NA's   :51.000000   NA's   :41.00000   NA's   :5.200e+01  
+%summary(TotalVolumes)
+%       V1                  V2                  V3                  V4                  V5           
+% Min.   :4.934e-04   Min.   :1.330e-03   Min.   :1.520e-04   Min.   :2.442e-03   Min.   :2.039e-03  
+% 1st Qu.:4.100e-03   1st Qu.:6.502e-03   1st Qu.:1.192e-02   1st Qu.:3.892e-02   1st Qu.:2.742e-02  
+% Median :8.597e-03   Median :1.124e-02   Median :2.951e-02   Median :6.950e-02   Median :5.259e-02  
+% Mean   :1.178e-02   Mean   :1.398e-02   Mean   :3.707e-02   Mean   :8.069e-02   Mean   :6.472e-02  
+% 3rd Qu.:1.805e-02   3rd Qu.:1.977e-02   3rd Qu.:5.588e-02   3rd Qu.:1.099e-01   3rd Qu.:1.014e-01  
+% Max.   :3.908e-02   Max.   :3.855e-02   Max.   :1.202e-01   Max.   :2.109e-01   Max.   :1.907e-01  
+% NA's   :7.980e+02   NA's   :7.820e+02   NA's   :7.790e+02   NA's   :7.990e+02   NA's   :8.440e+02  
+ 
 \begin{table}
 	\centering
 	\caption{Summary of the extracted Data. All volumes are given in \si{\micro\litre}}
@@ -217,46 +243,40 @@ For each day and sample we extracted multiple \todome{how many exactly?} acini w
 		\toprule
 		& Day 04 & Day 10 & Day 21 & Day 36 & Day 60\\
 		\midrule
-		Number of Animals				& 1 & 2 & 3 & 4 & 5\\
-		Total extracted Acini			& 1 & 2 & 3 & 4 & 5\\
-		Minimum							& \num{2.32e-5} & \num{5.10e-4} & \num{8.58e-4} & \num{6.08e-3} & \num{3.32e-6}\\
-		1\superscript{st} Quantile	& \num{9.15e-4} & \num{4.51e-3} & \num{1.01e-2} & \num{3.13e-2} & \num{2.62e-2}\\
-		Median							& \num{2.14e-3} & \num{7.52e-3} & \num{2.16e-2} & \num{4.83e-2} & \num{5.37e-2}\\
-		Mean							& \num{3.64e-3} & \num{9.21e-3} & \num{3.02e-2} & \num{5.53e-2} & \num{6.23e-2}\\
-		3\superscript{rd} Quantile	& \num{6.07e-3} & \num{1.28e-2} & \num{4.53e-2} & \num{7.63e-2} & \num{8.48e-2}\\
-		Maximum							& \num{1.35e-2} & \num{2.52e-2} & \num{9.86e-2} & \num{1.39e-1} & \num{1.74e-1}\\
+		& Data \\
 		\bottomrule
 	\end{tabular}
 	}
 	\label{tab:summary}
+	\todo[inline]{from “summary(TotalVolumes)” in R-Studio}
 \end{table}
 
-\begin{figure}[htb]
-	\centering
-	\input{plots/BoxPlotAcini_edited}
-	\caption{BoxPlot of Data with removed outliers}
-	\label{fig:boxplot}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\pgfplotsset{width=.5\linewidth}
-	\subfloat[Mean acinar volumes]{\input{plots/Acini}}\\%
-	\subfloat[Mean right lower lung lobe (RLL) volumes]{\input{plots/RUL}}\\%
-	\subfloat[Volume increase based on day 4]{\input{plots/RULvsAcini}}%
-	\caption{Plot of increase in Volume for both Acini (\ref{plot:acini}) and right lower lung lobe (RLL, \ref{plot:rul}). While the volume of the right lower lung lobe increases approximately 10-fold over the first 2 months after birth, we see an approximately 33-fold increase in mean volume for the extracted acini from day \numrange{4}{60}.}
-	\label{plot}
-\end{figure}
-
-We observed an approximately thirty-three-fold increase of the mean acinar volume during the postnatal lung development from days \numrange{4}{60} (33.25-fold, from \SIrange{0.00260}{0.08646}{\micro\litre}). During the same period the volume of the right lower lung lobe increases only approximately ten-fold (9.72-fold, from \SIrange{0.305}{2.964}{\centi\metre\cubed}, see \cite{Tschanz2003}), which results in an acinar growth 3.4 times larger than the right lower lung lobe volume.
-
-Shrinkage of the samples during paraffin: were \SI{39}{\percent} (The samples go down to \SI{61}{\percent} of their original size\ldots).
+\begin{itemize}
+	\item Show volumes of different acini with MeVisLab and STEPanizer
+	\item What about shrinkage?
+	\item Comparison with other data?
+	\item What about the surface? What about the “Erithrocytes”?
+	\item Alveolar number, how can we bring in this data?
+\end{itemize}
 
 \section{Discussion}\label{sec:Discussion}
 We hypothesize that this large increase of the acinar volume can only be achieved by a conversion of the \numrange{2}{4} most distal purely conducting airways into alveolar ducts between birth and adulthood. As a consequence \numrange{4}{16} small acini have to be merged to a larger one. We expect that the increased complexity of the adult acini influences both ventilation and particle deposition.
 
+\section{Contributions}
+\begin{itemize}
+	\item David Haberthür helped with rat lung sample extraction, data acquisition and analysis of the acinar volume, creation of the MeVisLab networks for extraction of the acini, analysis of the data in the STEPanizer statistical analysis and main writer of the manuscript.
+	\item Sébastien Barré was helping with preparations of the samples, data acquisition,  preprocessing and analysis of the datasets.
+	\item Lilian Salm: Alveolar numbers
+	\item Marco Stampanoni: TOMCAT
+	\item Johannes C. Schittny: Group head, grant writer and lung extractor.
+\end{itemize}
+
 \section{Acknowledgments}
-We thank Federica Marone, Beamline Scientist at TOMCAT for the long-standing great support at the Beamline and implementation of the reconstruction of the merged wide-field scanning projections on the TOMCAT cluster. Christoph Hinterm\"{u}ller, former member of the TOMCAT group, and now Project Management \& Research at \href{http://gtec.at/}{g.tec medical engineering GmbH} also helped us during countless shifts at the beamline. He also helped with the first implementation of wide-field scanning at TOMCAT. Bernd Pinzer, Post Doc at TOMCAT adopted the support of our group from Chris and also does great job. Milo Hindennach, MeVis Developer at Fraunhofer MEVIS provided the \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{first ideas of a Manhole cover module in MeVisLab}, which is still at the core of the MeVisLab-network used in this publication. Sébastien Barré, Ph.\,D.\,Student in our group\todo{Or is he also on the author list?} was helping with preparations of the samples, data acquisition and preprocessing of the datasets. We thank Mohammed Ouanella, our former lab technician, for expert technical assistance in the lab. This work has been funded by the grants 3100A0-109874 and 310030-125397 \todo{Still correct?} of the Swiss National Science Foundation.
+We thank Federica Marone, Beamline Scientist at TOMCAT for the long-standing great support at the Beamline and implementation of the reconstruction of the merged wide-field scanning projections on the TOMCAT cluster. Christoph Hinterm\"{u}ller, former member of the TOMCAT group, and now Project Management \& Research at \href{http://gtec.at/}{g.tec medical engineering GmbH} also helped us during countless shifts at the beamline. He also helped with the first implementation of wide-field scanning at TOMCAT. Bernd Pinzer, Post-Doc at TOMCAT adopted the support of our group from Chris and also does great job. Milo Hindennach, MeVis Developer at Fraunhofer MEVIS provided the \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{Manhole cover module in MeVisLab}, which is still at the core of the MeVisLab-network used in this publication. We thank Mohammed Ouanella, our former lab technician, for expert technical assistance in the lab\todo{Eveline?}.
+
+The handling of animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern, Switzerland.
+
+This work has been funded by the grants 3100A0-109874 and 310030-125397 \todo{Still correct?} of the Swiss National Science Foundation.
 
 \bibliographystyle{unsrtnat}
 \bibliography{../references}
@@ -270,7 +290,7 @@ Do we provide code-listings for \href{http://reproducibleresearch.net}{reproduci
 \subsection{MeVisLab}
 \begin{itemize}
 	\item \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{XMarkerClipPlanes}: Custom MeVisLab-Module by Milo Hindennach, used to define the manhole covers in \threed at the borders between conducting and gas-exchanging regions in the extracted airspace.
-	\item One example file from \verb+p:\doc\MeVisLab-Networks\2010\AcinarTreeExtraction\+? Or at least one associated GUI-Script? Or can/should we grant access to \href{http://is.gd/n24V7g}{my MeVisLab SVN-repo}? I’d do it!
+	\item One example file from \verb+p:\doc\MeVisLab-Networks\2010\AcinarTreeExtraction\+? Or at least one associated GUI-Script? Or can/should we grant access to \href{http://code.ana.unibe.ch/websvn/listing.php?repname=MeVisLab-Networks}{my MeVisLab SVN-repo}? I’d do it!
 \end{itemize}
  
 \end{document}
