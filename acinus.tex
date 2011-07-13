@@ -89,6 +89,7 @@ Here be the Abstract\ldots
 \end{abstract}
 \listoftodos
 \clearpage
+
 \section{Introduction}\label{sec:Introduction}
 Due a restricted availability of high resolution three-dimensional (\threed) imaging methods the knowledge about the development of the functional unit of the lung is limited. These functional units of the lung parenchyma are the so called pulmonary acini, which correspond to the gas-exchange volume in the lung which is ventilated by one purely conducting airway~\cite{Rodriguez1987}, see \autoref{fig:acinus schematic}.
 
@@ -122,7 +123,7 @@ Using synchrotron radiation based tomographic microscopy \cite{Haberthuer2010a} 
 	\end{tikzpicture}%
 	\caption{Schematic of the lung structure. The stages of one lung lobe are shown. On average rat lungs have ten generations of Bronchi and four generations of Bronchioli, which together form the conducting airways. The gas-exchanging region starts with one generation of transitory bronchioles which merge into alveolar ducts and end in the alveoli. Figure adapted from \cite{Schittny2007a}.}
 	\label{fig:acinus schematic}%
-	\todo[inline]{How do we get a copyright release for this figure? How many generations of alveolar ducts are there in the rat? Just one?}
+	\todo[inline,caption={Copyright release?}]{How do we get a copyright release for this figure? How many generations of alveolar ducts are there in the rat? Just one?}
 \end{figure}
 
 The lung structure can be assessed using stereology~\cite{Hsia2010}, as shown by \citet{Tschanz2002}. Such an analysis is generally based on serial sections of the sample, thus the extracted information is a two-dimensional description \blockquote[\cite{Tschanz2002}]{of the parenchymal air space geometry and, due to geometric laws, it is not allowed to extrapolate these \twod statements directly to \threed structures}. With stereological methods it is fairly easy to extract global volume information\todojcs{From a region, from a ROI?}, but it not easily possible to extract such information from a functional unit of any organ, since it cannot easily be judged which detail on the microscopy slide belong to which functional unit in the three-dimensional compound.
@@ -138,11 +139,11 @@ After fixation, the samples were prepared for tomographic imaging, by postfixati
 \subsection{Tomographic data acquisition}\label{sec:tomcat}
 The tomographic experiments were performed at the \href{http://www.psi.ch/sls/tomcat/}{TOMCAT beamline} at the \href{http://www.psi.ch/sls/}{Swiss Light Source}, \href{http://www.psi.ch/}{Paul Scherrer Institut}, Villigen, Switzerland~\cite{Stampanoni2006a}. The samples were scanned at \SI{20.0}{\kilo\electronvolt}. After penetration through the sample, the x-rays were converted into visible light by a \SI{20}{\micro\meter} thick LuAG:Ce scintillator (Lutetium Aluminum Garnet activated by cerium, \cf{Lu3Al5O12}, from \href{http://www.crytur.cz/}{Crytur Ltd.}, Turnov, Czech Republic).
 
-A 10\(\times\) magnifying, diffraction limited microscope optics was used to magnify the image on the \SI{18}{\micro\meter} thick Cerium doped Yttrium Aluminium Garnet (YAG) (\cf{Y3Al5O12}) scintillator screen. Subequently, a high-resolution 2048\(\times\)2048 pixel CCD camera (\href{http://www.pco.de/sensitive-cameras/pco2000/}{pco.2000}, \href{http://www.pco.de/}{PCO AG}, Kelheim, Germany) with \SI{14}{\bit} dynamic range was used to digitize this magnified image. To reduce imaging noise and increase the acquisition speed, we operated the detector in 2\(\times\)2 binning mode. As a result, the pixel size was \SI{1.48}{\micro\meter} and the exposure time was between \SIrange{160}{180}{\milli\second}. The details of the beamline setup have been described by \citet{Stampanoni2006a}.
+A 10\(\times\) magnifying, diffraction limited microscope optics was used to magnify the image on the \SI{18}{\micro\meter} thick Cerium doped Yttrium Aluminium Garnet (YAG) (\cf{Y3Al5O12}) scintillator screen. Subsequently, a high-resolution 2048\(\times\)2048 pixel CCD camera (\href{http://www.pco.de/sensitive-cameras/pco2000/}{pco.2000}, \href{http://www.pco.de/}{PCO AG}, Kelheim, Germany) with \SI{14}{\bit} dynamic range was used to digitize this magnified image. To reduce imaging noise and increase the acquisition speed, we operated the detector in 2\(\times\)2 binning mode. As a result, the pixel size was \SI{1.48}{\micro\meter} and the exposure time was between \SIrange{160}{180}{\milli\second}. The details of the beamline setup have been described by \citet{Stampanoni2006a}.
 
-To be able to safely distinguish the alveolar septa (approx.~\SIrange{3}{8}{\micro\meter} thick\todojcs{Correct?}) the tomographic images used for analysis of the functional units of the lung need to have a resolution in the order of one to two microns. Since we selectively wanted to extract a large amount of single acini\todo{Do we have data on how many and how large acini there are in the rat lung? $\rightarrow$ Sébastien}, we not only needed to acquire high resolution tomographic scans, but a acquire a dataset with both large volume and very high resolution. Usually---with classic microscopy based imaging methods---a large field of view can only be acquired with low magnification and vice-versa. Thus, the full volume of our samples would not have fit inside the classic field of view of the TOMCAT beamline at the aforementioned optical properties (1.52\(\times\)1.52\(\times\)\SI{1.52}{\milli\meter}). To overcome this problem, we enhanced the enhance the field of view of the TOMCAT beamline at the chosen optical configuration. This enhancement was done with the so called wide-field scanning protocol, described prior by \citet{Haberthuer2010}.
+To be able to safely distinguish the alveolar septa (approx.~\SIrange{3}{8}{\micro\meter} thick\todojcs{Correct?}) the tomographic images used for analysis of the functional units of the lung need to have a resolution in the order of one to two microns. Since we selectively wanted to extract a large amount of single acini\todo[caption={How many acini are there?}]{Do we have data on how many and how large acini there are in the rat lung? $\rightarrow$ Sébastien}, we not only needed to acquire high resolution tomographic scans, but a acquire a dataset with both large volume and very high resolution. Usually---with classic microscopy based imaging methods---a large field of view can only be acquired with low magnification and vice-versa. Thus, the full volume of our samples would not have fit inside the classic field of view of the TOMCAT beamline at the aforementioned optical properties (1.52\(\times\)1.52\(\times\)\SI{1.52}{\milli\meter}). To overcome this problem, we enhanced the enhance the field of view of the TOMCAT beamline at the chosen optical configuration. This enhancement was done with the so called wide-field scanning protocol, described prior by \citet{Haberthuer2010}.
 
-Briefly summarized, the wide-field scanning process merges several independently acquired partial tomographics scans which altogether cover the desired field of view. After acquisition, single projections of the partial scans are merged to one large projection spanning the desired field of view. The merging of the single projections was implemented on the tomographic reconstruction cluster of seven \SI{64}{\bit} Opteron machines with four cores and \SI{8}{\giga\byte} RAM each. This implementation on the cluster made it possible to use the classic tomographic reconstruction workflow at TOMCAT, which has been described in detail by \citet{Hintermueller2010}.
+Briefly summarized, the wide-field scanning process merges several independently acquired partial tomographic scans which altogether cover the desired field of view. After acquisition, single projections of the partial scans are merged to one large projection spanning the desired field of view. The merging of the single projections was implemented on the tomographic reconstruction cluster of seven \SI{64}{\bit} Opteron machines with four cores and \SI{8}{\giga\byte} RAM each. This implementation on the cluster made it possible to use the classic tomographic reconstruction workflow at TOMCAT, which has been described in detail by \citet{Hintermueller2010}.
 
 With this approach we increased the lateral field of view at TOMCAT three-fold, while keeping both voxel size and reconstruction quality on the desired level and avoiding the aforementioned trade-off between voxel size and sample volume. Since we also performed a so called stacked scan in relation to the z-axis of the tomographic setup, we even further increased the field of view and recorded volume of our samples. Finally, we acquired tomographic dataset of approximately 3000\(\times\)3000\(\times\)3072 pixels with \SI{1.48}{\micro\meter} pixel size. This corresponds to a 9-fold increase in recorded volume as compared to one classic scan at TOMCAT, giving us the advantage of both high resolution images and large visible sample volume.
 
@@ -150,16 +151,36 @@ With this approach we increased the lateral field of view at TOMCAT three-fold, 
 The tomographic datasets of the sample were three-dimensionally analyzed and visualized using \href{http://mevislab.de}{MeVisLab} (Version 2.1 (2010-07-26 Release)~\cite{Bitter2007}, MeVis Medical Solutions AG and Fraunhofer MEVIS - Institute for Medical Image Computing, Bremen, Germany). The calculations have been performed on a Dell Precision T7500 work station (\SI{24}{\giga\byte} RAM, Intel Xeon CPU X5550 at \SI{2.66}{\giga\hertz}, Windows 7 Professional \SI{64}{\bit}).
 
 \subsubsection{Preprocessing}
-The tomographic datasets obtaied at TOMCAT were converted from a stack of TIFF-files to the native GVR format of MeVisLab, a multi-resolution \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Octree&oldid=409131920}{octree}-based image format. This permitted us to easily switch between resolutuions in the dataset to interactively perform the visualization and analysis on a lower resolution prior to the final analysis on full resolution datasets.
+The tomographic datasets obtained at TOMCAT were converted from a stack of TIFF-files to the native GVR format of MeVisLab, a multi-resolution \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Octree&oldid=409131920}{octree}-based image format. This permitted us to easily switch between resolutions in the dataset to interactively perform the visualization and analysis on a lower resolution prior to the final analysis on full resolution datasets.
 
 \subsubsection{Manhole Covers}\label{sec:manhole covers}
 On binned datasets we extracted conducting airway segments (see \autoref{fig:acinus schematic}) using a threshold interval based region growing algorithm~\cite{Zucker1976}. A seed point for the region growing algorithm was manually defined inside the terminal bronchiole or alveolar duct on one of the most proximal slices of the dataset (shown in \autoref{subfig:sample}). This approach made it possible to extract a connected airway segment, which was then further divided in conducting and gas-exchanging airways. This division was performed with manually placed circular segmentations stoppers, which we dubbed manhole covers (shown as red discs in \autoref{subfig:airway segment} and \subref*{subfig:extracted acini}). The manhole covers were manually placed in the airway segment based on morphological criteria, \ie on changes in the airway wall structure which mark the entrance point into the acinus.
 
+\renewcommand{\imsize}{\linewidth}
 \begin{figure}
-\missingfigure{Show the definition of the manhole covers on two dimensional data, including segmentation of conducting airway (green) and gas-exchanging acinus (yellow)}
+	\centering
+	\pgfmathsetlength{\imagewidth}{\imsize}%
+	\pgfmathsetlength{\imagescale}{\imagewidth/1740}%
+	\def\x{1075}% scalebar-x at golden ratio of x=1740px
+	\def\y{894}% scalebar-y at 90% of height of y=993px
+	\def\shadow{11}% shadow parameter for scalebar
+	\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+		\clip (0,0) rectangle (1740,993);
+		\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/ManholeCoverExplanation/SliceSomeWhereAtTheBottom}};
+		% 492px = 0.8mm > 100px = 163um > 308px = 500um, 62px = 100um
+		\draw[|-|,blue,thick] (1728,250) -- (1728,742) node [sloped,midway,below,fill=white,semitransparent,text opacity=1] {\SI{0.8}{\milli\meter} (800px) TEMPORARY!};
+	\draw[|-|,thick] (\x+\shadow,\y+\shadow) -- (\x+308+\shadow,\y+\shadow) node [midway, above] {\SI{500}{\micro\meter}};
+		\draw[|-|,white,thick] (\x,\y) -- (\x+308,\y) node [midway,above] {\SI{500}{\micro\meter}};
+		\draw[yellow,dashed,thick] (584,422) circle (40);
+		\draw[yellow,dashed,thick] (536,374) circle (40);
+		\draw[yellow,dashed,thick] (493,506) circle (40);
+		\draw[yellow,dashed,thick] (442,438) circle (40);						
+	\end{tikzpicture}%
+	\caption{Slice showing extracted conducting airway (green) and manhole cover (red). The dashed yellow circles highlight some examples of outpouchings of the airway wall which mark the change from conducting to gas-exchanging regions. Between these regions we semiautomaticall placed the manhole covers.}
+	\label{fig:ManholeCoverExplanation}
 \end{figure}
 
-Using a separate region growing module, we subsequently extracted single acini from the datasets (shown as yellow volumes in \autoref{subfig:extracted acini}) automatically. The manhole covers\footnote{The manhole covers were implemented through a \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{custom module (\emph{XMarkerClipPlanes})} by Milo Hindennach, a member of the MeVis Developer team.} placed in the first step are fully defined through their diameter and \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Surface_normal&oldid=411684319}{surface normal}. This made it possible to automatically define the seed point for additional region growing modules used for the extraction of the single acini. We simply flipped the direction of the surface normal and placed the seed point along this vector slightly behind the manhole cover, inside the acinar airspace. The only manual work left was the iterative selection of the correct grayvalue threshold used for the region growing segmentation.
+Using a separate region growing module, we subsequently extracted single acini from the datasets (shown as yellow volumes in \autoref{subfig:extracted acini}) automatically. The manhole covers\footnote{The manhole covers were implemented through a \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{custom module (\emph{XMarkerClipPlanes})} by Milo Hindennach, a member of the MeVis Developer team.} placed in the first step are fully defined through their diameter and \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Surface_normal&oldid=411684319}{surface normal}. This made it possible to automatically define the seed point for additional region growing modules used for the extraction of the single acini. We simply flipped the direction of the surface normal and placed the seed point along this vector slightly behind the manhole cover, inside the acinar airspace. The only manual work left was the iterative selection of the correct gray value threshold used for the region growing segmentation.
 
 \renewcommand{\imsize}{.5\linewidth}
 \pgfmathsetlength{\imagewidth}{\imsize}%
@@ -208,7 +229,7 @@ Using a separate region growing module, we subsequently extracted single acini f
 	\todo[inline]{Do we want to keep \autoref{subfig:extracted acini} or \ref{subfig:extracted acini2} (semitransparent or opaque sample)?}
 \end{figure}
 
-The volume of the single acini was calculated by multiplying the amount of segmented voxels with the voxel volume, tabulated in several Excel-Files and prepared for analysis. The segmented acini were also exported to single \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Digital_Imaging_and_Communications_in_Medicine&oldid=415023605}{DICOM} stacks to facilitate further processing in either MeVisLab, \href{http://rsbweb.nih.gov/ij/}{ImageJ}~\cite{Abramoff2004} or the \href{http://stepanizer.com/}{Stepanizer}~\cite{Tschanz2011}, as defined lateron.
+The volume of the single acini was calculated by multiplying the amount of segmented voxels with the voxel volume, tabulated in several Excel-Files and prepared for analysis. The segmented acini were also exported to single \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Digital_Imaging_and_Communications_in_Medicine&oldid=415023605}{DICOM} stacks to facilitate further processing in either MeVisLab, \href{http://rsbweb.nih.gov/ij/}{ImageJ}~\cite{Abramoff2004} or the \href{http://stepanizer.com/}{Stepanizer}~\cite{Tschanz2011}, as defined later on.
 
 \begin{itemize}
 	\item Overlay of acini with Original dataset to use them in STEPanizer
@@ -217,7 +238,7 @@ The volume of the single acini was calculated by multiplying the amount of segme
 \section{Stereological Analysis}
 \begin{itemize}
 	\item Quick rundown on Stereology, including “how to do it correctly”/ATS guidelines by \citet{Hsia2010}.
-	\item STEPanizer; webbased tool, counting with line pairs and automatic tabulation in Excel-Files.
+	\item STEPanizer; web based tool, counting with line pairs and automatic tabulation in Excel-Files.
 	\item Analysis for Volume and Surface, comparison of MeVisLab and STEPanizer-data.
 \end{itemize}
 
