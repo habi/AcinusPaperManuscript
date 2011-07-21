@@ -238,9 +238,17 @@ The volume of the single acini was calculated by multiplying the amount of segme
 \section{Stereological Analysis}
 \begin{itemize}
 	\item Quick rundown on Stereology, including “how to do it correctly”/ATS guidelines by \citet{Hsia2010}.
-	\item STEPanizer; web based tool, counting with line pairs and automatic tabulation in Excel-Files.
+	\item STEPanizer; web based tool, counting with line pairs and automatic tabulation in Excel-Files, as shown in \autoref{fig:STEPanizer}.
 	\item Analysis for Volume and Surface, comparison of MeVisLab and STEPanizer-data.
 \end{itemize}
+
+\renewcommand{\imsize}{\linewidth}
+\begin{figure}
+	\centering
+	\includegraphics[width=\imsize]{img/CountingWindowSTEPanizer}
+	\caption{STEPanizer counting window}
+	\label{fig:STEPanzier}
+\end{figure}
 
 \section{Results}\label{sec:Results}
 For each day and sample we extracted multiple \todome{how many exactly?} acini with the Manhole Cover-method described in \autoref{sec:manhole covers}. A summary of the data from the extracted acinar volumes is shown in \autoref{tab:summary}. The data has been analyzed using R (Version 2.12.1 (2010-12-16)~\cite{R} in RStudio (\url{http://rstudio.org/}, Version 0.94.84). 
