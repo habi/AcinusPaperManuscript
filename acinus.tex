@@ -6,8 +6,19 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{microtype}
-\usepackage{graphicx}
+\usepackage{graphicx}	
+\usepackage{ifpdf}
+\ifpdf
+	\usepackage{lineno}
+		\linenumbers\modulolinenumbers[2]
+	\usepackage{microtype}
+	\usepackage[colorinlistoftodos,shadow]{todonotes}	
+\else
+	\DeclareGraphicsExtensions{.png}
+	\usepackage{setspace}
+		\onehalfspacing
+	\usepackage[disable]{todonotes}		
+\fi	
 \usepackage[load-configurations=binary]{siunitx}
 	\DeclareSIUnit\Molar{\textsc{m}}
 \usepackage{svn-multi}
@@ -19,18 +30,11 @@
 \usepackage[numbers,square,sort&compress]{natbib}
 \usepackage{scrtime}
 \usepackage[version=3]{mhchem}
-\usepackage{setspace}
-	%\doublespacing
-	%\onehalfspacing
-\usepackage{lineno}
-	\linenumbers\modulolinenumbers[2]
 \usepackage{lastpage}	
 \usepackage{xspace}
-\usepackage[colorinlistoftodos,shadow]{todonotes}
 \usepackage[autostyle]{csquotes}
-\usepackage{listings}
 \usepackage[backref]{hyperref}
- 
+
 % Subversion Information
 \svnidlong
 {$HeadURL$}
@@ -93,12 +97,19 @@ Here be the Abstract\ldots
 \section{Introduction}\label{sec:Introduction}
 Due a restricted availability of high resolution three-dimensional (\threed) imaging methods the knowledge about the development of the functional unit of the lung is limited. These functional units of the lung parenchyma are the so called pulmonary acini, which correspond to the gas-exchange volume in the lung which is ventilated by one purely conducting airway~\cite{Rodriguez1987}, see \autoref{fig:acinus schematic}.
 
-Using synchrotron radiation based tomographic microscopy \cite{Haberthuer2010a} we developed a method to evaluate the volume of single acini throughout postnatal lung development.
+Using synchrotron radiation based tomographic microscopy \cite{Haberthuer2010a} we developed a method to evaluate the volume of single acini throughout postnatal lung development. In this manuscript we present the methodology to extract single acini in high-resolution three-dimensional datasets obtained with synchrotron-radiation based tomographic microscopy.
 
+Up to now it has not been possible to extract single acini from physical sections of lung tissue since classic histological preparations (like cutting in a Microtome, Semidünnschnitte, etc.) destroy the three-dimensional information of the lung structure. Through the non-destructive tomographic imaging the structure of the lung tissue is preserved. Through careful segmentation we can then extract single functional lung units---the so-called acini---and analyze those with classic and accepted methods in both two and three dimensions. In addition to three-dimensional volume analysis in a visualization software we used standard stereological analyis \cite{Hsia2010} as a gold-standard to compare our results with a ground truth.
+
+Such a stereological analysis (with the socalled STEPanizer~\cite{Tschanz2011}) enables us to achieve a complete description of the functional lung units including alveolar number, surface and volume and compare these values over the course of the postnatal lung development.
+
+\subsection{Lung structure}
 \begin{itemize}
-	\item adult rat at day 60 as example
-	\item Volume of the functional lung units only determinable through \threed analysis including extraction of single acini
-	\item Alveolar number counting with STEPanizer~\cite{Tschanz2011} $\rightarrow$ complete description of the functional units.
+	\item Lung structure, from pipes to bags.
+	\item Changes in airway wall structure make it possible to extract acinus
+	\item Changes from pipe to pipe with outouchings
+	\item Do we need \autoref{fig:acinus schematic}
+
 \end{itemize}
 
 \renewcommand{\imsize}{.618\linewidth}
@@ -130,7 +141,7 @@ The lung structure can be assessed using stereology~\cite{Hsia2010}, as shown by
 
 \section{Materials \& Methods}\label{sec:MM}
 \subsection{Rat lung samples}
-Adult rat lung, day 60. Prepared according to \cite{Tschanz2002,Luyet2002}\todojcs{Which Publication should cite?}.
+Adult rat lung, day 60. Prepared according to \cite{Tschanz2002,Luyet2002} used as example.
 
 Briefly recapitulated, lung of 60 days old Sprague-Dawley rats were instilled with \SI{2.5}{\percent} glutaraldehyde (\cf{CH2(CH2CHO)2}) in \SI{0.03}{\Molar} potassium-phosphate buffer (pH 7.4) at a constant pressure of \SI{20}{\centi\meter} water column. At this applied pressure, the rat lung reaches its mid-respiratory volume. The instillation was performed via tracheotomy after opening the chest cavity and severing the diaphragm. After instillation and removal of the lung from the chest cavity, the instillation pressure was maintained during fixation (in the same fixative at \SI{4}{\celsius} for at least \SI{24}{\hour}) in order to prevent a recoiling of the lung.
 
@@ -160,23 +171,21 @@ On binned datasets we extracted conducting airway segments (see \autoref{fig:aci
 \begin{figure}
 	\centering
 	\pgfmathsetlength{\imagewidth}{\imsize}%
-	\pgfmathsetlength{\imagescale}{\imagewidth/1740}%
-	\def\x{1075}% scalebar-x at golden ratio of x=1740px
-	\def\y{894}% scalebar-y at 90% of height of y=993px
-	\def\shadow{11}% shadow parameter for scalebar
+	\pgfmathsetlength{\imagescale}{\imagewidth/992}%
+	\def\x{613}% scalebar-x at golden ratio of x=992px
+	\def\y{893}% scalebar-y at 90% of height of y=992px
 	\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
-		\clip (0,0) rectangle (1740,993);
-		\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/ManholeCoverExplanation/SliceSomeWhereAtTheBottom}};
-		% 492px = 0.8mm > 100px = 163um > 308px = 500um, 62px = 100um
-		\draw[|-|,blue,thick] (1728,250) -- (1728,742) node [sloped,midway,below,fill=white,semitransparent,text opacity=1] {\SI{0.8}{\milli\meter} (800px) TEMPORARY!};
-	\draw[|-|,thick] (\x+\shadow,\y+\shadow) -- (\x+308+\shadow,\y+\shadow) node [midway, above] {\SI{500}{\micro\meter}};
+		\clip (0,0) rectangle (992,992);
+		\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/ManholeCoverExplanation/SliceSomeWhereAtTheBottom_ScaleBar}};
+		% 493px = 0.8mm > 100px = 162um > 308px = 500um, 62px = 100um
+		\draw[|-|,blue,thick] (524,289) -- (524,781) node [sloped,midway,above,fill=white,semitransparent,text opacity=1] {\SI{0.8}{\milli\meter} (800px) TEMPORARY!};
 		\draw[|-|,white,thick] (\x,\y) -- (\x+308,\y) node [midway,above] {\SI{500}{\micro\meter}};
-		\draw[yellow,dashed,thick] (584,422) circle (40);
-		\draw[yellow,dashed,thick] (536,374) circle (40);
-		\draw[yellow,dashed,thick] (493,506) circle (40);
-		\draw[yellow,dashed,thick] (442,438) circle (40);						
+		\draw[yellow,dashed,thick] (409,420) circle (40);
+		\draw[yellow,dashed,thick] (357,382) circle (30);
+		\draw[yellow,dashed,thick] (265,438) circle (30);
+		\draw[yellow,dashed,thick] (297,466) circle (30);						
 	\end{tikzpicture}%
-	\caption{Slice showing extracted conducting airway (green) and manhole cover (red). The dashed yellow circles highlight some examples of outpouchings of the airway wall which mark the change from conducting to gas-exchanging regions. Between these regions we semiautomaticall placed the manhole covers.}
+	\caption{Slice showing extracted conducting airway (green) and manhole cover (red). The dashed yellow circles highlight some examples of outpouchings of the airway wall which mark the change from conducting to gas-exchanging regions. None of these outpouchings are visible in the airway wall around the green segment. This makes it possible to semiautomaticall placed the manhole covers at the regions where the conducting airways change into gas-exchanging airways.}
 	\label{fig:ManholeCoverExplanation}
 \end{figure}
 
