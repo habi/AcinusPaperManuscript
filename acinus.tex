@@ -1,9 +1,12 @@
 \documentclass[%
 	%draft,
 	paper=a4,%
+	DIV=calc,%
 	twoside=true,%
-	abstract=true]{scrartcl}
+	abstract=true,%
+	]{scrartcl}
 
+%\usepackage[l2tabu,abort]{nag}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{graphicx}	
@@ -17,7 +20,7 @@
 	\DeclareGraphicsExtensions{.png}
 	\usepackage{setspace}
 		\onehalfspacing
-	\usepackage[disable]{todonotes}		
+	\usepackage[disable]{todonotes}	
 \fi	
 \usepackage[load-configurations=binary]{siunitx}
 	\DeclareSIUnit\Molar{\textsc{m}}
@@ -33,6 +36,8 @@
 \usepackage{lastpage}	
 \usepackage{xspace}
 \usepackage[autostyle=true]{csquotes}
+%\usepackage{endfloat}
+\usepackage[notref,notcite]{showkeys}
 \usepackage[backref]{hyperref}
 
 % Subversion Information
@@ -92,7 +97,7 @@ Here be the abstract, including points like:
 	\item Lung development
 	\item Acinar Volume
 	\item Gold Standard STEPanizer proves MeVisLab, obviously
-	\item Opens the possibility to study postnatal development of functional lung units, only possible in \threed
+	\item Opens the possibility to study postnatal development of functional lung units, which is only possible in \threed.
 \end{itemize}
 \end{abstract}
 \listoftodos
@@ -105,7 +110,7 @@ Using synchrotron radiation based tomographic microscopy with enhanced field of 
 
 Up to now it has not been possible to extract a large amount of single acini from physical sections of lung tissue. \citet{Woodward2005} achieved three-dimensional reconstructions of three adult ducks using manual effort to trace serial sections of the tissue. Since classic histological preparations (like cutting in a Microtome, serial sectioning, etc.) cause deformations in the sectioned tissue like compression artifacts from cutting and folding or shearing of the tissue during mounting. This essentially destroys the three-dimensional information inherent in successive slices of the lung structure. Such a destruction makes it impossible to observe and trace single acini to extract their volume. Tomographic imaging of the lung tissue preserves this three-dimensional structure, since the slices through the tissue are entirely virtual and thus makes it possible to observe the volume of single acini.
 
-Through careful segmentation we can then extract single functional lung units---the so-called acini---and analyze those with classic and accepted methods in both two and three dimensions. In addition to three-dimensional volume analysis in a visualization software we used standard stereological analysis \cite{Hsia2010} as a gold-standard to compare our results with a ground truth. As stated by \citet{Hsia20110}, Stereology refers to the mathematical methods for analyzing these properties of an irregular three-dimensional structure using two-dimensional planar sections obtained by physical or optical imaging techniques.
+Through careful segmentation we can then extract single functional lung units---the so-called acini---and analyze those with classic and accepted methods in both two and three dimensions. In addition to three-dimensional volume analysis in a visualization software we used standard stereological analysis \cite{Hsia2010} as a gold-standard to compare our results with a ground truth. As stated by \citet{Hsia2010}, Stereology refers to the mathematical methods for analyzing these properties of an irregular three-dimensional structure using two-dimensional planar sections obtained by physical or optical imaging techniques.
 
 Extracting single functional lung units from the tomographic datasets enabled us to perform such a stereological analysis to obtain a complete description of the functional lung units including alveolar number, surface and volume and compare these values over the course of the postnatal lung development. Such a complete description is only possible with tomographic data, since the three-dimensional information in the sample is not destroyed.
 
@@ -113,7 +118,7 @@ Extracting single functional lung units from the tomographic datasets enabled us
 As \citet{Schittny2007a} described, descriptions of the stages of lung development are based on light microscopical observations of morphological changes in the developing lung. In this manuscript, we present a method to analyze and describe the postnatal development of the functional units of the lung, \ie changes in their volume and surface.
 
 \subsection{Lung structure and the functional units of the lung}
-The airway structure of the mammalian lung is formed from dichotomous branches\todojcs{Or only human and not general mammalian lung?}, starting from the trachea. The first branching generations lead into the bronchi (see \autoref{fig:lung schematic}). With increasing depth into the airway tree, the airway diameter of the airways is reduced, the bronchi are divided into bronchioles, leading to the terminal bronchioles which mark the end of the pipe-like purely conducting airways. The respiratory bronchioles mark the start of the gas-exchange region in the lung. We start to see changes in the airway wall structure--alveolar outpouchings---which mark the change between purely conducting and gas-exchanging airways (see \autoref{fig:ManholeCoverExplanation}). After this point, the so-called acinar airways and the acinus---the functional unit of the lung---begin. The observation of such changes in the airway wall make it possible to extract single acini from the three-dimensional tomographic datasets, as described later in \autoref{sec:manholecovers}.
+The airway structure of the mammalian lung is formed from dichotomous branches\todojcs{Or is this only valid for humans \& not generalized?}, starting from the trachea. The first branching generations lead into the bronchi (see \autoref{fig:lung schematic}). With increasing depth into the airway tree, the airway diameter of the airways is reduced, the bronchi are divided into bronchioles, leading to the terminal bronchioles which mark the end of the pipe-like purely conducting airways. The respiratory bronchioles mark the start of the gas-exchange region in the lung. We start to see changes in the airway wall structure--alveolar outpouchings---which mark the change between purely conducting and gas-exchanging airways (see \autoref{fig:ManholeCoverExplanation}). After this point, the so-called acinar airways and the acinus---the functional unit of the lung---begin. The observation of such changes in the airway wall make it possible to extract single acini from the three-dimensional tomographic datasets, as described later in \autoref{sec:manholecovers}.
 
 \renewcommand{\imsize}{.618\linewidth}
 \begin{figure}
@@ -137,25 +142,24 @@ The airway structure of the mammalian lung is formed from dichotomous branches\t
 	\end{tikzpicture}%
 	\caption{Schematic of the lung structure. The stages of one lung lobe are shown. On average rat lungs have ten generations of Bronchi and four generations of Bronchioli, which together form the conducting airways. The gas-exchanging region starts with one generation of transitory bronchioles which merge into alveolar ducts and end in the alveoli. Figure adapted from \cite{Schittny2007a}.}
 	\label{fig:lung schematic}%
-	\todo[inline, caption={Copyright release?}]{Copyright release for this figure?}
-	\todo[inline, caption={Number of generations?}]{How many generations of alveolar ducts are there in the rat? Just one?}
+	\todo[inline]{Copyright release for this figure?}
 \end{figure}
 
 The lung structure can be assessed using stereology~\cite{Hsia2010}, as shown by \citet{Tschanz2002}. Such an analysis is generally based on serial sections of the sample, thus the extracted information is a two-dimensional description \blockquote[\cite{Tschanz2002}]{of the parenchymal air space geometry and, due to geometric laws, it is not allowed to extrapolate these \twod statements directly to \threed structures}. With stereological methods it is possible to extract global volume information, but it not easily possible to extract such information from a functional subunit of an organ like the acini in the lung, since it cannot easily be judged which detail on one microscopy slide belongs to which functional unit in the three-dimensional compound.
 
-\section{Materials \& Methods}\label{sec:MM}
+\section{Materials \& Methods\label{sec:MM}}
 \subsection{Rat lung samples}
 Results shown in this manuscript have been obtained from lungs from adult Sprague-Dawley rats at day 60 after birth. Animals were deeply anesthetized and their lungs instilled with \SI{2.5}{\percent} glutaraldehyde (\cf{CH2(CH2CHO)2}) in \SI{0.03}{\Molar} potassium-phosphate buffer (pH 7.4) at a constant pressure of \SI{20}{\centi\meter} water column. At this applied pressure, the rat lung reaches its mid-respiratory volume. The instillation was performed via tracheotomy after opening the chest cavity and setting a pneumothorax through perforation of the diaphragm. After instillation the lung was removed from the chest cavity and the instillation pressure was maintained during fixation (in the same fixative at \SI{4}{\celsius} for at least \SI{24}{\hour}) in order to prevent a recoiling of the lung. Details of the whole procedure have been described by \citet{Tschanz2002} as well as \citet{Burri1974}.
 
 After fixation, the samples were prepared for tomographic imaging by postfixation with \SI{1}{\percent} osmium tetroxide (\cf{OsO4}) and staining with \SI{4}{\percent} uranyl nitrate (\cf{UO2(NO3)2}) to increase the x-ray absorption contrast. Using Histoclear (Merck KGaA, Darmstadt, Germany) as an intermedium the samples were then dehydrated in a graded series of ethanol and embedded in paraffin prior to mounting them onto standard scanning electron microscopy sample holders (PLANO GmbH, Wetzlar, Germany) with paraffin~\cite{Tsuda2008}.
 
-\subsection{Tomographic data acquisition}\label{sec:tomcat}
+\subsection{Tomographic data acquisition\label{sec:tomcat}}
 The tomographic experiments were performed at the \href{http://www.psi.ch/sls/tomcat/}{TOMCAT beamline} at the \href{http://www.psi.ch/sls/}{Swiss Light Source}, \href{http://www.psi.ch/}{Paul Scherrer Institut}, Villigen, Switzerland~\cite{Stampanoni2006a}. The samples were scanned at \SI{20.0}{\kilo\electronvolt} corresponding to a wavelength of \(\lambda=\SI{0.62}{\angstrom}\). % \lambda = 1.24e-6 eV/m / 20 keV = 6.197796e-11 m = 0.6197796 Ångström
 After penetration through the sample, the x-rays were converted into visible light by a \SI{20}{\micro\meter} thick LuAG:Ce scintillator (Lutetium Aluminum Garnet activated by cerium, \cf{Lu3Al5O12}, \href{http://www.crytur.cz/}{Crytur Ltd.}, Turnov, Czech Republic).
 
 A 10\(\times\) magnifying, diffraction limited microscope optics was used to magnify the image onto a \SI{18}{\micro\meter} thick Cerium doped Yttrium Aluminium Garnet (YAG) (\cf{Y3Al5O12}) scintillator screen. Subsequently, a high-resolution 2048\(\times\)2048 pixel CCD camera (\href{http://www.pco.de/sensitive-cameras/pco2000/}{pco.2000}, \href{http://www.pco.de/}{PCO AG}, Kelheim, Germany) with \SI{14}{\bit} dynamic range was used to digitize this magnified image. To reduce imaging noise and increase the acquisition speed, we operated the detector in 2\(\times\)2 binning mode. As a result, the pixel size was \SI{1.48}{\micro\meter} and the exposure time was between \SIrange{160}{180}{\milli\second}. Details of the TOMCAT beamline setup have been thoroughly described by \citet{Stampanoni2006a}.
 
-To be able to safely distinguish the alveolar septa (approx.~\SIrange{3}{8}{\micro\meter} thick\todojcs{Correct?}) the tomographic images used for analysis of the functional units of the lung need to have a resolution in the order of one to two microns. Since we selectively wanted to extract a large amount of single acini, we not only needed to acquire high resolution tomographic scans, but also acquire dataset with both large volume and in high resolution. Usually---with classic microscopy based imaging methods---a large field of view can only be acquired with low magnification and vice-versa. Since the our samples were larger than the classic field of view of TOMCAT at the aforementioned optical properties (\(1.52\times1.52\times\SI{1.52}{\milli\meter}\)) we would not have been able to image the full volume of our samples. To overcome this problem, we enhanced the enhance the field of view of the TOMCAT beamline at the chosen optical configuration. This enhancement was done with the so called wide-field scanning protocol, described by \citet{Haberthuer2010}.
+To be able to safely distinguish the alveolar septa (approx.~\SIrange{3}{8}{\micro\meter} thick\todojcs{Correct thickness? Who should we cite?}) the tomographic images used for analysis of the functional units of the lung need to have a resolution in the order of one to two microns. Since we selectively wanted to extract a large amount of single acini, we not only needed to acquire high resolution tomographic scans, but also acquire dataset with both large volume and in high resolution. Usually---with classic microscopy based imaging methods---a large field of view can only be acquired with low magnification and vice-versa. Since the our samples were larger than the classic field of view of TOMCAT at the aforementioned optical properties (\(1.52\times1.52\times\SI{1.52}{\milli\meter}\)) we would not have been able to image the full volume of our samples. To overcome this problem, we enhanced the enhance the field of view of the TOMCAT beamline at the chosen optical configuration. This enhancement was done with the so called wide-field scanning protocol, described by \citet{Haberthuer2010}.
 
 Briefly summarized, the wide-field scanning process merges three or five independently acquired partial tomographic scans which successively cover the total desired field of view. The single projections of the are merged to one large projection spanning the desired field of view on during tomographic reconstruction. This merging is performed on the tomographic reconstruction cluster of seven \SI{64}{\bit} Opteron machines with four cores and \SI{8}{\giga\byte} RAM each. Implementing the merging on the cluster made it possible to use the classic tomographic reconstruction work flow at TOMCAT, which has been described in detail by \citet{Hintermueller2010}.
 
@@ -167,7 +171,7 @@ The tomographic datasets of the sample were three-dimensionally analyzed and vis
 \subsubsection{Preprocessing}
 The tomographic datasets obtained at TOMCAT were converted from a stack of TIFF-files to the native GVR format of MeVisLab, a multi-resolution \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Octree&oldid=409131920}{octree}-based image format. This permitted us to easily switch between resolutions in the dataset to interactively perform the visualization and preliminary analysis on a lower resolution prior to the final analysis on full resolution datasets.
 
-\subsubsection{Manhole Covers}\label{sec:manholecovers}
+\subsubsection{Manhole Covers\label{sec:manholecovers}}
 On binned datasets we extracted conducting airway segments (see \autoref{fig:lung schematic}) using a threshold interval based region growing algorithm~\cite{Zucker1976}. A seed point for the region growing algorithm was manually defined inside the terminal bronchiole or alveolar duct on one of the most proximal slices of the dataset (shown in \autoref{subfig:sample}). This approach made it possible to extract a connected airway segment, which was then further subdivided into conducting and gas-exchanging airways. This division was performed with manually placed circular segmentations stoppers, which we dubbed manhole covers (shown as red discs in \autoref{subfig:airway segment} and \subref*{subfig:extracted acini}). The manhole covers were manually placed in the airway segment based on morphological criteria, \ie on changes in the airway wall structure which mark the entrance point into the acinus.
 
 \renewcommand{\imsize}{\linewidth}
@@ -188,8 +192,9 @@ On binned datasets we extracted conducting airway segments (see \autoref{fig:lun
 		\draw[yellow,dashed,thick] (265,438) circle (30);
 		\draw[yellow,dashed,thick] (297,466) circle (30);						
 	\end{tikzpicture}%
-	\caption{Slice showing extracted conducting airway (green) and manhole cover (red). The dashed yellow circles highlight some examples of outpouchings of the airway wall which mark the change from conducting to gas-exchanging regions. None of these outpouchings are visible in the airway wall around the green segment. This makes it possible to semiautomatically placed the manhole covers at the regions where the conducting airways change into gas-exchanging airways.}
+	\caption{Slice showing extracted conducting airway (green) and manhole cover (red). The dashed yellow circles highlight examples of outpouchings of the airway wall which mark the change from conducting to gas-exchanging regions. None of these outpouchings are visible in the airway wall around the green segment. This makes it possible to semiautomatically placed the manhole covers at the regions where the conducting airways change into gas-exchanging airways.}
 	\label{fig:ManholeCoverExplanation}
+	\todo[inline]{The scalebar is {\color{red} TEMPORARILY} copy-pasted over the image for scale bar scaling reasons.}
 \end{figure}
 
 Using a separate region growing module, we subsequently extracted single acini from the datasets (shown as yellow volumes in \autoref{subfig:extracted acini}) automatically. The manhole covers\footnote{The manhole covers were implemented through a \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{custom module (\emph{XMarkerClipPlanes})} written by Milo Hindennach, a member of the MeVis Developer team.} placed in the first step are fully defined through their diameter and \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Surface_normal&oldid=411684319}{surface normal}. This made it possible to automatically define the seed point for additional region growing modules used for the extraction of the single acini. We simply flipped the direction of the surface normal and placed the seed point along this vector slightly behind the manhole cover, inside the acinar airspace. The only manual work left was the iterative selection of the correct gray value threshold used for the region growing segmentation.
@@ -233,30 +238,27 @@ Using a separate region growing module, we subsequently extracted single acini f
 	\label{fig:workflow}
 \end{figure}
 
-The volume of the single acini was calculated by multiplying the amount of segmented voxels with the voxel volume, tabulated in Excel-Files and prepared for analysis. The segmented acini were also exported to single \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Digital_Imaging_and_Communications_in_Medicine&oldid=415023605}{DICOM} stacks to facilitate further processing in either MeVisLab, \href{http://rsbweb.nih.gov/ij/}{ImageJ}~\cite{Abramoff2004} or the \href{http://stepanizer.com/}{STEPanizer}~\cite{Tschanz2011}, as described later on.
+The volume of the single acini was calculated by multiplying the amount of segmented voxels with the voxel volume, tabulated in Excel-Files and prepared for analysis. The segmented acini were also exported as single \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Digital_Imaging_and_Communications_in_Medicine&oldid=415023605}{DICOM} stacks for further processing as described below.
 
 \section{Stereological Analysis}
-\begin{itemize}
-	\item Quick rundown on Stereology, including�“how to do it correctly”/ATS guidelines by \citet{Hsia2010}.
-	\item STEPanizer; web based tool, counting with line pairs and automatic tabulation in Excel-Files, as shown in \autoref{fig:STEPanizer}.
-	\item Analysis for Volume and Surface, comparison of MeVisLab and STEPanizer-data.
-\end{itemize}
-\subsection{STEPanizer}
-Explain the STEPanizer a wee bit.
+We stereologically analyzed the extracted acini according to the official research policy statements of the American Thoracic Society/European Respiratory Society, as defined by \citet{Hsia2010}. Stereological analysis refers to mathematical methods for defining physical properties of irregular \threed structures with \twod sections, obtained \eg by tomographic imaging. Stereological measurements and results are often based on simple counts of interaction between structures of interest and geometric probes, in our case points and lines\todo{Copied from \cite{Hsia2010}, more attribution?}. To guarantee accurate and unbiased results, we standardized each step of tissue fixation, processing sampling and analysis.
 
 \subsection{Comparison of Volumes from MeVisLab with STEPanizer}
-As mentioned above, the volume of the single acini was calculated from the amount of segmented voxels multiplied with their size. To check these volumes against a gold standard method, we manually and stereologically assessed the volume of single acini. For this analysis, we prepared datasets in which we combined the segmented acinus with the corresponding region of interest from the original tomographic dataset, as seen in the background of \autoref{fig:STEPanizer} and exported these regions of interest as DICOM files. With a MATLAB script we padded the volumes to a square format, extracted slices in a systematically random way, wrote them to the disk as JPG sequence and analyzed these slices with the STEPanizer. This made it possible to relate the automatically calculated volumes from MeVisLab to an accepted and proven method.
+As mentioned above, the volume of the single acini was calculated from the amount of segmented voxels multiplied with their size. To check these volumes against a gold standard method, we manually and stereologically assessed the volume of single acini. For this analysis, we prepared datasets in which we combined each segmented acinus with the corresponding region of interest from the original tomographic dataset, as seen in the background of \autoref{fig:STEPanizer} and exported these regions of interest as DICOM files. With a MATLAB script we padded the volumes to a square format, extracted slices in a systematically random way and exported these images to the disk as JPG sequence for analysis with the STEPanizer. 
+
+
+With a MATLAB script we prepared single slices from the aforementioned DICOM-files for each acinus in a systematic random fashion and subsequently exported to single images in JPG-format for analysis. Using a web based tool developed at our institute, the so-called STEPanizer \cite[provided free of charge at \url{http://stepanizer.com}]{Tschanz2011} we analyzed the volume and surface of the extracted acini. With the STEPanizer we counted intersections of the  acinar surface with geometric line probes for the surface and performed point counting to assess the volume of the extracted acini. \autoref{fig:STEPanizer} shows one such exported slice while being measured with the STEPanizer. Counting points (green three-quarter circles) and intersections (red \href{http://www.dict.cc/englisch-deutsch/I-beam.html}{I-beam}-shaped lines) are overlayed to count both the points inside the acinar volume and intersections with the acinar surface. The measurements are exported to \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Comma-separated_values&oldid=441921632}{csv}-delimited tables for analysis. This process made it possible to relate the automatically calculated volumes from MeVisLab to an accepted and proven gold standard stereological method.
 
 \renewcommand{\imsize}{\linewidth}
 \begin{figure}
 	\centering
 	\includegraphics[width=\imsize]{img/CountingWindowSTEPanizer}
-	\caption{STEPanizer counting window, the scalebar in the lower left of the slice is \SI{100}{\micro\meter} long.}
-	\label{fig:STEPanzier}
+	\caption{STEPanizer counting window. The segmented acinus is visible in light gray, the manhole cover is show as rectangular darker gray (horizontal slab). Both structures are overlayed and merged with the original tomographic data in the background. Line and point probes (red lines and green circles) are overlayed over the image for counting. The  scalebar in the lower left is \SI{100}{\micro\meter} long.}
+	\label{fig:STEPanizer}
 \end{figure}
 
-\section{Results}\label{sec:Results}
-For each day and sample we extracted multiple acini with the Manhole Cover-method described in \autoref{sec:manholecovers}. In total we extracted 980 acini for 22 animals, an average of 45 acini per animal. A summary of the data from the extracted acinar volumes is shown in \autoref{tab:summary}. The data has been analyzed using R (Version 2.12.1 (2010-12-16)~\cite{R} in RStudio (\url{http://rstudio.org/}, Version 0.94.84).
+\section{Results\label{sec:Results}}
+For each day and sample we extracted multiple acini with the Manhole Cover-method described in \autoref{sec:manholecovers}. In total we extracted 958 acini for 22 animals, an average of 44 acini per animal. A summary of the data from the extracted acinar volumes is shown in \autoref{tab:summary}. The data has been analyzed using R (Version 2.12.1 (2010-12-16)~\cite{R} using RStudio (\url{http://rstudio.org/}, Version 0.94.84).
 
 \begin{figure}
 	\centering
@@ -309,32 +311,14 @@ For each day and sample we extracted multiple acini with the Manhole Cover-metho
 			\legend{MeVisLab, STEPanizer}				
 	\end{axis} 
 	\end{tikzpicture}
-	\caption{Volume of multiple acini estimated with different Methods. The volumes have been normalized to the volume obtained with MeVisLab. %
-	Yellow acini are {\color{red} TEMPORARILY} shown in \autoref{fig:mevisvsstep}.}
+	\caption{Volumes of multiple acini estimated with different Methods. The volumes have been normalized to the volume obtained with MeVisLab. The average volume of the single acini is \SI{106.57}{\percent} when assessed with the STEPanizer, compared to \SI{100}{\percent} with MeVisLab (\SI{100}{\percent} vs.\ \SI{118.62}{\percent} with the three yellow data points.%
+	The yellow data points are discussed in \autoref{sec:Discussion}.}
 	\label{fig:VolumeMeVisVsSTEPanizer}
 \end{figure}
 
-\renewcommand{\imsize}{0.333\linewidth}
-\begin{figure}
-	\centering
-	\subfloat[Acinus 02, Slice 27, Vol. \SI{130}{\percent}]{%
-		\includegraphics[width=\imsize]{d:/SLS/2009f/mrg/R108C60Dt-mrg/acinus02/voxelsize1.48-every6slice/R108C60Dt-mrg-acinus02-27.jpg}%
-		}%
-	\subfloat[24, 46, \SI{187}{\percent}]{%
-		\includegraphics[width=\imsize]{d:/SLS/2009f/mrg/R108C60Dt-mrg/acinus24/voxelsize1.48-every6slice/R108C60Dt-mrg-acinus24-46.jpg}%
-		}%
-	\subfloat[32, 52, \SI{159}{\percent}]{%
-		\includegraphics[width=\imsize]{d:/SLS/2009f/mrg/R108C60Dt-mrg/acinus32/voxelsize1.48-every6slice/R108C60Dt-mrg-acinus32-52.jpg}%
-		}%
-	\caption{{\color{red} TEMPORARY} Illustrative slices of the acini (02, 24 and 32) that show large differences in volume between MeVisLab and STEPanizer. The “bad” segmentation is the reason why we have much larger volumes with the STEPanizer than with MeVisLab.}
-	\label{fig:mevisvsstep}
-\end{figure}
-
 \begin{itemize}
-	\item Show volumes of different acini with MeVisLab and STEPanizer
 	\item What about shrinkage?
 	\item Comparison with other data?
-	\item What about the surface? What about the “Erithrocytes”?
 	\item Alveolar number, how can we bring in this data?
 \end{itemize}
 
@@ -343,34 +327,33 @@ For each day and sample we extracted multiple acini with the Manhole Cover-metho
 %> summary(TotalVolumes)
 %       V1                  V2                  V3                  V4                  V5           
 % Min.   :4.934e-04   Min.   :1.330e-03   Min.   :1.762e-03   Min.   :2.442e-03   Min.   :2.039e-03  
-% 1st Qu.:4.100e-03   1st Qu.:6.502e-03   1st Qu.:1.573e-02   1st Qu.:3.892e-02   1st Qu.:2.742e-02  
-% Median :8.597e-03   Median :1.124e-02   Median :3.188e-02   Median :6.950e-02   Median :5.321e-02  
-% Mean   :1.178e-02   Mean   :1.398e-02   Mean   :4.015e-02   Mean   :8.069e-02   Mean   :6.707e-02  
-% 3rd Qu.:1.805e-02   3rd Qu.:1.977e-02   3rd Qu.:5.801e-02   3rd Qu.:1.099e-01   3rd Qu.:1.038e-01  
-% Max.   :3.908e-02   Max.   :3.855e-02   Max.   :1.202e-01   Max.   :2.109e-01   Max.   :2.103e-01  
-% NA's   :7.980e+02   NA's   :7.820e+02   NA's   :7.970e+02   NA's   :7.990e+02   NA's   :8.440e+02  
-%> 
-\begin{table}[h]
+% 1st Qu.:4.100e-03   1st Qu.:6.071e-03   1st Qu.:1.573e-02   1st Qu.:3.892e-02   1st Qu.:2.544e-02  
+% Median :8.597e-03   Median :1.043e-02   Median :3.188e-02   Median :6.950e-02   Median :5.203e-02  
+% Mean   :1.178e-02   Mean   :1.247e-02   Mean   :4.015e-02   Mean   :8.069e-02   Mean   :6.591e-02  
+% 3rd Qu.:1.805e-02   3rd Qu.:1.752e-02   3rd Qu.:5.801e-02   3rd Qu.:1.099e-01   3rd Qu.:1.025e-01  
+% Max.   :3.908e-02   Max.   :3.554e-02   Max.   :1.202e-01   Max.   :2.109e-01   Max.   :2.103e-01  
+% NA's   :7.980e+02   NA's   :7.970e+02   NA's   :7.970e+02   NA's   :7.990e+02   NA's   :8.510e+02  
+\begin{table}
 	\centering
-	\caption{Summary of the extracted Data.}
+	\caption{Summary of the extracted Data, MeVisLab.}
 	\begin{tabular}{rccccc}
 		\toprule
 		Day & Animals & Median [\si{\micro\litre}] & Mean [\si{\micro\litre}] & extracted Acini\\
 		\midrule
 		4	& 5 & \num{8.597e-03} & \num{1.178e-02} & 202 \\
-		10	& 5 & \num{1.124e-02} & \num{1.398e-02} & 218 \\
+		10	& 5 & \num{1.043e-02} & \num{1.247e-02} & 203 \\
 		21	& 4 & \num{3.188e-02} & \num{4.015e-02} & 203 \\
 		36	& 4 & \num{6.950e-02} & \num{8.069e-02} & 201 \\
-		60	& 4 & \num{5.321e-02} & \num{6.707e-02} & 156 \\
+		60	& 4 & \num{5.203e-02} & \num{6.591e-02} & 149 \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:summary}
 \end{table}
 
 \subsection{Acinar Number and Volume from Sébastien}
-\begin{table}[h]
+\begin{table}
 	\centering
-	\caption{Acinar Number and mean Volume from Sébastien}
+	\caption{Acinar Number and mean Volume from Sebastien}
 	\begin{tabular}{ccc}
 	\toprule
 	Day & Number of Acini & mean Volume [\si{\micro\litre}]\\
@@ -383,26 +366,63 @@ For each day and sample we extracted multiple acini with the Manhole Cover-metho
 	\label{tab:data sebastien}
 \end{table}
 
-\subsection{Comparison with Gold-Standard STEPanizer}
-
 \subsection{Alveolar Number}
 \begin{itemize}
 	\item Alveolar number from Liliane?
 	\item Alveolar number counts from Eveline with STEPanizer?
 \end{itemize}
 
-\section{Discussion}\label{sec:Discussion}
+\section{Discussion\label{sec:Discussion}}
 \begin{itemize}
-	\item Manhole Covers are rad!
 	\item We extracted nearly 1000 single acini, at the moment only show data from day 60
 	\item Volumes of MeVisLab are comparable with STEPanizer. Why are they not perfectly comparable, discuss!
-	\item We can do more with this method
+	\item We can do more with this method, Outlook on biological data.
 	\begin{itemize}
 		\item Surface
 		\item Number of Alveoli
 		\item All related to SINGLE acinus
 	\end{itemize}
 \end{itemize}
+
+Only with the presented manhole cover method it is possible to accurately assess the volume of single acini. We have shown that we can automatically calculate the volume of single acini in mammalian lungs from \threed tomographic data and compared this data with a gold standard stereological assessment of a subset of the same acini.
+\subsection{Manhole Covers are great!}
+\begin{itemize}
+	\item Semiautomatical Method to extract single functional lung units, much better than anything seen before
+	\item Only with this method we can look at single acini on slices and perform stereology!
+\end{itemize}
+
+\subsection{Comparison with Gold-Standard STEPanizer}
+As expected, both methods show slightly different results. The automatic method based on a threshold interval region growing segmentation of the three-dimensional data in MeVisLab showed slightly lower volumes for the acini than a manual stereological analysis did. \autoref{fig:VolumeMeVisVsSTEPanizer} shows a plot with the volumes normalized to the automatic method. Since the automatic calculation of the acinar volume with MeVisLab simply adds up all segmented voxels, an imprecise segmentation leads to an underestimation of the acinar volume. \autoref{fig:MeVisSegmentation} shows three exemplary slices which show large differences in volume between the two methods. Due to inevitable segmentation inaccuracies (dark spots inside the segmented acinus in \autoref{subfig:acinus02} and \subref*{subfig:acinus32}) we underestimated the volumes with the automatic method. In some extracted acini we have seen differences in gray values in the z-direction of the stack. Since the region growing segmentation method uses the same threshold throughout the region of interest, sometimes single slices were heavily under-estimated in terms of included voxels, one such example is shown in \autoref{subfig:acinus24}. Since these automatically extracted regions were merely used as a optic guidance for the manual, stereological method it is obvious that the manual method shows slightly larger volumes (\SI{6.57}{\percent} larger) than the automatic method. Manually assessing the volume of the single acini using the STEPanizer took approximately two working days for the 13 assessed acini. As soon as the manhole covers are defined in the sample, the automatic volume calculation with MeVisLab can be performed in under a minute per acinus. Even though we slightly underestimate the volume of the single acini with the automatic method, we simply could not manually assess the volume for each of the nearly 1000 extracted acini. Nonetheless we validated the automatic method with a proven and accepted gold standard method.
+
+Additionally, in the final study we will not look at the absolute volume, but only at the volume fractions or increase of volume, so this difference in absolute volume can be neglected for our purposes\todo{Also speak about shrinkage? Influences both methods!}.
+
+\renewcommand{\imsize}{0.33\linewidth}%
+\setlength\fboxsep{0pt}%
+\begin{figure}
+	\centering
+	\subfloat[Acinus 02, Slice 27, Vol. \SI{130}{\percent}]{%
+		\fbox{%
+			\includegraphics[width=\imsize]{d:/SLS/2009f/mrg/R108C60Dt-mrg/acinus02/voxelsize1.48-every6slice/R108C60Dt-mrg-acinus02-27.jpg}%
+		}%
+		\label{subfig:acinus02}%
+	}%
+	\hfill%
+	\subfloat[24, 46, \SI{187}{\percent}]{%
+		\fbox{%
+			\includegraphics[width=\imsize]{d:/SLS/2009f/mrg/R108C60Dt-mrg/acinus24/voxelsize1.48-every6slice/R108C60Dt-mrg-acinus24-46.jpg}%
+		}%
+		\label{subfig:acinus24}%		
+	}%
+	\hfill%
+	\subfloat[32, 52, \SI{159}{\percent}]{%
+		\fbox{%	
+			\includegraphics[width=\imsize]{d:/SLS/2009f/mrg/R108C60Dt-mrg/acinus32/voxelsize1.48-every6slice/R108C60Dt-mrg-acinus32-52.jpg}%
+		}%
+		\label{subfig:acinus32}%				
+	}%
+	\caption{Illustrative slices of the acini (02, 24 and 32) that show large differences in volume between MeVisLab and STEPanizer. The inaccurate segmentation is the reason we obtained larger volumes with the STEPanizer than with MeVisLab.}
+	\label{fig:MeVisSegmentation}
+\end{figure}
 
 \section{Contributions}
 \begin{itemize}
@@ -414,11 +434,11 @@ For each day and sample we extracted multiple acini with the Manhole Cover-metho
 \end{itemize}
 
 \section{Acknowledgments}
-We thank Federica Marone, Beamline Scientist at TOMCAT for the long-standing great support at the Beamline and implementation of the reconstruction of the merged wide-field scanning projections on the TOMCAT cluster. Christoph Hinterm\"{u}ller, former member of the TOMCAT group, and now Project Management \& Research at \href{http://gtec.at/}{g.tec medical engineering GmbH} also helped us during countless shifts at the beamline. He also helped with the first implementation of wide-field scanning at TOMCAT. Bernd Pinzer, Post-Doc at TOMCAT adopted the support of our group from Chris and also does great job. Milo Hindennach, MeVis Developer at Fraunhofer MEVIS provided the \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{Manhole cover module in MeVisLab}, which is still at the core of the MeVisLab-network used in this publication. We thank Mohammed Ouanella, our former lab and Eveline Yao, our current lab technician for expert technical assistance in the lab\todo{Oder ist Eveline auch auf der Autorenliste?}.
+We thank Federica Marone, Beamline Scientist at TOMCAT for the long-standing great support at the Beamline and implementation of the reconstruction of the merged wide-field scanning projections on the TOMCAT cluster. Christoph Hinterm\"{u}ller, former member of the TOMCAT group, and now Project Management \& Research at \href{http://gtec.at/}{g.tec medical engineering GmbH} also helped us during countless shifts at the beamline. He also helped with the first implementation of wide-field scanning at TOMCAT. Bernd Pinzer, Post-Doc at TOMCAT adopted the support of our group from Chris and also does great job. Milo Hindennach, MeVis Developer at Fraunhofer MEVIS provided the \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{Manhole cover module in MeVisLab}, which is still at the core of the MeVisLab-network used in this publication. We thank Mohammed Ouanella, our former lab and Eveline Yao, our current lab technician for expert technical assistance in the lab\todo{Oder ist Eveline Co-Autorin?}.
 
 The handling of animals before and during the experiments, as well as the experiments themselves, were approved and supervised by the Swiss Agency for the Environment, Forests and Landscape and the Veterinary Service of the Canton of Bern, Switzerland.
 
-This work has been funded by the grants 3100A0-109874 and 310030-125397 \todojcs{Still correct?} of the Swiss National Science Foundation.
+This work has been funded by the grants 3100A0-109874 and 310030-125397 \todojcs{Immernoch korrekt?} of the Swiss National Science Foundation.
 
 \bibliographystyle{unsrtnat}
 \bibliography{../references}
