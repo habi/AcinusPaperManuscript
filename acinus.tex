@@ -10,7 +10,7 @@
 \usepackage{ifpdf}
 \ifpdf
 	\usepackage{setspace}
-		%\doublespacing
+		\doublespacing
 	\usepackage{microtype}
 	\usepackage[colorinlistoftodos]{todonotes}
 \else
@@ -90,11 +90,16 @@ To appear in \emph{\href{http://jap.physiology.org/}{Journal of Applied Physiolo
 The pulmonary acinus represents the functional unit of the lung. Due to a restricted availability of high resolution imaging methods the knowledge about the development of the pulmonary acini is limited. Using synchrotron radiation based tomographic microscopy we developed a method to estimate the volume of single acini throughout postnatal lung development. We developed a method to isolate and analyze single functional units of the lung, the so-called acini in three dimensions with minimal effort. In tomographic datasets acquired at the TOMCAT beamline we closed the transition between conducting and gas-exchanging airways bronchioles semi-automatically with three-dimensional discs acting as segmentation breakpoints. Our method makes it possible to extract acini for volume analysis, something which is not feasible on classic microscopy slides, since serial sectioning destroys the three-dimensional information of the dataset. The automatic volume analysis of single acini was manually confirmed with stereological assessment. Our proposed method of analyzing single functional units of the mammalian lung opens the possibility to study postnatal development of functional lung units on a large scale also because it is by magnitudes faster than manual stereological counting.\todo{One paragraph, no more than 250 words, currently 186.}
 \end{abstract}
 
-\newenvironment{keywords}{\begin{trivlist}\item[]{\bfseries\sffamily Keywords:}\ }{\end{trivlist}}
-\begin{keywords}
-lung development, tomography, acinus, visualization\todo{Three to five words that do not appear in the title or running head}
-\end{keywords}
-
+\section{Keywords}
+\begin{itemize}
+	\item lung development,
+	\item stereology
+	\item tomography
+	\item acinus
+	\item visualization\todo{Three to five words that do not appear in the title or running head}
+\end{itemize}
+\clearpage
+\listoftodos
 \clearpage
 \todo{Table of contents will be removed, just for overview purposes!}
 \tableofcontents
@@ -229,42 +234,67 @@ Using a web based tool developed at our institute, the so-called STEPanizer \cit
 
 \section{Results}
 \subsection{Comparison of Volumes from MeVisLab with STEPanizer}
-For four animals obtained at postnatal day 60 we isolated totally 165 acini. For 28 of these acini \todo{Latest numbers from ‘STEPanizerReaderAndPlotter.m’?} we compared the automatically detected volume of MeVisLab with manual stereological counting. Normalizing the volumes to the volume obtained with MeVisLab made it possible to assess differences between the two methods. The results are shown in \autoref{fig:VolumeMeVisVsSTEPanizer} \todo{Latest numbers from ‘STEPanizerReaderAndPlotter.m’?} and explained later on in the Discussion section.
+For four animals obtained at postnatal day 60 we isolated totally 165 acini. For 42 of these acini \todo{Latest numbers from ‘STEPanizerReaderAndPlotter.m’?} we compared the automatically detected volume of MeVisLab with manual stereological counting. Normalizing the volumes to the volume obtained with MeVisLab made it possible to assess differences between the two methods. The results are shown in \autoref{fig:VolumeMeVisVsSTEPanizer} \todo{Latest numbers from ‘STEPanizerReaderAndPlotter.m’?} and explained later on in the Discussion section.
 
 \begin{figure}[htb]
 	\centering
 	\begin{tikzpicture}
 		\begin{axis}[%
 			only marks,
-			legend pos=south east,
+			legend pos=outer north east,
 			ymin=0,
 			xlabel=Acinus,
 			ylabel={normalized Volume}
 			]
-			\addplot %[blue,mark=triangle*]
+			\addplot [semitransparent,gray,mark=*]
 				coordinates{
-					(1,100) (2,100) (3,100) (4,100) (5,100) (6,100) (7,100) (8,100) (9,100) (10,100) (11,100) (12,100) (13,100) (14,100) (15,100) (16,100) (17,100) (18,100) (19,100) (20,100) (21,100) (22,100) (23,100) (24,100) (25,100) (26,100) (27,100) (28,100)
+					(1,100) (2,100) (3,100) (4,100) (5,100) (6,100) (7,100) (8,100) (9,100) (10,100) (11,100) (12,100) (13,100) (14,100) (15,100) (16,100) (17,100) (18,100) (19,100) (20,100) (21,100) (22,100) (23,100) (24,100) (25,100) (26,100) (27,100) (28,100) (29,100) (30,100) (31,100) (32,100) (33,100) (34,100) (35,100) (36,100) (37,100) (38,100) (39,100) (40,100) (41,100) (42,100) (43,100)
 				};
-				\label{plot:mevis}				
-			\addplot %[red,mark=square*]
+				\label{plot:mevis}
+			\addplot [fill=red,draw=black, mark=square*]
 				coordinates{
-					(1,118.844) (2,118.888) (3,119.518) (4,108.54) (5,113.4) (6,115.871) (7,132.599) (8,117.926) (9,98.1566) (10,109.274) (11,129.824) (12,89.3898) (13,113.225) (14,112.215) (15,110.095) (16,102.662) (17,102.433) (18,94.6387) (19,187.167) (20,106.537) (21,159.367) (22,113.17) (23,121.325) (24,117.306) (25,94.2065) (26,135.812) (27,188.439) (28,94.0823)
+					(1,118.844) (2,118.888) (3,112.751) (4,96.6436) (5,119.518) (6,81.3158) (7,112.81) (8,86.1239) (9,108.54) (10,113.4)
 				};
-				\label{plot:stepanizer}
-			\addplot [yellow, mark=square*] % mark=pentagon*]
-				coordinates {
-					(7,132.599)
-					(19,187.1668)
-					(21,159.3669)
-					(26,135.8118)
-					(27,188.439)
+				\label{plot:animalb}
+			\addplot [fill=green,draw=black,mark=square*]
+				coordinates{
+					%(11,134.386)
+					(12,115.871)
+					%(13,133.579) (14,132.599)
+					(15,96.8582) (16,117.926) (17,110.275) (18,123.272) (19,98.1566) (20,109.274)				};
+			\addplot [fill=blue,draw=black,mark=square*]
+				coordinates{
+					(21,129.824) (22,89.3898) (23,113.225) (24,112.215) (25,110.095) (26,102.662) (27,102.433) (28,94.6387)
+					%(29,187.167)
+					(30,106.537)
+					%(31,159.367)
+					(32,113.17) (33,121.325)
+				};	
+			\addplot [fill=magenta,draw=black,mark=square*]
+				coordinates{
+					(34,110.653)
+					%(35,151.8)
+					(36,117.306) (37,0) (38,99.5121) (39,108.438) (40,94.2065)
+					%(41,135.812) (42,188.439)
+					(43,94.0823)
 				};
-			\label{plot:removed}
-			\legend{MeVisLab, STEPanizer}				
-	\end{axis} 
+				\label{plot:animale}
+			\addplot[fill=yellow,draw=black,mark=diamond*]
+				coordinates{
+					(11,134.3863)
+					(13,133.5789)
+					(14,132.599)
+					(29,187.1668)
+					(31,159.3669)
+					(35,151.7996)
+					(41,135.8118)
+					(42,188.439)
+				};
+			\legend{MeVisLab,Animal B,Animal C,Animal D,Animal E,Values$>130$}
+		\end{axis}
 	\end{tikzpicture}
-	\caption{Volumes of different acini estimated with different Methods. The volumes have been normalized to the volume obtained with MeVisLab (\ref{plot:mevis}). The average volume of a single acinus is \SI{10}{\percent} larger when assessed with the STEPanizer (\ref{plot:stepanizer}) as compared to MeVisLab (\SI{109.63}{\percent} vs.\ \SI{100}{\percent}). %
-	See the Discussion for an explanation of the yellow data points (\ref{plot:removed}) which were removed from analysis since they showed values larger than \SI{130}{\percent}.}
+	\caption{Volumes of different acini estimated with different Methods. The volumes have been normalized to the volume obtained with MeVisLab (\ref{plot:mevis}). The average volume of a single acinus is \SI{10}{\percent} larger when assessed with the STEPanizer (\ref{plot:animalb}--\ref{plot:animale}) as compared to MeVisLab (\SI{107.65}{\percent} vs.\ \SI{100}{\percent}). %
+		See the Discussion for an explanation of the yellow data points (\ref{plot:removed}) which were removed from analysis since they showed values larger than \SI{130}{\percent}.}
 	\label{fig:VolumeMeVisVsSTEPanizer}
 \end{figure}
 
@@ -278,7 +308,7 @@ Our proposed method opens up the possibility to fully analyze biologically inter
 \subsection[Comparison of MeVisLab with STEPanizer]{Comparison of automatic stereology with MeVisLab and manual stereology with the STEPanizer}
 As expected, both methods show slightly different results. The automatic method based on a threshold interval region growing segmentation of the three-dimensional data in MeVisLab showed slightly lower volumes for the acini than a manual stereological analysis did. \autoref{fig:VolumeMeVisVsSTEPanizer} shows a plot of the acinar volumes normalized to the automatic method. Since the automatic calculation of the acinar volume with MeVisLab simply adds up all segmented voxels, an imprecise segmentation leads to an underestimation of the acinar volume. \autoref{fig:MeVisSegmentation} shows exemplary slices for acini with large differences in volume between the two methods. Due to inevitable segmentation inaccuracies (dark spots inside the segmented acinus in \autoref{subfig:60d_acinus32} we underestimated the volumes with the automatic method compared to the manual, stereological method, where we visually discard such inaccuracies.
 
-In some extracted acini we have seen differences in gray values in the z-direction of the stack. Since the region growing segmentation method uses the same threshold throughout the region of interest, sometimes single slices were heavily under-estimated in terms of included voxels, one such example is shown in \autoref{subfig:60e_acinus38}. Since these automatically extracted regions were merely used as a optic guidance for the manual, stereological method it is obvious that the manual method shows slightly larger volumes (\SI{9.63}{\percent} larger\todo{Correct? Use ‘STEPanizerReaderAndPlotter.m’ for latest value!}) than the automatic method.
+In some extracted acini we have seen differences in gray values in the z-direction of the stack. Since the region growing segmentation method uses the same threshold throughout the region of interest, sometimes single slices were heavily under-estimated in terms of included voxels, one such example is shown in \autoref{subfig:60e_acinus38}. Since these automatically extracted regions were merely used as a optic guidance for the manual, stereological method it is obvious that the manual method shows slightly larger volumes (\SI{7.65}{\percent} larger\todo{Correct? Use ‘STEPanizerReaderAndPlotter.m’ for latest value!}) than the automatic method.
 
 Manually assessing the volume of the single acini using the STEPanizer took several working days for the few acini shown in \label{fig:VolumeMeVisVsSTEPanizer}. As soon as the manhole covers are defined in the sample, the automatic volume calculation with MeVisLab can be performed in less than a minute per acinus. Even though we slightly underestimate the volume of the single acini with the automatic method, we simply could not manually assess the volume for each one of the 170 acini of postnatal day 60\todo{Do we never mention the 1000 acini I totally assessed?}. Nonetheless we validated the automatic method with a proven and accepted gold standard method.
 
