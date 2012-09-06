@@ -20,6 +20,7 @@
 \usepackage{fancyhdr}
 \usepackage{tikz}
 \usepackage{pgfplots}
+	\usepgfplotslibrary{groupplots}
 \usepackage[numbers,square,sort&compress]{natbib}
 \usepackage{scrtime}
 \usepackage{lastpage}
@@ -57,9 +58,25 @@
 \newcommand{\subfigureautorefname}{\figureautorefname} % make \autoref work with \subfloat
 
 %%%%%%%%%%%%%%%%%%%%%%%%% DATA %%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\difference}{6.931}
-\newcommand{\numberofacini}{48}
-\newcommand{\volume}{0.0965}
+%MeVisLab
+%Mean acinar volume
+%R108C60B_B1_mrg: 0.00031933211625 cm^3
+%R108C60Dt-mrg: 0.000434012832 cm^3
+%R108C60Et-mrg: 0.000459532147778 cm^3
+%Mean acinar volume for all samples: 0.000404292365343 cm^3
+%Standard deviation of the mean acinar volume for all samples: 6.09726267208e-05
+%STEPanizer
+%Mean acinar volume for single samples
+%R108C60B_B1_mrg: 0.000769742979885 cm^3
+%R108C60Dt-mrg: 0.00159505820476 cm^3
+%R108C60Et-mrg: 0.00229902648555 cm^3
+%Mean acinar volume for all samples: 0.0015546092234 cm^3
+%Standard deviation of the mean acinar volume for all samples: 0.000624982186542
+
+\newcommand{\numberofacini}{43}
+\newcommand{\volume}{0.0015546092234}
+\newcommand{\std}{0.000624982186542}
+\newcommand{\difference}{123456}
  
 \title{How to stereologically characterize individual acini in tomographic datasets of rat lungs}
 \subtitle{Stereological characterization of individual rat lung acini}
@@ -156,7 +173,6 @@ The tomographic datasets obtained at TOMCAT were converted from a stack of TIFF-
 \subsubsection{Manhole Covers}
 We extracted conducting airway segments using a threshold interval based region growing algorithm~\cite{Zucker1976}. To start the extraction, a seed point for the region growing algorithm was manually defined inside the conducting airways on one of the most proximal slices of the dataset (see \autoref{subfig:sample}) as a first step. With this first seed point, one or several connected airway segments was extracted from the lung sample. Such an extracted airways segment was composed of both conducting and gas-exchanging airways. Using segmentation stoppers dubbed manhole covers, we in a second step isolated single acini from each large airway segment until it was cut back to only the conducting airways. These manhole covers are visible as red discs in \autoref{subfig:airway segment} and \subref*{subfig:extracted acini}. The manhole covers were implemented through a \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{custom MeVisLab module (\emph{XMarkerClipPlanes})} written by Milo Hindennach, a member of the MeVis Developer team. The locations of the manhole covers were defined based on morphological criteria, \ie changes in the epithelial thickness of the airway wall and appearance of alveolar outpouchings in the airway wall mark the transition from conducting to gas-exchanging airways.
 
-\renewcommand{\imsize}{\linewidth}
 \begin{figure}
 	\centering
 	\pgfmathsetlength{\imagewidth}{\imsize}%
@@ -232,7 +248,7 @@ The volume of the single acini was calculated by multiplying the amount of segme
 \subsection{Stereological Analysis and comparison of acinar volumes obtained with different methods}
 The volume of the single acini was automatically calculated from the amount of segmented voxels multiplied by their size. To check these volumes against a gold standard method, we stereologically estimated the volume of single exemplary acini. To guarantee accurate and unbiased results, we standardized each step of tissue fixation, processing sampling and analysis and performed the stereological assessment according to official guidelines, as specified by \citet{Hsia2010}.
 
-For this analysis, we prepared datasets in which we combined each segmented acinus with the corresponding region of interest from the original tomographic dataset, as seen in the background of \autoref{fig:STEPanizer} and exported these regions of interest as DICOM files. With a MATLAB script we padded the volumes to a square format, systematically randomly sampled and exported as JPG sequences for further stereological analysis.
+For this analysis, we prepared datasets in which we combined each segmented acinus with the corresponding region of interest from the original tomographic dataset, as seen in the background of \autoref{fig:STEPanizer} and exported these regions of interest as DICOM files. With a MATLAB script we padded the volumes to a square format, systematically randomly sampled and exported as JPG sequences for the stereological analysis.
 
 Using a web based tool developed at our institute, the so-called STEPanizer~\cite[available free of charge at \url{http://stepanizer.com}]{Tschanz2011} we analyzed the volume and surface of the extracted acini. With the STEPanizer we counted intersections of the acinar surface with geometric line probes for the surface and performed point counting to assess the volume of the extracted acini. \autoref{fig:STEPanizer} shows one such exported slice while being analyzed using the STEPanizer. Counting points (green three-quarter circles) and intersections (red \href{https://encrypted.google.com/search?q=i-beam&tbm=isch}{I-beam}-shaped lines) are overlaid to count both the points inside the acinar volume and intersections with the acinar surface. The measurements are exported to \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Comma-separated_values&oldid=441921632}{csv}-delimited tables for further analysis. This process made it possible to relate the automatically calculated volumes from MeVisLab to an accepted and proven stereological method.
 
@@ -246,78 +262,68 @@ Using a web based tool developed at our institute, the so-called STEPanizer~\cit
 
 \section{Results}
 \subsection{Acinar Volume}
-We extracted and stereologically analyzed several acini from tomographic datasets. The data we show here consists of \numberofacini\xspace analyzed acini\todo{Check latest number with 'STEPanizerReaderAndPlotter.m' and adapt the preamble of this file accordingly!}, their mean volume is is \SI{\volume}{\micro\litre}, with a standard deviation of \SI{0.071563}{\micro\litre}.
+We extracted and stereologically analyzed several acini from tomographic datasets. The data we show here consists of \numberofacini\xspace analyzed acini, their mean volume is is \SI{\volume}{\centi\metre\cubed}, with a standard deviation of \SI{\std}{\centi\metre\cubed}.
 
 \subsection{Acinar Surface}
-To automatically extract the surface of the single acini a triangulation of the surface would be needed, \ie the extent of the voxels has to be mapped to adjoining triangles in the three-dimensional space. Since the triangulation of the surface inherently poses a classic 'Coast of Wales'-problem~\cite{Mandelbrot1967a} and is heavily depending on the resolution of the used dataset, we did not automatically analyze the surface through a software, but only manually assessed the surface of the acini stereologically~\cite{Hsia2010}. The results of this analysis is not shown in this manuscript.
+To automatically extract the surface of the single acini a triangulation of the surface would be needed, \ie the extent of the voxels has to be mapped to adjoining triangles in the three-dimensional space. Since the triangulation of the surface inherently poses a classic 'Coast of Wales'-problem~\cite{Mandelbrot1967a} and is heavily depending on the resolution of the used dataset, we did not automatically analyze the surface through a software, but only manually assessed the surface of the acini stereologically~\cite{Hsia2010}.
+
+%Mean acinar surface for single samples
+%R108C60A: not measured
+%R108C60B_B1_mrg: 4.65811156344e-13 cm^2
+%R108C60C: not measured
+%R108C60Dt-mrg: 7.01760912435e-13 cm^2
+%R108C60Et-mrg: 1.10171633299e-12 cm^2
+%Mean acinar surface for all samples: 7.56429467255e-13 cm^2
+%Standard deviation of the mean acinar surface for all samples: 2.62469473252e-13
 
 \subsection{Number of Acini}
-Sébastien?
+For the three different animals we estimated an absolute number of acini for the whole lung by dividing the absolute parenchymal volume of the lung by the mean acinar volume and obtained 8279, 4486 and 2929 acini for the animals B, D and E, respectively. The mean number of acini is 5231 acini for the whole lung. \citet[page 146]{Rodriguez1987} found a total of 4023 acini in the whole lungs for one single rat.
 
 \subsection{Comparison of Volumes from MeVisLab with STEPanizer}
-For four animals obtained at postnatal day 60 we isolated 165 individual acini. For \numberofacini\xspace of these acini we compared the automatically detected volume of MeVisLab with manual stereological counting. Normalizing the volumes to the volume obtained with MeVisLab made it possible to assess differences between the two methods. The results are shown in \autoref{fig:VolumeMeVisVsSTEPanizer} and explained later on in the Discussion section.
+For \numberofacini\xspace acini of three different animals we compared the automatically detected volume of MeVisLab with manual stereological counting. Normalizing the volumes to the volume obtained with MeVisLab made it possible to assess differences between the two methods. The results are shown in \autoref{fig:VolumeMeVisVsSTEPanizer} and explained later on in the Discussion section.
 
-\begin{figure}
+\renewcommand{\imsize}{0.5\linewidth}
+\begin{figure}[htb]
 	\centering
-	\begin{tikzpicture}
-		\begin{axis}[%
-			only marks,
-			legend pos=outer north east,
-			ymin=0,
-			xlabel=Acinus,
-			ylabel={normalized Volume [\si{\percent}]}
-			]
-			\addplot [semitransparent,gray,mark=*]
-				coordinates{
-					(1,100) (2,100) (3,100) (4,100) (5,100) (6,100) (7,100) (8,100) (9,100) (10,100) (11,100) (12,100) (13,100) (14,100) (15,100) (16,100) (17,100) (18,100) (19,100) (20,100) (21,100) (22,100) (23,100) (24,100) (25,100) (26,100) (27,100) (28,100) (29,100) (30,100) (31,100) (32,100) (33,100) (34,100) (35,100) (36,100) (37,100) (38,100) (39,100) (40,100) (41,100) (42,100) (43,100) (44,100) (45,100) (46,100) (47,100) (48,100)
+ 	\begin{tikzpicture}
+		\begin{axis}[title={STEPanizerVolume},
+			legend entries={R108C60B\_B1\_mrg,R108C60Dt-mrg,R108C60Et-mrg},
+			legend style={at={(0.5,-0.25)}, anchor=north},
+			width=\imsize]]
+			\addplot [red,only marks]
+				coordinates {
+					(32,0.000943978089591402) (33,0.000369290006731552) (34,0.000537284135255814) (35,0.000774104716030111) (37,0.00063721303615683) (38,0.000892998673456294) (40,0.000662060213607909) (41,0.00227213474409444) (42,0.00123480580445082) (43,0.000202540993042524) (44,0.000440456598544131) (46,0.00130506260473565) (47,0.000948905265220132) (50,0.000967796840998029) (52,0.000973053509272693) (53,0.000622005326109383) (54,0.0003792715403106) (56,0.00089103877005466) (58,0.000442312679892422) (59,0.000618971153786899) (60,0.000622005326109383) (61,0.000706693979639465) (62,0.000602002519342455) (63,0.000427844990797474) 
 				};
-				\label{plot:mevis}
-			\addplot [fill=red, draw=black, mark=square*]
-				coordinates{
-					(1,118.844) (2,118.888) (3,112.751) (4,96.6436) (5,119.518) (6,81.3158) (7,112.81) (8,86.1239) (9,108.54) (10,113.4)
-					};
-				\label{plot:animalb}
-			\addplot [fill=cyan, draw=black, mark=square*]
-				coordinates{
-					(11,134.386)
-					(12,115.871)
-					(13,133.579) (14,132.599)
-					(15,96.8582) (16,117.926) (17,110.275) (18,123.272) (19,98.1566) (20,91.4073) (21,109.274) (22,100.527)
-					};
-			\addplot [fill=green, draw=black, mark=square*]
-				coordinates{
-					(23,129.824) (24,89.3898) (25,113.225) (26,112.215) (27,110.095) (28,102.662) (29,102.433) (30,94.6387)
-					(31,187.167)
-					(32,106.537)
-					(33,159.367)
-					(34,113.17) (35,121.325)
-					};		
-			\addplot [fill=magenta, draw=black, mark=square*]
-				coordinates{
-					 (36,110.653) (37,101.875)
-					 (38,151.8)
-					 (39,117.306) (40,110.189) (41,108.314) (42,99.5121) (43,108.438) (44,94.2065)
-					 (45,135.812) (46,188.439)
-					 (47,94.0823) (48,104.747)
-				};
-				\label{plot:animale}
-			\addplot[fill=orange, draw=black, mark=*,mark size=5,semitransparent]
-				coordinates{
-					(11,134.3863)
-					(13,133.5789)
-					(14,132.599)
-					(31,187.1668)
-					(33,159.3669)
-					(38,151.7996)
-					(45,135.8118)
-					(46,188.439)
-				};
-				\label{plot:removed}
-			\legend{MeVisLab,Animal B,Animal C,Animal D,Animal E,Values\(>\)\SI{130}{\percent}}
+			\addplot [green,only marks]
+				coordinates {
+					(99,0.0015775832244119) (100,0.00349411900606628) (103,0.00109353123999124) (104,nan) (105,0.00157806449893873) (106,0.00117142214981822) (111,0.0010757778774242) (114,0.0019641417554389) (115,0.000467836408179399) (119,0.00176092960260168) (122,0.00176717628474684)
+			};
+			\addplot [blue,only marks]
+				coordinates {
+					(130,0.00221322926506789) (131,0.00110468828837077) (134,0.000217300159958048) (135,0.00247446056987033) (136,0.00901848490761219) (139,0.00193425723370187) (140,0.000404056440325775) (141,0.000827363638248959) (142,0.00249739786677173) 
+		};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Volumes of different acini estimated with different Methods. The volumes have been normalized to the volume obtained with MeVisLab (\ref{plot:mevis}). The average volume of a single acinus is \SI{10}{\percent} larger when assessed with the STEPanizer (\ref{plot:animalb}--\ref{plot:animale}) as compared to MeVisLab (\SI{10\difference}{\percent} vs.\ \SI{100}{\percent}). %
-		See the Discussion for an explanation of the yellow data points (\ref{plot:removed}) which were removed from analysis since they showed values larger than \SI{130}{\percent}.}%
+	\begin{tikzpicture}
+		\begin{axis}[title={MeVisLabVolume},
+			legend entries={R108C60B\_B1\_mrg,R108C60Dt-mrg,R108C60Et-mrg},
+			legend style={at={(0.5,-0.25)}, anchor=north},
+			width=\imsize]
+			\addplot [red,only marks]
+				coordinates {
+					(32,0.00037731293) (33,0.00019965522) (34,0.00025447792) (35,0.00043383464) (36,nan) (37,0.00031837037) (38,0.00042459121) (39,nan) (40,0.000294278) (41,0.00026970762) (42,0.00047316542) (43,0.00013395399) (44,0.0002331105) (45,nan) (46,0.00066745716) (47,0.00045502964) (48,nan) (49,nan) (50,0.00047915584) (51,nan) (52,0.00043513966) (53,0.00033121431) (54,0.00015090302) (55,nan) (56,0.00014413643) (57,nan) (58,0.00024587891) (59,0.00027121842) (60,0.00016399051) (61,0.00038648456) (62,0.00032862523) (63,0.00019227928) 
+				};
+			\addplot [green,only marks]
+				coordinates {
+					(96,nan) (97,nan) (98,nan) (99,0.0005900293) (100,0.00055371433) (101,nan) (102,nan) (103,0.00029986489) (104,nan) (105,0.00039014131) (106,0.00029307008) (107,nan) (108,nan) (109,nan) (110,nan) (111,0.00042841768) (112,nan) (113,nan) (114,0.0004532719) (115,0.00023229824) (116,nan) (117,nan) (118,nan) (119,0.00058026904) (120,nan) (121,nan) (122,0.00051905155) (123,nan) (124,nan) (125,nan) (126,nan) (127,nan) 
+				};
+			\addplot [blue,only marks]
+				coordinates {
+		(128,nan) (129,nan) (130,0.0006709888) (131,0.00036325091) (132,nan) (133,nan) (134,0.00012486846) (135,0.00051163185) (136,0.00075202513) (137,nan) (138,nan) (139,0.00052375108) (140,0.00016866906) (141,0.00033741882) (142,0.00068318522) (143,nan) (144,nan) (145,nan) (146,nan) (147,nan) (148,nan) (149,nan) (150,nan) (151,nan) (152,nan) (153,nan) (154,nan) (155,nan) (156,nan) (157,nan) (158,nan) (159,nan) 
+				};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Volumes of different acini estimated with different Methods.}
 	\label{fig:VolumeMeVisVsSTEPanizer}%
 \end{figure}
 
