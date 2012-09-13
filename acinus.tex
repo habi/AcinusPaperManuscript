@@ -1,13 +1,8 @@
-\documentclass[%
-	%draft,
-	twoside,
-	paper=a4,%
-	abstract=true,%
-	]{scrartcl}
-
+%\documentclass[draft,twoside,paper=a4,abstract=true,english,DIVcalc]{scrartcl}
+\documentclass[twoside,paper=a4,abstract=true,english,DIVcalc]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[english]{babel}
+\usepackage{babel}
 \usepackage{graphicx}	
 \usepackage{setspace}
 	%\doublespacing
@@ -260,18 +255,7 @@ Using a \href{http://python.org/}{Python} script\todo{reproducible research?}, w
 % R108C60Et-mrg: 0.002 cm^3
 % Mean acinar volume for all samples: 0.002 cm^3
 % Standard deviation of the mean acinar volume for all samples: 0.000624982186542
-We extracted and stereologically analyzed several acini from tomographic datasets. The data we show here consists of \numberofacini\xspace analyzed acini, their mean volume is is \SI{\volume}{\centi\metre\cubed}, with a standard deviation of \SI{\std}{\centi\metre\cubed}.
-
-\subsection{Acinar Surface}
-% Mean acinar surface for single samples
-% R108C60A: not measured
-% R108C60B_B1_mrg: 0.466 cm^2
-% R108C60C: not measured
-% R108C60Dt-mrg: 0.702 cm^2
-% R108C60Et-mrg: 1.102 cm^2
-% Mean acinar surface for all samples: 0.756 cm^2
-% Standard deviation of the mean acinar surface for all samples: 0.262469473252
-To automatically extract the surface of the single acini a triangulation of the surface would be needed, \ie the extent of the voxels has to be mapped to adjoining triangles in the three-dimensional space. Since the triangulation of the surface inherently poses a classic 'Coast of Wales'-problem~\cite{Mandelbrot1967a} and is heavily depending on the resolution of the used dataset, we did not automatically analyze the surface through a software (\eg MeVisLab), but only manually assessed the surface of the acini stereologically~\cite{Hsia2010}.
+We extracted and stereologically analyzed several acini from tomographic datasets. The data we show here consists of \numberofacini\xspace analyzed acini, their mean volume is \SI{\volume}{\centi\metre\cubed}, with a standard deviation of \SI{\std}{\centi\metre\cubed}.
 
 \subsection{Number of Acini}
 % Number of acini (= absolute airspace volume from stefan / mean acinar volume)
@@ -285,99 +269,166 @@ To automatically extract the surface of the single acini a triangulation of the 
 % We have a *mean* of 5231 acini calculated for the whole lung.
 For the three different animals we estimated an absolute number of acini for the whole lung by dividing the absolute parenchymal volume of the lung by the mean acinar volume and obtained 8279, 4486 and 2928 acini for the animals R108C60B, R108C60D and R108C60E, respectively. The mean number of acini for the whole lung is thus calculated to be 5231 acini. 
 
+\subsection{Acinar surface and total diffusion surface}
+%Mean acinar surface for single samples
+%R108C60A: not measured
+%R108C60B_B1_mrg: 0.466 cm^2
+%R108C60C: not measured
+%R108C60Dt-mrg: 0.702 cm^2
+%R108C60Et-mrg: 1.102 cm^2
+%Mean acinar surface for all samples: 0.756 cm^2
+
+%Diffusion surface (=number of acini * mean acinar surface)
+%R108C60A was not measured
+%R108C60B_B1_mrg contains 3856.407 cm^2 of diffusion surface
+%R108C60C was not measured
+%R108C60Dt-mrg contains 3148.369 cm^2 of diffusion surface
+%R108C60Et-mrg contains 3225.448 cm^2 of diffusion surface
+%
+%Stefan measured the absolute airspace surface with EM and got
+%R108C60A: 7417.908 cm^2
+%R108C60B_B1_mrg: 7667.099 cm^2
+%R108C60C: 10396.943 cm^2
+%R108C60Dt-mrg: 7448.81 cm^2
+%R108C60Et-mrg: 7173.484 cm^2
+%
+%Stefans mean absolute airspace surface is 8020.849 cm^2.
+%Our mean airspace surface is 3410.074 cm^2.Standard deviation of the mean acinar surface for all samples: 0.262469473252
+To automatically extract the surface of the single acini a triangulation of the surface would be needed, \ie the extent of the voxels has to be mapped to adjoining triangles in the three-dimensional space. Since the triangulation of the surface inherently poses a classic \emph{Coast of Wales}-problem~\cite{Mandelbrot1967a} and is heavily depending on the resolution of the used dataset, we did not automatically calculate the surface (\eg using MeVisLab), but stereologically estimated the the surface of the acini by counting interception of test lines with the acinar septa \cite{Hsia2010}.
+
+For the three different animals we calculated a mean acinar surface of \SI{0.756}{\centi\metre\squared} (R108C60BB: \SI{0.466}{\centi\metre\squared}, R108C60D: \SI{0.702}{\centi\metre\squared} and R108C60E: \SI{1.102}{\centi\metre\squared}). With the number of acini calculated above, this translates to a mean diffusion surface of \SI{3410}{\centi\metre\squared} (R108C60B: \SI{3856}{\centi\metre\squared}, R108C60D: \SI{3148}{\centi\metre\squared} and R108C60E: \SI{3225}{\centi\metre\squared}).
+
 \subsection{Comparison of Volumes from MeVisLab with STEPanizer}
 % MeVisLab volume compared to STEPanizer volume (STEPanizer/MeVisLab)
 % In mean, (STEPanizer-/MeVisLab-volume) is 3.133
+For \numberofacini\xspace acini of three different animals we automatically assessed the volume by adding the segmented voxels inside the acini and multiplying them with the voxel volume and estimated the volume with the manual Cavaglieri method \cite{Hsia2010} using the STEPanizer. The results are shown in \autoref{fig:VolumeMeVisVsSTEPanizer} and explained later on in the Discussion section. Normalizing the volumes to the largest acinus shows that while both methods result in different volumes, they scale in the same range, see \autoref{fig:VolumeMeVisVsSTEPanizerNormalized}.
 
-For \numberofacini\xspace acini of three different animals we compared the automatically detected volume of MeVisLab with manual stereological counting. Normalizing the volumes to the volume obtained with MeVisLab made it possible to assess differences between the two methods. The results are shown in \autoref{fig:VolumeMeVisVsSTEPanizer} and explained later on in the Discussion section.
-
-\renewcommand{\imsize}{0.5\linewidth}
+\renewcommand{\imsize}{\linewidth}
 \begin{figure}[htb]
 \centering
  	\begin{tikzpicture}
 	 	\begin{axis}[
-	 		title={STEPanizerVolume},
-			axis on top,
-			legend entries={R108C60B\_B1\_mrg,R108C60Dt-mrg,R108C60Et-mrg},
-			legend style={at={(0.5,-0.25)}, anchor=north},
-			width=\imsize]
-			\addplot
+	 		cycle list name = exotic,
+	 		title={Volume comparison},
+			xlabel={Acinus},
+			ylabel={Volume [\si{\centi\metre\cubed}]},% \si{\cubic\centi\meter},
+			legend entries={R108C60B\_B1\_mrg (STEPanizer),R108C60Dt-mrg (STEPanizer),R108C60Et-mrg (STEPanizer),R108C60B\_B1\_mrg (MeVisLab),R108C60Dt-mrg (MeVisLab),R108C60Et-mrg (MeVisLab)},
+			legend style={
+				at={(1.1,0.5)},
+				anchor=west
+				%legend columns=3,
+				%font=\tiny,
+				%rounded corners = 3,
+				%at={(0.5,-0.25)},
+				%anchor=north
+				},
+			%width=\imsize
+			]
+			\addplot % [draw,fill=red,red=square*]
 				coordinates {
-					(32,0.000943978089591402) (33,0.000369290006731552) (34,0.000537284135255814) (35,0.000774104716030111) (36,nan) (37,0.00063721303615683) (38,0.000892998673456294) (39,nan) (40,0.000662060213607909) (41,0.00227213474409444) (42,0.00123480580445082) (43,0.000202540993042524) (44,0.000440456598544131) (45,nan) (46,0.00130506260473565) (47,0.000948905265220132) (48,nan) (49,nan) (50,0.000967796840998029) (51,nan) (52,0.000973053509272693) (53,0.000622005326109383) (54,0.0003792715403106) (55,nan) (56,0.00089103877005466) (57,nan) (58,0.000442312679892422) (59,0.000618971153786899) (60,0.000622005326109383) (61,0.000706693979639465) (62,0.000602002519342455) (63,0.000427844990797474) 
-				};
-			\addplot
+					(0,0.000943978089591402) (1,0.000369290006731552) (2,0.000537284135255814) (3,0.000774104716030111) (4,0.00063721303615683) (5,0.000892998673456294) (6,0.			000662060213607909) (7,0.00227213474409444) (8,0.00123480580445082) (9,0.000202540993042524) (10,0.000440456598544131) (11,0.00130506260473565) (12,0.		000948905265220132) (13,0.000967796840998029) (14,0.000973053509272693) (15,0.000622005326109383) (16,0.0003792715403106) (17,0.00089103877005466) (18,0.000442312679892422) (19,0.000618971153786899) (20,0.000622005326109383) (21,0.000706693979639465) (22,0.000602002519342455) (23,0.000427844990797474) 
+					};
+			\addplot %[draw,fill=green,only marks,mark=square*]
 				coordinates {
-					(96,nan) (97,nan) (98,nan) (99,0.0015775832244119) (100,0.00349411900606628) (101,nan) (102,nan) (103,0.00109353123999124) (104,nan) (105,0.00157806449893873) (106,0.00117142214981822) (107,nan) (108,nan) (109,nan) (110,nan) (111,0.0010757778774242) (112,nan) (113,nan) (114,0.0019641417554389) (115,0.000467836408179399) (116,nan) (117,nan) (118,nan) (119,0.00176092960260168) (120,nan) (121,nan) (122,0.00176717628474684) (123,nan) (124,nan) (125,nan) (126,nan) (127,nan) 
-				};
-			\addplot
+					(24,0.0015775832244119) (25,0.00349411900606628) (26,0.00109353123999124) (27,0.00157806449893873) (28,0.00117142214981822) (29,0.0010757778774242) (30,0.0019641417554389) (31,0.000467836408179399) (32,0.00176092960260168) (33,0.00176717628474684) 
+					};		
+			\addplot %[draw,fill=blue,only marks,mark=square*]
 				coordinates {
-					(128,nan) (129,nan) (130,0.00221322926506789) (131,0.00110468828837077) (132,nan) (133,nan) (134,0.000217300159958048) (135,0.00247446056987033) (136,0.00901848490761219) (137,nan) (138,nan) (139,0.00193425723370187) (140,0.000404056440325775) (141,0.000827363638248959) (142,0.00249739786677173) (143,nan) (144,nan) (145,nan) (146,nan) (147,nan) (148,nan) (149,nan) (150,nan) (151,nan) (152,nan) (153,nan) (154,nan) (155,nan) (156,nan) (157,nan) (158,nan) (159,nan) 
-				};
-		\end{axis}
-	\end{tikzpicture}
-	\begin{tikzpicture}
-		\begin{axis}[title={MeVisLabVolume},
-			legend entries={R108C60B\_B1\_mrg,R108C60Dt-mrg,R108C60Et-mrg},
-			legend style={at={(0.5,-0.25)}, anchor=north},
-			width=\imsize]
-			\addplot
+					(34,0.00221322926506789) (35,0.00110468828837077) (36,0.000217300159958048) (37,0.00247446056987033) (38,0.00901848490761219) (39,0.00193425723370187) (40,0.000404056440325775) (41,0.000827363638248959) (42,0.00249739786677173) 
+					};		
+			\addplot %[draw,fill=red,only marks,mark=*]
 				coordinates {
-					(32,0.00037731293) (33,0.00019965522) (34,0.00025447792) (35,0.00043383464) (36,nan) (37,0.00031837037) (38,0.00042459121) (39,nan) (40,0.000294278) (41,0.00026970762) (42,0.00047316542) (43,0.00013395399) (44,0.0002331105) (45,nan) (46,0.00066745716) (47,0.00045502964) (48,nan) (49,nan) (50,0.00047915584) (51,nan) (52,0.00043513966) (53,0.00033121431) (54,0.00015090302) (55,nan) (56,0.00014413643) (57,nan) (58,0.00024587891) (59,0.00027121842) (60,0.00016399051) (61,0.00038648456) (62,0.00032862523) (63,0.00019227928) 
-				};
-			\addplot
+					(0,0.00037731293) (1,0.00019965522) (2,0.00025447792) (3,0.00043383464) (4,0.00031837037) (5,0.00042459121) (6,0.000294278) (7,0.00026970762) (8,0.00047316542) (9,0.00013395399) (10,0.0002331105) (11,0.00066745716) (12,0.00045502964) (13,0.00047915584) (14,0.00043513966) (15,0.00033121431) (16,0.00015090302) (17,0.00014413643) (18,0.00024587891) (19,0.00027121842) (20,0.00016399051) (21,0.00038648456) (22,0.00032862523) (23,0.00019227928) 
+					};
+			\addplot %[draw,fill=green,only marks,mark=*]
 				coordinates {
-					(96,nan) (97,nan) (98,nan) (99,0.0005900293) (100,0.00055371433) (101,nan) (102,nan) (103,0.00029986489) (104,nan) (105,0.00039014131) (106,0.00029307008) (107,nan) (108,nan) (109,nan) (110,nan) (111,0.00042841768) (112,nan) (113,nan) (114,0.0004532719) (115,0.00023229824) (116,nan) (117,nan) (118,nan) (119,0.00058026904) (120,nan) (121,nan) (122,0.00051905155) (123,nan) (124,nan) (125,nan) (126,nan) (127,nan) 
-				};
-			\addplot
+					(24,0.0005900293) (25,0.00055371433) (26,0.00029986489) (27,0.00039014131) (28,0.00029307008) (29,0.00042841768) (30,0.0004532719) (31,0.00023229824) (32,0.00058026904) (33,0.00051905155) 
+					};
+			\addplot %[draw,fill=blue,only marks,mark=*]
 				coordinates {
-					(128,nan) (129,nan) (130,0.0006709888) (131,0.00036325091) (132,nan) (133,nan) (134,0.00012486846) (135,0.00051163185) (136,0.00075202513) (137,nan) (138,nan) (139,0.00052375108) (140,0.00016866906) (141,0.00033741882) (142,0.00068318522) (143,nan) (144,nan) (145,nan) (146,nan) (147,nan) (148,nan) (149,nan) (150,nan) (151,nan) (152,nan) (153,nan) (154,nan) (155,nan) (156,nan) (157,nan) (158,nan) (159,nan) 
-				};
-		\end{axis}
+					(34,0.0006709888) (35,0.00036325091) (36,0.00012486846) (37,0.00051163185) (38,0.00075202513) (39,0.00052375108) (40,0.00016866906) (41,0.00033741882) (42,0.00068318522) 
+					};
+			\end{axis}
 	\end{tikzpicture}
 	\caption{Volumes of different acini estimated with different Methods.}
 	\label{fig:VolumeMeVisVsSTEPanizer}%
 \end{figure}
 
-As expected, both methods show different results; the volumes of single acini assessed with the stereological method show a 3.133\(\times\) larger value than when assessed with the automatic method using voxel counting. Since the automatic calculation of the acinar volume with MeVisLab simply adds up all segmented voxels, an imprecise segmentation leads to an underestimation of the acinar volume. \autoref{fig:MeVisSegmentation} shows exemplary slices for acini with large differences in volume between the two methods. Due to inevitable segmentation inaccuracies (dark spots inside the segmented acinus in \autoref{subfig:60d_acinus32} we underestimated the volumes with the automatic method compared to the manual, stereological method, where we visually discard such inaccuracies.
+\begin{figure}[htb]
+	\begin{tikzpicture}
+		\begin{axis}[
+			cycle list name = exotic,
+			xlabel={Acinus},
+			ylabel={Normalized Volume},
+	 		title={Volume comparison, NORMALIZED},
+			legend entries={R108C60B\_B1\_mrg (STEPanizer),R108C60Dt-mrg (STEPanizer),R108C60Et-mrg (STEPanizer),R108C60B\_B1\_mrg (MeVisLab),R108C60Dt-mrg (MeVisLab),R108C60Et-mrg (MeVisLab)},
+			legend style={
+				at={(1.1,0.5)},
+				anchor=west
+				%legend columns=3,
+				%font=\tiny,
+				%rounded corners = 3,
+				%at={(0.5,-0.25)},
+				%anchor=north
+				}
+			]
+			\addplot [red,semitransparent]
+				coordinates {
+					(0,0.5017291509926) (1,0.265490090736728) (2,0.338390181189823) (3,0.576888487755722) (4,0.423350706378655) (5,0.56459710329095) (6,0.391314050901464) (7,0.358641765069739) (8,0.629188309172594) (9,0.17812435337101) (10,0.309977008348112) (11,0.887546351010903) (12,0.605072386344323) (13,0.637154027020347) (14,0.578623828701043) (15,0.440429843082504) (16,0.200662203934595) (17,0.191664379619867) (18,0.326955709578482) (19,0.360650740487888) (20,0.218065199496724) (21,0.513925059924527) (22,0.436987032600892) (23,0.255681987648471) 
+				};
+			\addplot [blue,semitransparent]
+				coordinates {
+					(24,0.784587211866178) (25,0.736297642074807) (26,0.398743177638226) (27,0.518787596898524) (28,0.389707827981759) (29,0.569685324212503) (30,0.602735044239812) (31,0.308896911463584) (32,0.771608576431482) (33,0.690205060035693) 
+				};
+			\addplot [green,semitransparent]
+				coordinates {
+					(34,0.892242523863531) (35,0.483030281182226) (36,0.166042935293931) (37,0.680338767402626) (38,1) (39,0.69645422620385) (40,0.224286467660994) (41,0.44868024556573) (42,0.908460625511278) 
+				};
 
-In some extracted acini we have seen differences in gray values in the z-direction of the stack. Since the region growing segmentation method uses the same threshold throughout the region of interest, sometimes single slices were heavily under-estimated in terms of included voxels, one such example is shown in \autoref{subfig:60e_acinus38}. Since these automatically extracted regions were merely used as a optic guidance for the manual, stereological method it is obvious that the manual method shows slightly larger and more accurately estmated volumes than the automatic method.
+			\addplot [red]
+				coordinates {
+					(0,0.10467147190041) (1,0.0409481205008002) (2,0.0595758756332022) (3,0.0858353397450071) (4,0.0706563289382434) (5,0.0990187024322174) (6,0.0734114677121749) (7,0.251941957808967) (8,0.136919429050501) (9,0.0224584278975249) (10,0.0488393120414668) (11,0.144709739840458) (12,0.105217813739334) (13,0.107312575328606) (14,0.107895452422543) (15,0.0689700467962607) (16,0.0420549065830858) (17,0.0988013817379198) (18,0.0490451205965962) (19,0.068633607543596) (20,0.0689700467962607) (21,0.078360610111236) (22,0.0667520681699346) (23,0.0474408944717915) 
+				};
+			\addplot [blue]
+				coordinates {
+					(24,0.174927744579394) (25,0.387439691019166) (26,0.121254429229929) (27,0.174981109920885) (28,0.129891235813841) (29,0.1192858765574) (30,0.217790657251201) (31,0.0518752776072747) (32,0.195257808893746) (33,0.195950462062117) 
+				};
+			\addplot [green]
+				coordinates {
+					(34,0.245410319775529) (35,0.122491560354926) (36,0.0240949740653924) (37,0.274376527234827) (38,1) (39,0.214476960766351) (40,0.0448031398250414) (41,0.0917408685299912) (42,0.276919892016869) 
+				};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Volumes of different acini estimated with different Methods. NORMALIZED TO THE BIGGEST VALUE, SO WE CAN SEE THAT THE VALUES SCALE PRETTY MUCH THE SAME}
+	\label{fig:VolumeMeVisVsSTEPanizerNormalized}
+\end{figure}
+
+As expected, both methods show different results; the volumes of single acini assessed with the stereological method show a \difference\(\times\) larger value than when assessed with the automatic method using voxel counting. Since the automatic calculation of the acinar volume with MeVisLab simply adds up all segmented voxels, an imprecise segmentation leads to an underestimation of the acinar volume. \autoref{fig:MeVisSegmentation} shows exemplary slices for acini with large differences in volume between the two methods. Due to inevitable segmentation inaccuracies (dark spots inside the segmented acinus in \autoref{subfig:60d_acinus32} we underestimated the volumes with the automatic method compared to the manual, stereological method, where we easily can discard such inaccuracies due to manual work.
+
+In some extracted acini we have seen differences in gray values in the z-direction of the stack. Since the region growing segmentation method uses the same threshold throughout the region of interest, sometimes single slices were heavily under-estimated in terms of included voxels, one such example is shown in \autoref{subfig:60e_acinus38}. Since these automatically extracted regions were merely used as a optic guidance for the manual, stereological method it is obvious that the manual method shows slightly larger and more accurately estimated volumes than the automatic method.
 
 \section{Discussion}
-Applying our novel method dubbed manhole cover segmentation to tomographic datasets of three animals we extracted more than 40 acini to analyze their volume. With this semiautomatic method we are able to isolate and analyze individual acini in both a two- and three-dimensional way using widely accepted methods like voxel counting and Stereology. We have shown that we can automatically calculate the volume of single acini in mammalian lungs from three-dimensional tomographic data and match the accuracy of a manual method while performing the analysis orders of magnitude faster. Only with this novel combination of methods it is possible to accurately assess the volume of single acini in three-dimensional tomographic data.
+Applying our novel method dubbed manhole cover segmentation to tomographic datasets of three animals we extracted more than 40 acini for three different animals from nondestructively acquired tomographic datasets. The simple extraction of single acini permits us to analyze paramaters like volume and surface of single acini and total number of acini and diffusion surface in the mammalian lung.
 
-Our proposed method opens up the possibility to fully analyze biologically interesting parameters of the acini in the lung; the volume of the acini can be extracted automatically, parameters like surface as well as number of contained alveoli and septal length per acinus can be extracted with simple stereological counting, but require manual labour.
+Using our semiautomatic method we are able to isolate and analyze individual acini in both a two- and three-dimensional way using widely accepted methods like voxel counting and Stereology. We have shown that we can automatically calculate the volume of single acini in mammalian lungs from three-dimensional tomographic data and match the accuracy of a manual method while performing the analysis orders of magnitude faster. Only with this novel combination of methods it is possible to accurately assess the volume of single acini in three-dimensional tomographic data.
 
-With the proposed method we can additionally analyze structural changes in the acinus over the postnatal development. Structural changes during development, disease or in knock-out animals can be analyzed. All the parameters mentioned above and the structural changes can be obtained for single isolated acini, something which is not easily possible using stereological methods on classic tissue sections.
+Our proposed method opens up the possibility to fully analyze biologically interesting parameters of the acini in the lung; the volume of the acini can be extracted automatically, parameters like surface as well as number of contained alveoli and septal length per acinus can be extracted with simple stereological counting, requiring manual labor.
+
+With the proposed method we can additionally analyze structural changes in the acinus over the postnatal development. Structural changes during development, like disease or differences between wild-type and knock-out animals can be analyzed. All the parameters mentioned above and the structural changes can be obtained for single isolated acini, something which is not easily possible using stereological methods on classic tissue sections.
 
 \subsection{Acinar Volume}
 Relate to published data and explain!
 
-\subsection{Acinar Surface}\todo{is there relatable data?}
-% Diffusion surface (=number of acini * mean acinar surface)
-% R108C60A was not measured
-% R108C60B_B1_mrg contains 3856.407 cm^2 of diffusion surface
-% R108C60C was not measured
-% R108C60Dt-mrg contains 3148.369 cm^2 of diffusion surface
-% R108C60Et-mrg contains 3225.448 cm^2 of diffusion surface
+\subsection{Number of acini}
+We found a mean number of approximately 5000 per rat lung for our three animal. \citet[page 146]{Rodriguez1987} found a total of 4023 acini in the whole lungs for one single rat\todo{Other data?}. We did not directly assess the number of acini \todo{Eveline did!!!}, but only estimated the total number of acini by dividing the absolute airspace volume \todo{Citation DatenblattStefan.xls} by the mean acinar volume. Even though our values are a crude approximation of the acinus number, our results are comparable to published results up to now, showing the feasibility of our method.
 
-% Stefan measured the absolute airspace surface with EM and got
-% R108C60A: 7417.908 cm^2
-% R108C60B_B1_mrg: 7667.099 cm^2
-% R108C60C: 10396.943 cm^2
-% R108C60Dt-mrg: 7448.81 cm^2
-% R108C60Et-mrg: 7173.484 cm^2
-
-% Stefans mean absolute airspace surface is 8020.849 cm^2.
-% Our mean airspace surface is 3410.074 cm^2.
-Missing other published data, we can only relate the assessed alveolar surface to other mean values found in literature, namely the absolute airspace surface in the rat lung, which has been assesed by Tschanz et al\todo{publication by Stefan, where he published the data on absolute surface?}. Tschanz et al. assessed the absolute airspace surface by stereological estimation using electron microscopy images and found a mean absolute airspace surface of \SI{8021}{\centi\metre\squared} for the same five rat lungs we assessed\todo{really the same?}. By multiplying the number of acini by the mean acinar surface we found the mean absolute airspace surface to be \SI{3410}{\centi\metre\squared}, roughly 2.4\(\times\) smaller than Tschanz et al.\todo{Can we explain the difference with the dDifference of the two methods?)
-
-\subsection{Acinus Number}
-We found a mean number of approximately 5000 per rat lung for our three animal. \citet[page 146]{Rodriguez1987} found a total of 4023 acini in the whole lungs for one single rat\todo{Other data?}. We did not directly assess the number of acini \todo{Eveline did!!!}, but only estimated the total number of acini by dividing the absolute airspace volume \todo{Citation DatenblattStefan.xls) by the mean acinar volume. Even though our values are a crude approximation of the acinus number, our results are comparable to published results up to now, showing the feasibility of our method.
+\subsection{Acinar surface and total diffusion surface}\todo{is there relatable data?}
+Missing other published data, we can only relate the assessed alveolar surface to other mean values found in literature, namely the absolute airspace surface in the rat lung, which has been assesed by Tschanz et al\todo{publication by Stefan, where he published the data on absolute surface?}. Tschanz et al. assessed the absolute airspace surface by stereological estimation using electron microscopy images and found a mean absolute airspace surface of \SI{8021}{\centi\metre\squared} for the same five rat lungs we assessed\todo{really the same?}. By multiplying the number of acini by the mean acinar surface we found the mean absolute airspace surface to be \SI{3410}{\centi\metre\squared}, roughly 2.4\(\times\) smaller than Tschanz et al.\todo{Can we explain the difference with the difference of the two methods?}
 
 \subsection[Comparison of MeVisLab with STEPanizer]{Comparison of automatic stereology with MeVisLab and manual stereology with the STEPanizer}
-Manually assessing the volume of the single acini using the STEPanizer took several working days for the few acini shown in \autoref{fig:VolumeMeVisVsSTEPanizer}. As soon as the manhole covers are defined in the sample, the automatic volume calculation with MeVisLab can be performed in less than a minute per acinus. Even though we underestimate the volume of the single acini with the automatic method, we still would not rule out completely the manual method, especially if looking at very large numbers of acini\todo{Do we never mention the 1000 acini I totally extracted?}\todo{Do the values scale between the methods?}.
+Manually assessing the volume of the single acini using the STEPanizer took several working days for the few acini shown in \autoref{fig:VolumeMeVisVsSTEPanizer}. As soon as the manhole covers are defined in the sample, the automatic volume calculation with MeVisLab can be performed in an automatic way in less than a minute per acinus. Even though we underestimate the volume of the single acini with the automatic method, we still would not rule out completely the manual method, especially if looking at very large numbers of acini\todo{Do we never mention the 1000 acini I totally extracted?}.
 
-The difference between the automatic and manual volume estimation (MeVisLab or STEPanizer, respectively) is explained by the differences in the method (single voxel counting vs.\ manual, global stereological assessment). The under-estimation of the volume with the automatic method is inherently based in the method itself, \ie since we simply add up segmented voxels, fluctuations in the grey value of the raw data can lead to an inprecise segmentation with missing voxels which are then not counted for the acinar volume. Nonetheless, since the automated volume extraction is extremely faster than the manual, stereological assessment of the acinar volumes, we feel that the proposed method is of great value nonetheless. Additionally, since the segmentation of single acini is anyways the prerequisite for the stereological assessment of these single acini and represents the main amount of time spent evaluating the data, simply extracting the volume afterwards is a matter of seconds per acinus.
+The difference between the automatic and manual volume estimation (MeVisLab or STEPanizer, respectively) is explained by the differences in the method (single voxel counting vs.\ manual, global stereological assessment). The under-estimation of the volume with the automatic method is inherently based in the method itself, \ie since we simply add up segmented voxels. Thus, fluctuations in the grey value of the raw data can lead to an imprecise segmentation with missing voxels which are then not counted for the acinar volume. Nonetheless, since the automated volume extraction is extremely faster than the manual, stereological assessment of the acinar volumes, we feel that the proposed method is of great value nonetheless. Additionally, since the segmentation of single acini is anyways the prerequisite for the stereological assessment of these single acini and represents the main amount of time spent evaluating the data, the automatic extraction of the volume can be automatically performed in a very short time.
 
 We thus propose that---if absolute values are needed for a larger study---the automatic extraction of the volume is calibrated against the gold standard, the manual, stereological assessment of the volume according to \citet{Hsia2010}. Since for our planned follow-up study we will not look at the absolute volume, but only at the volume fractions or increase of volume, the difference in absolute volume between the two methods can be neglected for our purposes.\todo{Vorhandene Daten diskutieren. Silikonausgüsse von \citet{Rodriguez1987}, etc.\ diskutieren.}
 
@@ -400,9 +451,9 @@ We thus propose that---if absolute values are needed for a larger study---the au
 \end{figure}
 
 \subsection{Conclusions}
-The hereby presented manhole cover method is well suited to semi-automatically isolate single acini from three-dimensional datasets. The presented workflow permits a fully automated analysis of the volume of the acini and enables the study of large amounts of acini in relatively short time.\todo{Shall we write something about the 1000 extracted acini for days \numrange{4}{60}?}
+The hereby presented manhole cover method is well suited to semi-automatically isolate single acini from three-dimensional datasets for further stereological analysis. To our knowledge, the presented workflow is the only one published to permit a semiautomatic extraction of single acini. After the extraction of single acini, a fully automated calculation of the volume of individual acini is possible, thus for the first time enabling the study of large amounts of individual acini in relatively short time.\todo{Shall we write something about the 1000 extracted acini for days \numrange{4}{60}?}. This opens up the possibility to efficiently estimate biological parameters like volume and surface of single acini, number of acini and diffusion surface in the mammalian lung using accepted stereological methods.
 
-We validated our automatic method with a proven and accepted method, the so-called Stereology. We have shown that---even though there are slight differences between the two methods---the achieved results are comparable. Since our proposed method for assessing the volumes of isolated individual acini is by magnitudes faster than manual stereological counting, we believe the presented method is the easiest and fastest way to assess the volume of single acini in the mammalian lungs.
+We validated our automatic method with a proven and accepted method, the so-called Stereology. We have shown that---even though there are differences between the two methods---the achieved results are comparable. Since our proposed method for assessing the volumes of isolated individual acini is by magnitudes faster than manual stereological counting, we believe the presented method is the easiest and fastest way to assess the volume of single acini in the mammalian lungs.
 
 \clearpage
 \section{Acknowledgments}
