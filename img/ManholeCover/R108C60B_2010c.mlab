@@ -2,10 +2,104 @@
 network  {
   watchlist = ""
 }
+module SoCustomExaminerViewer {
+  internal  {
+    frame = "1049 -471 176 64"
+    moduleGroupName = ""
+    windows  {
+      window _viewer {
+        geometry = "763 362 400 400"
+        sizeHint = "400 400"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = AcinusViewer
+    renderCaching = AUTO
+    boundingBoxCaching = AUTO
+    renderCulling = AUTO
+    pickCulling = AUTO
+    border = FALSE
+    background = "0 0 0"
+    transparency = BLEND
+    antialiasing = FALSE
+    antialiasingNumPasses = 1
+    grabKeyFocus = TRUE
+    snapshotFormat = SNAPSHOT_RGB
+    outputAviFile = ""
+    autoRedrawWhenRecording = TRUE
+    frameRate = 7
+    frameRateAvi = 15
+    status = ready
+    outputSnapshotFile = none
+    outputSnapshotFileWritten = none
+    autoIncreaseFile = TRUE
+    autoUpdateML = FALSE
+    showSnapshotWithShell = FALSE
+    snapCount = 0
+    inputDevicesList = ""
+    headlight = TRUE
+    decoration = TRUE
+    popupMenuEnabled = FALSE
+    viewing = TRUE
+    autoClipping = TRUE
+    externalCamera = FALSE
+    drawStyle = VIEW_AS_IS
+    interactiveDrawStyle = VIEW_LOW_COMPLEXITY
+    viewAllFlag = FALSE
+    initialCameraOrientation = CAMERA_KEEP_AS_IS
+    applyCameraOrientation = CAMERA_KEEP_AS_IS
+    cameraType = CAMERA_PERSPECTIVE
+    userSettingOrientation = "0 0 1 0"
+    automaticViewAll = FALSE
+    storeCurrentState = TRUE
+    saveCamera = TRUE
+    cursor = TRUE
+    isCameraStored = TRUE
+    perspective = TRUE
+    stereoViewing = FALSE
+    stereoOffset = 3
+    height = 0.78539819
+    position = "8.57836818695068 -1.15598034858704 -5.19757223129272"
+    orientation = "-0.46464678645134 0.8253493309021 -0.320783108472824 2.73026204109192"
+    nearDistance = 8.0979786
+    farDistance = 12.677151
+    focalDistance = 10.385285
+    forceRedrawOnInteraction = FALSE
+    button1events = TO_VIEWER
+    button2events = TO_VIEWER
+    button3events = TO_VIEWER
+    keyEvents = TO_VIEWER
+    animationEnabled = FALSE
+    feedback = FALSE
+    feedbackSize = 32
+    mouseInteraction = ""
+    rotationAxis = "0 1 0"
+    rotationAngle = 360
+    rotationSteps = 80
+    rotationCurrentStep = 0
+    recordRotation = TRUE
+    enablePickNView = TRUE
+    enableHome = TRUE
+    enableViewAll = TRUE
+    enableSeek = TRUE
+    enableASC = FALSE
+    enableProjType = TRUE
+    enableDolly = TRUE
+    enableM3Control = FALSE
+    chooseView = VIEW_ANTERIOR
+    transformDeltaIn = "1 0 0 0
+0 1 0 0
+0 0 1 0
+0 0 0 1"
+  }
+}
 module SoToggle {
   internal  {
-    frame = "1053 -963 88 56"
-    moduleGroupName = ""
+    frame = "1081 -959 112 64"
+    moduleGroupName = Paper
     windows  {
       window _default {
         geometry = "935 551 104 22"
@@ -16,15 +110,120 @@ module SoToggle {
     }
   }
   fields  {
-    instanceName = SoToggle3
+    instanceName = ToggleMarkers
     whichChild = -3
     on = TRUE
   }
 }
+module SoSwitch {
+  internal  {
+    frame = "937 -875 96 56"
+    moduleGroupName = Paper
+    windows  {
+      window _default {
+        geometry = "877 519 173 87"
+        sizeHint = "173 87"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoSwitch1
+    whichChild = 0
+  }
+}
+module SoSwitch {
+  internal  {
+    frame = "769 -863 96 64"
+    moduleGroupName = Paper
+    windows  {
+      window _default {
+        geometry = "662 522 173 87"
+        sizeHint = "173 87"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SwitchIso
+    whichChild = 0
+  }
+}
+module IsoSurface {
+  internal  {
+    frame = "673 -759 96 64"
+    moduleGroupName = Paper
+    windows  {
+      window _default {
+        geometry = "1243 286 335 445"
+        sizeHint = "335 445"
+        wasOpen = yes
+        wasActive = no
+      }
+      window _automatic {
+        geometry = "713 262 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Acinus
+    isoValue = 1
+    quality = 1
+    useInterpolation = TRUE
+    useSmoothing = FALSE
+    smoothingPasses = 5
+    smoothingFactor = 0.2
+    usePolygonReduction = FALSE
+    targetReduction = 70
+    colorMode = WEM_COLOR_GENERAL
+    drawFaces = TRUE
+    faceDiffuseColor = "1 1 0"
+    useFaceAmbientColor = TRUE
+    faceAmbientColor = "0.266667008399963 0.266667008399963 0.266667008399963"
+    useFaceSpecularColor = TRUE
+    faceSpecularColor = "0.0666669979691505 0.0666669979691505 0.0666669979691505"
+    drawEdges = FALSE
+    edgeColor = "0 0 0"
+    drawNodes = FALSE
+    nodeColor = "1 1 1"
+    drawBoundingBoxes = FALSE
+    boundingBoxColor = "1 1 1"
+    drawFaceNormals = FALSE
+    drawNodeNormals = FALSE
+    faceNormalsColor = "1 1 1"
+    nodeNormalsColor = "1 1 1"
+    faceNormalsScale = 1
+    nodeNormalsScale = 1
+    faceAlphaValue = 1
+    faceShininessValue = 1
+    lineWidth = 1
+    pointSize = 1
+    useEdgeColoringMode = FALSE
+    nodeRenderingMode = WEM_NODE_RENDERING_NORMAL
+    boundingBoxMode = WEM_BOUNDING_BOX_AXIS_ALIGNED
+    autoUpdate = FALSE
+    autoApply = FALSE
+    progress = 0
+    selectedTab = 0
+    elapsedTime = "10.604 seconds"
+    numFaces = 479470
+    numEdges = 719205
+    numNodes = 239867
+    patchType = Triangles
+    surfaceArea = 27.105467
+    surfaceVolume = 0.35500297
+  }
+  internalFields = ""
+}
 module SoToggle {
   internal  {
-    frame = "917 -955 88 56"
-    moduleGroupName = ""
+    frame = "893 -959 152 64"
+    moduleGroupName = Paper
     windows  {
       window _default {
         geometry = "935 551 104 22"
@@ -35,45 +234,45 @@ module SoToggle {
     }
   }
   fields  {
-    instanceName = SoToggle2
+    instanceName = ToggleAirwaySegment
     whichChild = -3
     on = TRUE
   }
 }
 module SoToggle {
   internal  {
-    frame = "741 -955 88 56"
-    moduleGroupName = ""
+    frame = "733 -959 104 64"
+    moduleGroupName = Paper
     windows  {
       window _default {
         geometry = "935 551 104 22"
         sizeHint = "56 22"
-        wasOpen = yes
+        wasOpen = no
         wasActive = no
       }
     }
   }
   fields  {
-    instanceName = SoToggle1
+    instanceName = ToggleAcinus
     whichChild = -3
     on = TRUE
   }
 }
 module SoToggle {
   internal  {
-    frame = "573 -931 88 56"
-    moduleGroupName = ""
+    frame = "569 -959 112 64"
+    moduleGroupName = Paper
     windows  {
       window _default {
         geometry = "935 551 104 22"
         sizeHint = "56 22"
-        wasOpen = yes
+        wasOpen = no
         wasActive = no
       }
     }
   }
   fields  {
-    instanceName = SoToggle
+    instanceName = ToggleSample
     whichChild = -1
     on = FALSE
   }
@@ -81,7 +280,7 @@ module SoToggle {
 module SoCalculator {
   internal  {
     frame = "293 -755 104 56"
-    moduleGroupName = ""
+    moduleGroupName = Paper
     windows  {
       window _default {
         geometry = "1164 232 348 642"
@@ -123,7 +322,7 @@ module SoCalculator {
 module SoSeparator {
   internal  {
     frame = "453 -851 184 56"
-    moduleGroupName = ""
+    moduleGroupName = Paper
   }
   fields  {
     instanceName = SoSeparator
@@ -136,7 +335,7 @@ module SoSeparator {
 module SoTranslation {
   internal  {
     frame = "441 -723 112 56"
-    moduleGroupName = ""
+    moduleGroupName = Paper
     windows  {
       window _default {
         geometry = "828 545 270 34"
@@ -154,7 +353,7 @@ module SoTranslation {
 module SoGVRVolumeRenderer {
   internal  {
     frame = "473 -627 176 56"
-    moduleGroupName = ""
+    moduleGroupName = Paper
     windows  {
       window _default {
         geometry = "459 116 346 561"
@@ -259,10 +458,10 @@ module SoGVRVolumeRenderer {
 module SoGVRVolumeRenderer {
   internal  {
     frame = "289 -619 176 56"
-    moduleGroupName = ""
+    moduleGroupName = Paper
     windows  {
       window _default {
-        geometry = "-43 176 346 561"
+        geometry = "57 320 346 561"
         sizeHint = "346 561"
         wasOpen = no
         wasActive = no
@@ -363,76 +562,19 @@ module SoGVRVolumeRenderer {
 }
 module IsoSurface {
   internal  {
-    frame = "729 -863 96 64"
-    moduleGroupName = ""
+    frame = "821 -735 120 64"
+    moduleGroupName = Paper
     windows  {
       window _default {
-        geometry = "1243 286 335 445"
+        geometry = "158 380 335 445"
         sizeHint = "335 445"
-        wasOpen = yes
+        wasOpen = no
         wasActive = no
       }
-    }
-  }
-  fields  {
-    instanceName = Acinus
-    isoValue = 1
-    quality = 1
-    useInterpolation = TRUE
-    useSmoothing = FALSE
-    smoothingPasses = 5
-    smoothingFactor = 0.2
-    usePolygonReduction = FALSE
-    targetReduction = 70
-    colorMode = WEM_COLOR_GENERAL
-    drawFaces = TRUE
-    faceDiffuseColor = "1 1 0"
-    useFaceAmbientColor = TRUE
-    faceAmbientColor = "0.266667008399963 0.266667008399963 0.266667008399963"
-    useFaceSpecularColor = TRUE
-    faceSpecularColor = "0.0666669979691505 0.0666669979691505 0.0666669979691505"
-    drawEdges = FALSE
-    edgeColor = "0 0 0"
-    drawNodes = FALSE
-    nodeColor = "1 1 1"
-    drawBoundingBoxes = FALSE
-    boundingBoxColor = "1 1 1"
-    drawFaceNormals = FALSE
-    drawNodeNormals = FALSE
-    faceNormalsColor = "1 1 1"
-    nodeNormalsColor = "1 1 1"
-    faceNormalsScale = 1
-    nodeNormalsScale = 1
-    faceAlphaValue = 1
-    faceShininessValue = 1
-    lineWidth = 1
-    pointSize = 1
-    useEdgeColoringMode = FALSE
-    nodeRenderingMode = WEM_NODE_RENDERING_NORMAL
-    boundingBoxMode = WEM_BOUNDING_BOX_AXIS_ALIGNED
-    autoUpdate = FALSE
-    autoApply = FALSE
-    progress = 0
-    selectedTab = 0
-    elapsedTime = "9.835 seconds"
-    numFaces = 0
-    numEdges = 0
-    numNodes = 0
-    patchType = Unknown
-    surfaceArea = 0
-    surfaceVolume = 0
-  }
-  internalFields = ""
-}
-module IsoSurface {
-  internal  {
-    frame = "901 -879 120 64"
-    moduleGroupName = ""
-    windows  {
-      window _default {
-        geometry = "796 340 335 445"
-        sizeHint = "335 445"
-        wasOpen = yes
+      window _automatic {
+        geometry = "180 265 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
         wasActive = no
       }
     }
@@ -477,20 +619,20 @@ module IsoSurface {
     autoApply = FALSE
     progress = 0
     selectedTab = 0
-    elapsedTime = "9.779 seconds"
-    numFaces = 157434
-    numEdges = 236151
-    numNodes = 78875
+    elapsedTime = "9.356 seconds"
+    numFaces = 98366
+    numEdges = 147549
+    numNodes = 49277
     patchType = Triangles
-    surfaceArea = 8.5344095
-    surfaceVolume = 0.20036724
+    surfaceArea = 5.2729449
+    surfaceVolume = 0.14490773
   }
   internalFields = ""
 }
 module SoGVRVolumeRenderer {
   internal  {
     frame = "681 -627 176 56"
-    moduleGroupName = ""
+    moduleGroupName = Paper
     windows  {
       window _default {
         geometry = "950 159 346 561"
@@ -594,11 +736,11 @@ module SoGVRVolumeRenderer {
 }
 module SoCustomExaminerViewer {
   internal  {
-    frame = "757 -1307 184 56"
-    moduleGroupName = ""
+    frame = "761 -1183 176 64"
+    moduleGroupName = Paper
     windows  {
       window _viewer {
-        geometry = "2092 85 400 400"
+        geometry = "2103 61 851 900"
         sizeHint = "400 400"
         wasOpen = yes
         wasActive = no
@@ -612,7 +754,7 @@ module SoCustomExaminerViewer {
     }
   }
   fields  {
-    instanceName = SoCustomExaminerViewer1
+    instanceName = PaperViewer
     renderCaching = AUTO
     boundingBoxCaching = AUTO
     renderCulling = AUTO
@@ -639,7 +781,7 @@ module SoCustomExaminerViewer {
     headlight = TRUE
     decoration = TRUE
     popupMenuEnabled = FALSE
-    viewing = TRUE
+    viewing = FALSE
     autoClipping = TRUE
     externalCamera = FALSE
     drawStyle = VIEW_AS_IS
@@ -658,11 +800,11 @@ module SoCustomExaminerViewer {
     stereoViewing = FALSE
     stereoOffset = 3
     height = 0.78539819
-    position = "7.87196731567383 -1.37067198753357 3.0510721206665"
-    orientation = "0.350923657417297 -0.66692978143692 0.657310724258423 3.9162003993988"
-    nearDistance = 5.3421702
-    farDistance = 8.1369381
-    focalDistance = 6.930625
+    position = "9.10325336456299 -2.43905663490295 2.638343334198"
+    orientation = "0.322719365358353 -0.672343194484711 0.66618824005127 3.89237666130066"
+    nearDistance = 6.3702135
+    farDistance = 10.6295
+    focalDistance = 8.327198
     forceRedrawOnInteraction = FALSE
     button1events = TO_VIEWER
     button2events = TO_VIEWER
@@ -753,7 +895,7 @@ module SoCalculator {
 }
 module View3D {
   internal  {
-    frame = "1073 -743 144 64"
+    frame = "1321 -831 144 64"
     moduleGroupName = ""
     windows  {
       window _default {
@@ -787,11 +929,11 @@ module View3D {
     greyCenter = 1
     greyWidth = 0.6925
     camType = TRUE
-    camPosition = "4.0492787361145 -2.47578907012939 5.14306259155273"
-    camOrientation = "-0.17837892472744 0.574166655540466 -0.799070417881012 2.71055626869202"
+    camPosition = "5.885986328125 -0.419118285179138 2.56529951095581"
+    camOrientation = "-0.320597618818283 0.818685173988342 -0.476415604352951 2.21144700050354"
     initialCameraOrientation = CAMERA_KEEP_AS_IS
-    camFar = 7.6277146
-    camNear = 0.81703049
+    camFar = 7.6044579
+    camNear = 0.90650225
     camFocal = 4.7283473
     camHeight = 0.78539801
     autoViewAll = FALSE
@@ -877,7 +1019,7 @@ module View3D {
 }
 module SoGVRVolumeRenderer {
   internal  {
-    frame = "1153 -299 176 56"
+    frame = "1145 -291 176 56"
     moduleGroupName = ""
     windows  {
       window _default {
@@ -1020,17 +1162,17 @@ module XMarkerListContainer {
     persistent = FALSE
     listStringEnable = FALSE
     applySelect = FALSE
-    id = 62
+    id = 48
     name = ""
     newName = ""
     overflowMode = None
     maxSize = 1
     useInsertTemplate = FALSE
-    posXYZ = "2.44902849197388 1.14256012439728 4.28349828720093"
+    posXYZ = "2.4464807510376 1.12216424942017 4.22852468490601"
     posC = 0
     posT = 0
     posU = 0
-    vecXYZ = "-0.071040153503418 0 0.355199813842773"
+    vecXYZ = "-0.0059199333190918 -0.0473599433898926 0.408480167388916"
     type = 1
     newPosXYZ = "0 0 0"
     newPosC = 0
@@ -1061,17 +1203,17 @@ module XMarkerListContainer {
     persistent = FALSE
     listStringEnable = FALSE
     applySelect = FALSE
-    id = 62
+    id = 48
     name = ""
     newName = ""
     overflowMode = None
     maxSize = 1
     useInsertTemplate = FALSE
-    posXYZ = "2.46864008903503 1.14256012439728 4.18544006347656"
+    posXYZ = "2.44792032241821 1.13368010520935 4.12920045852661"
     posC = 0
     posT = 0
     posU = 0
-    vecXYZ = "0.071040153503418 0 -0.355199813842773"
+    vecXYZ = "0.0059199333190918 0.0473599433898926 -0.408480167388916"
     type = 1
     newPosXYZ = "0 0 0"
     newPosC = 0
@@ -1109,8 +1251,8 @@ module MarkerListInspector {
     hide3DView = TRUE
     numMarkers = 1
     selMarker = -1
-    markerPosition = "2.46864008903503 1.14256012439728 4.18544006347656"
-    markerVector = "0.071040153503418 0 -0.355199813842773"
+    markerPosition = "2.44792032241821 1.13368010520935 4.12920045852661"
+    markerVector = "0.0059199333190918 0.0473599433898926 -0.408480167388916"
     currentMarker = 0
     currentType = 1
     detail = FALSE
@@ -1177,12 +1319,12 @@ module MarkerListInspector {
     drawMode = DrawModeFast
     useFastMode = TRUE
     hide3DView = TRUE
-    numMarkers = 36
-    selMarker = 23
-    markerPosition = "1.85296010971069 2.33840012550354 4.1617603302002"
-    markerVector = "0.236799955368042 -0.118400096893311 0"
+    numMarkers = 33
+    selMarker = -1
+    markerPosition = "2.65512013435364 1.16920006275177 3.98120021820068"
+    markerVector = "-0.349279880523682 -0.0828800201416016 0"
     currentMarker = 0
-    currentType = 5
+    currentType = 1
     detail = FALSE
     tabbar = shortinfo
   }
@@ -1211,8 +1353,8 @@ module SoCalculator {
     f = 0
     g = 0
     h = 0
-    va = "2.46864008903503 1.14256012439728 4.18544006347656"
-    vb = "0.071040153503418 0 -0.355199813842773"
+    va = "2.44792032241821 1.13368010520935 4.12920045852661"
+    vb = "0.0059199333190918 0.0473599433898926 -0.408480167388916"
     vc = "10 1 1"
     vd = "0 0 0"
     ve = "0 0 0"
@@ -1223,8 +1365,8 @@ module SoCalculator {
     ob = 0
     oc = 0
     od = 0
-    ova = "2.44902849197388 1.14256012439728 4.28349828720093"
-    ovb = "-0.071040153503418 0 0.355199813842773"
+    ova = "2.4464807510376 1.12216424942017 4.22852468490601"
+    ovb = "-0.0059199333190918 -0.0473599433898926 0.408480167388916"
     ovc = "0 0 0"
     ovd = "0 0 0"
     expression = "ovb = vb*a; # invert vector direction
@@ -1252,13 +1394,13 @@ module XMarkerAtIndex {
   }
   fields  {
     instanceName = SelectMarker
-    index = 35
-    vector = "0.071040153503418 0 -0.355199813842773"
-    position = "2.46864008903503 1.14256012439728 4.18544006347656 0 0 0"
+    index = 32
+    vector = "0.0059199333190918 0.0473599433898926 -0.408480167388916"
+    position = "2.44792032241821 1.13368010520935 4.12920045852661 0 0 0"
     type = 1
-    id = 62
+    id = 48
     name = XMarker
-    numMarker = 36
+    numMarker = 33
     autoUpdate = TRUE
   }
 }
@@ -1289,18 +1431,18 @@ module RegionGrowingMacro {
     basicNeighborhoodType = BNBH_3D_6_XYZ
     extendedNeighborhoodType = ENBH_2D_4_XZ
     intervalSize = 0.5
-    lowerThreshold = 1
+    lowerThreshold = 10
     unitLabel = ""
-    upperThreshold = 77
+    upperThreshold = 75
     useExtendedNBH = FALSE
     noSeeds = 1
     stretchOutputOverTime = FALSE
     volumeCount = 0
-    status = "Region growing terminated normally."
-    outputValid = TRUE
+    status = Ready.
+    outputValid = FALSE
     startButtonActive = TRUE
     abortButtonActive = FALSE
-    theProgressBar = 1
+    theProgressBar = 0
     cCoord = 0
     uCoord = 0
     unitType = UnitTypeGrayValue
@@ -1314,7 +1456,7 @@ module RegionGrowingMacro {
     showOuterBoundariesOnly = FALSE
     incrementalUpdateMode = Smart
     markerPersistence = FALSE
-    markerString = "[(2.44903 1.14256 4.2835)(-0.0710402 -0 0.3552) 1 #62]"
+    markerString = "[(2.44648 1.12216 4.22852)(-0.00591993 -0.0473599 0.40848) 1 #48]"
     deleteMarkerOnClick = TRUE
     markerOverflowMode = None
     maxMarkers = 0
@@ -1373,22 +1515,22 @@ module XMarkerListContainer {
   fields  {
     instanceName = XMarkerListContainer2
     listString = ""
-    numItems = 36
-    index = 35
+    numItems = 33
+    index = 32
     persistent = FALSE
     listStringEnable = FALSE
     applySelect = FALSE
-    id = 62
+    id = 48
     name = ""
     newName = ""
     overflowMode = None
     maxSize = 0
     useInsertTemplate = FALSE
-    posXYZ = "2.46864008903503 1.14256012439728 4.18544006347656"
+    posXYZ = "2.44792032241821 1.13368010520935 4.12920045852661"
     posC = 0
     posT = 0
     posU = 0
-    vecXYZ = "0.071040153503418 0 -0.355199813842773"
+    vecXYZ = "0.0059199333190918 0.0473599433898926 -0.408480167388916"
     type = 1
     newPosXYZ = "0 0 0"
     newPosC = 0
@@ -1448,7 +1590,7 @@ module So3DXMarker {
     drawMode = DrawModeCorrect
     instanceName = So3DXMarker0
     listString = ""
-    numItems = 36
+    numItems = 33
     index = 0
     persistent = FALSE
     listStringEnable = FALSE
@@ -1457,20 +1599,20 @@ module So3DXMarker {
     id = 1
     name = ""
     newName = ""
-    actionClass = Select
-    actionIndex = 23
-    actionId = 41
-    currentIndex = 23
+    actionClass = New
+    actionIndex = -1
+    actionId = -1
+    currentIndex = -1
     overflowMode = None
     maxSize = 0
     useInsertTemplate = FALSE
     upToDate = TRUE
-    posXYZ = "1.85296010971069 2.33840012550354 4.1617603302002"
+    posXYZ = "2.65512013435364 1.16920006275177 3.98120021820068"
     posC = 0
     posT = 0
     posU = 0
-    vecXYZ = "0.236799955368042 -0.118400096893311 0"
-    type = 5
+    vecXYZ = "-0.349279880523682 -0.0828800201416016 0"
+    type = 1
     newPosXYZ = "0 0 0"
     newPosC = 0
     newPosT = 0
@@ -1548,24 +1690,24 @@ module SoView2DMarkerEditor {
     cooperative = TRUE
     instanceName = SoView2DMarkerEditor0
     listString = ""
-    index = 23
+    index = 0
     persistent = FALSE
     listStringEnable = FALSE
     ownsList = FALSE
     applySelect = FALSE
-    id = 41
+    id = 1
     name = ""
     newName = ""
     overflowMode = None
     maxSize = 0
     useInsertTemplate = FALSE
     upToDate = TRUE
-    posXYZ = "1.6398401260376 0.586080014705658 2.96592020988464"
+    posXYZ = "2.65512013435364 1.16920006275177 3.98120021820068"
     posC = 0
     posT = 0
     posU = 0
-    vecXYZ = "-0.130240082740786 0.130240023136139 -0.130239963531491"
-    type = 5
+    vecXYZ = "-0.349279880523682 -0.0828800201416016 0"
+    type = 1
     newPosXYZ = "0 0 0"
     newPosC = 0
     newPosT = 0
@@ -1625,10 +1767,10 @@ module SoCrossHair {
     renderCulling = AUTO
     pickCulling = AUTO
     crossHairType = CROSS_HAIR_0
-    position = "2.45680022239685 1.14256012439728 4.54064035415649"
+    position = "2.05851984024048 3.13560795783997 2.69129991531372"
     scale = "0.5 0.5 0.5"
     useDragger = FALSE
-    positionOut = "2.45680022239685 1.14256012439728 4.54064035415649"
+    positionOut = "2.05851984024048 3.13560795783997 2.69129991531372"
   }
 }
 module Bypass {
@@ -2030,7 +2172,7 @@ module SoView2DOverlay {
     instanceName = SoView2DOverlay
     drawingOn = TRUE
     editingOn = TRUE
-    maskValid = TRUE
+    maskValid = FALSE
     fixZOn = TRUE
     color = "1 1 1"
     selectionTolerance = 4
@@ -2280,7 +2422,7 @@ module FileInformation {
     extension = .gvr
     type = File
     size = 1241065224
-    createDate = 2010-07-19T10:08:40
+    createDate = 2012-03-21T15:14:09
     exists = TRUE
     isDirectory = FALSE
     isReadable = TRUE
@@ -2393,8 +2535,8 @@ module StylePalette {
     name10 = ""
     name11 = ""
     name12 = ""
-    currentStyle = 62
-    currentColor = "1 0 0"
+    currentStyle = 48
+    currentColor = "0 1 0.5"
     currentLineStyle = Solid
     currentLineWidth = 1
     currentMarkerType = None
@@ -2440,11 +2582,11 @@ module View3D {
     greyCenter = 1
     greyWidth = 0.6925
     camType = TRUE
-    camPosition = "5.82530355453491 3.3283166885376 2.59782671928406"
-    camOrientation = "-0.837895452976227 0.342801541090012 -0.424756854772568 2.09525561332703"
+    camPosition = "-0.119089841842651 3.6441490650177 3.76700162887573"
+    camOrientation = "-0.774506449699402 -0.54062032699585 0.328434616327286 1.59000110626221"
     initialCameraOrientation = CAMERA_KEEP_AS_IS
-    camFar = 7.464375
-    camNear = 0.075828463
+    camFar = 6.1085691
+    camNear = 0.0060963645
     camFocal = 3.6454675
     camHeight = 0.78539801
     autoViewAll = FALSE
@@ -2833,22 +2975,22 @@ module XMarkerListContainer {
   fields  {
     instanceName = XMarkerListContainer
     listString = ""
-    numItems = 36
-    index = 35
+    numItems = 33
+    index = 32
     persistent = FALSE
     listStringEnable = FALSE
     applySelect = FALSE
-    id = 62
+    id = 48
     name = ""
     newName = ""
     overflowMode = None
     maxSize = 0
     useInsertTemplate = FALSE
-    posXYZ = "2.46864008903503 1.14256012439728 4.18544006347656"
+    posXYZ = "2.44792032241821 1.13368010520935 4.12920045852661"
     posC = 0
     posT = 0
     posU = 0
-    vecXYZ = "0.071040153503418 0 -0.355199813842773"
+    vecXYZ = "0.0059199333190918 0.0473599433898926 -0.408480167388916"
     type = 1
     newPosXYZ = "0 0 0"
     newPosC = 0
@@ -2880,7 +3022,7 @@ module SaveBase {
     baseDir = d:/SLS/2010c/R108C60B_B1_mrg/
     format = XML
     autoSave = FALSE
-    upToDate = TRUE
+    upToDate = FALSE
     allowOverwrite = TRUE
   }
 }
@@ -2998,8 +3140,8 @@ module Mask {
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "843 580 371 94"
-        sizeHint = "371 94"
+        geometry = "843 580 370 94"
+        sizeHint = "370 94"
         wasOpen = no
         wasActive = no
       }
@@ -3034,7 +3176,7 @@ module RegionGrowingMacro {
   fields  {
     instanceName = RegionGrowingMacro
     isInit = TRUE
-    autoUpdateMode = AutoUpdate
+    autoUpdateMode = Off
     autoThreshold = FALSE
     basicNeighborhoodType = BNBH_3D_6_XYZ
     extendedNeighborhoodType = ENBH_2D_4_XZ
@@ -3043,14 +3185,14 @@ module RegionGrowingMacro {
     unitLabel = ""
     upperThreshold = 73
     useExtendedNBH = FALSE
-    noSeeds = 36
+    noSeeds = 33
     stretchOutputOverTime = FALSE
-    volumeCount = 0.000174315286530559
-    status = "Region growing terminated normally."
-    outputValid = TRUE
+    volumeCount = 0
+    status = Ready.
+    outputValid = FALSE
     startButtonActive = TRUE
     abortButtonActive = FALSE
-    theProgressBar = 1
+    theProgressBar = 0
     cCoord = 0
     uCoord = 0
     unitType = UnitTypeGrayValue
@@ -3064,7 +3206,7 @@ module RegionGrowingMacro {
     showOuterBoundariesOnly = FALSE
     incrementalUpdateMode = Smart
     markerPersistence = FALSE
-    markerString = "[(1.85296 2.3384 4.16176)(0.2368 -0.1184 0) 5 #1, (1.95952 2.9304 3.20272)(0.0947201 -0.2368 0) 5 #4, (1.93584 2.74096 3.19088)(0.15392 0.08288 0) 5 #6, (2.07792 3.14352 2.71728)(-0.02368 -0.15392 0) 5 #11, (2.11344 3.14352 2.26736)(0 -0.0947199 0.31968) 5 #18, (1.93584 3.36848 2.29104)(0 -0.2368 0.21312) 5 #19, (1.85296 3.17904 2.3384)(0.18944 0 0.21312) 5 #20, (1.8648 3.29744 2.43312)(0.15392 0 -0.10656) 5 #21, (2.26736 2.62256 3.43952)(-0.1776 -0.0118401 0.0473599) 5 #22, (2.29104 3.07248 2.30288)(-0.20128 0 0.10656) 5 #24, (2.20816 2.8712 2.17264)(0.16576 0.13024 0) 5 #25, (2.36208 2.85936 2.12528)(-0.30784 0.16576 0) 5 #26, (2.29104 2.91856 2.05424)(0 0.13024 0.37888) 5 #27, (2.1608 1.5096 2.9896)(-0.30784 -0.0473599 0) 5 #28, (1.8056 1.63984 2.90672)(0.21312 -0.13024 0) 5 #29, (1.8648 1.60432 2.11344)(0.0236801 0.24864 0.4736) 5 #31, (2.17264 0.55056 2.78832)(0 0.27232 0.1776) 5 #33, (1.91216 1.88848 2.14896)(0 -0.30784 0.296) 5 #34, (1.60432 0.65712 2.35024)(0 0.09472 0.4144) 5 #35, (2.5752 1.00048 3.92496)(-0.13024 0.18944 0) 5 #36, (2.64624 1.18992 3.97232)(-0.296 -0.08288 0) 5 #37, (1.78192 1.30832 4.01968)(0.21312 0.0473601 0) 5 #38, (1.58064 0.5624 2.4568)(0 0.28416 0.0592) 5 #40, (1.63984 0.58608 2.96592)(-0.13024 0.13024 -0.13024) 5 #41, (2.32656 0.66896 2.812)(-0.34336 0.08288 0.0947199) 5 #42, (1.55696 0.9768 2.46864)(0 -0.27232 0.21312) 5 #43, (1.42672 0.87024 2.66992)(0.28416 0 -0.13024) 5 #45, (2.19632 0.69264 2.90672)(-0.16576 0 -0.296) 5 #49, (1.59248 0.63344 2.89488)(0.15392 0.18944 0) 1 #54, (1.43856 0.92944 2.4568)(0.2368 0 0.28416) 1 #55, (1.65168 1.7464 2.23184)(0.33152 0 0.28416) 1 #56, (1.60432 1.924 2.22)(0.30784 -0.3552 0) 1 #57, (2.03056 0.64528 2.59888)(0 0.37888 0.42624) 1 #59, (2.1016 0.8584 2.64624)(0 -0.18944 0.34336) 1 #60, (2.46864 2.14896 4.50512)(-0.3552 -0.0710399 0) 1 #61, (2.46864 1.14256 4.18544)(0.0710402 0 -0.3552) 1 #62]"
+    markerString = "[(2.65512 1.1692 3.9812)(-0.34928 -0.08288 0) 1 #1, (1.54808 1.38824 3.92792)(0.33152 -0.42624 0) 1 #2, (1.59544 1.2284 3.93976)(0.21312 0.33152 2.66454e-015) 1 #3, (2.65512 0.89688 3.91608)(-0.39072 0.37296 0) 1 #4, (1.702 1.1988 4.05224)(-0.12432 0.21312 -0.22496) 1 #5, (1.76712 2.37096 4.08776)(0.39664 0.11248 0) 1 #7, (1.75528 2.4716 4.12328)(0.21904 -0.29008 -0.13616) 1 #8, (2.72616 2.18152 4.514)(-0.36112 -0.0888002 0) 1 #9, (1.95064 2.92152 3.2116)(0.1184 -0.23088 0) 1 #11, (2.03944 2.90376 3.05768)(3.9968e-015 -0.1776 0.2664) 1 #13, (1.8796 1.62504 2.16376)(0 0.18352 0.31376) 1 #14, (2.05128 0.73704 2.73208)(0 0.29008 0.296) 1 #15, (2.0868 0.82584 2.69064)(0 -0.11248 0.45584) 1 #17, (1.9092 1.83816 2.19928)(0 -0.37888 0.16576) 1 #19, (2.22888 1.53032 2.98664)(-0.33744 -0.0710399 0) 1 #21, (1.7908 1.6428 2.90376)(0.29008 -0.20128 0) 1 #22, (1.79672 1.73752 2.3532)(0.53872 -0.148 0) 1 #23, (2.3236 4.17656 4.13512)(0 -0.43216 0.14208) 1 #26, (2.16376 3.88648 3.99304)(0.42624 0 0.0887997) 1 #28, (2.35912 3.93976 3.76808)(-0.15392 0 0.39664) 1 #30, (2.40648 2.63144 3.30632)(-0.29008 0 0.50912) 1 #32, (2.09864 0.76664 2.83272)(-0.20128 0.26048 -0.18352) 1 #34, (2.6196 0.96792 3.79768)(0 -0.16576 0.52096) 1 #35, (2.53672 0.90872 3.88056)(0.2368 0.1776 0.0355201) 1 #36, (1.74344 1.75528 2.3236)(0.37296 0 0.36704) 1 #37, (1.6132 0.83176 2.70248)(0.26048 0 0.30192) 1 #39, (1.60728 1.3172 3.93384)(0.296 0 0.15392) 1 #41, (1.68424 0.74888 2.89784)(0.2664 0.2368 0) 1 #42, (1.92696 2.738 3.2116)(0.3552 0 0.45584) 1 #43, (2.43016 2.69064 3.478)(-0.20128 -0.0296001 -0.24272) 1 #44, (2.43608 2.74984 3.30632)(0 -0.51504 0.21904) 1 #45, (2.69064 2.11048 4.38968)(-0.0592 0.08288 0.14208) 1 #46, (2.44792 1.13368 4.1292)(0.00591993 0.0473599 -0.40848) 1 #48]"
     deleteMarkerOnClick = TRUE
     markerOverflowMode = None
     maxMarkers = 0
@@ -3132,7 +3274,7 @@ module OrthoView2D {
     valueHighPrecision = TRUE
     annoCoords = Voxel
     showCurrentPos = TRUE
-    worldPosition = "2.45680022239685 1.14256012439728 4.54064035415649"
+    worldPosition = "2.05851984024048 3.13560795783997 2.69129991531372"
     coloredMode = FALSE
   }
   internalFields = ""
@@ -3153,7 +3295,7 @@ module XMarkerClipPlanes {
   fields  {
     instanceName = XMarkerClipPlanes
     updateMode = Auto
-    markerListIndex = 35
+    markerListIndex = 32
     planeValue = 1
     backgroundValue = 0
     planeRadius = 0.15000001
@@ -3162,7 +3304,7 @@ module XMarkerClipPlanes {
     planeTransparency = 0
     shiftPlane = TRUE
     shiftOffset = 0.0099999998
-    cylinderCenterPosition = "2.46667892266449 1.14256012439728 4.19524586900169"
+    cylinderCenterPosition = "2.44777637586438 1.13252852118414 4.13913288668654"
   }
   internalFields = ""
 }
@@ -3174,7 +3316,7 @@ module GVRVolumeLoad {
       window _default {
         geometry = "1081 413 487 250"
         sizeHint = "487 250"
-        wasOpen = yes
+        wasOpen = no
         wasActive = no
       }
     }
@@ -3257,7 +3399,7 @@ module RegionGrowingMacro {
   fields  {
     instanceName = RegionGrowingMacro2
     isInit = TRUE
-    autoUpdateMode = AutoUpdate
+    autoUpdateMode = Off
     autoThreshold = TRUE
     basicNeighborhoodType = BNBH_3D_6_XYZ
     extendedNeighborhoodType = ENBH_2D_4_XZ
@@ -3514,12 +3656,12 @@ module View3D {
     greyCenter = 0.42250001
     greyWidth = 0.54499996
     camType = TRUE
-    camPosition = "2.03187894821167 1.44889950752258 0.636225640773773"
-    camOrientation = "-0.0984798818826675 -0.863041043281555 0.495441138744354 3.71535110473633"
+    camPosition = "5.70043087005615 -5.61609029769897 -1.33149290084839"
+    camOrientation = "-0.0984798744320869 -0.86304098367691 0.495441108942032 3.71535110473633"
     initialCameraOrientation = CAMERA_KEEP_AS_IS
-    camFar = 1.1153394
-    camNear = 0.50244993
-    camFocal = 0.80858874
+    camFar = 12.852154
+    camNear = 5.7243004
+    camFocal = 9.2846727
     camHeight = 0.78539801
     autoViewAll = TRUE
     annotations = TRUE
@@ -3727,20 +3869,27 @@ module Bypass {
   }
 }
 connections  {
-  SoToggle3.children = XMarkerClipPlanes.outNode0
-  SoToggle2.children = AirwaySegment.outScene
-  SoToggle1.children = Acinus.outScene
-  SoToggle.children = SoSeparator.self
+  AcinusViewer.children = SoGroup8.self
+  ToggleMarkers.children = SoGroup1.self
+  SoSwitch1.whichChild = SwitchIso.whichChild
+  SoSwitch1.children = "AirwaySegment.outScene SoGVRVolumeRenderer.self"
+  SwitchIso.whichChild = SoSwitch1.whichChild
+  SwitchIso.children = "Acinus.outScene SoGVRVolumeRenderer4.self"
+  Acinus.inImage = AcinusRegionGrowing.outMask
+  Acinus.apply = AirwaySegment.apply
+  ToggleAirwaySegment.children = SoSwitch1.self
+  ToggleAcinus.children = SwitchIso.self
+  ToggleSample.children = SoSeparator.self
   SoSeparator.children = "SoGVRVolumeRenderer7.self SoTranslation.self SoGVRVolumeRenderer8.self SoTranslation.self SoGVRVolumeRenderer6.self"
   SoTranslation.translation = SoCalculator.ova
   SoGVRVolumeRenderer8.inVolume = GVRVolumeLoad2.outVolume
   SoGVRVolumeRenderer8.alphaFactor = SoGVRVolumeRenderer7.alphaFactor
   SoGVRVolumeRenderer7.inVolume = GVRVolumeLoad1.outVolume
-  Acinus.inImage = AcinusRegionGrowing.outMask
   AirwaySegment.inImage = RegionGrowingMacro.outMask
+  AirwaySegment.apply = Acinus.apply
   SoGVRVolumeRenderer6.inVolume = GVRVolumeLoad3.outVolume
   SoGVRVolumeRenderer6.alphaFactor = SoGVRVolumeRenderer8.alphaFactor
-  SoCustomExaminerViewer1.children = "SoToggle1.self SoToggle2.self SoToggle3.self SoToggle.self"
+  PaperViewer.children = "ToggleAcinus.self ToggleAirwaySegment.self ToggleMarkers.self ToggleSample.self"
   SoGroup8.children = "SoGroup.self SoGVRVolumeRenderer4.self"
   VolumeCalculator.a = AcinusRegionGrowing.volumeCount
   Acinus3DViewer.inImage = Bypass1.output0
@@ -3905,4 +4054,36 @@ connections  {
   SoGVRVolumeRenderer.colorFactor = SoView2DOverlay.baseColor
   Bypass.input0 = Switch.output0
 }
-networkModel = ""
+networkModel  {
+  parentItems  {
+    0  {
+      MLABNetworkModelItem MLABNoteItem {
+        uniqueId = 226
+        objectName = ""
+        parentUniqueId = 0
+        frame = "224 -1214 200 200"
+        backgroundColor  {
+          r = 252
+          g = 242
+          b = 2
+          a = 255
+        }
+        text = "This up here is the visualization for the Acinus-Paper."
+        titleText = Paper
+        isCollapsed = False
+      }
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 247
+        objectName = Paper
+        parentUniqueId = 0
+        frame = "264 -1258 954 720"
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+    }
+  }
+}
