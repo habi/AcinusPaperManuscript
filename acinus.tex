@@ -319,11 +319,22 @@ Counting points (green three-quarter circles) and intersections (red \href{https
 		% 914px = 0.1mm > 100px = 11um > 4568px = 500um, 914px = 100um
 		\draw[dashed,green,thick] (719,207) -- (937,207) -- (932,270) -- (723,270) -- cycle ;
 	\end{tikzpicture}%
-	\caption{STEPanizer counting window.
-		The segmented acinus is visible in light gray, the manhole cover which was used to separate this acinus is visualized with a dashed green line for display purposes.
+	\caption{Screenshot from the STEPanizer counting window.
+		The segmented acinus is visible in light grey, the manhole cover which was used to separate this acinus is visualized with a dashed green line for display purposes.
 		Both structures have been merged with the original tomographic data using the described MeVisLab work flow and exported to single JPG files.
 		Line and point probes (red lines and green circles) are overlaid over the image for counting.
 		To correctly assess all structures in the image, the original non-square datasets have been padded to a square, resulting in the small white rectangle at the bottom of the image.
+		Scale bar: \SI{100}{\micro\meter}.}
+	\label{fig:STEPanizer}
+\end{figure}
+
+\renewcommand{\imsize}{0.5\linewidth}
+\begin{figure}
+	\centering
+	\subfloat[Disector mode, Image a]{\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingA_crop}}
+	\subfloat[Disector mode, Image b]{\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingB_crop}}
+	\caption{Cropped screenshots from the STEPanizer counting window in disector mode.
+		The segmented acinus is visible in light grey, appearing and disappearing bridges which have been counted are marked by yellow circles.
 		Scale bar: \SI{100}{\micro\meter}.}
 	\label{fig:STEPanizer}
 \end{figure}
@@ -388,6 +399,8 @@ Since the triangulation of the surface inherently poses a classic \emph{Coast of
 For the three different animals we calculated a mean acinar surface of \SI{0.756}{\centi\metre\squared} (R108C60BB: \SI{0.466}{\centi\metre\squared}, R108C60D: \SI{0.702}{\centi\metre\squared} and R108C60E: \SI{1.102}{\centi\metre\squared}).
 With the number of acini calculated above, this translates to a mean diffusion surface of \SI{3410}{\centi\metre\squared} (R108C60B: \SI{3856}{\centi\metre\squared}, R108C60D: \SI{3148}{\centi\metre\squared} and R108C60E: \SI{3225}{\centi\metre\squared}).
 
+\subsection{Number of alveoli per acinus}
+
 \subsection{Comparison of Volumes from MeVisLab with STEPanizer}
 % MeVisLab volume compared to STEPanizer volume (STEPanizer/MeVisLab)
 % In mean, (STEPanizer-/MeVisLab-volume) is 3.133
@@ -451,7 +464,7 @@ Since the automatic calculation of the acinar volume with MeVisLab simply adds u
 \autoref{fig:MeVisSegmentation} shows exemplary slices for acini with large differences in volume between the two methods.
 Due to inevitable segmentation inaccuracies (dark spots inside the segmented acinus in \autoref{subfig:60d_acinus32} we underestimated the volumes with the automatic method compared to the manual, stereological method, where we easily can discard such inaccuracies due the human visual inspection.
 
-In some extracted acini we have seen differences in gray values in the z-direction of the stack.
+In some extracted acini we have seen differences in grey values in the z-direction of the stack.
 Since the region growing segmentation method uses the same threshold throughout the region of interest, sometimes single slices were heavily under-estimated in terms of included voxels, one such example is shown in \autoref{subfig:60e_acinus38}.
 Since these automatically extracted regions were merely used as a optic guidance for the manual, stereological method it is obvious that the manual method shows slightly larger and more precisely estimated volumes than the automatic method, which in contrast is by magnitudes faster.
 
@@ -483,6 +496,8 @@ Missing other published data\todo{Is there more literature? Should we say someth
 \citet{Tschanz2003} assessed the absolute airspace surface in the rat lung by stereological estimation using electron microscopy images and found a mean absolute airspace surface of \SI{8021}{\centi\metre\squared} for the same animals shown in this study.
 By multiplying the number of acini by the mean acinar surface we found the mean absolute airspace surface to be \SI{\meanairspacesurface}{\centi\metre\squared}, a value \airspacedifference\(\times\) smaller.
 The differences can be explained largely due to the differences in the imaging method, which will yield a difference in estimated sizes.\todo{Johannes, you mentioned that 2\x differences are easily explainable, is there something we can cite?}
+
+\subsection{Number of alveoli per acinus}
 
 \subsection[Comparison of MeVisLab with STEPanizer]{Comparison of automatic Stereology with MeVisLab and manual Stereology with the STEPanizer}
 Manually assessing the volume of the single acini using the STEPanizer took several working days for the few acini shown in \autoref{fig:VolumeMeVisVsSTEPanizer}.
