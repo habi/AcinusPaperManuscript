@@ -56,14 +56,14 @@
 
 \newcommand{\shrinkagefactor}{0.61} % Shrinkagefactor used for the calculation
 \newcommand{\numberofacini}{43}
-\newcommand{\meantotalnumberofacini}{5336}
-\newcommand{\meanacinarvolume}{0.00151549425095} % cm^3, (mean acinar volume)
-\newcommand{\std}{0.000598592571004} % (Standard deviation of acinar volumes)
-\newcommand{\meannumberofalveoli}{8582} % (Mean number of alveoli per acinus)
-\newcommand{\difference}{3.06951162791} % X times bigger (acinar volumes STEPanizer/MeVisLab-volumes)
+\newcommand{\meantotalnumberofacini}{6433}
+\newcommand{\meanacinarvolume}{0.00114780352468} % cm^3, (mean acinar volume)
+\newcommand{\std}{0.000321884288889} % (Standard deviation of acinar volumes)
+\newcommand{\meannumberofalveoli}{8470} % (Mean number of alveoli per acinus)
+\newcommand{\difference}{2.66094871795} % X times bigger (acinar volumes STEPanizer/MeVisLab-volumes)
 \newcommand{\acinarsurface}{0.738990108332} % cm^2
-\newcommand{\meanairspacesurface}{3414.59876694} % cm^2
-\newcommand{\airspacedifference}{2.349} % times
+\newcommand{\meanairspacesurface}{4339.86703774} % cm^2
+\newcommand{\airspacedifference}{1.848} % times
  
 \title{Assessing the volume and surface of individual acini in large tomographic datasets of rat lungs}
 \subtitle{Stereological characterization of individual rat lung acini extracted from large ultrahigh resolution tomographic datasets}
@@ -379,56 +379,28 @@ By counting appearing and disappearing bridges in the segmented acini, we found 
 For \numberofacini\xspace acini of three different animals we automatically assessed the volume by adding the segmented voxels inside the acini and multiplying them with the voxel volume and estimated the volume with the manual Cavaglieri method~\cite{Hsia2010} using the STEPanizer.
 The results are shown in \autoref{fig:VolumeMeVisVsSTEPanizer} and explained later on in the Discussion section.
 
-\renewcommand{\imsize}{\linewidth}
 \begin{figure}
-\centering
- 	\begin{tikzpicture}
-	 	\begin{axis}[
-	 		cycle list name = exotic,
-	 		title={Volume comparison},
-			xlabel={Acinus},
-			ylabel={Volume [\si{\centi\metre\cubed}]},% \si{\cubic\centi\meter},
-			legend entries={R108C60B\_B1\_mrg (STEPanizer),R108C60Dt-mrg (STEPanizer),R108C60Et-mrg (STEPanizer),R108C60B\_B1\_mrg (MeVisLab),R108C60Dt-mrg (MeVisLab),R108C60Et-mrg (MeVisLab)},
-			legend style={
-				at={(1.1,0.5)},
-				anchor=west
-				%legend columns=3,
-				%font=\tiny,
-				%rounded corners = 3,
-				%at={(0.5,-0.25)},
-				%anchor=north
-				},
-			%width=\imsize
-			]
-			\addplot % [draw,fill=red,red=square*]
-				coordinates {
-					(0,0.000943978089591402) (1,0.000369290006731552) (2,0.000537284135255814) (3,0.000774104716030111) (4,0.00063721303615683) (5,0.000892998673456294) (6,0.			000662060213607909) (7,0.00227213474409444) (8,0.00123480580445082) (9,0.000202540993042524) (10,0.000440456598544131) (11,0.00130506260473565) (12,0.		000948905265220132) (13,0.000967796840998029) (14,0.000973053509272693) (15,0.000622005326109383) (16,0.0003792715403106) (17,0.00089103877005466) (18,0.000442312679892422) (19,0.000618971153786899) (20,0.000622005326109383) (21,0.000706693979639465) (22,0.000602002519342455) (23,0.000427844990797474) 
-					};
-			\addplot %[draw,fill=green,only marks,mark=square*]
-				coordinates {
-					(24,0.0015775832244119) (25,0.00349411900606628) (26,0.00109353123999124) (27,0.00157806449893873) (28,0.00117142214981822) (29,0.0010757778774242) (30,0.0019641417554389) (31,0.000467836408179399) (32,0.00176092960260168) (33,0.00176717628474684) 
-					};		
-			\addplot %[draw,fill=blue,only marks,mark=square*]
-				coordinates {
-					(34,0.00221322926506789) (35,0.00110468828837077) (36,0.000217300159958048) (37,0.00247446056987033) (38,0.00901848490761219) (39,0.00193425723370187) (40,0.000404056440325775) (41,0.000827363638248959) (42,0.00249739786677173) 
-					};		
-			\addplot %[draw,fill=red,only marks,mark=*]
-				coordinates {
-					(0,0.00037731293) (1,0.00019965522) (2,0.00025447792) (3,0.00043383464) (4,0.00031837037) (5,0.00042459121) (6,0.000294278) (7,0.00026970762) (8,0.00047316542) (9,0.00013395399) (10,0.0002331105) (11,0.00066745716) (12,0.00045502964) (13,0.00047915584) (14,0.00043513966) (15,0.00033121431) (16,0.00015090302) (17,0.00014413643) (18,0.00024587891) (19,0.00027121842) (20,0.00016399051) (21,0.00038648456) (22,0.00032862523) (23,0.00019227928) 
-					};
-			\addplot %[draw,fill=green,only marks,mark=*]
-				coordinates {
-					(24,0.0005900293) (25,0.00055371433) (26,0.00029986489) (27,0.00039014131) (28,0.00029307008) (29,0.00042841768) (30,0.0004532719) (31,0.00023229824) (32,0.00058026904) (33,0.00051905155) 
-					};
-			\addplot %[draw,fill=blue,only marks,mark=*]
-				coordinates {
-					(34,0.0006709888) (35,0.00036325091) (36,0.00012486846) (37,0.00051163185) (38,0.00075202513) (39,0.00052375108) (40,0.00016866906) (41,0.00033741882) (42,0.00068318522) 
-					};
-			\end{axis}
-	\end{tikzpicture}
-	\caption{Volumes of different acini estimated with different Methods.}
-	\label{fig:VolumeMeVisVsSTEPanizer}%
-	\todo[inline]{Do something about the outlier; recounting, etc.}
+	\centering
+	\subfloat[MeVis]{
+		\input{plots/plot_mevisvolume_R108C60B_B1_mrg.tikz}%
+		}
+	\subfloat[MeVis]{
+		\input{plots/plot_mevisvolume_R108C60Dt-mrg.tikz}
+		}
+	\subfloat[MeVis]{
+		\input{plots/plot_mevisvolume_R108C60Et-mrg.tikz}
+		}\\
+	\subfloat[STEPanizer]{
+		\input{plots/plot_stepanizervolume_R108C60B_B1_mrg.tikz}
+		}
+	\subfloat[STEPanizer]{
+		\input{plots/plot_stepanizervolume_R108C60Dt-mrg.tikz}
+		}
+	\subfloat[STEPanizer]{
+		\input{plots/plot_stepanizervolume_R108C60Et-mrg.tikz}
+		}
+	\caption{Acinar volumes of each sample, extracted with MeVisLab and the STEPanizer. The dotted cyan line is th mean \(\pm\) the standard deviation. Top row: MeVisLab volumes, bottom row: STEPanizer volumes. Left column: R108C60B, middle column: R108C60D, right column: R108C60E}
+	\label{fig:plots}
 \end{figure}
 
 As expected, both methods show different results; the volumes of single acini assessed with the stereological method show a \difference\(\times\) larger value than when assessed with the automatic method using voxel counting.
@@ -505,11 +477,11 @@ Since for our planned follow-up study we will not look at the absolute volume, b
 	}%
 	\hfill%
 	\caption{Illustrative slices of two acini that show large differences in volume between MeVisLab and STEPanizer.
-The inaccurate segmentation is the reason we obtained larger volumes with the STEPanizer than with MeVisLab.
-Panel \protect\subref{subfig:60d_acinus32} shows minor segmentation errors through noise in the paraffin (dark spots inside grey region).
-Panel \protect\subref{subfig:60e_acinus38} shows large segmentation errors.
-Such large errors arise through brightness changes in the dataset which render the global threshold unusable for certain slices.
-Scale bar: \SI{100}{\micro\meter}.}
+		The inaccurate segmentation is the reason we obtained larger volumes with the STEPanizer than with MeVisLab.
+		Panel \protect\subref{subfig:60d_acinus32} shows minor segmentation errors through noise in the paraffin (dark spots inside grey region).
+		Panel \protect\subref{subfig:60e_acinus38} shows large segmentation errors.
+		Such large errors arise through brightness changes in the dataset which render the global threshold unusable for certain slices.
+		Scale bar: \SI{100}{\micro\meter}.}
 	\label{fig:MeVisSegmentation}
 \end{figure}
 
