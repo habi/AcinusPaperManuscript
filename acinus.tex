@@ -1,5 +1,5 @@
-%\documentclass[draft,twoside,paper=a4,abstract=true,english,DIVcalc]{scrartcl}
-\documentclass[twoside,paper=a4,abstract=true,english,DIV=calc]{scrartcl}
+%\documentclass[draft,paper=a4,abstract=true,english,DIVcalc]{scrartcl}
+\documentclass[paper=a4,abstract=true,english,DIV=calc]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{babel}
@@ -35,9 +35,9 @@
 \svnid{$Id$}
  
 \pagestyle{fancy}
-\fancyfoot{}
-\fancyfoot[OR]{\tiny Typeset on \today\ at \thistime\ from \href{\svnkw{HeadURL}}{SVN-Version \svnkw{LastChangedRevision}} | Page \thepage\ of \pageref{LastPage}}
-\fancyfoot[EL]{\tiny Page \thepage\ of \pageref{LastPage} | Typeset on \today\ at \thistime\ from \href{\svnkw{HeadURL}}{SVN-Version \svnkw{LastChangedRevision}}}
+\fancyhead[R]{\thepage}
+\fancyhead[L]{Stereological characterization of individual acini}
+\fancyfoot[C]{\href{\svnkw{HeadURL}}{SVN-Revision \svnkw{LastChangedRevision}}, typeset on \today\ at \thistime}
  
 \newcommand{\imsize}{\linewidth}
 \newlength\imagewidth		% needed for scale bars
@@ -57,6 +57,7 @@
 \newcommand{\shrinkagefactor}{0.61} % Shrinkagefactor used for the calculation
 \newcommand{\numberofacini}{43}
 \newcommand{\meantotalnumberofacini}{6433}
+\newcommand{\meantotalnumberofacinirounded}{6433}
 \newcommand{\meanacinarvolume}{0.00114780352468} % cm^3, (mean acinar volume)
 \newcommand{\std}{0.000321884288889} % (Standard deviation of acinar volumes)
 \newcommand{\meannumberofalveoli}{8470} % (Mean number of alveoli per acinus)
@@ -64,13 +65,14 @@
 \newcommand{\acinarsurface}{0.738990108332} % cm^2
 \newcommand{\meanairspacesurface}{4339.86703774} % cm^2
 \newcommand{\airspacedifference}{1.848} % times
+\newcommand{\biggerthan}{1234} % Outliers bigger/smaller than mean +- BiggerThan * STD have been removed'
  
 \title{Assessing the volume and surface of individual acini in large tomographic datasets of rat lungs}
-\subtitle{Stereological characterization of individual rat lung acini extracted from large ultrahigh resolution tomographic datasets}
+\subtitle{Stereological characterization of individual acini}
 
 \author{%
 	David Haberthür\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}%
-	\and Sébastien Barré\footrecall{ana}%
+	\and Sébastien F. Barré\footrecall{ana} \footremember{gcb}{Graduate School for Cellular and Biomedical Sciences, University of Bern, Switzerland}%
 	\and Stefan A. Tschanz\footrecall{ana}%
 	\and Evelyne Yao\footrecall{ana}%
 	\and Marco Stampanoni\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}\ \footremember{eth}{Institute for Biomedical Engineering, Swiss Federal Institute of Technology and University of Zürich, Switzerland}%
@@ -86,18 +88,31 @@
 \vfill
 Typeset on \today\ at \thistime\ from Rev \svnkw{LastChangedRevision} (\svnday.\svnmonth.\svnyear\ \svnhour:\svnminute)
 \vfill
-To be submitted to the \emph{\href{http://jap.physiology.org/}{Journal of Applied Physiology}}, \emph{Innovative Techniques}
+To be submitted to the \emph{\href{http://jap.physiology.org/}{Journal of Applied Physiology}}, \emph{Innovative Techniques}, thus formatted according to \href{http://www.the-aps.org/mm/Publications/Preparing-Your-Manuscript#file_format}{their guidelines}
 \vfill
 \end{center}
+\clearpage
+
+\marginpar{Include a brief itemized list of how each author contributed to the study}
+\begin{itemize}
+	\item DH wrote the manuscript, performed data acquisition, all volume measurements
+and the stereological surface measurements, programming and
+calculations
+	\item SFB performed the data acquisition
+	\item SAT helped with stereological analysis and calculation
+	\item EY performed all stereological measurements for alveolar numbers
+	\item MS
+	\item JCS performed data acquisition
+\end{itemize}
 \clearpage
 
 \begin{abstract}
 \marginpar{One paragraph, no more than 250 words.}
 The difficulty of characterizing individual acini, the respiratory functional units of the lung from two-dimensional physical sections leads to a limited knowledge about biological parameters like volume and surface.
-By using high-resolution tomographic microscopic imaging we extracted individual acini from rat lung samples to stereologically assess such biological parameters.
-Single acini were isolated from the distal-medial area of the right lower rat lung lobe by semi-automatically closing the transitory bronchioles at the transition from conducting to gas-exchanging airways.
+By using high-resolution tomographic microscopic imaging we extracted single acini from rat lung samples to stereologically assess biological parameters.
+Acini were isolated from the distal-medial area of the right lower rat lung lobe by semi-automatically closing the transitory bronchioles at the transition from conducting to gas-exchanging airways.
 The mean acinar volume was estimated to be \SI{\meanacinarvolume}{\centi\meter\cubed} and their mean surface area to be \SI{\acinarsurface}{\centi\meter\squared}.
-Assuming that the acini are similarly sized throughout the different regions in the lung, we calculated a number of acini per animal of approximately \meantotalnumberofacini.
+Assuming that the acini are similarly sized throughout the different regions in the lung, we calculated a number of acini per animal of approximately \meantotalnumberofacinirounded.
 Based on the same assumption we calculated an alveolar surface area of \SI{\meanairspacesurface}{\centi\metre\squared} per animal.
 Our method makes it possible to extract individual acini for volume analysis, something which is not possible on two-dimensional data from single sections of the tissue.
 Our proposed method of analyzing single ventilatory units of the mammalian lung is by magnitudes faster than manual stereological analysis of tissue slices and allows to extract biological parameters which can not be extracted from classic single sections.
@@ -105,7 +120,7 @@ Additionally, the method makes it possible to assess the development of the acin
 \end{abstract}
 	
 \section{Keywords}
-\marginpar{Three to five words that do not appear in the title or running head}
+\marginpar{Three to five words that do not appear in the title or running head (which should be maximally 60 characters long, including spaces (the running head is shown at the top left of each page).}
 \begin{itemize}
 	\item lung development,
 	\item stereology
@@ -116,9 +131,11 @@ Additionally, the method makes it possible to assess the development of the acin
 \clearpage
 \listoftodos
 \clearpage
-\tableofcontents
 
+\marginpar{TOC is only for review purposes, it will not be in the final manuscript}
+\tableofcontents
 \clearpage
+
 \section{Introduction}
 Due a restricted availability of high resolution three-dimensional imaging methods the knowledge about the development of the ventilatory functional unit of the lung is limited.
 These functional units of the lung parenchyma are the so-called pulmonary acini, which correspond to the gas-exchange volume in the lung which is ventilated by one purely conducting airway~\cite{Rodriguez1987}.
@@ -502,10 +519,18 @@ We thank Federica Marone, Christoph Hintermüller and Bernd Pinzer for their com
 Milo Hindennach from Fraunhofer MEVIS provided the \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{Manhole cover module in MeVisLab}.
 We thank Mohammed Ouanella for expert technical assistance and embedding of the samples and Eveline Yao for expert technical assistance and for performing vital parts of the stereological analysis.
 
+David Haberthür is now a member of the TOMCAT group, his current address is Swiss Light Source, Paul Scherrer Institut, WBBA/207, CH-5232 Villigen.
+\marginpar{Affiliation must reflect the organization(s) supporting the author(s) while the research was done. This may differ from the current affiliations of the author(s), which will be listed in such cases in the Acknowledgment section as the present address(es) of the author(s).}
+
+\section{Grants}
 This work has been funded by the grants 3100A0-109874 and 310030-125397 of the Swiss National Science Foundation.
+
+\section{Disclosures}
+No \href{http://www.the-aps.org/mm/Publications/Preparing-Your-Manuscript#conflicts}{conflicts of interest} exist for any author of this manuscript.
 
 \clearpage
 \singlespacing
+\marginpar{Reference lists should be arranged alphabetically by author and numbered serially. The reference number should be placed in parentheses at the appropriate place in the text.}
 \bibliographystyle{plainnat}
 \bibliography{../library}
 
