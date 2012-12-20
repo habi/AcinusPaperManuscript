@@ -26,11 +26,11 @@ xticklabels={0,5,10,15,20,25,30,35}
 coordinates {
 (0,0.000304196244782609) (1,0.000304196244782609) 
 };
-\addplot [color0, dashed]
+\addplot [color0, dotted]
 coordinates {
 (0,0.000634325534516513) (1,0.000634325534516513) 
 };
-\addplot [color0, dashed]
+\addplot [color0, dotted]
 coordinates {
 (0,-2.59330449512958e-05) (1,-2.59330449512958e-05) 
 };
@@ -53,7 +53,7 @@ axis on top,
 xtick={0,5,10,15,20,25,30,35},
 xticklabels={0,5,10,15,20,25,30,35}
 ]
-\addplot [thick, color0, dotted]
+\addplot [thick, color0, dashed]
 coordinates {
 (0,0.000692873703769207) (1,0.000692873703769207) 
 };
@@ -88,11 +88,11 @@ xticklabels={0,5,10,15,20,25,30}
 coordinates {
 (0,0.000434012832) (1,0.000434012832) 
 };
-\addplot [color0, dashed]
+\addplot [color0, dotted]
 coordinates {
 (0,0.00079918601656343) (1,0.00079918601656343) 
 };
-\addplot [color0, dashed]
+\addplot [color0, dotted]
 coordinates {
 (0,6.88396474365702e-05) (1,6.88396474365702e-05) 
 };
@@ -115,7 +115,7 @@ axis on top,
 xtick={0,5,10,15,20,25,30},
 xticklabels={0,5,10,15,20,25,30}
 ]
-\addplot [thick, color0, dotted]
+\addplot [thick, color0, dashed]
 coordinates {
 (0,0.00136136208104384) (1,0.00136136208104384) 
 };
@@ -150,11 +150,11 @@ xticklabels={0,2,4,6,8,10,12,14,16}
 coordinates {
 (0,0.000459532147777778) (1,0.000459532147777778) 
 };
-\addplot [color0, dashed]
+\addplot [color0, dotted]
 coordinates {
 (0,0.00109820895859664) (1,0.00109820895859664) 
 };
-\addplot [color0, dashed]
+\addplot [color0, dotted]
 coordinates {
 (0,-0.000179144663041085) (1,-0.000179144663041085) 
 };
@@ -177,7 +177,7 @@ axis on top,
 xtick={0,2,4,6,8,10,12,14,16},
 xticklabels={0,2,4,6,8,10,12,14,16}
 ]
-\addplot [thick, color0, dotted]
+\addplot [thick, color0, dashed]
 coordinates {
 (0,0.00138917478923106) (1,0.00138917478923106) 
 };

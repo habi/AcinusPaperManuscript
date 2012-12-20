@@ -1,0 +1,37 @@
+\begin{tikzpicture}
+
+\begin{axis}[
+	width=0.33*\linewidth,
+	xlabel={Acinus},
+	%ylabel={Volume [\si{\centi\meter\cubed}]},
+	ymin=0, ymax=0.0012,
+	yticklabel=\empty
+	]
+\addplot [red,only marks]
+	coordinates {
+		(1,0.0006709888)
+		(2,0.00036325091)
+		(3,0.00012486846)
+		(4,0.00051163185)
+		(5,0.00075202513)
+		(6,0.00052375108)
+		(7,0.00016866906)
+		(8,0.00033741882)
+		(9,0.00068318522)
+	};
+\addplot [cyan, dashed]
+	coordinates {
+		(0,0.000459532147777778) (10,0.000459532147777778) 
+	};
+\addplot [cyan, dotted]
+	coordinates {
+		(1,0.00109820895859664) (10,0.00109820895859664) 
+	};
+\addplot [cyan, dotted]
+	coordinates {
+		(1,-0.000179144663041085) (10,-0.000179144663041085) 
+	};
+
+\end{axis}
+
+\end{tikzpicture}

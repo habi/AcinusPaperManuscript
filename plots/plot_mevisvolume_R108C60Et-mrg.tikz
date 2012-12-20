@@ -1,27 +1,46 @@
+% This file was created by matplotlib v0.1.0.
+% Copyright (c) 2010--2012, Nico Schl"omer <nico.schloemer@gmail.com>
+% All rights reserved.
+% 
+% The lastest updates can be retrieved from
+% 
+% https://github.com/nschloe/matplotlib2tikz
+% 
+% where you can also submit bug reports and leave comments.
+% 
 \begin{tikzpicture}
 
 \begin{axis}[
-	width=0.33*\linewidth,
-	xlabel={Acinus},
-	%ylabel={Volume [\si{\centi\meter\cubed}]},
-	axis on top,
-	]
-\addplot [red,only marks]
+title={R108C60Et-mrg MeVisLab (9)},
+xmin=0, xmax=14,
+ymin=-0.0002, ymax=0.0012,
+axis on top,
+xtick={0,2,4,6,8,10,12,14},
+xticklabels={0,2,4,6,8,10,12,14}
+]
+\addplot [color1]
 coordinates {
 (0,nan) (1,nan) (2,0.0006709888) (3,0.00036325091) (4,nan) (5,nan) (6,0.00012486846) (7,0.00051163185) (8,0.00075202513) (9,nan) (10,nan) (11,0.00052375108) (12,0.00016866906) (13,0.00033741882) (14,0.00068318522) (15,nan) (16,nan) (17,nan) (18,nan) (19,nan) (20,nan) (21,nan) (22,nan) (23,nan) (24,nan) (25,nan) (26,nan) (27,nan) (28,nan) (29,nan) (30,nan) (31,nan) 
 };
-\addplot [thick, cyan, dashed]
+\addplot [thick, color0, dashed]
 coordinates {
-(0,0.000459532147777778) (35,0.000459532147777778) 
+(0,0.000459532147777778) (1,0.000459532147777778) 
 };
-\addplot [cyan, dashed]
+\addplot [color0, dashed]
 coordinates {
-(0,0.00109820895859664) (35,0.00109820895859664) 
+(0,0.00109820895859664) (1,0.00109820895859664) 
 };
-\addplot [cyan, dashed]
+\addplot [color0, dashed]
 coordinates {
-(0,-0.000179144663041085) (35,-0.000179144663041085) 
+(0,-0.000179144663041085) (1,-0.000179144663041085) 
 };
+\path [draw=black, fill opacity=0] (axis cs:0,1)--(axis cs:14,1);
+
+\path [draw=black, fill opacity=0] (axis cs:1,-0.0002)--(axis cs:1,0.0012);
+
+\path [draw=black, fill opacity=0] (axis cs:0,0)--(axis cs:14,0);
+
+\path [draw=black, fill opacity=0] (axis cs:0,-0.0002)--(axis cs:0,0.0012);
 
 \end{axis}
 
