@@ -1,5 +1,5 @@
-%\documentclass[draft,paper=a4,abstract=true,english,DIVcalc]{scrartcl}
-\documentclass[paper=a4,abstract=true,english,DIV=calc]{scrartcl}
+%\documentclass[draft,a4paper,DIVcalc,abstract,english]{scrartcl}
+\documentclass[a4paper,DIVcalc,abstract,english]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{babel}
@@ -7,6 +7,11 @@
 \usepackage{setspace}
 	\onehalfspacing
 \usepackage[colorinlistoftodos]{todonotes}
+	\makeatletter
+	\renewcommand{\todo}[2][]{%
+		\@todo[caption={#2}, #1]{\begin{spacing}{0.7}#2\end{spacing}}%
+	}
+	\makeatother 
 \usepackage[load-configurations=binary]{siunitx}
 	\DeclareSIUnit\Molar{\textsc{m}}
 	\sisetup{separate-uncertainty}
@@ -17,13 +22,11 @@
 \usepackage{fancyhdr}
 \usepackage{tikz}
 \usepackage{pgfplots}
-	\usepgfplotslibrary{groupplots}
+	\pgfplotsset{compat=newest}
 \usepackage[numbers,square,sort&compress]{natbib}
 \usepackage{scrtime}
-\usepackage{lastpage}
 \usepackage{xspace}
 \usepackage[autostyle=true]{csquotes}
-%\usepackage{endfloat}
 \usepackage{hyperref}
  
 % Subversion Information
@@ -111,7 +114,7 @@ To be submitted to the \emph{\href{http://jap.physiology.org/}{Journal of Applie
 \end{center}
 \clearpage
 
-\marginpar{Include a brief itemized list of how each author contributed to the study}
+\marginpar{\singlespacing Include a brief itemized list of how each author contributed to the study}
 \begin{itemize}
 	\item David Haberthür wrote the manuscript, performed data acquisition, all volume measurements and the stereological surface measurements, programming and calculations.
 	\item Sébastien F. Barré performed the data acquisition.
@@ -120,23 +123,9 @@ To be submitted to the \emph{\href{http://jap.physiology.org/}{Journal of Applie
 	\item Marco Stampanoni proofread the manuscript.
 	\item Johannes C. Schittny wrote grants to make this happen, performed data acquisition, proofread the manuscript and oversaw the whole study.
 \end{itemize}
-\clearpage
 
-\begin{abstract}
-\marginpar{One paragraph, no more than 250 words.}
-The difficulty of characterizing individual acini, the respiratory functional units of the lung from two-dimensional physical sections leads to a limited knowledge about biological parameters like volume and surface.
-By using high-resolution tomographic microscopic imaging we extracted single acini from rat lung samples to stereologically assess biological parameters.
-Acini were isolated from the distal-medial area of the right lower rat lung lobe by semi-automatically closing the transitory bronchioles at the transition from conducting to gas-exchanging airways.
-The mean acinar volume was estimated to be \SI{\meanacinarvolume}{\centi\meter\cubed} and their mean surface area to be \SI{\meanacinarsurface}{\centi\meter\squared}.
-Assuming that the acini are similarly sized throughout the different regions in the lung, we found that one rat lung contains approximately \meantotalnumberofacinirounded\xspace acini.
-Based on the same assumption we calculated a mean airspace surface area of \SI{\meanairspacesurface}{\centi\metre\squared} per animal.
-Our method makes it possible to extract individual acini for volume analysis, something which is not possible on two-dimensional data from single sections of the tissue.
-Our proposed method of analyzing single ventilatory units of the mammalian lung is by magnitudes faster than manual stereological analysis of tissue slices and allows to extract biological parameters which can not be extracted from classic single sections.
-Additionally, the method makes it possible to assess the development of the acini and structural changes in the functional lung units over the postnatal lung development.
-\end{abstract}
-	
 \section*{Keywords}
-\marginpar{Three to five words that do not appear in the title or running head (which should be maximally 60 characters long, including spaces (the running head is shown at the top left of each page).}
+\marginpar{\singlespacing Three to five words that do not appear in the title or running head (which should be maximally 60 characters long, including spaces (the running head is shown at the top left of each page).}
 \begin{itemize}
 	\item lung development,
 	\item stereology
@@ -146,6 +135,20 @@ Additionally, the method makes it possible to assess the development of the acin
 \end{itemize}
 \clearpage
 \listoftodos
+\clearpage
+
+\begin{abstract}
+\marginpar{\singlespacing One paragraph, no more than 250 words.}
+The difficulty of characterizing individual acini, the respiratory functional units of the lung from two-dimensional physical sections leads to a limited knowledge about biological parameters like volume and surface.
+By using high-resolution tomographic microscopic imaging we extracted single acini from rat lung samples to stereologically assess biological parameters.
+Acini were isolated from the distal-medial area of the right lower rat lung lobe by semi-automatically closing the transitory bronchioles at the transition from conducting to gas-exchanging airways.
+The mean acinar volume was estimated to be \SI{\meanacinarvolume}{\centi\meter\cubed} and their mean surface area to be \SI{\meanacinarsurface}{\centi\meter\squared}.
+Assuming that the acini are similarly sized throughout the different regions in the lung, we found that one rat lung contains approximately \meantotalnumberofacinirounded\xspace acini.
+Based on the same assumption we calculated a mean airspace surface area of \SI{\meanairspacesurface}{\centi\metre\squared} per animal.
+Our method makes it possible to extract individual acini for volume analysis, something which is not possible on two-dimensional data from single sections of the tissue.
+Our proposed method of analyzing single ventilatory units of the mammalian lung is by magnitudes faster than manual stereological analysis of tissue slices and allows to extract biological parameters which cannot be extracted from classic single sections.
+Additionally, the method makes it possible to assess the development of the acini and structural changes in the functional lung units over the postnatal lung development.
+\end{abstract}
 \clearpage
 
 \section{Introduction}
@@ -162,7 +165,7 @@ In their publication acini for one animal for each species were analyzed with ve
 \citet{Mercer1987a} manually traced several acini on photographs of serial step sections with a thickness of \SI{3}{\micro\meter} each.
 Due to the substantial effort for relating each alveolus to a ventilatory unit, \citeauthor{Mercer1987a} performed such a tracing for \blockquote{only a few cases}, unfortunately not specifying how many cases exactly.
 
-The present manuscript describes a method to isolate and analyze single acini from large synchrotron radiation based tomographic microscopy datasets~\cite{Haberthuer2010a} and to stereologically analyze biological paramaters of those single functional units of the mammalian lung.
+The present manuscript describes a method to isolate and analyze single acini from large synchrotron radiation based tomographic microscopy datasets~\cite{Haberthuer2010a} and to stereologically analyze biological parameters of those single functional units of the mammalian lung.
 Since tomographic imaging of the lung tissue preserves the three-dimensional structure, single slices from the images can be extracted trivially easy and be used for precise stereological analysis of the morphometry of structures in the lung tissue~\cite{Hsia2010}.
 
 On such virtual slices we can isolate and analyze single acini with classic and accepted methods in both two and three dimensions.
@@ -245,7 +248,7 @@ These manhole covers are visible as red discs in \autoref{fig:ManholeCoverExplan
 Said manhole covers were implemented through a \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{custom MeVisLab module (\emph{XMarkerClipPlanes})}.
 The locations of the manhole covers were defined based on morphological criteria, \ie changes in the epithelial thickness of the airway wall and appearance of alveolar outpouchings in the airway wall which mark the transition from conducting to gas-exchanging airways.
 
-\begin{figure}
+\begin{figure}[p]
 	\centering
 	\pgfmathsetlength{\imagewidth}{\imsize}%
 	\pgfmathsetlength{\imagescale}{\imagewidth/948}%
@@ -278,7 +281,7 @@ The locations of the manhole covers were defined based on morphological criteria
 	\end{tikzpicture}%
 	\caption{Sagittal slice of the tomographic dataset of animal B showing extracted conducting airways in green and several manhole covers in red.
 		The dashed yellow circles highlight some examples of alveolar outpouchings of the airway wall which mark the change from conducting to gas-exchanging regions.
-		Additionally, changes in in thickness and structure of the epithelial layer also mark this transition.
+		Additionally, changes in thickness and structure of the epithelial layer also mark this transition.
 		Four manhole covers are shown cut right through the middle (\numrange{1}{4}), two manhole covers are only partially cut in this slice and thus appear much smaller (5 \& 6).}
 	\label{fig:ManholeCoverExplanation}
 \end{figure}
@@ -294,7 +297,7 @@ The only manual work needed for the final extraction of the volume of each acinu
 \pgfmathsetlength{\imagescale}{\imagewidth/800}%
 \def\x{10}% scalebar-x at golden ratio of x=800px
 \def\y{750}% scalebar-y at 90% of height of y=800px
-\begin{figure}
+\begin{figure}[htb]
 	\centering
 	\subfloat[Sample]{%
 		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
@@ -355,7 +358,7 @@ Counting points (green three-quarter circles) and intersections (red \href{https
 \renewcommand{\imsize}{\linewidth}%
 \pgfmathsetlength{\imagewidth}{\imsize}%
 \pgfmathsetlength{\imagescale}{\imagewidth/1280}%
-\begin{figure}
+\begin{figure}[p]
 	\centering
 	\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 		\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/STEPanizer_2010_R108C60B_acinus08_Slice36}};
@@ -372,7 +375,7 @@ Counting points (green three-quarter circles) and intersections (red \href{https
 \end{figure}
 
 \renewcommand{\imsize}{0.5\linewidth}
-\begin{figure}
+\begin{figure}[htb]
 	\centering
 	\subfloat[Disector mode, Image a]{\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingA_crop_edit}}
 	\subfloat[Disector mode, Image b]{\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingB_crop_edit}}
@@ -415,30 +418,29 @@ mean for animal D: \numberofalveoliD,
 mean for animal E: \numberofalveoliE).
 
 \subsection{Comparison of Volumes from MeVisLab with STEPanizer}
-For \numberofacini\xspace acini of three different animals we automatically assessed the volume by adding the segmented voxels inside the acini and multiplying them with the voxel volume and estimated the volume with the manual Cavaglieri method~\cite{Hsia2010} using the STEPanizer.
-The results are shown in \autoref{fig:Volume plots} and explained later on in the Discussion section.
+For \numberofacini\xspace acini of three different animals we automatically assessed the volume by adding the segmented voxels inside the acini and multiplying them with the voxel volume and estimated the volume with the manual Cavaglieri method~\cite{Hsia2010} using the STEPanizer. The results are shown in \autoref{fig:Volume plots} and explained later on in the Discussion section. Values larger than the mean of the volumes \(\pm\biggerthan\times\) the standard deviation have been removed from the calculation (red dots).
 
-\begin{figure}
+\begin{figure}[htb]
 	\centering
 	\subfloat{
 		\input{plots/plot_mevisvolume_R108C60B_B1_mrg-edit.tikz}%
-		}%
+		}\hfill%
 	\subfloat{
 		\input{plots/plot_mevisvolume_R108C60Dt-mrg-edit.tikz}
-		}%
+		}\hfill%
 	\subfloat{
 		\input{plots/plot_mevisvolume_R108C60Et-mrg-edit.tikz}
 		}\\%
 	\subfloat{
 		\input{plots/plot_stepanizervolume_R108C60B_B1_mrg-edit.tikz}
-		}%
+		}\hfill%
 	\subfloat{
 		\input{plots/plot_stepanizervolume_R108C60Dt-mrg-edit.tikz}
-		}%
+		}\hfill%
 	\subfloat{
 		\input{plots/plot_stepanizervolume_R108C60Et-mrg-edit.tikz}
 		}%
-	\caption{Acinar volumes of each sample, extracted with MeVisLab and the STEPanizer. The dashed line corresponds to the mean, the dotted lines correspond to the mean \(\pm\biggerthan\times\) the standard deviation. Top row: MeVisLab volumes, bottom row: STEPanizer volumes. From left to right: animal B, D and E.}
+	\caption{Acinar volumes of each sample, extracted with MeVisLab and the STEPanizer. The dashed line corresponds to the mean, the dotted lines correspond to the mean \(\pm\biggerthan\times\) the standard deviation. Red dots are the values removed from the calculation. Top row: MeVisLab volumes, bottom row: STEPanizer volumes. From left to right: animal B, D and E. Note the varying y-axis for the bottom row.}
 	\label{fig:Volume plots}
 \end{figure}
 
@@ -458,7 +460,7 @@ All the parameters mentioned above and the structural changes can be obtained fo
 \citet[Table 1]{Rodriguez1987} found that the right upper lobe of one rat contains 613 acini with a mean volume of \SI{1.98}{\milli\meter\cubed} (\SIrange{0.5}{5}{\milli\meter\cubed}).
 Our calculations resulted in a volume of \SI{\meanacinarvolume}{\cubic\centi\meter} with a standard deviation of \SI{\std}{\cubic\centi\meter}.
 The stereologically estimated mean acinar volume is thus in the range of previously published data.
-\todo{\citet[Table 2]{Mercer1987a} state that the total volume of \blockquote{alveoli + ducts} is \SI{522(56)}{\micro\meter\cubed}$\times 10^6$, which corresponds to \SI{0.5}{\cubic\milli\meter}. % http://is.gd/qpMEV5
+\todo{\citet[Table 2]{Mercer1987a} state that the total volume of \blockquote{alveoli + ducts} is \SI{522(56)}{\micro\meter\cubed} $\times10^6$, which corresponds to \SI{0.5}{\cubic\milli\meter}. % http://is.gd/qpMEV5
 	This is the only number that remotely looks like an acinar volume from their paper. Should we cite it?}
 
 \subsection{Number of acini}
@@ -498,7 +500,7 @@ We thus propose that---if absolute values are needed for a larger study---the au
 Since for our planned follow-up study we will not look at the absolute volume, but only at the volume fractions or increase of volume, the difference in absolute volume between the two methods can be neglected for our purposes.
 
 \renewcommand{\imsize}{0.56\linewidth}%
-\begin{figure}
+\begin{figure}[htb]
 	\centering
 	\hfill%
 	\subfloat[60D, Acinus 32, Slice 45, Vol.\ \SI{159}{\percent}]{%
@@ -533,12 +535,12 @@ Since our proposed method for assessing the volumes of isolated individual acini
 
 \clearpage
 \section{Acknowledgments}
-We thank Federica Marone, Christoph Hintermüller and Bernd Pinzer for their committed support at the TOMCAT Beamline.
+We thank Federica Marone, Christoph Hintermüller and Bernd Pinzer for their committed support at the TOMCAT beamline.
 Milo Hindennach from Fraunhofer MEVIS provided the \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{Manhole cover module in MeVisLab}.
 We thank Mohammed Ouanella for expert technical assistance and embedding of the samples and Eveline Yao for expert technical assistance and for performing vital parts of the stereological analysis.
 
 David Haberthür is now a member of the TOMCAT group, his current address is Swiss Light Source, Paul Scherrer Institut, WBBA/207, CH-5232 Villigen.
-\marginpar{Affiliation must reflect the organization(s) supporting the author(s) while the research was done. This may differ from the current affiliations of the author(s), which will be listed in such cases in the Acknowledgment section as the present address(es) of the author(s).}
+\marginpar{\singlespacing Affiliation must reflect the organization(s) supporting the author(s) while the research was done. This may differ from the current affiliations of the author(s), which will be listed in such cases in the Acknowledgment section as the present address(es) of the author(s).}
 
 \section{Grants}
 This work has been funded by the grants 3100A0-109874 and 310030-125397 of the Swiss National Science Foundation.
@@ -548,7 +550,7 @@ No \href{http://www.the-aps.org/mm/Publications/Preparing-Your-Manuscript#confli
 
 \clearpage
 \singlespacing
-\marginpar{Reference lists should be arranged alphabetically by author and numbered serially. The reference number should be placed in parentheses at the appropriate place in the text.}
+\marginpar{\singlespacing Reference lists should be arranged alphabetically by author and numbered serially. The reference number should be placed in parentheses at the appropriate place in the text.}
 \bibliographystyle{plainnat}
 \bibliography{../library}
 

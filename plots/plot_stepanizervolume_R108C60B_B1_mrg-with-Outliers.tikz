@@ -1,0 +1,48 @@
+% This file was created by matplotlib v0.1.0.
+% Copyright (c) 2010--2012, Nico Schl"omer <nico.schloemer@gmail.com>
+% All rights reserved.
+% 
+% The lastest updates can be retrieved from
+% 
+% https://github.com/nschloe/matplotlib2tikz
+% 
+% where you can also submit bug reports and leave comments.
+% 
+\begin{tikzpicture}
+
+\begin{axis}[
+title={STEPanizer (24)},
+xlabel={Acinus},
+xmin=0, xmax=35,
+ymin=-0.0005, ymax=0.0025,
+axis on top,
+xtick={0,5,10,15,20,25,30,35},
+xticklabels={0,5,10,15,20,25,30,35}
+]
+\addplot [red]
+coordinates {
+(0,0.000928503038942363) (1,0.000363236072194969) (2,0.000528476198612276) (3,0.000761414474783716) (4,nan) (5,0.000626766920809997) (6,0.000878359350940617) (7,nan) (8,0.000651206767483189) (9,0.00223488663353551) (10,0.00121456308634507) (11,0.000199220648894286) (12,0.000433235998567998) (13,nan) (14,0.00128366813580556) (15,0.00093334944120013) (16,nan) (17,nan) (18,0.000951931319014455) (19,nan) (20,0.000957101812399371) (21,0.000611808517484639) (22,0.000373053974075999) (23,nan) (24,0.000876431577102944) (25,nan) (26,0.000435061652353202) (27,0.000608824085692031) (28,0.000611808517484639) (29,0.000695108832432261) (30,0.000592133625582743) (31,0.000420831138489319) 
+};
+\addplot [thick, color0, dotted]
+coordinates {
+(0,0.00075712424250947) (1,0.00075712424250947) 
+};
+\addplot [color0, dotted]
+coordinates {
+(0,0.00197403919476236) (1,0.00197403919476236) 
+};
+\addplot [color0, dotted]
+coordinates {
+(0,-0.000459790709743417) (1,-0.000459790709743417) 
+};
+\path [draw=black, fill opacity=0] (axis cs:0,1)--(axis cs:35,1);
+
+\path [draw=black, fill opacity=0] (axis cs:1,-0.0005)--(axis cs:1,0.0025);
+
+\path [draw=black, fill opacity=0] (axis cs:0,0)--(axis cs:35,0);
+
+\path [draw=black, fill opacity=0] (axis cs:0,-0.0005)--(axis cs:0,0.0025);
+
+\end{axis}
+
+\end{tikzpicture}
