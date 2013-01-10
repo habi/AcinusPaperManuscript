@@ -21,8 +21,8 @@
 \usepackage[autostyle=true]{csquotes}
 %%%%%%%%%%%% Für Johannes %%%%%%%%%%%%
 \usepackage{setspace} % Change spacing
-	\singlespacing
-	%\onehalfspacing
+	%\singlespacing
+	\onehalfspacing
 	%\doublespacing
 %\usepackage[none]{hyphenat} % No hyphenation, ugly output
 %%%%%%%%%%%% Für Johannes %%%%%%%%%%%%
@@ -100,7 +100,10 @@
 	\and Stefan A. Tschanz\footrecall{ana}%
 	\and Evelyne Yao\footrecall{ana}%
 	\and Marco Stampanoni\footremember{psi}{Swiss Light Source, Paul Scherrer Institut, Villigen, Switzerland}\ \footremember{eth}{Institute for Biomedical Engineering, Swiss Federal Institute of Technology and University of Zürich, Switzerland}%
-	\and Johannes C. Schittny\footrecall{ana}\ \footremember{contact}{Corresponding Author: Email: \href{mailto:schittny@ana.unibe.ch}{schittny@ana.unibe.ch}, Telephone: +41 31 631 46 35, Fax: +41 31 631 38 07, Address: Institute of Anatomy, University of Bern, Baltzerstrasse 2, CH-3012 Bern}%
+	\and Johannes C. Schittny\footrecall{ana}\ \footremember{contact}{Corresponding Author:%
+		\newline Email: \href{mailto:schittny@ana.unibe.ch}{schittny@ana.unibe.ch}%
+		\newline Telephone: +41 31 631 46 35%
+		\newline Address: Institute of Anatomy, University of Bern, Baltzerstrasse 2, CH-3012 Bern}%
 	}
 
 \begin{document}
@@ -122,16 +125,16 @@ To be submitted to the \emph{\href{http://jap.physiology.org/}{Journal of Applie
 	\item Sébastien F. Barré performed data acquisition and contributed to analysis of data.
 	\item Stefan A. Tschanz obtained the samples and contributed to stereological analysis.
 	\item Evelyne Yao prepared the samples and estimated alveolar numbers of the acini.
-	\item Marco Stampanoni designed the beamline and contributed to writing
+	\item Marco Stampanoni designed the beamline and contributed to writing.
 	\item Johannes C. Schittny conceived and designed the study, obtained the samples, performed the data acquisition and contributed to writing.
 \end{itemize}
 
 \section*{Keywords}
 \marginpar{\singlespacing Three to five words that do not appear in the title or running head (which should be maximally 60 characters long, including spaces (the running head is shown at the top left of each page).}
 \begin{itemize}
-	\item tomography
+	\item stereology
 	\item synchrotron radiation 
-	\item \si{\micro}-CT
+	\item microCT
 \end{itemize}
 \clearpage
 \listoftodos
@@ -139,8 +142,8 @@ To be submitted to the \emph{\href{http://jap.physiology.org/}{Journal of Applie
 
 \begin{abstract}
 \marginpar{\singlespacing One paragraph, no more than 250 words.}
-The difficulty of characterizing individual respiratory functional units of the lung---the so-called acini---from two-dimensional physical sections leads to a limited knowledge about biological parameters like volume and surface.
-By using high-resolution tomographic microscopic imaging we extracted single acini from rat lung samples and estimated their individual volume, surface area and number of alveoli.
+The difficulty of characterizing single respiratory functional units of the lung---the so-called acini---from two-dimensional physical sections leads to a limited knowledge about biological parameters like volume and surface.
+By using high-resolution tomographic microscopic imaging we extracted individual acini from rat lung samples and estimated their volume, surface area and number of alveoli.
 Acini were isolated from the distal-medial area of the right lower rat lung lobe by semiautomatically closing the transitory bronchioles at the transition from conducting to gas-exchanging airways.
 The mean acinar volume was estimated to be \SI{\meanacinarvolume}{\centi\meter\cubed} and their mean surface area to be \SI{\meanacinarsurface}{\centi\meter\squared}.
 Assuming that the acini are similarly sized throughout the different regions in the lung, we calculated that one rat lung contains approximately \meantotalnumberofacinirounded\xspace acini, each containing a mean of \meannumberofalveoli alveoli and an alveolar surface area of \SI{\meanairspacesurface}{\centi\metre\squared}.
@@ -151,13 +154,13 @@ Additionally, the method makes it possible to assess the development of the acin
 
 \section{Introduction}
 \subsection{Lung structure and the acini}
-The airway structure of the mammalian lung is formed from dichotomous branches~\cite{Weibel1991}, starting from the trachea.
+The airway structure of the human lung is formed from dichotomous branches~\cite{Weibel1991}, while the rodent lung shows a more monopotial branching, both starting from the trachea.
 The first branching generations lead into the bronchi.
-With increasing depth into the airway tree, the diameter of the airways is reduced, the bronchi are divided into bronchioles, leading to the terminal bronchioles which then mark the end of the pipe-like purely conducting airways.
-The respiratory bronchioles mark the start of the gas-exchange region in the lung.
+With increasing depth into the airway tree, the diameter of the airways is reduced, the bronchi are divided into bronchioli, leading into the respiratory bronchioles which in turn lead to respiratory or transitory bronchioles which then mark the end of the pipe-like purely conducting airways.
+The respiratory bronchioles mark the start of the gas-exchange region in the human lung, while in rat lungs this region is formed by the transitory bronchioles, which are tube-like structures covered with single alveoli.\todo{HALP!}
 
 The change between purely conducting and gas-exchanging airways is identified by changes in the airway wall structure---alveolar outpouchings---and in the airway epithelium (see \autoref{fig:ManholeCoverExplanation}).
-After this point, the so-called acinar airways and all the following airspace form one functional lung unit, the so-called acinus.
+After this point, the so-called acinar airways and all the following airspace form one functional lung unit, the so-called acinus. One acinus is composed of an alveolar duct leading into multiple saccules covered by alveoli which mark the terminal end of the airway tree~\cite{Schittny2007a}.
 
 The lung structure can be estimated using Stereology, as described by \citet{Hsia2010}.
 Such an analysis is generally based on two-dimensional sections of the sample, thus the extracted information is a two-dimensional description \blockquote[\citet{Tschanz2002}]{of the parenchymal air space geometry and, due to geometric laws, it is not allowed to extrapolate these two-dimensional statements directly to three-dimensional structures}.
@@ -367,7 +370,7 @@ Alveolar number was estimated by counting the number of entrance rings in paired
 	\label{fig:STEPanizer Evelyne}
 \end{figure}
 
-Using a \href{http://python.org/}{Python} script, we extracted and calculated the volume assessed with MeVisLab and estimated with the STEPanizer for \numberofacini\xspace acini from their respective data files, the results are presented in \autoref{sec:results} below.
+Using a Python script, we extracted and calculated the volume assessed with MeVisLab and estimated with the STEPanizer for \numberofacini\xspace acini from their respective data files, the results are presented in \autoref{sec:results} below.
 
 \section{Results}
 \label{sec:results}
