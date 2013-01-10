@@ -4,7 +4,7 @@
 	width=0.36*\linewidth,
 	xlabel={Acinus},
 	%ylabel={Volume [\si{\centi\meter\cubed}]},
-	ymin=1e-7
+	ymin=1e-7, ymax=0.009,
 	%ymin=0, ymax=0.0042,
 	%yticklabel=\empty
 	]
