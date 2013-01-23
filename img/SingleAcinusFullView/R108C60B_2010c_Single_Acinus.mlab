@@ -1,0 +1,2232 @@
+// MDL v1 utf8
+network  {
+  watchlist = ""
+}
+module View3D {
+  internal  {
+    frame = "2137 805 144 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "492 257 943 610"
+        sizeHint = "943 610"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View3D
+    inventorInputOn = TRUE
+    lutType = Ramp
+    currentTimePoint = 0
+    lutEditorColorPoints = "[ 0 0 0 0, 4095 1 1 1 ]"
+    lutEditorAlphaPoints = "[ 0 0, 4095 1 ]"
+    lutEditorRelativeLut = FALSE
+    lutEditorColorInterpolation = InterpolateRGB
+    lutEditorAlphaFactor = 1
+    orientationProjectionType = PERSPECTIVE
+    orientationLocation = LOWER_RIGHT
+    orientationOn = TRUE
+    orientationModel = CUBE
+    greyCenter = 0.46000001
+    greyWidth = 0.66500002
+    camType = TRUE
+    camPosition = "-6.86007022857666 2.46279120445251 4.35267305374146"
+    camOrientation = "-0.513306796550751 -0.591847538948059 0.621476113796234 1.83836567401886"
+    initialCameraOrientation = CAMERA_KEEP_AS_IS
+    camFar = 12.006528
+    camNear = 6.568244
+    camFocal = 9.2846727
+    camHeight = 0.78539801
+    autoViewAll = TRUE
+    annotations = TRUE
+    background = TRUE
+    mode = VolumeRendering
+    interactiveQuality = Medium
+    quality = 1
+    useTraceColors = FALSE
+    decoration = FALSE
+    staticSamplingRate = 1
+    alphaFactor = 1
+    colorFactor = "1 1 1"
+  }
+  internalFields  {
+    renderer.gradientQuality = GradientQualityAutomatic
+    renderer.enhancementAlphaMix = 0.25
+    renderer.boundaryEnhancement = FALSE
+    renderer.boundaryEnhancementFactor = 1
+    renderer.boundaryEnhancementExponent = 1
+    renderer.boundaryEnhancementGradientBias = 0
+    renderer.silhouetteEnhancement = FALSE
+    renderer.silhouetteEnhancementExponent = 1
+    renderer.silhouetteEnhancementFactor = 1
+    renderer.toneShading = FALSE
+    renderer.toneShadingWarmColor = "0.67451000213623 0.533333003520966 0.141176000237465"
+    renderer.toneShadingColdColor = "0 0 0.400000005960464"
+    renderer.toneShadingWarmDiffuse = 0.60000002
+    renderer.toneShadingColdDiffuse = 0.2
+    renderer.toneShadingAngle = 45
+    renderer.materialAmbient = 0.60000002
+    renderer.materialDiffuse = 1
+    renderer.materialSpecular = 1
+    renderer.materialSpecularity = 32
+    renderer.light1Enabled = TRUE
+    renderer.light1DiffuseIntensity = 1
+    renderer.light1SpecularIntensity = 1
+    renderer.light1Color = "1 1 1"
+    renderer.light1PolarPhi = 45
+    renderer.light1PolarRho = 0
+    renderer.light2Enabled = FALSE
+    renderer.light2DiffuseIntensity = 1
+    renderer.light2SpecularIntensity = 1
+    renderer.light2Color = "1 1 1"
+    renderer.light2PolarPhi = 0
+    renderer.light2PolarRho = 0
+    renderer.light3Enabled = FALSE
+    renderer.light3DiffuseIntensity = 1
+    renderer.light3SpecularIntensity = 1
+    renderer.light3Color = "1 1 1"
+    renderer.light3PolarPhi = -45
+    renderer.light3PolarRho = 0
+    renderer.sizeOutputX = 369
+    renderer.sizeOutputY = 369
+    renderer.sizeOutputZ = 384
+    renderer.subVolumeStartX = 0
+    renderer.subVolumeStartY = 0
+    renderer.subVolumeStartZ = 0
+    renderer.subVolumeEndX = 369
+    renderer.subVolumeEndY = 369
+    renderer.subVolumeEndZ = 384
+    clip.hideGeometry = FALSE
+    clip.on = FALSE
+    clip.left = FALSE
+    clip.right = FALSE
+    clip.top = FALSE
+    clip.bottom = FALSE
+    clip.rear = FALSE
+    clip.front = FALSE
+    clip.translation0 = "1 0 0"
+    clip.translation1 = "-1 0 0"
+    clip.translation2 = "0 1 0"
+    clip.translation3 = "0 -1 0"
+    clip.translation4 = "0 0 1"
+    clip.translation5 = "0 0 -1"
+    clip.rotation0 = "0 0 0.999999940395355 1.57079994678497"
+    clip.rotation1 = "0 0 -0.999999940395355 1.57079994678497"
+    clip.rotation2 = "0 0 -1 3.1415901184082"
+    clip.rotation3 = "0 0 1 0"
+    clip.rotation4 = "-0.999999940395355 0 0 1.57079994678497"
+    clip.rotation5 = "0.999999940395355 0 0 1.57079994678497"
+  }
+}
+module View2D {
+  internal  {
+    frame = "1205 -419 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1180 233 400 400"
+        sizeHint = "400 400"
+        wasOpen = no
+        wasActive = no
+      }
+      window Viewer {
+        geometry = "763 362 400 400"
+        sizeHint = "400 400"
+        wasOpen = no
+        wasActive = no
+      }
+      window Settings {
+        geometry = "841 334 267 456"
+        sizeHint = "267 456"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View2D
+    inventorInputOn = TRUE
+    view2DExtensionsOn = TRUE
+    startSlice = 0
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_LINEAR
+    standardKeys = TRUE
+    cineMode = CINE_Z
+    cineDirection = CINE_PINGPONG
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    snapToCenter = FALSE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    lutCenter = 127.5
+    lutWidth = 255
+    lutUseTraceColors = FALSE
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = TRUE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    maxPrecision = 4
+    plane = "0 0 1 3.9486403465271"
+  }
+  internalFields = ""
+}
+module BoundingBox {
+  internal  {
+    frame = "1397 -275 104 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "758 424 410 277"
+        sizeHint = "410 277"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = BoundingBox
+    objectMin = 1
+    objectMax = 255
+    updateMode = AutoUpdate
+  }
+}
+module SoCustomExaminerViewer {
+  internal  {
+    frame = "1881 -1015 176 64"
+    moduleGroupName = ""
+    windows  {
+      window _viewer {
+        geometry = "763 362 400 400"
+        sizeHint = "400 400"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = AcinusViewer
+    renderCaching = AUTO
+    boundingBoxCaching = AUTO
+    renderCulling = AUTO
+    pickCulling = AUTO
+    border = FALSE
+    background = "0 0 0"
+    transparency = BLEND
+    antialiasing = FALSE
+    antialiasingNumPasses = 1
+    grabKeyFocus = TRUE
+    snapshotFormat = SNAPSHOT_RGB
+    outputAviFile = ""
+    autoRedrawWhenRecording = TRUE
+    frameRate = 7
+    frameRateAvi = 15
+    status = ready
+    outputSnapshotFile = none
+    outputSnapshotFileWritten = none
+    autoIncreaseFile = TRUE
+    autoUpdateML = FALSE
+    showSnapshotWithShell = FALSE
+    snapCount = 0
+    inputDevicesList = ""
+    headlight = TRUE
+    decoration = TRUE
+    popupMenuEnabled = FALSE
+    viewing = TRUE
+    autoClipping = TRUE
+    externalCamera = FALSE
+    drawStyle = VIEW_AS_IS
+    interactiveDrawStyle = VIEW_LOW_COMPLEXITY
+    viewAllFlag = FALSE
+    initialCameraOrientation = CAMERA_KEEP_AS_IS
+    applyCameraOrientation = CAMERA_KEEP_AS_IS
+    cameraType = CAMERA_PERSPECTIVE
+    userSettingOrientation = "0 0 1 0"
+    automaticViewAll = FALSE
+    storeCurrentState = TRUE
+    saveCamera = TRUE
+    cursor = TRUE
+    isCameraStored = TRUE
+    perspective = TRUE
+    stereoViewing = FALSE
+    stereoOffset = 3
+    height = 0.78539819
+    position = "2.03665661811829 -5.78820323944092 4.54213905334473"
+    orientation = "-0.154914081096649 -0.593592405319214 0.789714932441711 3.51814675331116"
+    nearDistance = 5.4853253
+    farDistance = 11.184635
+    focalDistance = 8.290554
+    forceRedrawOnInteraction = FALSE
+    button1events = TO_VIEWER
+    button2events = TO_VIEWER
+    button3events = TO_VIEWER
+    keyEvents = TO_VIEWER
+    animationEnabled = FALSE
+    feedback = FALSE
+    feedbackSize = 32
+    mouseInteraction = ""
+    rotationAxis = "0 1 0"
+    rotationAngle = 360
+    rotationSteps = 80
+    rotationCurrentStep = 0
+    recordRotation = TRUE
+    enablePickNView = TRUE
+    enableHome = TRUE
+    enableViewAll = TRUE
+    enableSeek = TRUE
+    enableASC = FALSE
+    enableProjType = TRUE
+    enableDolly = TRUE
+    enableM3Control = FALSE
+    chooseView = VIEW_ANTERIOR
+    transformDeltaIn = "1 0 0 0
+0 1 0 0
+0 0 1 0
+0 0 0 1"
+  }
+}
+module SoSwitch {
+  internal  {
+    frame = "1297 -829 96 64"
+    moduleGroupName = Paper
+    windows  {
+      window _default {
+        geometry = "662 522 173 87"
+        sizeHint = "173 87"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SwitchIso
+    whichChild = 1
+  }
+}
+module IsoSurface {
+  internal  {
+    frame = "1233 -735 96 64"
+    moduleGroupName = Paper
+    windows  {
+      window _default {
+        geometry = "1243 286 335 445"
+        sizeHint = "335 445"
+        wasOpen = no
+        wasActive = no
+      }
+      window _automatic {
+        geometry = "713 262 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Acinus
+    isoValue = 1
+    quality = 1
+    useInterpolation = TRUE
+    useSmoothing = FALSE
+    smoothingPasses = 5
+    smoothingFactor = 0.2
+    usePolygonReduction = FALSE
+    targetReduction = 70
+    colorMode = WEM_COLOR_GENERAL
+    drawFaces = TRUE
+    faceDiffuseColor = "1 1 0"
+    useFaceAmbientColor = TRUE
+    faceAmbientColor = "0.266667008399963 0.266667008399963 0.266667008399963"
+    useFaceSpecularColor = TRUE
+    faceSpecularColor = "0.0666669979691505 0.0666669979691505 0.0666669979691505"
+    drawEdges = FALSE
+    edgeColor = "0 0 0"
+    drawNodes = FALSE
+    nodeColor = "1 1 1"
+    drawBoundingBoxes = FALSE
+    boundingBoxColor = "1 1 1"
+    drawFaceNormals = FALSE
+    drawNodeNormals = FALSE
+    faceNormalsColor = "1 1 1"
+    nodeNormalsColor = "1 1 1"
+    faceNormalsScale = 1
+    nodeNormalsScale = 1
+    faceAlphaValue = 1
+    faceShininessValue = 1
+    lineWidth = 1
+    pointSize = 1
+    useEdgeColoringMode = FALSE
+    nodeRenderingMode = WEM_NODE_RENDERING_NORMAL
+    boundingBoxMode = WEM_BOUNDING_BOX_AXIS_ALIGNED
+    autoUpdate = FALSE
+    autoApply = FALSE
+    progress = 0
+    selectedTab = 0
+    elapsedTime = "12.532 seconds"
+    numFaces = 0
+    numEdges = 0
+    numNodes = 0
+    patchType = Unknown
+    surfaceArea = 0
+    surfaceVolume = 0
+  }
+  internalFields = ""
+}
+module SoToggle {
+  internal  {
+    frame = "1285 -917 104 64"
+    moduleGroupName = Paper
+    windows  {
+      window _default {
+        geometry = "935 551 104 22"
+        sizeHint = "56 22"
+        wasOpen = yes
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ToggleAcinus
+    whichChild = -3
+    on = TRUE
+  }
+}
+module SoCustomExaminerViewer {
+  internal  {
+    frame = "1257 -1021 176 64"
+    moduleGroupName = Paper
+    windows  {
+      window _viewer {
+        geometry = "2103 452 442 509"
+        sizeHint = "400 400"
+        wasOpen = no
+        wasActive = no
+      }
+      window _automatic {
+        geometry = "713 262 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+        wasActive = no
+      }
+      window _default {
+        geometry = "726 365 480 395"
+        sizeHint = "480 395"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = PaperViewer
+    renderCaching = AUTO
+    boundingBoxCaching = AUTO
+    renderCulling = AUTO
+    pickCulling = AUTO
+    border = FALSE
+    background = "1 1 1"
+    transparency = BLEND
+    antialiasing = FALSE
+    antialiasingNumPasses = 1
+    grabKeyFocus = TRUE
+    snapshotFormat = SNAPSHOT_RGB
+    outputAviFile = ""
+    autoRedrawWhenRecording = TRUE
+    frameRate = 7
+    frameRateAvi = 15
+    status = ready
+    outputSnapshotFile = none
+    outputSnapshotFileWritten = none
+    autoIncreaseFile = TRUE
+    autoUpdateML = FALSE
+    showSnapshotWithShell = FALSE
+    snapCount = 0
+    inputDevicesList = ""
+    headlight = TRUE
+    decoration = TRUE
+    popupMenuEnabled = FALSE
+    viewing = TRUE
+    autoClipping = TRUE
+    externalCamera = FALSE
+    drawStyle = VIEW_AS_IS
+    interactiveDrawStyle = VIEW_LOW_COMPLEXITY
+    viewAllFlag = FALSE
+    initialCameraOrientation = CAMERA_KEEP_AS_IS
+    applyCameraOrientation = CAMERA_KEEP_AS_IS
+    cameraType = CAMERA_PERSPECTIVE
+    userSettingOrientation = "0 0 1 0"
+    automaticViewAll = TRUE
+    storeCurrentState = TRUE
+    saveCamera = TRUE
+    cursor = TRUE
+    isCameraStored = TRUE
+    perspective = TRUE
+    stereoViewing = FALSE
+    stereoOffset = 3
+    height = 0.78539819
+    position = "-1.76775681972504 1.82003569602966 0.774003922939301"
+    orientation = "-0.824044466018677 -0.462148129940033 0.327673614025116 1.36270034313202"
+    nearDistance = 1.6526542
+    farDistance = 3.6526542
+    focalDistance = 2.6526542
+    forceRedrawOnInteraction = FALSE
+    button1events = TO_VIEWER
+    button2events = TO_VIEWER
+    button3events = TO_VIEWER
+    keyEvents = TO_VIEWER
+    animationEnabled = FALSE
+    feedback = FALSE
+    feedbackSize = 32
+    mouseInteraction = ""
+    rotationAxis = "0 1 0"
+    rotationAngle = 360
+    rotationSteps = 80
+    rotationCurrentStep = 0
+    recordRotation = TRUE
+    enablePickNView = TRUE
+    enableHome = TRUE
+    enableViewAll = TRUE
+    enableSeek = TRUE
+    enableASC = FALSE
+    enableProjType = TRUE
+    enableDolly = TRUE
+    enableM3Control = FALSE
+    chooseView = VIEW_ANTERIOR
+    transformDeltaIn = "1 0 0 0
+0 1 0 0
+0 0 1 0
+0 0 0 1"
+  }
+}
+module SoGroup {
+  internal  {
+    frame = "1913 -915 96 56"
+    moduleGroupName = ""
+    windows  {
+      window _viewer {
+        geometry = "643 347 400 400"
+        sizeHint = "400 400"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoGroup8
+  }
+}
+module SoGVRVolumeRenderer {
+  internal  {
+    frame = "1329 -419 176 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "670 267 346 561"
+        sizeHint = "346 561"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoGVRVolumeRenderer4
+    renderCaching = AUTO
+    boundingBoxCaching = AUTO
+    renderCulling = AUTO
+    pickCulling = AUTO
+    on = TRUE
+    autoLoad = TRUE
+    interactiveQuality = 0.1
+    staticQuality = 1
+    interactiveSamplingRate = 1
+    staticSamplingRate = 1
+    blendMode = Blend
+    octreeNodeSize = NODE_SIZE_32
+    octreeParentComputationMethod = Rank
+    octreeParentComputationRank = 4
+    currentTimePoint = 0
+    maxTimePoint = 0
+    force8bit = FALSE
+    filterVolumeData = FilterLinear
+    filterLut = TRUE
+    subVolumeStartX = 0
+    subVolumeStartY = 0
+    subVolumeStartZ = 0
+    subVolumeEndX = 368
+    subVolumeEndY = 368
+    subVolumeEndZ = 384
+    zbuffer = TRUE
+    permitClipping = TRUE
+    drawOnPlanes = TRUE
+    sizeOutputX = 368
+    sizeOutputY = 368
+    sizeOutputZ = 384
+    incrementalUpdate = FALSE
+    highQualityStaticUpdate = FALSE
+    staticRenderingAfterInteractionOnly = FALSE
+    adaptQualityToWindowSize = TRUE
+    renderMode = Direct
+    useImageCacheFile = FALSE
+    imageCacheFilename = ""
+    greyCenter = 0.5
+    greyWidth = 0.5
+    greyInvert = FALSE
+    alphaCenter = 0.5
+    alphaWidth = 0.5
+    alphaInvert = FALSE
+    colorFactor = "1 1 0"
+    alphaFactor = 1
+    enhancementAlphaMix = 0.25
+    boundaryEnhancement = FALSE
+    boundaryEnhancementFactor = 1
+    boundaryEnhancementExponent = 1
+    boundaryEnhancementGradientBias = 0
+    silhouetteEnhancement = FALSE
+    silhouetteEnhancementExponent = 1
+    silhouetteEnhancementFactor = 1
+    toneShading = FALSE
+    toneShadingWarmColor = "0.674509823322296 0.533333361148834 0.141176477074623"
+    toneShadingColdColor = "0 0 0.400000005960464"
+    toneShadingWarmDiffuse = 0.60000002
+    toneShadingColdDiffuse = 0.2
+    toneShadingAngle = 45
+    materialAmbient = 0.60000002
+    materialDiffuse = 1
+    materialSpecular = 1
+    materialSpecularity = 32
+    light1Enabled = TRUE
+    light1DiffuseIntensity = 1
+    light1SpecularIntensity = 1
+    light1Color = "1 1 1"
+    light1PolarPhi = 0
+    light1PolarRho = 0
+    light2Enabled = FALSE
+    light2DiffuseIntensity = 1
+    light2SpecularIntensity = 1
+    light2Color = "1 1 1"
+    light2PolarPhi = 45
+    light2PolarRho = 45
+    light3Enabled = FALSE
+    light3DiffuseIntensity = 1
+    light3SpecularIntensity = 1
+    light3Color = "1 1 1"
+    light3PolarPhi = -45
+    light3PolarRho = 0
+    gradientQuality = GradientQualityAutomatic
+    selectionAlphaThreshold = 0.2
+    selectedPoint1 = "-1 -1 -1"
+    selectedWorldPoint1 = "-1 -1 -1"
+    selectionActive = FALSE
+    useWorldCoords = TRUE
+  }
+}
+module CopyList {
+  internal  {
+    frame = "1273 93 80 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "836 469 254 186"
+        sizeHint = "254 186"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = CopyList
+    updateMode = AutoUpdate
+    objectType = XMarkerList
+  }
+}
+module XMarkerListContainer {
+  internal  {
+    frame = "1377 -3 160 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "84 555 513 494"
+        sizeHint = "513 494"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = XMarkerListContainer4
+    listString = ""
+    numItems = 1
+    index = 0
+    persistent = FALSE
+    listStringEnable = FALSE
+    applySelect = FALSE
+    id = 2
+    name = ""
+    newName = ""
+    overflowMode = None
+    maxSize = 1
+    useInsertTemplate = FALSE
+    posXYZ = "1.48668599128723 1.46717536449432 3.9279203414917"
+    posC = 0
+    posT = 0
+    posU = 0
+    vecXYZ = "-0.331520080566406 0.426240026950836 0"
+    type = 1
+    newPosXYZ = "0 0 0"
+    newPosC = 0
+    newPosT = 0
+    newPosU = 0
+    newVecXYZ = "0 0 0"
+    newType = 0
+  }
+}
+module XMarkerListContainer {
+  internal  {
+    frame = "1169 5 160 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "380 565 513 494"
+        sizeHint = "513 494"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = XMarkerListContainer3
+    listString = ""
+    numItems = 1
+    index = 0
+    persistent = FALSE
+    listStringEnable = FALSE
+    applySelect = FALSE
+    id = 2
+    name = ""
+    newName = ""
+    overflowMode = None
+    maxSize = 1
+    useInsertTemplate = FALSE
+    posXYZ = "1.54808008670807 1.38824009895325 3.9279203414917"
+    posC = 0
+    posT = 0
+    posU = 0
+    vecXYZ = "0.331520080566406 -0.426240026950836 0"
+    type = 1
+    newPosXYZ = "0 0 0"
+    newPosC = 0
+    newPosT = 0
+    newPosU = 0
+    newVecXYZ = "0 0 0"
+    newType = 0
+  }
+}
+module MarkerListInspector {
+  internal  {
+    frame = "1609 269 144 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "758 255 336 264"
+        sizeHint = "293 264"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = MarkerListInspector
+    textViewer = "[(1.85296 2.3384 4.16176)(0.2368 -0.1184 0) 5 #1,
+(1.95952 2.9304 3.20272)(0.0947201 -0.2368 0) 5 #4,
+(1.93584 2.74096 3.19088)(0.15392 0.08288 0) 5 #6,
+(2.07792 3.14352 2.71728)(-0.02368 -0.15392 0) 5 #11,
+(2.11344 3.14352 2.26736)(0 -0.0947199 0.31968) 5 #18,
+(1.93584 3.36848 2.29104)(0 -0.2368 0.21312) 5 #19,
+(1.85296 3.17904 2.3384)(0.18944 0 0.21312) 5 #20,
+(1.8648 3.29744 2.43312)(0.15392 0 -0.10656) 5 #21,
+(2.29104 2.62256 3.48688)(-0.20128 -0.0118401 0) 5 #22,
+(2.29104 3.07248 2.30288)(-0.20128 0 0.10656) 5 #24,
+(2.20816 2.8712 2.17264)(0.16576 0.13024 0) 5 #25,
+(2.36208 2.85936 2.12528)(-0.30784 0.16576 0) 5 #26,
+(2.29104 2.90672 2.03056)(0 -0.02368 0.4144) 5 #27,
+(2.1608 1.5096 2.9896)(-0.30784 -0.0473599 0) 5 #28,
+(1.8056 1.63984 2.90672)(0.21312 -0.13024 0) 5 #29,
+(1.8648 1.60432 2.11344)(0.0236801 0.24864 0.4736) 5 #31,
+(2.17264 0.55056 2.78832)(0 0.27232 0.1776) 5 #33,
+(1.91216 1.88848 2.14896)(0 -0.30784 0.296) 5 #34,
+(1.60432 0.65712 2.35024)(0 0.09472 0.4144) 5 #35,
+(2.5752 1.00048 3.92496)(-0.13024 0.18944 0) 5 #36,
+(2.64624 1.18992 3.97232)(-0.296 -0.08288 0) 5 #37,
+(1.78192 1.30832 4.01968)(0.21312 0.0473601 0) 5 #38,
+(1.58064 0.5624 2.4568)(0 0.28416 0.0592) 5 #40,
+(1.63984 0.58608 2.96592)(0 0.1776 -0.13024) 5 #41,
+(2.32656 0.66896 2.812)(-0.34336 0.08288 0.0947199) 5 #42,
+(1.55696 0.9768 2.46864)(0 -0.27232 0.21312) 5 #43,
+(1.42672 0.87024 2.66992)(0.28416 0 -0.13024) 5 #45,
+(2.19632 0.69264 2.90672)(-0.16576 0 -0.296) 5 #49,
+(1.59248 0.63344 2.89488)(0.15392 0.18944 0) 1 #54,
+(1.43856 0.92944 2.4568)(0.2368 0 0.28416) 1 #55,
+(1.65168 1.7464 2.23184)(0.33152 0 0.28416) 1 #56,
+(1.60432 1.924 2.22)(0.30784 -0.3552 0) 1 #57,
+(2.03056 0.64528 2.59888)(0 0.37888 0.42624) 1 #59,
+(2.1016 0.8584 2.64624)(0 -0.18944 0.34336) 1 #60]"
+    updateMode = AutoUpdate
+    showIndices3D = FALSE
+    scaleSize = 4.5
+    useDecoration = FALSE
+    autoViewAll = TRUE
+    showBackground = FALSE
+    showBoundingBox = TRUE
+    drawMode = DrawModeFast
+    useFastMode = TRUE
+    hide3DView = TRUE
+    numMarkers = 33
+    selMarker = -1
+    markerPosition = "2.65512013435364 1.16920006275177 3.98120021820068"
+    markerVector = "-0.349279880523682 -0.0828800201416016 0"
+    currentMarker = 0
+    currentType = 1
+    detail = FALSE
+    tabbar = shortinfo
+  }
+  internalFields = ""
+}
+module SoCalculator {
+  internal  {
+    frame = "1401 97 128 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "947 451 348 642"
+        sizeHint = "348 642"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = PositionCalculator
+    a = -1
+    b = 0.050000001
+    c = 0
+    d = 0
+    e = 0
+    f = 0
+    g = 0
+    h = 0
+    va = "1.54808008670807 1.38824009895325 3.9279203414917"
+    vb = "0.331520080566406 -0.426240026950836 0"
+    vc = "10 1 1"
+    vd = "0 0 0"
+    ve = "0 0 0"
+    vf = "0 0 0"
+    vg = "0 0 0"
+    vh = "0 0 0"
+    oa = 0
+    ob = 0
+    oc = 0
+    od = 0
+    ova = "1.48668599128723 1.46717536449432 3.9279203414917"
+    ovb = "-0.331520080566406 0.426240026950836 0"
+    ovc = "0 0 0"
+    ovd = "0 0 0"
+    expression = "ovb = vb*a; # invert vector direction
+ova = va + 2* b* normalize(ovb); # shift position"
+  }
+}
+module XMarkerAtIndex {
+  internal  {
+    frame = "1157 161 120 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1178 580 259 278"
+        sizeHint = "259 278"
+        wasOpen = no
+        wasActive = no
+      }
+      window _automatic {
+        geometry = "912 483 710 600"
+        sizeHint = "260 223"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SelectMarker
+    index = 1
+    vector = "0.331520080566406 -0.426240026950836 0"
+    position = "1.54808008670807 1.38824009895325 3.9279203414917 0 0 0"
+    type = 1
+    id = 2
+    name = XMarker
+    numMarker = 33
+    autoUpdate = TRUE
+  }
+}
+module RegionGrowingMacro {
+  internal  {
+    frame = "1389 -151 152 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "489 193 1143 568"
+        sizeHint = "1143 574"
+        wasOpen = no
+        wasActive = no
+      }
+      window _automatic {
+        geometry = "888 242 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = AcinusRegionGrowing
+    isInit = TRUE
+    autoUpdateMode = AutoUpdate
+    autoThreshold = FALSE
+    basicNeighborhoodType = BNBH_3D_6_XYZ
+    extendedNeighborhoodType = ENBH_2D_4_XZ
+    intervalSize = 0.5
+    lowerThreshold = 1
+    unitLabel = ""
+    upperThreshold = 94
+    useExtendedNBH = FALSE
+    noSeeds = 1
+    stretchOutputOverTime = FALSE
+    volumeCount = 0
+    status = "Region growing terminated normally."
+    outputValid = TRUE
+    startButtonActive = TRUE
+    abortButtonActive = FALSE
+    theProgressBar = 1
+    cCoord = 0
+    uCoord = 0
+    unitType = UnitTypeGrayValue
+    maxVolume = 100
+    maxVolumeEnabled = FALSE
+    autoUpdateUnitType = TRUE
+    showPartialResults = FALSE
+    posFillValue = -1
+    negFillValue = 0
+    invertResult = FALSE
+    showOuterBoundariesOnly = FALSE
+    incrementalUpdateMode = Smart
+    markerPersistence = FALSE
+    markerString = "[(1.48669 1.46718 3.92792)(-0.33152 0.42624 -0) 1 #2]"
+    deleteMarkerOnClick = TRUE
+    markerOverflowMode = None
+    maxMarkers = 0
+    baseColor = "1 0.420675009489059 0"
+    blendMode = BLEND_BLEND
+    overlayAlpha = 0.5
+  }
+  internalFields = ""
+}
+module XMarkerListContainer {
+  internal  {
+    frame = "1137 261 160 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "205 534 513 494"
+        sizeHint = "513 494"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = XMarkerListContainer2
+    listString = ""
+    numItems = 33
+    index = 1
+    persistent = FALSE
+    listStringEnable = FALSE
+    applySelect = FALSE
+    id = 2
+    name = ""
+    newName = ""
+    overflowMode = None
+    maxSize = 0
+    useInsertTemplate = FALSE
+    posXYZ = "1.54808008670807 1.38824009895325 3.9279203414917"
+    posC = 0
+    posT = 0
+    posU = 0
+    vecXYZ = "0.331520080566406 -0.426240026950836 0"
+    type = 1
+    newPosXYZ = "0 0 0"
+    newPosC = 0
+    newPosT = 0
+    newPosU = 0
+    newVecXYZ = "0 0 0"
+    newType = 0
+  }
+}
+module So3DXMarker {
+  internal  {
+    frame = "1773 -379 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "844 228 291 714"
+        sizeHint = "291 714"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    renderCaching = AUTO
+    boundingBoxCaching = AUTO
+    renderCulling = AUTO
+    pickCulling = AUTO
+    scaleSize = 0.2
+    scaleLength = 1
+    color = "1 1 1"
+    validStylePalette = TRUE
+    enableVector = FALSE
+    drawingOn = TRUE
+    editingOn = TRUE
+    selectingOn = TRUE
+    deleteOnClick = FALSE
+    addOnClick = FALSE
+    edit3DOn = FALSE
+    edit3DVector = FALSE
+    colorMode = COLOR_BY_ID
+    markerType = 0
+    textColorMode = COLOR_TEXT
+    textMode = TEXT_MARKERLISTINDEX
+    textColor = "0.983529984951019 1 0.943437993526459"
+    textShadow = TRUE
+    vectorArrow = VECTOR_BOTH_ARROWS
+    lineStyle = Solid
+    drawMode = DrawModeCorrect
+    instanceName = So3DXMarker0
+    listString = ""
+    numItems = 33
+    index = 0
+    persistent = FALSE
+    listStringEnable = FALSE
+    ownsList = FALSE
+    applySelect = FALSE
+    id = 1
+    name = ""
+    newName = ""
+    actionClass = New
+    actionIndex = -1
+    actionId = -1
+    currentIndex = -1
+    overflowMode = None
+    maxSize = 0
+    useInsertTemplate = FALSE
+    upToDate = TRUE
+    posXYZ = "2.65512013435364 1.16920006275177 3.98120021820068"
+    posC = 0
+    posT = 0
+    posU = 0
+    vecXYZ = "-0.349279880523682 -0.0828800201416016 0"
+    type = 1
+    newPosXYZ = "0 0 0"
+    newPosC = 0
+    newPosT = 0
+    newPosU = 0
+    newVecXYZ = "0 0 0"
+    newType = 0
+  }
+}
+module SoView2DMarkerEditor {
+  internal  {
+    frame = "1765 405 168 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1016 319 435 783"
+        sizeHint = "435 783"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    drawingOn = TRUE
+    editingOn = TRUE
+    maskValid = FALSE
+    fixZOn = TRUE
+    color = "1 1 1"
+    selectionTolerance = 4
+    needsValidVoxel = TRUE
+    button1 = PRESSED
+    button2 = IGNORED
+    button3 = IGNORED
+    shift = IGNORED
+    control = IGNORED
+    alt = IGNORED
+    wantsAllEvents = FALSE
+    wantsKeyEvents = FALSE
+    wantsMouseWheelEvents = FALSE
+    setEventHandled = FALSE
+    ignoreHandledEvents = FALSE
+    createNewMode = TRUE
+    renderOnSlab = FALSE
+    clipToSlice = FALSE
+    cursorShape = UNDEFINED_CURSOR
+    depthVisibility = 1
+    snapToVoxel = TRUE
+    snapToSlice = TRUE
+    currentType = 1
+    deleteOnClick = FALSE
+    addOnClick = TRUE
+    alphaFactor = 1
+    iconFile = $(MLAB_MeVisLab_Standard)/Modules/Resources/Images/markerIcons.tif
+    internalIconFile = "C:/Program Files/MeVisLab2.1VC9-64/Packages/MeVisLab/Standard/Modules/Resources/Images/markerIcons.tif"
+    useIconFile = TRUE
+    iconIdx = 0
+    selectingOn = TRUE
+    actOnReleaseOnly = FALSE
+    editorMode = EDIT_VECTOR
+    colorMode = COLOR_BY_ID
+    textColorMode = COLOR_TEXT
+    textMode = TEXT_MARKERLISTINDEX
+    textPosition = TEXT_POSITION_RIGHT_BELOW
+    textColor = "0.983529984951019 1 0.943437993526459"
+    textShadow = TRUE
+    textFontSize = 12
+    showTextOnlyForSelectedMarker = FALSE
+    cutText = FALSE
+    maxNumberOfLines = 1
+    vectorArrow = VECTOR_BOTH_ARROWS
+    useAntiAlias = FALSE
+    depthVectorDrawMode = DRAW_NONE
+    drawMode = DRAW_VECTOR
+    selectiveDrawing = FALSE
+    selectionBoxesForCurrentOnly = FALSE
+    cooperative = TRUE
+    instanceName = SoView2DMarkerEditor0
+    listString = ""
+    index = 0
+    persistent = FALSE
+    listStringEnable = FALSE
+    ownsList = FALSE
+    applySelect = FALSE
+    id = 1
+    name = ""
+    newName = ""
+    overflowMode = None
+    maxSize = 0
+    useInsertTemplate = FALSE
+    upToDate = TRUE
+    posXYZ = "2.65512013435364 1.16920006275177 3.98120021820068"
+    posC = 0
+    posT = 0
+    posU = 0
+    vecXYZ = "-0.349279880523682 -0.0828800201416016 0"
+    type = 1
+    newPosXYZ = "0 0 0"
+    newPosC = 0
+    newPosT = 0
+    newPosU = 0
+    newVecXYZ = "0 0 0"
+    newType = 0
+  }
+}
+module Bypass {
+  internal  {
+    frame = "2081 1333 80 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "788 537 111 20"
+        sizeHint = "111 20"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Bypass2
+    ignoreNextNotify = FALSE
+    noBypass = TRUE
+  }
+}
+module ConcatenateImages {
+  internal  {
+    frame = "2341 1245 152 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "797 474 300 56"
+        sizeHint = "300 56"
+        wasOpen = no
+        wasActive = no
+      }
+      window _automatic {
+        geometry = "969 410 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ConcatenateImages1
+    dimension = z
+    offset = "0 0 0 0 0 0"
+  }
+}
+module ConcatenateImages {
+  internal  {
+    frame = "2249 1317 144 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "705 583 300 56"
+        sizeHint = "300 56"
+        wasOpen = no
+        wasActive = no
+      }
+      window _automatic {
+        geometry = "593 247 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ConcatenateImages
+    dimension = z
+    offset = "0 0 0 0 0 0"
+  }
+}
+module GVRVolumeToImage {
+  internal  {
+    frame = "2421 1493 152 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "912 621 238 90"
+        sizeHint = "238 90"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = GVRVolumeToImage4
+    isValid = TRUE
+    maxDepth = 7
+    nodeHeight = 3
+    automaticNodeHeight = FALSE
+    limit = 100
+    outputImageType = ImageData
+  }
+}
+module GVRVolumeLoad {
+  internal  {
+    frame = "2429 1581 136 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "748 512 487 250"
+        sizeHint = "487 250"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = GVRVolumeLoad3
+    filename = d:/sls/2010c/R108C60B_B3_mrg/R108C60B_B3_mrg.2948.2948.1024.gvr
+    isValid = TRUE
+    maxDepth = 7
+    additionalTransformation = "1 0 0 0
+0 1 0 0
+0 0 1 0
+0 0 0 1"
+  }
+}
+module GVRVolumeToImage {
+  internal  {
+    frame = "2237 1501 152 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1240 509 238 90"
+        sizeHint = "238 90"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = GVRVolumeToImage3
+    isValid = TRUE
+    maxDepth = 7
+    nodeHeight = 3
+    automaticNodeHeight = FALSE
+    limit = 100
+    outputImageType = ImageData
+  }
+}
+module GVRVolumeLoad {
+  internal  {
+    frame = "2245 1589 136 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1081 413 487 250"
+        sizeHint = "487 250"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = GVRVolumeLoad2
+    filename = d:/sls/2010c/R108C60B_B2_mrg/R108C60B_B2_mrg.2948.2948.1024.gvr
+    isValid = TRUE
+    maxDepth = 7
+    additionalTransformation = "1 0 0 0
+0 1 0 0
+0 0 1 0
+0 0 0 1"
+  }
+}
+module Switch {
+  internal  {
+    frame = "2037 893 104 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "746 515 199 64"
+        sizeHint = "199 64"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Switch1
+    currentInput = 2
+    numberOfInputs = 3
+    maxInput = 2
+  }
+}
+module StringUtils {
+  internal  {
+    frame = "1405 869 88 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "345 284 370 331"
+        sizeHint = "370 331"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = StringUtils
+    operationType = Concatenate
+    string1 = R108C60B_B1_mrg.2948.2948.1024
+    string2 = marker
+    string3 = xml
+    string4 = ""
+    string5 = ""
+    string6 = ""
+    stringPrefix = [
+    stringPostfix = ]
+    toggle1 = TRUE
+    toggle2 = TRUE
+    toggle3 = TRUE
+    toggle4 = FALSE
+    toggle5 = FALSE
+    toggle6 = FALSE
+    togglePrefix = FALSE
+    togglePostfix = FALSE
+    separator = .
+    selectSeparator = 3
+    toggleIgnoreCase = FALSE
+    inPos1 = 0
+    inPos2 = 0
+  }
+}
+module FileInformation {
+  internal  {
+    frame = "1401 941 112 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "662 434 271 361"
+        sizeHint = "271 361"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = FileInformation
+    path = d:/sls/2010c/R108C60B_B1_mrg/R108C60B_B1_mrg.2948.2948.1024.gvr
+    dirname = d:/sls/2010c/R108C60B_B1_mrg/
+    filename = R108C60B_B1_mrg.2948.2948.1024.gvr
+    basename = R108C60B_B1_mrg.2948.2948.1024
+    extension = .gvr
+    type = File
+    size = 1241065224
+    createDate = 2013-01-23T14:37:01
+    exists = TRUE
+    isDirectory = FALSE
+    isReadable = TRUE
+    isWritable = TRUE
+  }
+  internalFields = ""
+}
+module StylePalette {
+  internal  {
+    frame = "1721 477 96 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "172 503 633 526"
+        sizeHint = "633 526"
+        wasOpen = no
+        wasActive = no
+      }
+      window _automatic {
+        geometry = "1128 179 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = StylePalette
+    color1 = "1 1 0"
+    color2 = "1 0 0"
+    color3 = "0 0 1"
+    color4 = "0 1 0"
+    color5 = "1 0.5 0"
+    color6 = "1 0 1"
+    color7 = "0 1 1"
+    color8 = "0.5 1 0.5"
+    color9 = "1 0 0.5"
+    color10 = "0.5 1 0"
+    color11 = "0.5 0 1"
+    color12 = "0 1 0.5"
+    lineStyle1 = Solid
+    lineStyle2 = Solid
+    lineStyle3 = Solid
+    lineStyle4 = Solid
+    lineStyle5 = Solid
+    lineStyle6 = Solid
+    lineStyle7 = Solid
+    lineStyle8 = Solid
+    lineStyle9 = Solid
+    lineStyle10 = Solid
+    lineStyle11 = Solid
+    lineStyle12 = Solid
+    lineWidth1 = 1
+    lineWidth2 = 1
+    lineWidth3 = 1
+    lineWidth4 = 1
+    lineWidth5 = 1
+    lineWidth6 = 1
+    lineWidth7 = 1
+    lineWidth8 = 1
+    lineWidth9 = 1
+    lineWidth10 = 1
+    lineWidth11 = 1
+    lineWidth12 = 1
+    markerType1 = None
+    markerType2 = None
+    markerType3 = None
+    markerType4 = None
+    markerType5 = None
+    markerType6 = None
+    markerType7 = None
+    markerType8 = None
+    markerType9 = None
+    markerType10 = None
+    markerType11 = None
+    markerType12 = None
+    markerSize1 = 5
+    markerSize2 = 5
+    markerSize3 = 5
+    markerSize4 = 5
+    markerSize5 = 5
+    markerSize6 = 5
+    markerSize7 = 5
+    markerSize8 = 5
+    markerSize9 = 5
+    markerSize10 = 5
+    markerSize11 = 5
+    markerSize12 = 5
+    antiAlias1 = FALSE
+    antiAlias2 = FALSE
+    antiAlias3 = FALSE
+    antiAlias4 = FALSE
+    antiAlias5 = FALSE
+    antiAlias6 = FALSE
+    antiAlias7 = FALSE
+    antiAlias8 = FALSE
+    antiAlias9 = FALSE
+    antiAlias10 = FALSE
+    antiAlias11 = FALSE
+    antiAlias12 = FALSE
+    name1 = ""
+    name2 = ""
+    name3 = ""
+    name4 = ""
+    name5 = ""
+    name6 = ""
+    name7 = ""
+    name8 = ""
+    name9 = ""
+    name10 = ""
+    name11 = ""
+    name12 = ""
+    currentStyle = 2
+    currentColor = "1 0 0"
+    currentLineStyle = Solid
+    currentLineWidth = 1
+    currentMarkerType = None
+    currentMarkerSize = 5
+    currentAntiAlias = FALSE
+    currentName = ""
+    reservedEntries = 0
+  }
+}
+module SoGroup {
+  internal  {
+    frame = "1873 -491 96 56"
+    moduleGroupName = ""
+    windows  {
+      window _viewer {
+        geometry = "436 179 400 400"
+        sizeHint = "400 400"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoGroup1
+  }
+}
+module SoToggle {
+  internal  {
+    frame = "1977 -583 128 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "815 536 104 22"
+        sizeHint = "56 22"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Toggle_Segment
+    whichChild = -3
+    on = TRUE
+  }
+}
+module SoToggle {
+  internal  {
+    frame = "1865 -583 112 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "815 536 104 22"
+        sizeHint = "56 22"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Toggle_Marker
+    whichChild = -3
+    on = TRUE
+  }
+}
+module XMarkerListContainer {
+  internal  {
+    frame = "1773 269 152 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1104 48 513 494"
+        sizeHint = "513 494"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = XMarkerListContainer
+    listString = ""
+    numItems = 33
+    index = 1
+    persistent = FALSE
+    listStringEnable = FALSE
+    applySelect = FALSE
+    id = 2
+    name = ""
+    newName = ""
+    overflowMode = None
+    maxSize = 0
+    useInsertTemplate = FALSE
+    posXYZ = "1.54808008670807 1.38824009895325 3.9279203414917"
+    posC = 0
+    posT = 0
+    posU = 0
+    vecXYZ = "0.331520080566406 -0.426240026950836 0"
+    type = 1
+    newPosXYZ = "0 0 0"
+    newPosC = 0
+    newPosT = 0
+    newPosU = 0
+    newVecXYZ = "0 0 0"
+    newType = 0
+  }
+}
+module SaveBase {
+  internal  {
+    frame = "1861 189 88 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "947 322 548 409"
+        sizeHint = "548 216"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SaveBase
+    status = "Object successfully saved."
+    nodeName = XMarkerList
+    filename = R108C60B_B1_mrg.2948.2948.1024.marker.xml
+    useBaseDir = TRUE
+    baseDir = d:/sls/2010c/R108C60B_B1_mrg/
+    format = XML
+    autoSave = FALSE
+    upToDate = FALSE
+    allowOverwrite = TRUE
+  }
+}
+module LoadBase {
+  internal  {
+    frame = "1829 477 88 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1075 524 500 195"
+        sizeHint = "483 195"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = LoadBase
+    autoUpdate = AutoUpdate
+    status = "Object loaded into container."
+    nodeName = ""
+    filename = R108C60B_B1_mrg.2948.2948.1024.marker.xml
+    useBaseDir = TRUE
+    baseDir = d:/sls/2010c/R108C60B_B1_mrg/
+    format = Auto
+    upToDate = TRUE
+  }
+}
+module Mask {
+  internal  {
+    frame = "1961 181 80 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "843 580 370 94"
+        sizeHint = "370 94"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Mask
+    mode = MaskedOriginalInv
+    blending = 0.5
+    background = 0
+  }
+}
+module RegionGrowingMacro {
+  internal  {
+    frame = "1981 -35 152 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1514 211 1150 574"
+        sizeHint = "1150 574"
+        wasOpen = no
+        wasActive = no
+      }
+      window _automatic {
+        geometry = "593 247 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = RegionGrowingMacro
+    isInit = TRUE
+    autoUpdateMode = Off
+    autoThreshold = FALSE
+    basicNeighborhoodType = BNBH_3D_6_XYZ
+    extendedNeighborhoodType = ENBH_2D_4_XZ
+    intervalSize = 2
+    lowerThreshold = 1
+    unitLabel = ""
+    upperThreshold = 73
+    useExtendedNBH = FALSE
+    noSeeds = 33
+    stretchOutputOverTime = FALSE
+    volumeCount = 0.000127087399393192
+    status = "Region growing terminated normally."
+    outputValid = TRUE
+    startButtonActive = TRUE
+    abortButtonActive = FALSE
+    theProgressBar = 1
+    cCoord = 0
+    uCoord = 0
+    unitType = UnitTypeGrayValue
+    maxVolume = 100
+    maxVolumeEnabled = FALSE
+    autoUpdateUnitType = TRUE
+    showPartialResults = FALSE
+    posFillValue = 255
+    negFillValue = 0
+    invertResult = FALSE
+    showOuterBoundariesOnly = FALSE
+    incrementalUpdateMode = Smart
+    markerPersistence = FALSE
+    markerString = "[(2.65512 1.1692 3.9812)(-0.34928 -0.08288 0) 1 #1, (1.54808 1.38824 3.92792)(0.33152 -0.42624 0) 1 #2, (1.59544 1.2284 3.93976)(0.21312 0.33152 2.66454e-015) 1 #3, (2.65512 0.89688 3.91608)(-0.39072 0.37296 0) 1 #4, (1.702 1.1988 4.05224)(-0.12432 0.21312 -0.22496) 1 #5, (1.76712 2.37096 4.08776)(0.39664 0.11248 0) 1 #7, (1.75528 2.4716 4.12328)(0.21904 -0.29008 -0.13616) 1 #8, (2.72616 2.18152 4.514)(-0.36112 -0.0888002 0) 1 #9, (1.95064 2.92152 3.2116)(0.1184 -0.23088 0) 1 #11, (2.03944 2.90376 3.05768)(3.9968e-015 -0.1776 0.2664) 1 #13, (1.8796 1.62504 2.16376)(0 0.18352 0.31376) 1 #14, (2.05128 0.73704 2.73208)(0 0.29008 0.296) 1 #15, (2.0868 0.82584 2.69064)(0 -0.11248 0.45584) 1 #17, (1.9092 1.83816 2.19928)(0 -0.37888 0.16576) 1 #19, (2.22888 1.53032 2.98664)(-0.33744 -0.0710399 0) 1 #21, (1.7908 1.6428 2.90376)(0.29008 -0.20128 0) 1 #22, (1.79672 1.73752 2.3532)(0.53872 -0.148 0) 1 #23, (2.3236 4.17656 4.13512)(0 -0.43216 0.14208) 1 #26, (2.16376 3.88648 3.99304)(0.42624 0 0.0887997) 1 #28, (2.35912 3.93976 3.76808)(-0.15392 0 0.39664) 1 #30, (2.40648 2.63144 3.30632)(-0.29008 0 0.50912) 1 #32, (2.09864 0.76664 2.83272)(-0.20128 0.26048 -0.18352) 1 #34, (2.6196 0.96792 3.79768)(0 -0.16576 0.52096) 1 #35, (2.53672 0.90872 3.88056)(0.2368 0.1776 0.0355201) 1 #36, (1.74344 1.75528 2.3236)(0.37296 0 0.36704) 1 #37, (1.6132 0.83176 2.70248)(0.26048 0 0.30192) 1 #39, (1.60728 1.3172 3.93384)(0.296 0 0.15392) 1 #41, (1.68424 0.74888 2.89784)(0.2664 0.2368 0) 1 #42, (1.92696 2.738 3.2116)(0.3552 0 0.45584) 1 #43, (2.43016 2.69064 3.478)(-0.20128 -0.0296001 -0.24272) 1 #44, (2.43608 2.74984 3.30632)(0 -0.51504 0.21904) 1 #45, (2.69064 2.11048 4.38968)(-0.0592 0.08288 0.14208) 1 #46, (2.44792 1.13368 4.1292)(0.00591993 0.0473599 -0.40848) 1 #48]"
+    deleteMarkerOnClick = TRUE
+    markerOverflowMode = None
+    maxMarkers = 0
+    baseColor = "0 1 0"
+    blendMode = BLEND_BLEND
+    overlayAlpha = 0.5
+  }
+  internalFields = ""
+}
+module SoGroup {
+  internal  {
+    frame = "1961 -739 96 56"
+    moduleGroupName = ""
+    windows  {
+      window _viewer {
+        geometry = "643 347 400 400"
+        sizeHint = "400 400"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoGroup
+  }
+}
+module XMarkerClipPlanes {
+  internal  {
+    frame = "2021 293 136 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1400 353 486 604"
+        sizeHint = "486 600"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = XMarkerClipPlanes
+    updateMode = Auto
+    markerListIndex = 1
+    planeValue = 1
+    backgroundValue = 0
+    planeRadius = 0.15000001
+    planeThickness = 0.050000001
+    planeColor = "1 0 0"
+    planeTransparency = 0
+    shiftPlane = TRUE
+    shiftOffset = 0.0099999998
+    cylinderCenterPosition = "1.54194068002238 1.39613362041565 3.9279203414917"
+  }
+  internalFields = ""
+}
+module GVRVolumeLoad {
+  internal  {
+    frame = "2029 1597 136 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1081 413 487 250"
+        sizeHint = "487 250"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = GVRVolumeLoad1
+    filename = d:/sls/2010c/R108C60B_B1_mrg/R108C60B_B1_mrg.2948.2948.1024.gvr
+    isValid = TRUE
+    maxDepth = 7
+    additionalTransformation = "1 0 0 0
+0 1 0 0
+0 0 1 0
+0 0 0 1"
+  }
+}
+module GVRVolumeToImage {
+  internal  {
+    frame = "2021 1509 152 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "931 495 238 90"
+        sizeHint = "238 90"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = GVRVolumeToImage2
+    isValid = TRUE
+    maxDepth = 7
+    nodeHeight = 3
+    automaticNodeHeight = FALSE
+    limit = 100
+    outputImageType = ImageData
+  }
+}
+module GaussGradient {
+  internal  {
+    frame = "2125 1237 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "691 635 193 225"
+        sizeHint = "193 225"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = GaussGradient1
+    sigma = 1
+    unit = voxel
+    calc2D = TRUE
+    calcMagnitude = TRUE
+    autoUpdate = TRUE
+  }
+}
+module RegionGrowingMacro {
+  internal  {
+    frame = "2129 1141 160 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "971 198 1143 574"
+        sizeHint = "1143 574"
+        wasOpen = no
+        wasActive = no
+      }
+      window _automatic {
+        geometry = "970 413 500 600"
+        sizeHint = "260 223"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = RegionGrowingMacro2
+    isInit = TRUE
+    autoUpdateMode = Off
+    autoThreshold = TRUE
+    basicNeighborhoodType = BNBH_3D_6_XYZ
+    extendedNeighborhoodType = ENBH_2D_4_XZ
+    intervalSize = 2
+    lowerThreshold = -2.33756261244416
+    unitLabel = ""
+    upperThreshold = 2.76243738755584
+    useExtendedNBH = FALSE
+    noSeeds = 0
+    stretchOutputOverTime = FALSE
+    volumeCount = 0
+    status = "No valid input image detected."
+    outputValid = FALSE
+    startButtonActive = TRUE
+    abortButtonActive = FALSE
+    theProgressBar = 0
+    cCoord = 0
+    uCoord = 0
+    unitType = UnitTypeGrayValue
+    maxVolume = 0.001
+    maxVolumeEnabled = FALSE
+    autoUpdateUnitType = TRUE
+    showPartialResults = FALSE
+    posFillValue = -1
+    negFillValue = 0
+    invertResult = FALSE
+    showOuterBoundariesOnly = FALSE
+    incrementalUpdateMode = Smart
+    markerPersistence = TRUE
+    markerString = "[(0.1 0.1 0.1) #1, (4 4 .1) #2]"
+    deleteMarkerOnClick = TRUE
+    markerOverflowMode = None
+    maxMarkers = 0
+    baseColor = "1 0.420675009489059 0"
+    blendMode = BLEND_BLEND
+    overlayAlpha = 0.5
+  }
+  internalFields = ""
+}
+module Mask {
+  internal  {
+    frame = "2089 1061 80 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "450 599 370 94"
+        sizeHint = "370 94"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Mask2
+    mode = MaskedOriginalInv
+    blending = 0.5
+    background = 0
+  }
+}
+module SoGVRVolumeRenderer {
+  internal  {
+    frame = "1941 -379 168 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "1167 270 346 561"
+        sizeHint = "346 561"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoGVRVolumeRenderer
+    renderCaching = AUTO
+    boundingBoxCaching = AUTO
+    renderCulling = AUTO
+    pickCulling = AUTO
+    on = TRUE
+    autoLoad = TRUE
+    interactiveQuality = 0.1
+    staticQuality = 1
+    interactiveSamplingRate = 1
+    staticSamplingRate = 1
+    blendMode = Blend
+    octreeNodeSize = NODE_SIZE_32
+    octreeParentComputationMethod = Rank
+    octreeParentComputationRank = 4
+    currentTimePoint = 0
+    maxTimePoint = 0
+    force8bit = FALSE
+    filterVolumeData = FilterLinear
+    filterLut = TRUE
+    subVolumeStartX = 0
+    subVolumeStartY = 0
+    subVolumeStartZ = 0
+    subVolumeEndX = 369
+    subVolumeEndY = 369
+    subVolumeEndZ = 384
+    zbuffer = TRUE
+    permitClipping = TRUE
+    drawOnPlanes = TRUE
+    sizeOutputX = 369
+    sizeOutputY = 369
+    sizeOutputZ = 384
+    incrementalUpdate = FALSE
+    highQualityStaticUpdate = FALSE
+    staticRenderingAfterInteractionOnly = FALSE
+    adaptQualityToWindowSize = TRUE
+    renderMode = Direct
+    useImageCacheFile = FALSE
+    imageCacheFilename = ""
+    greyCenter = 0.5
+    greyWidth = 0.5
+    greyInvert = FALSE
+    alphaCenter = 0.5
+    alphaWidth = 0.5
+    alphaInvert = FALSE
+    colorFactor = "0 1 0"
+    alphaFactor = 1
+    enhancementAlphaMix = 0.25
+    boundaryEnhancement = FALSE
+    boundaryEnhancementFactor = 1
+    boundaryEnhancementExponent = 1
+    boundaryEnhancementGradientBias = 0
+    silhouetteEnhancement = FALSE
+    silhouetteEnhancementExponent = 1
+    silhouetteEnhancementFactor = 1
+    toneShading = FALSE
+    toneShadingWarmColor = "0.674509823322296 0.533333361148834 0.141176477074623"
+    toneShadingColdColor = "0 0 0.400000005960464"
+    toneShadingWarmDiffuse = 0.60000002
+    toneShadingColdDiffuse = 0.2
+    toneShadingAngle = 45
+    materialAmbient = 0.60000002
+    materialDiffuse = 1
+    materialSpecular = 1
+    materialSpecularity = 32
+    light1Enabled = TRUE
+    light1DiffuseIntensity = 1
+    light1SpecularIntensity = 1
+    light1Color = "1 1 1"
+    light1PolarPhi = 0
+    light1PolarRho = 0
+    light2Enabled = FALSE
+    light2DiffuseIntensity = 1
+    light2SpecularIntensity = 1
+    light2Color = "1 1 1"
+    light2PolarPhi = 45
+    light2PolarRho = 45
+    light3Enabled = FALSE
+    light3DiffuseIntensity = 1
+    light3SpecularIntensity = 1
+    light3Color = "1 1 1"
+    light3PolarPhi = -45
+    light3PolarRho = 0
+    gradientQuality = GradientQualityAutomatic
+    selectionAlphaThreshold = 0.2
+    selectedPoint1 = "-1 -1 -1"
+    selectedWorldPoint1 = "-1 -1 -1"
+    selectionActive = FALSE
+    useWorldCoords = TRUE
+  }
+}
+module Bypass {
+  internal  {
+    frame = "2077 661 72 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "788 537 111 20"
+        sizeHint = "111 20"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Bypass
+    ignoreNextNotify = FALSE
+    noBypass = FALSE
+  }
+}
+connections  {
+  View3D.inImage = Switch1.output0
+  View2D.inImage = BoundingBox.output0
+  BoundingBox.input0 = AcinusRegionGrowing.outMask
+  AcinusViewer.children = SoGroup8.self
+  SwitchIso.children = "Acinus.outScene SoGVRVolumeRenderer4.self"
+  Acinus.inImage = AcinusRegionGrowing.outMask
+  ToggleAcinus.children = SwitchIso.self
+  PaperViewer.children = ToggleAcinus.self
+  SoGroup8.children = "SoGroup.self SoGVRVolumeRenderer4.self"
+  SoGVRVolumeRenderer4.image = BoundingBox.output0
+  CopyList.inObject = SelectMarker.outputXMarkerList
+  XMarkerListContainer4.inXMarkerList = CopyList.outObject
+  XMarkerListContainer4.posXYZ = PositionCalculator.ova
+  XMarkerListContainer4.vecXYZ = PositionCalculator.ovb
+  XMarkerListContainer3.inXMarkerList = SelectMarker.outputXMarkerList
+  MarkerListInspector.inMarkerList = SoView2DMarkerEditor0.outXMarkerList
+  PositionCalculator.b = XMarkerClipPlanes.planeThickness
+  PositionCalculator.va = XMarkerListContainer3.posXYZ
+  PositionCalculator.vb = XMarkerListContainer3.vecXYZ
+  SelectMarker.inputXMarkerList = XMarkerListContainer2.outXMarkerList
+  SelectMarker.index = XMarkerListContainer2.index
+  AcinusRegionGrowing.inImage = Mask.output0
+  AcinusRegionGrowing.inMarkers = XMarkerListContainer4.outXMarkerList
+  XMarkerListContainer2.inXMarkerList = XMarkerListContainer.outXMarkerList
+  XMarkerListContainer2.index = XMarkerListContainer.index
+  So3DXMarker0.stylePalette = StylePalette.outStylePalette
+  So3DXMarker0.inXMarkerList = SoView2DMarkerEditor0.outXMarkerList
+  So3DXMarker0.color = SoView2DMarkerEditor0.color
+  So3DXMarker0.drawingOn = SoView2DMarkerEditor0.drawingOn
+  So3DXMarker0.editingOn = SoView2DMarkerEditor0.editingOn
+  So3DXMarker0.selectingOn = SoView2DMarkerEditor0.selectingOn
+  So3DXMarker0.deleteOnClick = SoView2DMarkerEditor0.deleteOnClick
+  So3DXMarker0.colorMode = SoView2DMarkerEditor0.colorMode
+  So3DXMarker0.textColorMode = SoView2DMarkerEditor0.textColorMode
+  So3DXMarker0.textColor = SoView2DMarkerEditor0.textColor
+  So3DXMarker0.textShadow = SoView2DMarkerEditor0.textShadow
+  So3DXMarker0.vectorArrow = SoView2DMarkerEditor0.vectorArrow
+  SoView2DMarkerEditor0.stylePalette = StylePalette.outStylePalette
+  SoView2DMarkerEditor0.inXMarkerList = LoadBase.outObject
+  SoView2DMarkerEditor0.drawingOn = So3DXMarker0.drawingOn
+  SoView2DMarkerEditor0.editingOn = So3DXMarker0.editingOn
+  SoView2DMarkerEditor0.color = So3DXMarker0.color
+  SoView2DMarkerEditor0.deleteOnClick = So3DXMarker0.deleteOnClick
+  SoView2DMarkerEditor0.selectingOn = So3DXMarker0.selectingOn
+  SoView2DMarkerEditor0.colorMode = So3DXMarker0.colorMode
+  SoView2DMarkerEditor0.textColorMode = So3DXMarker0.textColorMode
+  SoView2DMarkerEditor0.textColor = So3DXMarker0.textColor
+  SoView2DMarkerEditor0.textShadow = So3DXMarker0.textShadow
+  SoView2DMarkerEditor0.vectorArrow = So3DXMarker0.vectorArrow
+  Bypass2.input0 = GVRVolumeToImage2.output0
+  ConcatenateImages1.input0 = ConcatenateImages.output0
+  ConcatenateImages1.input1 = GVRVolumeToImage4.output0
+  ConcatenateImages1.dimension = ConcatenateImages.dimension
+  ConcatenateImages.input0 = GVRVolumeToImage2.output0
+  ConcatenateImages.input1 = GVRVolumeToImage3.output0
+  ConcatenateImages.dimension = ConcatenateImages1.dimension
+  GVRVolumeToImage4.inVolume = GVRVolumeLoad3.outVolume
+  GVRVolumeToImage4.nodeHeight = GVRVolumeToImage3.nodeHeight
+  GVRVolumeToImage3.inVolume = GVRVolumeLoad2.outVolume
+  GVRVolumeToImage3.nodeHeight = GVRVolumeToImage2.nodeHeight
+  Switch1.input0 = GVRVolumeToImage2.output0
+  Switch1.input1 = Mask2.output0
+  Switch1.input2 = ConcatenateImages1.output0
+  StringUtils.string1 = FileInformation.basename
+  FileInformation.path = GVRVolumeLoad1.filename
+  StylePalette.lineWidth2 = StylePalette.lineWidth1
+  StylePalette.lineWidth3 = StylePalette.lineWidth2
+  StylePalette.lineWidth4 = StylePalette.lineWidth3
+  StylePalette.lineWidth5 = StylePalette.lineWidth4
+  StylePalette.lineWidth6 = StylePalette.lineWidth5
+  StylePalette.lineWidth7 = StylePalette.lineWidth6
+  StylePalette.lineWidth8 = StylePalette.lineWidth7
+  StylePalette.lineWidth9 = StylePalette.lineWidth8
+  StylePalette.lineWidth10 = StylePalette.lineWidth9
+  StylePalette.lineWidth11 = StylePalette.lineWidth10
+  StylePalette.lineWidth12 = StylePalette.lineWidth11
+  StylePalette.markerType2 = StylePalette.markerType1
+  StylePalette.markerType3 = StylePalette.markerType2
+  StylePalette.markerType4 = StylePalette.markerType3
+  StylePalette.markerType5 = StylePalette.markerType4
+  StylePalette.markerType6 = StylePalette.markerType5
+  StylePalette.markerType7 = StylePalette.markerType6
+  StylePalette.markerType8 = StylePalette.markerType7
+  StylePalette.markerType9 = StylePalette.markerType8
+  StylePalette.markerType10 = StylePalette.markerType9
+  StylePalette.markerType11 = StylePalette.markerType10
+  StylePalette.markerType12 = StylePalette.markerType11
+  StylePalette.markerSize2 = StylePalette.markerSize1
+  StylePalette.markerSize3 = StylePalette.markerSize2
+  StylePalette.markerSize4 = StylePalette.markerSize3
+  StylePalette.markerSize5 = StylePalette.markerSize4
+  StylePalette.markerSize6 = StylePalette.markerSize5
+  StylePalette.markerSize7 = StylePalette.markerSize6
+  StylePalette.markerSize8 = StylePalette.markerSize7
+  StylePalette.markerSize9 = StylePalette.markerSize8
+  StylePalette.markerSize10 = StylePalette.markerSize9
+  StylePalette.markerSize11 = StylePalette.markerSize10
+  StylePalette.markerSize12 = StylePalette.markerSize11
+  StylePalette.currentStyle = XMarkerListContainer.id
+  SoGroup1.children = "XMarkerClipPlanes.outNode0 So3DXMarker0.self"
+  Toggle_Segment.children = SoGVRVolumeRenderer.self
+  Toggle_Marker.children = SoGroup1.self
+  XMarkerListContainer.inXMarkerList = SoView2DMarkerEditor0.outXMarkerList
+  XMarkerListContainer.index = XMarkerClipPlanes.markerListIndex
+  SaveBase.inObject = XMarkerListContainer.outXMarkerList
+  SaveBase.filename = StringUtils.result
+  SaveBase.baseDir = FileInformation.dirname
+  LoadBase.filename = SaveBase.filename
+  LoadBase.baseDir = SaveBase.baseDir
+  Mask.input0 = Bypass.output0
+  Mask.input1 = XMarkerClipPlanes.output0
+  RegionGrowingMacro.inImage = Mask.output0
+  RegionGrowingMacro.inMarkers = SoView2DMarkerEditor0.outXMarkerList
+  RegionGrowingMacro.baseColor = SoGVRVolumeRenderer.colorFactor
+  SoGroup.children = "Toggle_Marker.self Toggle_Segment.self"
+  XMarkerClipPlanes.input0 = Bypass.output0
+  XMarkerClipPlanes.inBase0 = SoView2DMarkerEditor0.outXMarkerList
+  GVRVolumeToImage2.inVolume = GVRVolumeLoad1.outVolume
+  GVRVolumeToImage2.nodeHeight = GVRVolumeToImage4.nodeHeight
+  GaussGradient1.input0 = Bypass2.output0
+  RegionGrowingMacro2.inImage = GaussGradient1.output0
+  Mask2.input0 = Bypass2.output0
+  Mask2.input1 = RegionGrowingMacro2.outMask
+  SoGVRVolumeRenderer.image = RegionGrowingMacro.outMask
+  Bypass.input0 = Switch1.output0
+}
+networkModel  {
+  parentItems  {
+    0  {
+      MLABNetworkModelItem MLABNoteItem {
+        uniqueId = 226
+        objectName = ""
+        parentUniqueId = 0
+        frame = "1003 -1008 200 200"
+        backgroundColor  {
+          r = 252
+          g = 242
+          b = 2
+          a = 255
+        }
+        text = "This up here is the visualization for the Acinus-Paper."
+        titleText = Paper
+        isCollapsed = False
+      }
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 247
+        objectName = Paper
+        parentUniqueId = 0
+        frame = "1208 -1096 250 450"
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+    }
+  }
+}

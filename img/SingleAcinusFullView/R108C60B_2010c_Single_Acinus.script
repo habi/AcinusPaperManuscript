@@ -1,0 +1,104 @@
+Window {
+  expandY = 1
+  Vertical "Acinus Segmentation" {
+    expandY = 1
+    Horizontal {
+      expandY = 1
+      Viewer AcinusViewer.self {}
+      Viewer PaperViewer.self {}
+      Viewer View2D.self {}
+    }
+    Vertical {
+      Box "Airway Segment Region Growing"  {
+        alignX = Left
+        Horizontal {
+          Field RegionGrowingMacro.lowerThreshold {
+            dependsOn = !RegionGrowingMacro.autoThreshold
+            step = 1
+            stepstep = 10
+          }            
+          Field RegionGrowingMacro.upperThreshold {
+            dependsOn = !RegionGrowingMacro.autoThreshold
+            step = 1
+            stepstep = 10
+          }
+        }
+        Horizontal {
+          Button RegionGrowingMacro.update {
+            title = "Update Region Growing"
+          }
+          Field RegionGrowingMacro.autoUpdateMode {
+            title = "Update Mode:"
+          }
+          ProgressBar RegionGrowingMacro.theProgressBar {
+            expandX = Yes
+          }
+        }
+        Button RegionGrowingMacro.clear {
+          title = "Clear Region Growing"
+        }
+      }
+    }
+    Box "Acinus Selector" {
+      Horizontal {
+        alignX = Left
+        Field XMarkerClipPlanes.markerListIndex {
+          title = "Use marker Nr. "
+          step = 1
+        }
+      }
+      Box "Threshold" {
+        alignX = Left
+        Horizontal {
+          Field AcinusRegionGrowing.lowerThreshold {
+            dependsOn = !AcinusRegionGrowing.autoThreshold
+            step = 1
+            stepstep = 10
+          }            
+          Field AcinusRegionGrowing.upperThreshold {
+            dependsOn = !AcinusRegionGrowing.autoThreshold
+            step = 1
+            stepstep = 10
+          }
+        }
+        Horizontal {
+          Button AcinusRegionGrowing.update {
+            title = "Update Region Growing"
+          }
+          Field AcinusRegionGrowing.autoUpdateMode {
+            title = "Update Mode:"
+          }
+          ProgressBar AcinusRegionGrowing.theProgressBar {
+            expandX = Yes
+          }
+        }
+        Button AcinusRegionGrowing.clear {
+          title = "Clear Region Growing"
+        }
+      }
+    }
+    Box "Visualization" {
+      alignX = Left
+      Horizontal {
+        Button ToggleAirwaySegment.on {
+          title = Airways
+        }        
+        Button ToggleAcinus.on {
+          title = Acinus
+        }
+        Button ToggleMarkers.on {
+          title = Marker
+        }
+      }
+      Horizontal {
+        Field SwitchIso.whichChild {
+          title = "Switch between isosurface (0) and volume (1)"
+          step = 1
+        }
+        Button Acinus.apply {
+          title = "Calculate IsoSurfaces"
+        }
+      }
+    }
+  }
+}
