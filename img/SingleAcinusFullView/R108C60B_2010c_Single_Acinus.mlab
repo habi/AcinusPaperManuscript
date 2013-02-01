@@ -2,6 +2,63 @@
 network  {
   watchlist = ""
 }
+module View2D {
+  internal  {
+    frame = "2717 837 120 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "763 362 400 400"
+        sizeHint = "400 400"
+        wasOpen = no
+        wasActive = no
+      }
+    }
+  }
+  fields  {
+    instanceName = View2D1
+    inventorInputOn = TRUE
+    view2DExtensionsOn = TRUE
+    startSlice = 98
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_LINEAR
+    standardKeys = TRUE
+    cineMode = CINE_Z
+    cineDirection = CINE_PINGPONG
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    snapToCenter = FALSE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    lutCenter = 127.5
+    lutWidth = 255
+    lutUseTraceColors = FALSE
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = TRUE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    maxPrecision = 4
+    plane = "0 0 1 0.583120048046112"
+  }
+  internalFields = ""
+}
 module SoSeparator {
   internal  {
     frame = "517 -243 184 56"
@@ -34,7 +91,7 @@ module SoToggle {
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "935 551 104 22"
+        geometry = "636 205 104 22"
         sizeHint = "56 22"
         wasOpen = yes
         wasActive = no
@@ -53,7 +110,7 @@ module SoToggle {
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "935 551 104 22"
+        geometry = "488 202 104 22"
         sizeHint = "56 22"
         wasOpen = yes
         wasActive = no
@@ -62,8 +119,8 @@ module SoToggle {
   }
   fields  {
     instanceName = Toggle_Arrow_and_Number
-    whichChild = -3
-    on = TRUE
+    whichChild = -1
+    on = FALSE
   }
 }
 module SoRotationXYZ {
@@ -124,7 +181,7 @@ module SoText3 {
   }
   fields  {
     instanceName = SoText3
-    string = "*"10"*"
+    string = "*"32"*"
     spacing = 1
     justification = LEFT
     parts = FRONT
@@ -500,7 +557,7 @@ module View2D {
     instanceName = View2D2
     inventorInputOn = TRUE
     view2DExtensionsOn = TRUE
-    startSlice = 0
+    startSlice = -1
     numSlices = 1
     numXSlices = 1
     sliceStep = 1
@@ -522,8 +579,8 @@ module View2D {
     baseColor = "1 1 1"
     margin = "2 2"
     sliceOrigin = "-145.116607666016 28.2597103118896"
-    lutCenter = 127.5
-    lutWidth = 255
+    lutCenter = 1
+    lutWidth = 1
     lutUseTraceColors = FALSE
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
@@ -628,9 +685,9 @@ module IsoSurface {
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "600 290 335 445"
+        geometry = "330 340 335 445"
         sizeHint = "335 445"
-        wasOpen = no
+        wasOpen = yes
         wasActive = no
       }
     }
@@ -673,15 +730,15 @@ module IsoSurface {
     boundingBoxMode = WEM_BOUNDING_BOX_AXIS_ALIGNED
     autoUpdate = TRUE
     autoApply = TRUE
-    progress = 1
+    progress = 0
     selectedTab = 0
-    elapsedTime = "93.827 seconds"
-    numFaces = 2952302
-    numEdges = 4428453
-    numNodes = 1479093
-    patchType = Triangles
-    surfaceArea = 39.16383
-    surfaceVolume = 0.42619628
+    elapsedTime = "0.000 seconds"
+    numFaces = 0
+    numEdges = 0
+    numNodes = 0
+    patchType = Unknown
+    surfaceArea = 0
+    surfaceVolume = 0
   }
   internalFields = ""
 }
@@ -693,11 +750,11 @@ module SoCustomExaminerViewer {
       window _viewer {
         geometry = "1971 216 648 629"
         sizeHint = "400 400"
-        wasOpen = yes
+        wasOpen = no
         wasActive = no
       }
       window _default {
-        geometry = "726 365 474 395"
+        geometry = "726 365 906 395"
         sizeHint = "474 395"
         wasOpen = no
         wasActive = no
@@ -757,11 +814,11 @@ module SoCustomExaminerViewer {
     stereoViewing = FALSE
     stereoOffset = 3
     height = 0.78539819
-    position = "2.75943040847778 -2.14855146408081 0.871387600898743"
-    orientation = "0.0775602012872696 -0.785227596759796 0.614330530166626 3.69996309280396"
-    nearDistance = 0.005055197
-    farDistance = 5.0653172
-    focalDistance = 2.0112164
+    position = "1.76871776580811 -0.60572075843811 3.48670673370361"
+    orientation = "0.0833738297224045 -0.723514437675476 0.685255944728851 3.23650741577148"
+    nearDistance = 0.0052571287
+    farDistance = 5.2676535
+    focalDistance = 2.2055542
     forceRedrawOnInteraction = FALSE
     button1events = TO_VIEWER
     button2events = TO_VIEWER
@@ -901,7 +958,7 @@ module MLImageFormatLoad {
     progress = 0
     updateMode = AutoUpdate
     isSaving = FALSE
-    status = "File opened"
+    status = ""
     tagList = "Tag[0] = (ML_TAG_LIST_SIZE_IN_BYTES, 1187                    )
 Tag[1] = (ML_ENDIANESS, 0)
 Tag[2] = (ML_USES_CHECKSUM, 1)
@@ -1077,7 +1134,7 @@ module MLImageFormatLoad {
     progress = 0
     updateMode = AutoUpdate
     isSaving = FALSE
-    status = "File opened"
+    status = ""
     tagList = "Tag[0] = (ML_TAG_LIST_SIZE_IN_BYTES, 1186                    )
 Tag[1] = (ML_ENDIANESS, 0)
 Tag[2] = (ML_USES_CHECKSUM, 1)
@@ -1161,9 +1218,9 @@ module StringUtils {
     operationType = Concatenate
     string1 = R108C60B_B1_mrg.2948.2948.1024
     string2 = acinus
-    string3 = 10
+    string3 = 32
     string4 = threshold
-    string5 = 55
+    string5 = 50
     string6 = segment
     stringPrefix = [
     stringPostfix = ]
@@ -1288,11 +1345,11 @@ module MLImageFormatSave {
     intHintVisible9 = FALSE
     strHintVisible9 = FALSE
     boolHintVisible9 = FALSE
-    trueFileName = R108C60B_B1_mrg.2948.2948.1024.acinus.10.threshold.55.segment
+    trueFileName = R108C60B_B1_mrg.2948.2948.1024.acinus.32.threshold.50.segment
     progress = 0
     updateMode = AutoUpdate
     isSaving = FALSE
-    status = "Image saved"
+    status = ""
     tagList = "Tag[0] = (ML_TAG_LIST_SIZE_IN_BYTES, 1187                    )
 Tag[1] = (ML_ENDIANESS, 0)
 Tag[2] = (ML_USES_CHECKSUM, 1)
@@ -1354,10 +1411,10 @@ Tag[47] = (ML_NUM_USER_IMAGE_PROPERTY_TAGS, 0)
     userTag09 = ""
     regionOffset = "0 0 0 0 0 0"
     suppressWorldPos = FALSE
-    saveTime = 0.0189751450698576
-    calcTime = 0.0257241559309454
-    totalTime = 0.219449870155067
-    fileName = R108C60B_B1_mrg.2948.2948.1024.acinus.10.threshold.55.segment
+    saveTime = 0
+    calcTime = 0
+    totalTime = 0
+    fileName = R108C60B_B1_mrg.2948.2948.1024.acinus.32.threshold.50.segment
   }
 }
 module So3DXMarker {
@@ -1407,22 +1464,22 @@ module So3DXMarker {
     listStringEnable = FALSE
     ownsList = FALSE
     applySelect = FALSE
-    id = 14
+    id = 48
     name = ""
     newName = ""
     actionClass = Modify
     actionIndex = 0
-    actionId = 14
+    actionId = 48
     currentIndex = -1
     overflowMode = None
     maxSize = 0
     useInsertTemplate = FALSE
     upToDate = TRUE
-    posXYZ = "1.87960028648376 1.57455170154572 2.07744145393372"
+    posXYZ = "2.4464807510376 1.12216424942017 4.22852468490601"
     posC = 0
     posT = 0
     posU = 0
-    vecXYZ = "0 -0.183520078659058 -0.313760042190552"
+    vecXYZ = "-0.0059199333190918 -0.0473599433898926 0.408480167388916"
     type = 1
     newPosXYZ = "0 0 0"
     newPosC = 0
@@ -1592,7 +1649,7 @@ module View2D {
     instanceName = View2D
     inventorInputOn = TRUE
     view2DExtensionsOn = TRUE
-    startSlice = 0
+    startSlice = -1
     numSlices = 1
     numXSlices = 1
     sliceStep = 1
@@ -1614,8 +1671,8 @@ module View2D {
     baseColor = "1 1 1"
     margin = "2 2"
     sliceOrigin = "0 0"
-    lutCenter = 127.5
-    lutWidth = 255
+    lutCenter = 1
+    lutWidth = 1
     lutUseTraceColors = FALSE
     annotationOn = TRUE
     annotationMode = ANNO_MODE_AUTO
@@ -1713,7 +1770,7 @@ module SoCustomExaminerViewer {
     stereoOffset = 3
     height = 0.78539819
     position = "1.66494202613831 0.78868156671524 5.69062948226929"
-    orientation = "-0.115232735872269 0.142931208014488 -0.983001530170441 4.09211444854736"
+    orientation = "-0.115232743322849 0.142931208014488 -0.983001589775085 4.09211444854736"
     nearDistance = 0.81844497
     farDistance = 5.8731151
     focalDistance = 2.9823854
@@ -1924,11 +1981,11 @@ module SoCustomExaminerViewer {
     stereoViewing = FALSE
     stereoOffset = 3
     height = 0.78539819
-    position = "4.07862377166748 2.99004125595093 4.66371822357178"
-    orientation = "-0.287223011255264 -0.217395573854446 -0.932867646217346 3.09632062911987"
+    position = "3.07429695129395 2.91752457618713 6.02551651000977"
+    orientation = "-0.287223011255264 -0.217395603656769 -0.932867705821991 3.09632062911987"
     nearDistance = 2.9006236
     farDistance = 5.5796204
-    focalDistance = 4.2387872
+    focalDistance = 3.2518773
     forceRedrawOnInteraction = FALSE
     button1events = TO_VIEWER
     button2events = TO_VIEWER
@@ -2012,15 +2069,15 @@ module SoGVRVolumeRenderer {
     subVolumeStartX = 0
     subVolumeStartY = 0
     subVolumeStartZ = 0
-    subVolumeEndX = 269
-    subVolumeEndY = 221
-    subVolumeEndZ = 291
+    subVolumeEndX = 205
+    subVolumeEndY = 222
+    subVolumeEndZ = 172
     zbuffer = TRUE
     permitClipping = TRUE
     drawOnPlanes = TRUE
-    sizeOutputX = 269
-    sizeOutputY = 221
-    sizeOutputZ = 291
+    sizeOutputX = 205
+    sizeOutputY = 222
+    sizeOutputZ = 172
     incrementalUpdate = FALSE
     highQualityStaticUpdate = FALSE
     staticRenderingAfterInteractionOnly = FALSE
@@ -2120,17 +2177,17 @@ module XMarkerListContainer {
     persistent = FALSE
     listStringEnable = FALSE
     applySelect = FALSE
-    id = 14
+    id = 48
     name = ""
     newName = ""
     overflowMode = None
     maxSize = 1
     useInsertTemplate = FALSE
-    posXYZ = "1.87960028648376 1.57455170154572 2.07744145393372"
+    posXYZ = "2.4464807510376 1.12216424942017 4.22852468490601"
     posC = 0
     posT = 0
     posU = 0
-    vecXYZ = "0 -0.183520078659058 -0.313760042190552"
+    vecXYZ = "-0.0059199333190918 -0.0473599433898926 0.408480167388916"
     type = 1
     newPosXYZ = "0 0 0"
     newPosC = 0
@@ -2161,17 +2218,17 @@ module XMarkerListContainer {
     persistent = FALSE
     listStringEnable = FALSE
     applySelect = FALSE
-    id = 14
+    id = 48
     name = ""
     newName = ""
     overflowMode = None
     maxSize = 1
     useInsertTemplate = FALSE
-    posXYZ = "1.87960028648376 1.62504005432129 2.1637601852417"
+    posXYZ = "2.44792032241821 1.13368010520935 4.12920045852661"
     posC = 0
     posT = 0
     posU = 0
-    vecXYZ = "0 0.183520078659058 0.313760042190552"
+    vecXYZ = "0.0059199333190918 0.0473599433898926 -0.408480167388916"
     type = 1
     newPosXYZ = "0 0 0"
     newPosC = 0
@@ -2274,8 +2331,8 @@ module SoCalculator {
     f = 0
     g = 0
     h = 0
-    va = "1.87960028648376 1.62504005432129 2.1637601852417"
-    vb = "0 0.183520078659058 0.313760042190552"
+    va = "2.44792032241821 1.13368010520935 4.12920045852661"
+    vb = "0.0059199333190918 0.0473599433898926 -0.408480167388916"
     vc = "10 1 1"
     vd = "0 0 0"
     ve = "0 0 0"
@@ -2286,8 +2343,8 @@ module SoCalculator {
     ob = 0
     oc = 0
     od = 0
-    ova = "1.87960028648376 1.57455170154572 2.07744145393372"
-    ovb = "0 -0.183520078659058 -0.313760042190552"
+    ova = "2.4464807510376 1.12216424942017 4.22852468490601"
+    ovb = "-0.0059199333190918 -0.0473599433898926 0.408480167388916"
     ovc = "0 0 0"
     ovd = "0 0 0"
     expression = "ovb = vb*a; # invert vector direction
@@ -2315,11 +2372,11 @@ module XMarkerAtIndex {
   }
   fields  {
     instanceName = SelectMarker
-    index = 10
-    vector = "0 0.183520078659058 0.313760042190552"
-    position = "1.87960028648376 1.62504005432129 2.1637601852417 0 0 0"
+    index = 32
+    vector = "0.0059199333190918 0.0473599433898926 -0.408480167388916"
+    position = "2.44792032241821 1.13368010520935 4.12920045852661 0 0 0"
     type = 1
-    id = 14
+    id = 48
     name = XMarker
     numMarker = 33
     autoUpdate = TRUE
@@ -2354,16 +2411,16 @@ module RegionGrowingMacro {
     intervalSize = 0.5
     lowerThreshold = 1
     unitLabel = ""
-    upperThreshold = 55
+    upperThreshold = 50
     useExtendedNBH = FALSE
     noSeeds = 1
     stretchOutputOverTime = FALSE
-    volumeCount = 0.000473165410883657
-    status = "Region growing terminated normally."
-    outputValid = TRUE
+    volumeCount = 0
+    status = Ready.
+    outputValid = FALSE
     startButtonActive = TRUE
     abortButtonActive = FALSE
-    theProgressBar = 1
+    theProgressBar = 0
     cCoord = 0
     uCoord = 0
     unitType = UnitTypeGrayValue
@@ -2377,7 +2434,7 @@ module RegionGrowingMacro {
     showOuterBoundariesOnly = FALSE
     incrementalUpdateMode = Smart
     markerPersistence = FALSE
-    markerString = "[(1.8796 1.57455 2.07744)(-0 -0.18352 -0.31376) 1 #14]"
+    markerString = "[(2.44648 1.12216 4.22852)(-0.00591993 -0.0473599 0.40848) 1 #48]"
     deleteMarkerOnClick = TRUE
     markerOverflowMode = None
     maxMarkers = 0
@@ -2404,21 +2461,21 @@ module XMarkerListContainer {
     instanceName = XMarkerListContainer2
     listString = ""
     numItems = 33
-    index = 10
+    index = 32
     persistent = FALSE
     listStringEnable = FALSE
     applySelect = FALSE
-    id = 14
+    id = 48
     name = ""
     newName = ""
     overflowMode = None
     maxSize = 0
     useInsertTemplate = FALSE
-    posXYZ = "1.87960028648376 1.62504005432129 2.1637601852417"
+    posXYZ = "2.44792032241821 1.13368010520935 4.12920045852661"
     posC = 0
     posT = 0
     posU = 0
-    vecXYZ = "0 0.183520078659058 0.313760042190552"
+    vecXYZ = "0.0059199333190918 0.0473599433898926 -0.408480167388916"
     type = 1
     newPosXYZ = "0 0 0"
     newPosC = 0
@@ -2693,7 +2750,7 @@ module GVRVolumeLoad {
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "748 512 487 250"
+        geometry = "438 585 487 250"
         sizeHint = "487 250"
         wasOpen = no
         wasActive = no
@@ -2952,8 +3009,8 @@ module StylePalette {
     name10 = ""
     name11 = ""
     name12 = ""
-    currentStyle = 14
-    currentColor = "1 0 0"
+    currentStyle = 48
+    currentColor = "0 1 0.5"
     currentLineStyle = Solid
     currentLineWidth = 1
     currentMarkerType = None
@@ -3035,21 +3092,21 @@ module XMarkerListContainer {
     instanceName = XMarkerListContainer
     listString = ""
     numItems = 33
-    index = 10
+    index = 32
     persistent = FALSE
     listStringEnable = FALSE
     applySelect = FALSE
-    id = 14
+    id = 48
     name = ""
     newName = ""
     overflowMode = None
     maxSize = 0
     useInsertTemplate = FALSE
-    posXYZ = "1.87960028648376 1.62504005432129 2.1637601852417"
+    posXYZ = "2.44792032241821 1.13368010520935 4.12920045852661"
     posC = 0
     posT = 0
     posU = 0
-    vecXYZ = "0 0.183520078659058 0.313760042190552"
+    vecXYZ = "0.0059199333190918 0.0473599433898926 -0.408480167388916"
     type = 1
     newPosXYZ = "0 0 0"
     newPosC = 0
@@ -3225,7 +3282,7 @@ module XMarkerClipPlanes {
   fields  {
     instanceName = XMarkerClipPlanes
     updateMode = Auto
-    markerListIndex = 10
+    markerListIndex = 32
     planeValue = 1
     backgroundValue = 0
     planeRadius = 0.15000001
@@ -3234,7 +3291,7 @@ module XMarkerClipPlanes {
     planeTransparency = 0
     shiftPlane = TRUE
     shiftOffset = 0.0099999998
-    cylinderCenterPosition = "1.87960028648376 1.61999122017723 2.15512831005056"
+    cylinderCenterPosition = "2.44777637586438 1.13252852118414 4.13913288668654"
   }
   internalFields = ""
 }
@@ -3514,6 +3571,7 @@ module Bypass {
   }
 }
 connections  {
+  View2D1.inImage = GVRVolumeToImage4.output0
   SoSeparator1.children = "SoGVRVolumeRenderer1.self SoTranslation.self SoGVRVolumeRenderer2.self SoTranslation.self SoGVRVolumeRenderer3.self"
   SoSeparator.children = "SoRotationXYZ.self SoScale.self SoText3.self"
   Toggle_Sample.children = SoSeparator1.self

@@ -382,6 +382,85 @@ To our best knowledge, such an extraction of rat lung acini from large high reso
 The volume of individual acini was either automatically assessed by adding the segmented voxels inside the acini and multiplying them with the voxel volume or manually estimated by using the Cavaglieri method~\citep{Hsia2010} using the STEPanizer.
 Their mean volume is \SI{\meanacinarvolume}{\centi\metre\cubed}, with a standard deviation of \SI{\std}{\centi\metre\cubed}. We removed \numberofoutliers\xspace outliers from the volume data because their value was larger than the mean volume value \(\pm\biggerthan\times\) standard deviations (red dots in \autoref{fig:Volume plots}).
 
+\renewcommand{\imsize}{0.33\linewidth}
+\begin{figure}
+	\centering
+	\subfloat[Acinus 10, location in sample]{%
+		\pgfmathsetlength{\imagewidth}{\imsize}%
+		\pgfmathsetlength{\imagescale}{\imagewidth/701}%
+		\def\x{55}% scalebar-x at golden ratio of x=701px
+		\def\y{721}% scalebar-y at 90% of height of y=801px
+		%%\begin{minipage}[c][1\width]{\imsize}%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+				\clip (0,0) rectangle (701,801);
+				\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/SingleAcinusFullView/acinus10_01}};
+				\draw[|-|,thick] (\x,\y) -- (\x+65,\y) node [right] {\SI{500}{\micro\meter}};
+\end{tikzpicture}%
+		%%\end{minipage}
+		}%
+	\subfloat[Acinus 10, view 1]{%
+		\pgfmathsetlength{\imagewidth}{\imsize}%
+		\pgfmathsetlength{\imagescale}{\imagewidth/718}%
+		%\begin{minipage}[c][1\width]{\imsize}%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+				\clip (0,0) rectangle (718,576);
+				\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/SingleAcinusFullView/acinus10_03}};
+				\draw[red,semitransparent, ultra thick, rotate around={-5:(340,428)}] (340,428) ellipse (70 and 20);
+			\end{tikzpicture}%
+		%\end{minipage}
+		}%
+	\subfloat[Acinus 10, view 2]{%
+		\pgfmathsetlength{\imagewidth}{\imsize}%
+		\pgfmathsetlength{\imagescale}{\imagewidth/1169}%
+		%\begin{minipage}[c][1\width]{\imsize}%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+				\clip (0,0) rectangle (1169,959);
+				\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/SingleAcinusFullView/acinus10_04}};
+				\draw[red,semitransparent, ultra thick] (422,647) ellipse (115 and 80);
+			\end{tikzpicture}%
+		%\end{minipage}
+		}%
+	\\%
+	\subfloat[Acinus 26, location in sample]{%
+		\pgfmathsetlength{\imagewidth}{\imsize}%
+		\pgfmathsetlength{\imagescale}{\imagewidth/833}%
+		\def\x{55}% scalebar-x at golden ratio of x=833px
+		\def\y{756}% scalebar-y at 90% of height of y=840px
+		%\begin{minipage}[c][1\width]{\imsize}%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+				\clip (0,0) rectangle (833,840);
+				\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/SingleAcinusFullView/acinus26_07}};
+				% 702px = 4.363mm > 100px = 621um > 80px = 500um, 16px = 100um
+				%\draw[|-|,blue,thick] (40,791) -- (742,775) node [sloped,midway,above,fill=white,semitransparent,text opacity=1] {\SI{4.363}{\milli\meter} (2948px)};
+				\draw[|-|,thick] (\x,\y) -- (\x+80,\y) node [right] {\SI{500}{\micro\meter}};
+			\end{tikzpicture}%
+		%\end{minipage}
+		}%
+	\subfloat[Acinus 26, view 1]{%
+		\pgfmathsetlength{\imagewidth}{\imsize}%
+		\pgfmathsetlength{\imagescale}{\imagewidth/1089}%
+		%\begin{minipage}[c][1\width]{\imsize}%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+				\clip (0,0) rectangle (1089,880);
+				\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/SingleAcinusFullView/acinus26_11}};
+				\draw[red,semitransparent,ultra thick,rotate around={-40:(524,802)}] (524,802) ellipse (70 and 40);
+			\end{tikzpicture}%
+		%\end{minipage}
+		}%
+	\subfloat[Acinus 26, view 2]{%
+		\pgfmathsetlength{\imagewidth}{\imsize}%
+		\pgfmathsetlength{\imagescale}{\imagewidth/839}%
+		%\begin{minipage}[c][1\width]{\imsize}%
+			\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
+				\clip (0,0) rectangle (830,953);
+				\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/SingleAcinusFullView/acinus26_13}};
+			\end{tikzpicture}%
+		%\end{minipage}
+		}%
+	\caption{Views of two sample acini from rat 1. Left: Location in the sample, Middle: View 1, Right: View 2. The inset mannequin on the lower right shows the three-dimensional orientation, the semitransparent circles mark the approximate position of the manhole cover, whenever visible.}
+	\label{fig:acini}
+\end{figure}
+
 \subsection{Acinar surface area}
 To automatically extract the surface of the single acini a three-dimensional triangulation of the surface would be needed, \ie the extent of the voxels has to be mapped to adjoining triangles in the three-dimensional space.
 Since the triangulation of the surface inherently poses a classic Coast of Wales-problem~\citep{Mandelbrot1967a} and is heavily depending on the resolution of the used dataset, we did not automatically calculate the surface (\eg using MeVisLab), but stereologically estimated the surface of the acini by counting interception of test lines with the acinar septa~\citep{Hsia2010}.
