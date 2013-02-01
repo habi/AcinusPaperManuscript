@@ -10,7 +10,7 @@ module View2D {
       window _default {
         geometry = "763 362 400 400"
         sizeHint = "400 400"
-        wasOpen = no
+        wasOpen = yes
         wasActive = no
       }
     }
@@ -19,7 +19,7 @@ module View2D {
     instanceName = View2D1
     inventorInputOn = TRUE
     view2DExtensionsOn = TRUE
-    startSlice = 98
+    startSlice = 0
     numSlices = 1
     numXSlices = 1
     sliceStep = 1
@@ -55,7 +55,7 @@ module View2D {
     borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
     valueHighPrecision = TRUE
     maxPrecision = 4
-    plane = "0 0 1 0.583120048046112"
+    plane = "0 0 1 0.00296000018715858"
   }
   internalFields = ""
 }
@@ -651,7 +651,7 @@ module SoOrientationModel {
       window _default {
         geometry = "892 549 143 26"
         sizeHint = "143 26"
-        wasOpen = no
+        wasOpen = yes
         wasActive = no
       }
     }
@@ -685,7 +685,7 @@ module IsoSurface {
     moduleGroupName = ""
     windows  {
       window _default {
-        geometry = "330 340 335 445"
+        geometry = "300 408 335 445"
         sizeHint = "335 445"
         wasOpen = yes
         wasActive = no
@@ -1770,7 +1770,7 @@ module SoCustomExaminerViewer {
     stereoOffset = 3
     height = 0.78539819
     position = "1.66494202613831 0.78868156671524 5.69062948226929"
-    orientation = "-0.115232743322849 0.142931208014488 -0.983001589775085 4.09211444854736"
+    orientation = "-0.115232735872269 0.142931208014488 -0.983001530170441 4.09211444854736"
     nearDistance = 0.81844497
     farDistance = 5.8731151
     focalDistance = 2.9823854
@@ -1982,7 +1982,7 @@ module SoCustomExaminerViewer {
     stereoOffset = 3
     height = 0.78539819
     position = "3.07429695129395 2.91752457618713 6.02551651000977"
-    orientation = "-0.287223011255264 -0.217395603656769 -0.932867705821991 3.09632062911987"
+    orientation = "-0.287222981452942 -0.217395603656769 -0.932867646217346 3.09632062911987"
     nearDistance = 2.9006236
     farDistance = 5.5796204
     focalDistance = 3.2518773
@@ -2752,7 +2752,7 @@ module GVRVolumeLoad {
       window _default {
         geometry = "438 585 487 250"
         sizeHint = "487 250"
-        wasOpen = no
+        wasOpen = yes
         wasActive = no
       }
     }
