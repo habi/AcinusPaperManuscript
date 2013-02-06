@@ -1,5 +1,5 @@
-%\documentclass[draft,a4paper,DIVcalc,abstract,english]{scrartcl}
-\documentclass[a4paper,DIVcalc,abstract,english]{scrartcl}
+\documentclass[draft,a4paper,DIVcalc,abstract,english]{scrartcl}
+%\documentclass[a4paper,DIVcalc,abstract,english]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{babel}
@@ -231,9 +231,9 @@ The analysis and visualizations have been performed using a Dell Precision T7500
 The tomographic datasets obtained at TOMCAT were converted from a stack of TIFF-files to the native GVR format of MeVisLab, a multi-resolution \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Octree&oldid=409131920}{octree}-based image format.
 This permitted us to easily switch between resolutions in the dataset to interactively perform the visualization and preliminary analysis on a lower resolution prior to the final analysis on full resolution datasets.
 Inside MeVisLab, we developed a graphical user interface (GUI) using the MeVisLab Definition Language to define regions of interest in the dataset, to isolate single acini and extract them from the tomographic dataset for subsequent verification.
-With the same GUI we visualized the extracted acini in 3D, calculated their volume and exported a three-dimensional dataset of each acinus in \href{http://en.wikipedia.org/w/index.php?title=DICOM&oldid=511155074}{DICOM}-format for further (stereological) analysis.
+With the same GUI we visualized the extracted acini, calculated their volume and exported a three-dimensional dataset of each acinus in \href{http://en.wikipedia.org/w/index.php?title=DICOM&oldid=511155074}{DICOM}-format for further (stereological) analysis.
 
-\subsubsection{Manhole Covers}
+\subsubsection{Segmenation of individual acini}
 \label{sec:manhole covers}
 Airway segments were segmented using a grey-level threshold based region growing algorithm~\citep{Zucker1976}.
 A seed point for the region growing algorithm was manually defined inside the conducting airways on one of the most proximal slices of the dataset.
@@ -346,7 +346,7 @@ A MATLAB\textsuperscript{\textregistered} script was used to perform a systemati
 
 Using the web-based stereology freeware STEPanizer~\cite[\url{http://stepanizer.com}]{Tschanz2011} we analyzed the volume, surface area and number of alveoli of the extracted acini.
 Intersections of the acinar surface with geometric line probes were counted to estimate the acinar surface, while simple point counting was used to estimate the volume of the extracted acini.
-Alveolar number was estimated by counting the number of entrance rings in paired sections by using the disector mode of the STEPanizer \cite{Hsia2010} (\autoref{fig:STEPanizer David} and \ref{fig:STEPanizer Evelyne}).
+Alveolar number was estimated by counting the number of entrance rings in paired sections by using the disector mode of the STEPanizer \citep{Hsia2010} (\autoref{fig:STEPanizer David} and \ref{fig:STEPanizer Evelyne}).
 
 \renewcommand{\imsize}{\linewidth}%
 \pgfmathsetlength{\imagewidth}{\imsize}%
@@ -379,7 +379,7 @@ Alveolar number was estimated by counting the number of entrance rings in paired
 
 \section{Results}
 \label{sec:results}
-\subsection{Segmentation of acini}
+\subsection{Segmentation of individual acini}
 The novel method described in \autoref{sec:manhole covers} was used to extract individual functional units of three rat lungs from high resolution synchrotron radiation based tomographic datasets.
 Using a simple visual approach to mark changes in the airway wall structure (\autoref{fig:ManholeCoverExplanation}) we pinpointed the locations of  so-called manhole covers.
 These manhole covers acted as segmentation stoppers, enabled an automated closing of the airways tree and the following grey-level threshold based region growing segmentation permitted us to efficiently extract \numberofacini\xspace acini for stereological analysis.
@@ -469,9 +469,10 @@ Their mean volume is \SI{\meanacinarvolume}{\centi\metre\cubed}, with a standard
 \end{figure}
 
 \subsection{Acinar surface area}
-To automatically extract the surface of the single acini a three-dimensional triangulation of the surface would be needed, \ie the extent of the voxels has to be mapped to adjoining triangles in the three-dimensional space.
-Since the triangulation of the surface inherently poses a classic Coast of Wales-problem~\citep{Mandelbrot1967a} and is heavily depending on the resolution of the used dataset, we did not automatically calculate the surface (\eg using MeVisLab), but stereologically estimated the surface of the acini by counting interception of test lines with the acinar septa~\citep{Hsia2010}.
-Because we assessed our datasets at their original resolution (equal to a light microscope operating with a 10x objective lens), the Coast of Wales-problem was only dependent on the original resolution and not on the need of binning our datasets due to limitation of the computing power. 
+To automatically extract the surface of the single acini one would need to perform a three-dimensional triangulation of the surface by mapping the edges of voxels to to adjoining triangles in the three-dimensional space.
+While various methods of triangulating a surface do exist, the problem poses a classic coastline paradox~\citep{Mandelbrot1967a} problem, where a measurement of a length or area heavily depends on the scale of the measurement.
+Even though various approximations do exist~\citep{Lorensen1987,Schneiders1996a}, we did not assess the acinar surface by triangulation (\eg using MeVisLab), but stereologically estimated the surface of the acini by counting interception of test lines with the acinar septa~\citep{Hsia2010} which is proven to be a reliable method.
+Additionally, because we stereologically assessed our datasets at their original resolution (equal to a light microscope operating with a 10x objective lens), the influence of reduced resolution was non-existent while for automatic assessment we would have needed to bin our datasets due to limitation of the computing power. 
 
 For the three different animals we calculated a mean acinar surface of \SI{\meanacinarsurface}{\centi\metre\squared} (%
 animal 1: \SI{\acinarsurfaceB}{\centi\metre\squared},
