@@ -17,8 +17,8 @@
 \fi
 %%%%%%%%%%%% Für Johannes %%%%%%%%%%%%
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage{babel}
+\usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{todonotes}
@@ -73,7 +73,11 @@
 \pagestyle{fancy}
 \fancyhead[R]{\thepage}
 \fancyhead[L]{Stereological characterization of individual acini}
-\fancyfoot[C]{\href{\svnkw{HeadURL}}{SVN-Revision \svnkw{LastChangedRevision}}, typeset on \today\ at \thistime}
+\ifJCS
+	\fancyfoot[C]{}
+\else
+	\fancyfoot[C]{\href{\svnkw{HeadURL}}{SVN-Revision \svnkw{LastChangedRevision}}, typeset on \today\ at \thistime}
+\fi
 
 % Data
 \newcommand{\shrinkagefactor}{0.61} % Shrinkagefactor used for the calculation
@@ -97,10 +101,10 @@
 \newcommand{\meantotalnumberofaciniVariant}{5470}
 \newcommand{\meantotalnumberofaciniSTDVariant}{833} % add "ddof=1" to get the same STD as with "=STDEV()" in Excel
 
-\newcommand{\acinarvolumeB}{6.929e-04} % cm^3
-\newcommand{\acinarvolumeD}{1.361e-03} % cm^3
-\newcommand{\acinarvolumeE}{1.389e-03} % cm^3
-\newcommand{\meanacinarvolume}{1.148e-03} % cm^3, (mean acinar volume)
+\newcommand{\acinarvolumeB}{0.693} % mm^3 (changed from cm^3 to mm^3 in ReadVolumeSurfaceAndAlveaolarNumber.py)
+\newcommand{\acinarvolumeD}{1.361} % mm^3
+\newcommand{\acinarvolumeE}{1.389} % mm^3
+\newcommand{\meanacinarvolume}{1.148} % mm^3, (mean acinar volume)
 \newcommand{\std}{3.219e-04} % (Standard deviation of acinar volumes), add "ddof=1" to get the same STD as with "=STDEV()" in Excel
 
 \newcommand{\numberofalveoliB}{6505}
@@ -109,10 +113,10 @@
 \newcommand{\meannumberofalveoli}{8470} % (Mean number of alveoli per acinus)
 \newcommand{\difference}{2.661} % X times bigger (acinar volumes STEPanizer/MeVisLab-volumes)
 
-\newcommand{\acinarsurfaceB}{0.458} % cm^2
-\newcommand{\acinarsurfaceD}{0.69} % cm^2
-\newcommand{\acinarsurfaceE}{1.069} % cm^2
-\newcommand{\meanacinarsurface}{0.739} % cm^2
+\newcommand{\acinarsurfaceB}{45.8} % mm^2
+\newcommand{\acinarsurfaceD}{69.0} % mm^2
+\newcommand{\acinarsurfaceE}{106.9} % mm^2
+\newcommand{\meanacinarsurface}{73.9} % mm^2
 
 \newcommand{\airspacesurfaceB}{4214} % cm^2
 \newcommand{\airspacesurfaceD}{3628} % cm^2
@@ -146,7 +150,7 @@ To be submitted to the \emph{\href{http://jap.physiology.org/}{Journal of Applie
 \end{itemize}
 
 \section*{Running title}
-See page header
+Stereological characterization of individual acini
 
 \section*{Keywords}
 \begin{itemize}
@@ -162,7 +166,7 @@ The three-dimensional architecture of the acini has a strong influence on ventil
 Due to the difficulty to identify single acini in lung sections the knowledge about the number of acini and their individual biological parameters like volume, surface area, and number of alveoli per acinus are limited.
 We developed a method to extracted individual pulmonary acini from lung samples imaged by high-resolution X-ray tomographic microscopy and estimated their volume, surface area and number of alveoli.
 Rat acini were isolated by semi-automatically closing the airway at the transition from conducting to gas-exchanging airways.
-We estimated a mean acinar volume of \SI{\meanacinarvolume}{\centi\meter\cubed}, a mean acinar surface area of \SI{\meanacinarsurface}{\centi\meter\squared}, and a mean of \meannumberofalveoli\xspace alveoli per acinus.
+We estimated a mean acinar volume of \SI{\meanacinarvolume}{\milli\meter\cubed}, a mean acinar surface area of \SI{\meanacinarsurface}{\milli\meter\squared}, and a mean of \meannumberofalveoli\xspace alveoli per acinus.
 Assuming that the acini are similarly sized throughout different regions of the lung, we calculated that a rat lung contains roughly \meantotalnumberofacinirounded\xspace acini.
 We conclude that our novel approach is well suited to characterize acini in healthy, diseased, or transgenic lungs of different species including humans.
 Our proposed method of analyzing single ventilatory units of the mammalian lung allows for the first time to extract biological parameters of single acini which cannot be extracted from classic physical sections.
@@ -395,7 +399,7 @@ To our best knowledge, such an extraction of rat lung acini from large high reso
 
 \subsection{Acinar volume}
 The volume of individual acini was either automatically assessed by adding the segmented voxels inside the acini and multiplying them with the voxel volume or manually estimated by using the Cavaglieri method~\cite{Hsia2010} using the STEPanizer.
-Their mean volume is \SI{\meanacinarvolume}{\centi\metre\cubed}, with a standard deviation of \SI{\std}{\centi\metre\cubed}. We removed \numberofoutliers\xspace outliers from the volume data because their value was larger than the mean volume value \(\pm\biggerthan\times\) standard deviations (red dots in \autoref{fig:Volume plots}).
+Their mean volume is \SI{\meanacinarvolume}{\milli\meter\cubed}, with a standard deviation of \SI{\std}{\milli\meter\cubed}. We removed \numberofoutliers\xspace outliers from the volume data because their value was larger than the mean volume value \(\pm\biggerthan\times\) standard deviations (red dots in \autoref{fig:Volume plots}).
 
 \renewcommand{\imsize}{0.33\linewidth}
 \begin{figure}
@@ -482,15 +486,15 @@ While various methods of triangulating a surface do exist, the problem poses a c
 Even though various approximations do exist~\cite{Lorensen1987,Schneiders1996}, we did not assess the acinar surface by triangulation (\eg using MeVisLab), but stereologically estimated the surface of the acini by counting interception of test lines with the acinar septa~\cite{Hsia2010} which is proven to be a reliable method.
 Additionally, because we stereologically assessed our datasets at their original resolution (equal to a light microscope operating with a 10x objective lens), the influence of reduced resolution was non-existent while for automatic assessment we would have needed to bin our datasets due to limitation of the computing power. 
 
-For the three different animals we calculated a mean acinar surface of \SI{\meanacinarsurface}{\centi\metre\squared} (%
-animal 1: \SI{\acinarsurfaceB}{\centi\metre\squared},
-animal 2: \SI{\acinarsurfaceD}{\centi\metre\squared} and
-animal 3: \SI{\acinarsurfaceE}{\centi\metre\squared}).
+For the three different animals we calculated a mean acinar surface of \SI{\meanacinarsurface}{\milli\meter\squared} (%
+animal 1: \SI{\acinarsurfaceB}{\milli\meter\squared},
+animal 2: \SI{\acinarsurfaceD}{\milli\meter\squared} and
+animal 3: \SI{\acinarsurfaceE}{\milli\meter\squared}).
 
-%With the number of acini calculated above, this translates to a mean airspace surface of \SI{\meanairspacesurface}{\centi\metre\squared} (%
-%animal 1: \SI{\airspacesurfaceB}{\centi\metre\squared},
-%animal 2: \SI{\airspacesurfaceD}{\centi\metre\squared} and
-%animal 3: \SI{\airspacesurfaceE}{\centi\metre\squared}).
+%With the number of acini calculated above, this translates to a mean airspace surface of \SI{\meanairspacesurface}{\centi\meter\squared} (%
+%animal 1: \SI{\airspacesurfaceB}{\centi\meter\squared},
+%animal 2: \SI{\airspacesurfaceD}{\centi\meter\squared} and
+%animal 3: \SI{\airspacesurfaceE}{\centi\meter\squared}).
 
 \subsection{Number of alveoli per acinus}
 By counting appearing and disappearing bridges in the segmented acini, we found a mean number of alveoli for all analyzed acini of \meannumberofalveoli\xspace (%
@@ -542,8 +546,8 @@ Values larger than the mean of the volumes \(\pm\biggerthan\times\) the standard
 															& Animal 1 & Animal 2 & Animal 3 & Mean\\
 	\midrule
 	Number of analyzed acini 							& \numberofaciniB & \numberofaciniD & \numberofaciniE & \\
-	Acinar volume [\si{\cubic\centi\meter}]		& \acinarvolumeB & \acinarvolumeD & \acinarvolumeE & \meanacinarvolume \\
-	Acinar surface [\si{\centi\meter\squared}]	& \acinarsurfaceB & \acinarsurfaceD & \acinarsurfaceE & \meanacinarsurface \\
+	Acinar volume [\si{\milli\meter\cubed}]		& \acinarvolumeB & \acinarvolumeD & \acinarvolumeE & \meanacinarvolume \\
+	Acinar surface [\si{\milli\meter\squared}]	& \acinarsurfaceB & \acinarsurfaceD & \acinarsurfaceE & \meanacinarsurface \\
 	Total number of acini 								& \totalnumberofaciniB & \totalnumberofaciniD & \totalnumberofaciniE & \meantotalnumberofacini \\
 	Alveoli per acinus 									& \numberofalveoliB & \numberofalveoliD & \numberofalveoliE & \meannumberofalveoli \\
 	\bottomrule
@@ -566,14 +570,14 @@ Other researchers, like \citet{Vasilescu2012} have stereologically estimated vol
 
 \subsection{Acinar volume}
 \citet{Rodriguez1987} found that the right upper lobe of one rat contains 613 acini with a mean volume of \SI{1.98}{\milli\meter\cubed} (\SIrange{0.5}{5}{\milli\meter\cubed}).
-\citet{Mercer1987a} state that the total volume of \blockquote{alveoli + ducts} \eg ventilatory units is \SI{0.522(56)}{\cubic\milli\meter} (mean of 8). % http://is.gd/qpMEV5
-Our calculations resulted in a volume of \SI{\meanacinarvolume}{\cubic\centi\meter} with a standard deviation of \SI{\std}{\cubic\centi\meter}.
+\citet{Mercer1987a} state that the total volume of \blockquote{alveoli + ducts} \eg ventilatory units is \SI{0.522(56)}{\milli\meter\cubed} (mean of 8). % http://is.gd/qpMEV5
+Our calculations resulted in a volume of \SI{\meanacinarvolume}{\milli\meter\cubed} with a standard deviation of \SI{\std}{\milli\meter\cubed}.
 If we take in account that \cite{Mercer1987a} measured the volume of ventilatory units that have been defined half as big as our acinus, then our stereologically estimated mean acinar volume is in the range of previously published data.
 
 \subsection{Acinar surface area}
 Missing other published data, we can only relate the estimated surface area to mean values found in literature.
-\citet{Tschanz2003} estimated the absolute airspace surface in the rat lung by stereological estimation using electron microscopy images and found a mean absolute airspace surface of \SI{8021}{\centi\metre\squared} for the same animals shown in this study.
-By multiplying the number of acini by the mean acinar surface we found the mean absolute airspace surface to be \SI{\meanairspacesurface}{\centi\metre\squared}, a value \airspacedifference\(\times\) smaller.
+\citet{Tschanz2003} estimated the absolute airspace surface in the rat lung by stereological estimation using electron microscopy images and found a mean absolute airspace surface of \SI{8021}{\centi\meter\squared} for the same animals shown in this study.
+By multiplying the number of acini by the mean acinar surface we found the mean absolute airspace surface to be \SI{\meanairspacesurface}{\centi\meter\squared}, a value \airspacedifference\(\times\) smaller.
 The differences can be explained largely due to the resolution of the different imaging methods.
 For example, \citet{Gehr1978} estimated the alveolar surface area at electron microscopic level and found a \emph{human} alveolar surface area of \SI{143}{\square\meter}, while previous light microscopic estimates \cite{Weibel1963,Thurlbeck1967} found an averaged estimate of the alveolar surface of \SI{82}{\square\meter}, a value 1.744\(\times\) larger, which is also reasoned to be due to the different imaging methods.
 
