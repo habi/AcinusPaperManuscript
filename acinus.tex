@@ -106,18 +106,20 @@
 \newcommand{\acinarvolumeD}{1.361} % mm^3
 \newcommand{\acinarvolumeE}{1.389} % mm^3
 \newcommand{\meanacinarvolume}{1.148} % mm^3, (mean acinar volume)
-\newcommand{\std}{0.3219} % (Standard deviation of acinar volumes), add "ddof=1" to get the same STD as with "=STDEV()" in Excel
+\newcommand{\meanacinarvolumeSTD}{0.322} % (Standard deviation of acinar volumes), add "ddof=1" to get the same STD as with "=STDEV()" in Excel
 
 \newcommand{\numberofalveoliB}{6505}
 \newcommand{\numberofalveoliD}{9330}
 \newcommand{\numberofalveoliE}{12750}
 \newcommand{\meannumberofalveoli}{8470} % (Mean number of alveoli per acinus)
+\newcommand{\meannumberofalveoliSTD}{5979}
 \newcommand{\difference}{2.661} % X times bigger (acinar volumes STEPanizer/MeVisLab-volumes)
 
 \newcommand{\acinarsurfaceB}{45.8} % mm^2
 \newcommand{\acinarsurfaceD}{69.0} % mm^2
 \newcommand{\acinarsurfaceE}{106.9} % mm^2
 \newcommand{\meanacinarsurface}{73.9} % mm^2 (changed from cm^2 to mm^2 in ReadVolumeSurfaceAndAlveaolarNumber.py) http://is.gd/99Sa9v
+\newcommand{\meanacinarsurfaceSTD}{25.2}
 
 \newcommand{\airspacesurfaceB}{4214} % cm^2
 \newcommand{\airspacesurfaceD}{3628} % cm^2
@@ -125,6 +127,24 @@
 \newcommand{\meanairspacesurface}{4340} % cm^2
 
 \newcommand{\airspacedifference}{1.848} % times
+
+\newcommand{\bodyweightB}{400} % g
+\newcommand{\bodyweightD}{460} % g
+\newcommand{\bodyweightE}{420} % g
+\newcommand{\meanbodyweight}{427} % g
+\newcommand{\meanbodyweightSTD}{24.944}
+
+\newcommand{\totallungvolumeB}{9579} % mm^3
+\newcommand{\totallungvolumeD}{10690} % mm^3
+\newcommand{\totallungvolumeE}{10920} % mm^3
+\newcommand{\meantotallungvolume}{10397} % mm^3
+\newcommand{\meantotallungvolumeSTD}{585.055}
+
+\newcommand{\parenchymalvolumeB}{8415} % mm^3
+\newcommand{\parenchymalvolumeD}{9412} % mm^3
+\newcommand{\parenchymalvolumeE}{9537} % mm^3
+\newcommand{\meanparenchymalvolume}{9121} % mm^3
+\newcommand{\meanparenchymalvolumeSTD}{501.972}
 
 \begin{document}
 \ifJCS
@@ -225,13 +245,28 @@ The presented method can isolate individual functional lung units, mark their ex
 \label{sec:materials and methods}
 \subsection{Rat lung samples}
 Three 60 days old Sprague-Dawley rats were deeply anesthetized with a mixture of %
-\SI{0.5}{\milli\gram\per\milli\litre} acetylpromazine, %
-\SI{5}{\milli\gram\per\milli\litre} xylazine and %
-\SI{50}{\milli\gram\per\milli\litre} ketamine in %
+\SI[per-mode=fraction]{0.5}{\milli\gram\per\milli\litre} acetylpromazine, %
+\SI[per-mode=fraction]{5}{\milli\gram\per\milli\litre} xylazine and %
+\SI[per-mode=fraction]{50}{\milli\gram\per\milli\litre} ketamine in %
 \SI{0.9}{\percent} NaCl at \SIrange{1.5}{2.5}{\micro\litre} per \si{\gram} body weight.
 The lungs of the animals were instilled with \SI{2.5}{\percent} glutaraldehyde in \SI{0.03}{\milli\Molar} potassium-phosphate buffer (pH 7.4) at a constant pressure of \SI{20}{\centi\meter} water column.
 At this pressure, the rat lung reaches its mid-respiratory volume~\cite{Schittny1998}.
 After instillation the lung was removed from the chest cavity and the pressure was maintained during fixation in order to prevent a recoiling of the lung~\cite{Mund2008}.
+
+\begin{table*}
+	\centering
+	\caption{Biological parameters of the animals, from \cite{Tschanz2003}}
+	\begin{tabular}{rccccc}
+	\toprule
+																	& Animal 1 & Animal 2 & Animal 3 & Mean & Standard Deviation \\
+	\midrule
+	Body weight [g]												& \bodyweightB & \bodyweightD & \bodyweightE & \meanbodyweight & \meanbodyweightSTD \\
+	Total lung volume [\si{\milli\meter\cubed}]			& \totallungvolumeB & \totallungvolumeD & \totallungvolumeE & \meantotallungvolume & \meantotallungvolumeSTD \\
+	Total parenchymal volume [\si{\milli\meter\cubed}]	& \parenchymalvolumeB & \parenchymalvolumeD & \parenchymalvolumeE & \meanparenchymalvolume & \meanparenchymalvolumeSTD \\
+	\bottomrule
+	\end{tabular}
+	\label{tab:animals}
+\end{table*}
 
 After fixation, the samples were prepared for tomographic imaging by post-fixation with \SI{1}{\percent} osmium acetate and staining with \SI{4}{\percent} uranyl acetate to increase the x-ray absorption contrast.
 Using Histoclear (Merck KGaA, Darmstadt, Germany) as an intermedium the samples were dehydrated in a graded series of ethanol and embedded in paraffin prior to mounting them onto standard scanning electron microscopy sample holders (PLANO GmbH, Wetzlar, Germany) with paraffin~\cite{Tsuda2008}.
@@ -271,7 +306,7 @@ Manhole covers were implemented using a \href{http://www.mevis-research.de/cgi-b
 The locations of the manhole covers were defined based on morphological criteria, \ie changes in the thickness and structure of the epithelium and airway wall, as well as the appearance of first most proximal alveoli.
 Both events mark the transition from conducting to gas-exchanging airways.
 
-\begin{figure}[htb]
+\begin{figure}
 	\centering
 	\pgfmathsetlength{\imagewidth}{\imsize}%
 	\pgfmathsetlength{\imagescale}{\imagewidth/948}%
@@ -320,7 +355,7 @@ The only manual work needed for the final extraction of the volume of each acinu
 \pgfmathsetlength{\imagescale}{\imagewidth/800}%
 \def\x{55}
 \def\y{745}
-\begin{figure*}[htb]
+\begin{figure*}
 	\centering
 	\subfloat[Sample]{%
 		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
@@ -396,8 +431,8 @@ Alveolar number was estimated by counting the number of entrance rings in paired
 \renewcommand{\imsize}{0.5\linewidth}
 \begin{figure*}
 	\centering
-	\subfloat[Disector mode, Image a]{\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingA_crop_edit}}
-	\subfloat[Disector mode, Image b]{\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingB_crop_edit}}
+	\subfloat[Disector mode, Image a: sampling]{\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingA_crop_edit}}
+	\subfloat[Disector mode, Image b: look-up]{\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingB_crop_edit}}
 	\caption{Screenshots from the STEPanizer counting window in disector mode.
 		The segmented acinus is visible in light grey, appearing and disappearing bridges corresponding to alveolar entrance rings are counted and marked by yellow circles.
 		Scale bar: \SI{100}{\micro\meter}.}
@@ -414,10 +449,10 @@ To our best knowledge, such an extraction of rat lung acini from large high reso
 
 \subsection{Acinar volume}
 The volume of individual acini was either automatically assessed by adding the segmented voxels inside the acini and multiplying them with the voxel volume or manually estimated by using the Cavaglieri method~\cite{Hsia2010} using the STEPanizer.
-Their mean volume is \SI{\meanacinarvolume}{\milli\meter\cubed}, with a standard deviation of \SI{\std}{\milli\meter\cubed}. We removed \numberofoutliers\xspace outliers from the volume data because their value was larger than the mean volume value \(\pm\biggerthan\times\) standard deviations (red dots in \autoref{fig:Volume plots}).
+Their mean volume is \SI{\meanacinarvolume}{\milli\meter\cubed}, with a standard deviation of \SI{\meanacinarvolumeSTD}{\milli\meter\cubed}. We removed \numberofoutliers\xspace outliers from the volume data because their value was larger than the mean volume value \(\pm\biggerthan\times\) standard deviations (red dots in \autoref{fig:Volume plots}).
 
 \renewcommand{\imsize}{0.33\linewidth}
-\begin{figure*}
+\begin{figure*}[htb]
 	\centering
 	\subfloat[Acinus 10, location in sample]{%
 		\pgfmathsetlength{\imagewidth}{\imsize}%
@@ -554,18 +589,19 @@ Values larger than the mean of the volumes \(\pm\biggerthan\times\) the standard
 	\label{fig:Volume plots}
 \end{figure*}
 
-\begin{table*}
+\begin{table*}[htb]
 	\centering
 	\caption{Summary of results}
-	\begin{tabular}{rcccc}
+	\begin{tabular}{p{0.3\linewidth}ccccc}
 	\toprule
-															& Animal 1 & Animal 2 & Animal 3 & Mean\\
+																	& Animal 1 & Animal 2 & Animal 3 & Mean & Standard Deviation \\
 	\midrule
-	Number of analyzed acini 							& \numberofaciniB & \numberofaciniD & \numberofaciniE & \\
-	Acinar volume [\si{\milli\meter\cubed}]		& \acinarvolumeB & \acinarvolumeD & \acinarvolumeE & \meanacinarvolume \\
-	Acinar surface [\si{\milli\meter\squared}]	& \acinarsurfaceB & \acinarsurfaceD & \acinarsurfaceE & \meanacinarsurface \\
-	Total number of acini 								& \totalnumberofaciniB & \totalnumberofaciniD & \totalnumberofaciniE & \meantotalnumberofacini \\
-	Alveoli per acinus 									& \numberofalveoliB & \numberofalveoliD & \numberofalveoliE & \meannumberofalveoli \\
+	Number of analyzed acini 									& \numberofaciniB & \numberofaciniD & \numberofaciniE & & \\
+	Acinar volume [\si{\milli\meter\cubed}]				& \acinarvolumeB & \acinarvolumeD & \acinarvolumeE & \meanacinarvolume & \meanacinarvolumeSTD \\
+	Acinar surface [\si{\milli\meter\squared}]			& \acinarsurfaceB & \acinarsurfaceD & \acinarsurfaceE & \meanacinarsurface & \meanacinarsurfaceSTD \\
+	Alveoli per acinus 											& \numberofalveoliB & \numberofalveoliD & \numberofalveoliE & \meannumberofalveoli & \meannumberofalveoliSTD \\
+	Total number of acini (surface based calculation)	& \totalnumberofaciniB & \totalnumberofaciniD & \totalnumberofaciniE & \meantotalnumberofacini & \meantotalnumberofaciniSTD \\
+	Total number of acini (alveoli based calculation)	& \totalnumberofaciniBVariant & \totalnumberofaciniDVariant & \totalnumberofaciniEVariant & \meantotalnumberofaciniVariant & \meantotalnumberofaciniSTDVariant \\
 	\bottomrule
 	\end{tabular}
 	\label{tab:results}
@@ -581,7 +617,7 @@ Such an estimation would not be possible using light microscopy on classic tissu
 \subsection{Acinar volume}
 \citet{Rodriguez1987} found that the right upper lobe of one rat contains 613 acini with a mean volume of \SI{1.98}{\milli\meter\cubed} (\SIrange{0.5}{5}{\milli\meter\cubed}).
 \citet{Mercer1987a} state that the total volume of \blockquote{alveoli + ducts} \eg ventilatory units is \SI{0.522(56)}{\milli\meter\cubed} (mean of 8). % http://is.gd/qpMEV5
-Our calculations resulted in a volume of \SI{\meanacinarvolume}{\milli\meter\cubed} with a standard deviation of \SI{\std}{\milli\meter\cubed}.
+Our calculations resulted in a volume of \SI{\meanacinarvolume}{\milli\meter\cubed} with a standard deviation of \SI{\meanacinarvolumeSTD}{\milli\meter\cubed}.
 If we take in account that \cite{Mercer1987a} measured the volume of ventilatory units that have been defined differently (they define the transitory bronchioles as conducting airways, \ie their acinus is at least two times smaller than our acinus), our stereologically estimated mean acinar volume is in the range of previously published data.
 
 \subsection{Acinar surface area}
