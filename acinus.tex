@@ -1,19 +1,20 @@
-%\documentclass[draft,a4paper,DIV=calc,abstract,english]{scrartcl}
-\documentclass[a4paper,DIV=calc,abstract,english]{scrartcl}
 %%%%%%%%%%%% Für Johannes %%%%%%%%%%%%
 \newif\ifJCS
-\JCStrue
+%\JCStrue
 \ifJCS
-	\usepackage{setspace} % Change spacing
-		%\singlespacing
-		\onehalfspacing
-		%\doublespacing
-	\usepackage[none]{hyphenat}\raggedright % No hyphenation, but ugly output
-	\setlength{\parindent}{10pt}
-	\usepackage{endfloat}
-	\usepackage[square,sort&compress]{natbib}
+	%\documentclass[draft,a4paper,DIV=calc,abstract,english]{scrartcl}
+	\documentclass[a4paper,DIV=calc,abstract,english]{scrartcl}
+		\usepackage{setspace} % Change spacing
+			%\singlespacing
+			\onehalfspacing
+			%\doublespacing
+		\usepackage[none]{hyphenat}\raggedright % No hyphenation, but ugly output
+		\setlength{\parindent}{10pt}
+		\usepackage{endfloat}
+		\usepackage[square,sort&compress]{natbib}
 \else
-	\usepackage[numbers,square,sort&compress]{natbib}
+	\documentclass[a4paper,twocolumn=true,DIV=calc,abstract,english]{scrartcl}
+		\usepackage[numbers,square,sort&compress]{natbib}
 \fi
 %%%%%%%%%%%% Für Johannes %%%%%%%%%%%%
 \usepackage[utf8]{inputenc}
@@ -126,6 +127,10 @@
 \newcommand{\airspacedifference}{1.848} % times
 
 \begin{document}
+\ifJCS
+\else
+	\onecolumn
+\fi
 %\setcounter{secnumdepth}{-1} % No section numbering, please!
 \renewcommand{\subsectionautorefname}{\sectionautorefname} % useful for \autoref
 \renewcommand{\subsubsectionautorefname}{\sectionautorefname} % useful for \autoref
@@ -137,7 +142,6 @@ Typeset on \today\ at \thistime\ from Rev \svnkw{LastChangedRevision} (\svnday.\
 To be submitted to the \emph{\href{http://jap.physiology.org/}{Journal of Applied Physiology}}, \emph{Innovative Techniques}, thus formatted according to \href{http://www.the-aps.org/mm/Publications/Preparing-Your-Manuscript#file_format}{their guidelines}
 \vfill
 \end{center}
-\clearpage
 
 \section*{Contributions}
 \begin{itemize}
@@ -158,7 +162,6 @@ Stereological characterization of individual acini
 	\item microCT
 	\item (number of) alveoli
 \end{itemize}
-\clearpage
 
 \begin{abstract}
 The small trees of gas-exchanging pulmonary airways which are fed by the most distal purely conducting airways are called acini and represent the functional gas-exchanging units.
@@ -170,7 +173,11 @@ We estimated a mean acinar volume of \SI{\meanacinarvolume}{\milli\meter\cubed},
 Assuming that the acini are similarly sized throughout different regions of the lung, we calculated that a rat lung contains roughly \meantotalnumberofaciniVariant\xspace acini.
 We conclude that our novel approach is well suited for the fast and reliable characterization of a large number of individual acini in healthy, diseased, or transgenic lungs of different species including humans.
 \end{abstract}
-\clearpage
+
+\ifJCS
+\else
+	\twocolumn
+\fi
 
 \section{Introduction}
 \subsection{Lung structure and the acini}
@@ -264,7 +271,7 @@ Manhole covers were implemented using a \href{http://www.mevis-research.de/cgi-b
 The locations of the manhole covers were defined based on morphological criteria, \ie changes in the thickness and structure of the epithelium and airway wall, as well as the appearance of first most proximal alveoli.
 Both events mark the transition from conducting to gas-exchanging airways.
 
-\begin{figure}
+\begin{figure}[htb]
 	\centering
 	\pgfmathsetlength{\imagewidth}{\imsize}%
 	\pgfmathsetlength{\imagescale}{\imagewidth/948}%
@@ -308,12 +315,12 @@ We extracted the volume of the individual acini using an additional region growi
 A point along the surface normal defining the manhole cover was used as seed point for this region growing segmentation.
 The only manual work needed for the final extraction of the volume of each acinus was the iterative selection of the appropriate segmentation threshold and subsequent tabulation of the automatically calculated acinar volume.
 
-\renewcommand{\imsize}{0.33\linewidth}%
+\renewcommand{\imsize}{0.33\textwidth}%
 \pgfmathsetlength{\imagewidth}{\imsize}%
 \pgfmathsetlength{\imagescale}{\imagewidth/800}%
 \def\x{55}
 \def\y{745}
-\begin{figure}[htb]
+\begin{figure*}[htb]
 	\centering
 	\subfloat[Sample]{%
 		\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
@@ -352,7 +359,7 @@ The only manual work needed for the final extraction of the volume of each acinu
 		\protect\subref{subfig:extracted acini} Four extracted acini are shown superimposed over the sample in yellow.
 	}
 	\label{fig:workflow}
-\end{figure}
+\end{figure*}
 
 The volume of the individual acini was calculated by multiplying the amount of segmented voxels by the voxel volume.
 The individual acini were exported to \href{https://secure.wikimedia.org/wikipedia/en/w/index.php?title=Digital_Imaging_and_Communications_in_Medicine&oldid=415023605}{DICOM} files for further processing as described below.
@@ -387,7 +394,7 @@ Alveolar number was estimated by counting the number of entrance rings in paired
 \end{figure}
 
 \renewcommand{\imsize}{0.5\linewidth}
-\begin{figure}[htb]
+\begin{figure*}
 	\centering
 	\subfloat[Disector mode, Image a]{\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingA_crop_edit}}
 	\subfloat[Disector mode, Image b]{\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingB_crop_edit}}
@@ -395,7 +402,7 @@ Alveolar number was estimated by counting the number of entrance rings in paired
 		The segmented acinus is visible in light grey, appearing and disappearing bridges corresponding to alveolar entrance rings are counted and marked by yellow circles.
 		Scale bar: \SI{100}{\micro\meter}.}
 	\label{fig:STEPanizer Evelyne}
-\end{figure}
+\end{figure*}
 
 \section{Results}
 \label{sec:results}
@@ -410,7 +417,7 @@ The volume of individual acini was either automatically assessed by adding the s
 Their mean volume is \SI{\meanacinarvolume}{\milli\meter\cubed}, with a standard deviation of \SI{\std}{\milli\meter\cubed}. We removed \numberofoutliers\xspace outliers from the volume data because their value was larger than the mean volume value \(\pm\biggerthan\times\) standard deviations (red dots in \autoref{fig:Volume plots}).
 
 \renewcommand{\imsize}{0.33\linewidth}
-\begin{figure}
+\begin{figure*}
 	\centering
 	\subfloat[Acinus 10, location in sample]{%
 		\pgfmathsetlength{\imagewidth}{\imsize}%
@@ -486,7 +493,7 @@ Their mean volume is \SI{\meanacinarvolume}{\milli\meter\cubed}, with a standard
 		}%
 	\caption{Views of two rat  acini. Left: Location of the acinus inside the sample. Middle and right: two views of each acinus. The inset mannequin on the lower left shows the three-dimensional orientation and the red circles mark the approximate position of the segmentation stopper.}
 	\label{fig:acini}
-\end{figure}
+\end{figure*}
 
 \subsection{Acinar surface area}\label{sec:results:acinar surface area}
 To automatically extract the surface of the individual acini one would need to perform a three-dimensional triangulation of the surface by mapping the edges of voxels to adjoining triangles in the three-dimensional space.
@@ -522,8 +529,8 @@ We compared the automatically assessed and manually estimated volume of the indi
 Detailed results are shown in \autoref{fig:Volume plots} and explained later on in the Discussion section.
 Values larger than the mean of the volumes \(\pm\biggerthan\times\) the standard deviation have been removed from the calculation (red dots).
 
-\renewcommand{\imsize}{0.37\linewidth}
-\begin{figure}[htb]
+\renewcommand{\imsize}{0.35\textwidth}
+\begin{figure*}[htb]
 	\centering
 	\subfloat{
 		\input{plots/plot_mevisvolume_R108C60B_B1_mrg-edit.tikz}%
@@ -543,11 +550,11 @@ Values larger than the mean of the volumes \(\pm\biggerthan\times\) the standard
 	\subfloat{
 		\input{plots/plot_stepanizervolume_R108C60Et-mrg-edit.tikz}
 		}%
-	\caption{Plot of the estimated acinar volumes of each sample, extracted with MeVisLab and estimated using the STEPanizer. The line corresponds to the mean, the dashed lines correspond to the mean \(\pm\biggerthan\times\) the standard deviation. Red dots represent outliers and were not used for calculating the mean. Top row: MeVisLab volumes, bottom row: STEPanizer volumes. From left to right: animal 1, 2 and 3.}
+	\caption{Plot of the estimated acinar volumes of each sample, extracted with MeVisLab and estimated using the STEPanizer. The line corresponds to the mean, the dashed lines correspond to the mean \ifJCS plus or minus \biggerthan x\xspace\else\(\pm\biggerthan\times\)\xspace\fi the standard deviation. Red dots represent outliers and were not used for calculating the mean. Top row: MeVisLab volumes, bottom row: STEPanizer volumes. From left to right: animal 1, 2 and 3.}
 	\label{fig:Volume plots}
-\end{figure}
+\end{figure*}
 
-\begin{table}[htb]
+\begin{table*}
 	\centering
 	\caption{Summary of results}
 	\begin{tabular}{rcccc}
@@ -562,7 +569,7 @@ Values larger than the mean of the volumes \(\pm\biggerthan\times\) the standard
 	\bottomrule
 	\end{tabular}
 	\label{tab:results}
-\end{table}
+\end{table*}
 
 \section{Discussion}
 Our proposed method makes it possible to fully analyze biologically interesting parameters for individual acini in the lung; the volume of the acini can be extracted automatically, parameters like surface area as well as number of contained alveoli and septal length per acinus (not shown) can be extracted with simple stereological counting, requiring manual labor.
@@ -663,7 +670,6 @@ With a more advanced segmentation algorithm it would be possible to automaticall
 Additionally, the method makes it possible to estimate changes in the lung structure (\eg acinar volume, number of alveoli, etc.) during the development of the lung.
 We have only shown data for one time point in the lung development, but a stereological estimation of the presented parameters would also be possible for multiple time points during lung development or in different disease models like fibrosis or emphysemic lungs.
 
-\clearpage
 \section{Acknowledgments}
 We thank Federica Marone, Christoph Hintermüller and Bernd Pinzer for their committed support at the TOMCAT beamline.
 Milo Hindennach from Fraunhofer MEVIS provided the \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{Manhole cover module in MeVisLab}.
@@ -675,11 +681,12 @@ This work has been funded by the grants 3100A0-109874 and 310030-125397 of the S
 \section{Disclosures}
 No \href{http://www.the-aps.org/mm/Publications/Preparing-Your-Manuscript#conflicts}{conflicts of interest} exist for any author of this manuscript.
 
-\clearpage
 \ifJCS
 	\singlespacing
 \else
+	%\onecolumn
 \fi
+
 \bibliographystyle{plainnat}
 \bibliography{../library}
 
