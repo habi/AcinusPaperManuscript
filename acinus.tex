@@ -207,19 +207,19 @@ We conclude that our novel approach is well suited for the fast and reliable cha
 \subsection{Lung structure and the acini}
 The airway structure of the human lung is largely formed from by dichotomous branches branched airway starting from at the trachea~\citep{Weibel1991}.
 With increasing depth into the airway tree, the diameter of the airways is reduced.
-The tree of pipe like, purely conduction airways is formed by ~10 generations of bronchi, followed by ~4 generations of bronchioles and ends in the terminal bronchioles.
+The tree of pipe like, purely conduction airways is formed by approximately 10 generations of bronchi, followed by approximately 4 generations of bronchioles and ends in the terminal bronchioles.
 The following respiratory bronchioles contain the first alveoli and mark the beginning of the gas-exchange region.
 The change between purely conducting and gas-exchanging airways is identified by the appearance of alveoli, structural alterations of the airway wall and of the lining epithelium (see \autoref{fig:ManholeCoverExplanation}).
 Beyond this point, the following airways form one functional lung unit, the so-called pulmonary acinus.
 The total volume of all acini thus correspond to the volume of the gas-exchange area of the lung which is ventilated by the most distal generation of purely conducting bronchioles~\citep{Rodriguez1987}.
-In humans the acini possess ~4 respiratory bronchioles and ~4 alveolar ducts.
+In humans the acini possess approximately 4 respiratory bronchioles and as many alveolar ducts.
 While the walls of the respiratory bronchioles contain a limited number of alveoli, the walls of the alveolar duct basically consist of the entrance rings of the alveolie~\citep{Schittny2007a}.
 
 In the rat lung the start of the gas-exchange region is not marked by respiratory bronchioles, but by one generation of transitory bronchioles.
 These are tube-like structures where the proximal part resembles the wall of a terminal bronchioli and the distal part an alveolar duct.
 This well recognizable transition from the conducting to the gas-exchanging airways enabled us to identify individual acini in three-dimensional datasets.
 
-Extracting large amounts of individual acini from physical sections of lung tissue for an analysis of the acinar volume is extremely time-consuming, since the acini could not be identified on the any kind of two-dimensinal sections without the information stored in the third dimension.
+Extracting large amounts of individual acini from physical sections of lung tissue for an analysis of the acinar volume is extremely time-consuming, since the acini could not be identified on the any kind of two-dimensional sections without the information stored in the third dimension.
 \citet{Woodward2005} achieved three-dimensional reconstructions of three adult duck lungs using intense manual effort to trace serial sections of the tissue.
 \citet{Rodriguez1987} \blockquote{first attempted serial-section reconstructions but realized the limitations of this very tedious although precise method} and finally switched to casting of airways with silicon to assess the acini in rat and rabbits.
 They analyzed acini of one animal for both species.
@@ -234,30 +234,35 @@ This manuscript describes a method to isolate individual acini from large synchr
 Since tomographic imaging of the lung tissue preserves the three-dimensional structure, we were able to identify individual acini on virtual two-dimensional slices and perform a precise stereological analysis and compare it with the above mentioned studies.
 In addition to the stereological analysis we performed a segmentation of individual acini and determined their volume by voxel counting using a visualization software.
 
+The presented method can isolate individual functional lung units, mark their extent on virtual two-dimensional slices and thus, for a first time make it possible easily feasible to perform a stereological characterizationof biological parameters for large numbers of individual acini in the mammalianrat lung. 
+
 \section{Materials and Methods}
 \label{sec:materials and methods}
 \subsection{Rat lung samples}
-Three 60 days old Sprague-Dawley rats were deeply anesthetized with a mixture of %
+Three 60 days old Sprague-Dawley rats (see \autoref{tab:animals}) were deeply anesthetized with a mixture of %
 \SI[per-mode=fraction]{0.5}{\milli\gram\per\milli\litre} acetylpromazine, %
 \SI[per-mode=fraction]{5}{\milli\gram\per\milli\litre} xylazine and %
 \SI[per-mode=fraction]{50}{\milli\gram\per\milli\litre} ketamine in %
 \SI{0.9}{\percent} NaCl at \SIrange{1.5}{2.5}{\micro\litre} per \si{\gram} body weight.
+
 The lungs of the animals were instilled with \SI{2.5}{\percent} glutaraldehyde in \SI{0.03}{\milli\Molar} potassium-phosphate buffer (pH 7.4) at a constant pressure of \SI{20}{\centi\meter} water column.
 At this pressure, the rat lung reaches its mid-respiratory volume~\citep{Schittny1998}.
 After instillation the lung was removed from the chest cavity and the pressure was maintained during fixation in order to prevent a recoiling of the lung~\citep{Mund2008}.
 
-\begin{table*}
+\begin{table*}[htb]
 	\centering
 	\caption{Biological parameters of the animals, from \citep{Tschanz2003}}
+	\noindent\makebox[\textwidth]{
 	\begin{tabular}{rccccc}
 	\toprule
-																	& Animal 1 & Animal 2 & Animal 3 & Mean & Standard Deviation \\
+														& Animal 1 & Animal 2 & Animal 3 & Mean & Standard Deviation \\
 	\midrule
-	Body weight [g]												& \bodyweightB & \bodyweightD & \bodyweightE & \meanbodyweight & \meanbodyweightSTD \\
+	Body weight [g]										& \bodyweightB & \bodyweightD & \bodyweightE & \meanbodyweight & \meanbodyweightSTD \\
 	Total lung volume [\si{\milli\meter\cubed}]			& \totallungvolumeB & \totallungvolumeD & \totallungvolumeE & \meantotallungvolume & \meantotallungvolumeSTD \\
 	Total parenchymal volume [\si{\milli\meter\cubed}]	& \parenchymalvolumeB & \parenchymalvolumeD & \parenchymalvolumeE & \meanparenchymalvolume & \meanparenchymalvolumeSTD \\
 	\bottomrule
 	\end{tabular}
+	}
 	\label{tab:animals}
 \end{table*}
 
@@ -273,7 +278,7 @@ The visible light was magnified using a 10\(\times\) magnifying, diffraction lim
 As a result, the voxel size was \SI{1.48}{\micro\meter} and the exposure time was between \SIrange{160}{200}{\milli\second}.
 
 Alveolar septa in rats have a mean thickness of \SIrange{5}{10}{\micro\meter} (calculated from data by \citet{Burri1974}).
-To unambiguously segment the alveolar septa in our datasets, a resolution of  about two microns was required.
+To unambiguously segment the alveolar septa in our datasets, a resolution of about two microns was required.
 To extract a large amount of individual acini, we needed to acquire high resolution tomographic scans covering large volume.
 Since our samples were larger than the classic field of view of TOMCAT at the aforementioned optical properties (1.52\(\times\)1.52\(\times\)\SI{1.52}{\milli\meter}) we used the so-called wide field scanning method~\citep{Haberthuer2010a}, where three independently acquired tomographic scans perpendicular to the rotation axis of the sample are merged to cover the desired field of view.
 Additionally, several wide field scans were stacked parallel to the rotation axis of the sample.
@@ -293,12 +298,10 @@ With the same GUI we visualized the extracted acini, calculated their volume and
 Airway segments were segmented using a grey-level threshold based region growing algorithm~\citep{Zucker1976}.
 A seed point for the region growing algorithm was manually defined inside the conducting airways on one of the most proximal slices of the dataset.
 As a result the tree was composed of both conducting and gas-exchanging airways.
-Using segmentation stoppers dubbed manhole covers, all acini of one segmented tree of airways were isolated and segmented.
+Using segmentation stoppers dubbed manhole covers, all acini of one segmented tree of airways were isolated.
 As a result the tree of airways was subdivided into the purely conducting airways and multiple adjacent separated acini (\autoref{fig:ManholeCoverExplanation} and \ref{fig:workflow}).
 
-Manhole covers were implemented using a \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{custom MeVisLab module (\emph{XMarkerClipPlanes})}.
-The locations of the manhole covers were defined based on morphological criteria, \ie changes in the thickness and structure of the epithelium and airway wall, as well as the appearance of first most proximal alveoli.
-Both events mark the transition from conducting to gas-exchanging airways.
+The locations of the manhole covers were defined based on morphological criteria, i. e. changes in the thickness and structure of the epithelium and airway wall, as well as the appearance of first most proximal alveoli. Both events mark the transition from conducting to gas-exchanging airways.
 
 \begin{figure}[!h]
 	\centering
@@ -380,7 +383,7 @@ The only manual work needed for the final extraction of the volume of each acinu
 	\caption{%
 		Visualization of the work flow for the extraction of the acinar volumes in a rat lung sample (postnatal day 60): %
 		\protect\subref{subfig:sample}: Three-dimensional visualization of the sample.
-		To increase the field of view  a stack of three wide field scans were taken.
+		To increase the field of view a stack of three wide field scans were taken.
 		The borders between the three stacked scans are indicated by a dashed green line. 
 		\protect\subref{subfig:airway segment} Extracted airway segment (green) superimposed on the sample.
 		Using a grey level threshold based region growing algorithm , we extracted conducting airways inside the sample.
@@ -401,8 +404,8 @@ To guarantee accurate and unbiased results, we standardized each step of tissue 
 A MATLAB\textsuperscript{\textregistered} script was used to perform a systematic random sampling of slices of each individual acinus and to export the selected slices as JPG sequences for stereological analysis.
 
 Using the web-based stereology freeware STEPanizer~\cite[\url{http://stepanizer.com}]{Tschanz2011} we analyzed the volume, surface area and number of alveoli of the extracted acini.
-Intersections of the acinar surface with geometric line probes were counted to estimate the acinar surface, while simple point counting was used to estimate the volume of the extracted acini.
-Alveolar number was estimated by counting the number of entrance rings in paired sections by using the disector mode of the STEPanizer \citep{Hsia2010} (\autoref{fig:STEPanizer David} and \ref{fig:STEPanizer Evelyne}).
+Intersections of the acinar surface with geometric line probes were counted to estimate the acinar surface (\autoref{fig:STEPanizer David}), while simple point counting was used to estimate the volume of the extracted acini.
+Alveolar number was estimated by counting the number of entrance rings in paired sections by using the disector mode of the STEPanizer \citep{Hsia2010} (\autoref{fig:STEPanizer Evelyne}).
 
 \renewcommand{\imsize}{\linewidth}%
 \pgfmathsetlength{\imagewidth}{\imsize}%
@@ -422,32 +425,39 @@ Alveolar number was estimated by counting the number of entrance rings in paired
 	\label{fig:STEPanizer David}
 \end{figure}
 
-\renewcommand{\imsize}{0.5\linewidth}
-\begin{figure*}
+\renewcommand{\imsize}{\linewidth}
+\begin{figure}[htb]
 	\centering
-	\subfloat[Disector mode, Image a: sampling]{\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingA_crop_edit}}
-	\subfloat[Disector mode, Image b: look-up]{\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingB_crop_edit}}
+	\subfloat[Disector mode, Image a: sampling]{%
+		\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingA_crop_edit}%
+		\label{subfig:sampling}%
+		}\\
+	\subfloat[Disector mode, Image b: look-up]{%
+		\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingB_crop_edit}%
+		\label{subfig:lookup}%
+		}
 	\caption{Screenshots from the STEPanizer counting window in disector mode.
-		The segmented acinus is visible in light grey, appearing and disappearing bridges corresponding to alveolar entrance rings are counted and marked by yellow circles.
+		The segmented acinus is visible in light grey.
+		One counting event is the presence of a bridge which connects the free edges of alveolar septa on one image (sampling, \protect\subref{subfig:sampling}) but not on the other (look-up, \protect\subref{subfig:lookup}).
+		One such counting event corresponds to an alveolar entrance rings, is counted and marked by yellow circles.
 		Scale bar: \SI{100}{\micro\meter}.}
 	\label{fig:STEPanizer Evelyne}
-\end{figure*}
+\end{figure}
 
 \section{Results}
 \label{sec:results}
 \subsection{Segmentation of individual acini}
 The novel method described in \autoref{sec:manhole covers} was used to extract individual functional units of three rat lungs from high resolution synchrotron radiation based tomographic datasets.
-Based on morphological criteria (thickness of the wall of the airways and appearance of the most distal alveoli) we place segmentation stopper into the airways at the transition of purely conducting to gas-exchanging airways.
-As a result we were able to isolate individual acini.
+Based on morphological criteria (thickness of the wall of the airways and appearance of the most distal alveoli) we place segmentation stopper into the airways at the transition of purely conducting to gas-exchanging airways (\autoref{fig:ManholeCoverExplanation}).
+As a result we were able to isolate individual acini (two acini are shown in \autoref{fig:acini}).
 We nicknamed the segmentation stopper ‘manhole cover’.
-In the next step we performed a segmentation of \numberofacini\xspace individual acini using a grey level threshold based region growing algorithm.
+In the next step we performed a segmentation of \numberofacini\xspace individual acini (see \autoref{tab:results}) using a grey level threshold based region growing algorithm.
 To our best knowledge, an extraction of such a high number of rat lung acini from high resolution tomographic datasets has never been achieved before.
 It enabled us to obtain statistical data on acinar volume, surface area and numbers of alveoli per acinus.
 
-
 \subsection{Acinar volume}
 The volume of individual acini was either automatically assessed by adding the segmented voxels inside the acini and multiplying them with the voxel volume or manually estimated by using the Cavaglieri method~\citep{Hsia2010}.
-A mean volume of \SI{\meanacinarvolume}{\milli\meter\cubed} with a standard deviation of \SI{\meanacinarvolumeSTD}{\milli\meter\cubed} was estimated.
+A mean volume of \SI{\meanacinarvolume}{\milli\meter\cubed} with a standard deviation of \SI{\meanacinarvolumeSTD}{\milli\meter\cubed} was estimated (see \autoref{tab:results} for details).
 We removed \numberofoutliers\xspace outliers from the volume data because their value was larger than the mean volume value \(\pm\biggerthan\times\) standard deviations (red dots in \autoref{fig:Volume plots}).
 
 \renewcommand{\imsize}{0.33\linewidth}
@@ -525,7 +535,7 @@ We removed \numberofoutliers\xspace outliers from the volume data because their 
 			\end{tikzpicture}%
 		%\end{minipage}
 		}%
-	\caption{Views of two rat  acini.
+	\caption{Views of two rat acini.
 		Left: Location of the acinus inside the sample.
 		Middle and right: two views of each acinus.
 		The inset mannequin on the lower left shows the three-dimensional orientation and the red circles mark the approximate position of the segmentation stopper.}
@@ -533,23 +543,18 @@ We removed \numberofoutliers\xspace outliers from the volume data because their 
 \end{figure*}
 
 \subsection{Acinar surface area}\label{sec:results:acinar surface area}
-The estimation of a surface area causes the classic coastline paradox where a measurement of a length or surface area heavily depends on the scale of the measurement ~\citep{Mandelbrot1967a}.
-
+The estimation of a surface area causes the classic coastline paradox where a measurement of a length or surface area heavily depends on the scale of the measurement~\citep{Mandelbrot1967a}.
 To automatically extract the surface area of the individual acini one would need to perform a three-dimensional triangulation of the alveolar surface by mapping the edges of voxels to adjoining triangles in the three-dimensional space.
 While various methods of triangulating a surface do exist, limitations in our computing power would have required a binning of the data which represents a reduction of the resolution.
-Even though various approximations to overcome this problem do exist~\citep{Lorensen1987,Schneiders1996}, we did not assess the acinar surface by triangulation (\eg using MeVisLab).
-Instead of the triangulation method, we preferred to a classical stereological estimation the surface area of the acini by counting interception of test lines with the alveolar septa~\citep{Hsia2010}using our original resolution which was approximately equal to light microscopical images take with a 10x lens.
 
-For the three different animals we calculated a mean acinar surface of \SI{\meanacinarsurface}{\milli\meter\squared} (%
-animal 1: \SI{\acinarsurfaceB}{\milli\meter\squared},
-animal 2: \SI{\acinarsurfaceD}{\milli\meter\squared} and
-animal 3: \SI{\acinarsurfaceE}{\milli\meter\squared}).
+There are several methods for triangulation of three-dimensional surfaces~\citep{Lorensen1987,Schneiders1996}, nonetheless all these methods cannot overcome the problem of the coastline paradox. We thus  did not assess the acinar surface by triangulation (e. g. using MeVisLab).
+
+Instead of the triangulation method, we preferred a classical stereological to estimate the surface area of the acini by counting interception of test lines with the alveolar septa~\citep{Hsia2010} at the original resolution of our datasets, which was approximately equal to light microscopical images take with a \(10\times\) lens.
+
+For the three different animals we calculated a mean acinar surface of \SI{\meanacinarsurface}{\milli\meter\squared} with a standard deviation of \meanacinarsurfaceSTD (see \autoref{tab:results} for details).
 
 \subsection{Number of alveoli per acinus}
-By counting appearing and disappearing bridges in the segmented acini, we found a mean number of alveoli for all analyzed acini of \meannumberofalveoli\xspace (%
-individual mean for animal 1: \numberofalveoliB\xspace (\numberofaciniB\xspace acini analyzed),
-individual mean for animal 2: \numberofalveoliD\xspace (\numberofaciniD\xspace acini analyzed),
-individual mean for animal 3: \numberofalveoliE\xspace (\numberofaciniE\xspace acini analyzed)).
+By counting the presence or absence of a bridge connecting the free edges of alveolar septa on one image (sampling, \autoref{subfig:sampling}) but not on the other (look-up, \autoref{subfig:lookup}), we found a mean number of alveoli for all analyzed acini of \meannumberofalveoli with a standard deviation of \meannumberofalveoliSTD (see \autoref{tab:results} for details).
 
 \subsection{Total number of acini}\label{sec:results:total number of acini}
 We estimated an total number of acini per lung by dividing the total parenchymal volume by the mean acinar volume.
@@ -559,8 +564,10 @@ The absolute number of acini per lung can also be estimated by dividing the esti
 For the three lung investigated we calculated \totalnumberofaciniBVariant, \totalnumberofaciniDVariant\xspace and \totalnumberofaciniEVariant\xspace acini per lung, respectively, resulting in a mean of \meantotalnumberofaciniVariant\xspace with a standard deviation of \meantotalnumberofaciniSTDVariant.
 
 \subsection{Comparison of Volumes from MeVisLab with STEPanizer}
-We compared the automatically assessed and manually estimated volume of the individual acini and found that the manual stereological method results in a \difference\(\times\) larger value than the automatic method using voxel counting.
-Detailed results are shown in \autoref{fig:Volume plots} and explained later on in the Discussion section.
+The volume of the individual has been assessed by automatic voxel counting (\autoref{sec:manhole covers}) as well as by manual, stereological estimation (\autoref{sec:stereological analysis}).
+
+The manual stereological method results in a value \(\difference\times\) larger than the automatic method using voxel counting.
+Detailed results are shown in \autoref{fig:Volume plots} and explained later on in \autoref{sec:discussion}.
 Values larger than the mean of the volumes \(\pm\biggerthan\times\) the standard deviation have been removed from the calculation (red dots).
 
 \renewcommand{\imsize}{0.35\textwidth}
@@ -610,12 +617,14 @@ Values larger than the mean of the volumes \(\pm\biggerthan\times\) the standard
 	\label{tab:results}
 \end{table*}
 
-\section{Discussion}
-Our proposed method enabled us to analyze biologically interesting parameters of individual acini in the lung; the volume of the acini can be extracted automatically, parameters like surface area as well as number of contained alveoli and septal length per acinus (not shown) can be extracted with simple stereological counting, requiring manual labor.
+\section{Discussion}\label{sec:discussion}
+An estimation of the volume, surface area as well as number of contained alveoli and septal length for individual acini is not possible using light microscopy on classic tissue sections. This is the case because the three-dimensional context is destroyed and features on one slice cannot easily be assigned to individual acini.
+
+With our proposed method we can extract individual acini from three-dimensional tomographic datasets without destroying the three-dimensional context. The three-dimensional structure of the lung samples is preserved during the tomographic imaging, we can thus extract individual acini and assess all the biologically interesting parameters mentioned above for each acinus individually.
+
+The volume of the acini can be extracted automatically, parameters like surface area as well as number of contained alveoli and septal length per acinus (not shown) can be extracted with simple stereological counting, requiring manual labor.
 
 With the proposed method we can additionally analyze structural changes in the acinus during postnatal development, like disease or differences between wild-type and knock-out animals.
-Since the three-dimensional structure of the lung samples is preserved during the tomographic imaging, we can extract individual acini and assess all the parameters mentioned above for each individual acinus.
-Such an estimation would not be possible using light microscopy on classic tissue sections, since the three-dimensional context is destroyed and features on one slice cannot easily be assigned to an individual acinus.
 
 \subsection{Acinar volume}
 \citet{Rodriguez1987} found that the right upper lobe of one rat contains 613 acini with a mean volume of \SI{1.98}{\milli\meter\cubed} (\SIrange{0.5}{5}{\milli\meter\cubed}).
@@ -626,10 +635,9 @@ If we take in account that \citep{Mercer1987a} measured the volume of ventilator
 \subsection{Number of alveoli per acinus}
 \citet{Vasilescu2012} found that the \blockquote{mean number of alveoli per acinus was 596\(\pm\)326 in the young mice and 936\(\pm\)254 in the old mice}.
 Rat lungs are obviously larger than mice lungs.
-In our hands an 60 days old rat possesses a ?? times larger lang volume than a mouse of the same age.
-The rat alveoli are ?? - ?? larger than the mice alveoli (own unpublished data).
-We hypothesized that parts of the additional volume of the rat lungs is filled with alveoli---resulting in a larger number of alveoli per acinus.
-We indeed obseverd a mean of \meannumberofalveoli\xspace alveoli per rat acinus, which is nearly then times the number of alveoli in mice acini. 
+In our hands  an 60 days old rat possesses a ?? times larger lung volume than a mouse of the same age.
+The rat alveoli are ?? - ?? larger than the mice alveoli (own unpublished data). We hypothesized that parts of the additional volume of the rat lungs is filled with alveoli – resulting in a larger number of alveoli per acinus.
+We indeed observed a mean of \meannumberofalveoli\xspace alveoli per rat acinus, which is nearly then times the number of alveoli in mice acini. 
 
 \subsection{Total number of acini}
 We found a mean number of \meantotalnumberofaciniVariant\xspace acini per rat lung for our three animals by dividing the estimated total number of alveoli by the number of alveoli per acinus.
@@ -698,21 +706,20 @@ As soon as the segmentation stopper are defined in the sample, the automatic vol
 \end{figure}
 
 \section{Conclusions}
-The hereby presented segmentation method is well suited to semiautomatically isolate individual acini from three-dimensional datasets for further stereological analysis.
+The hereby presented segmentation method is well suited to semi-automatically isolate individual acini from three-dimensional datasets for further stereological analysis.
 To our best knowledge, the presented work flow is the only one published to permit an easy, fast and semiautomatic extraction of individual acini.
 After the extraction of the acini, a fully automated calculation of the volume of individual acini is possible, thus for the first time enabling the study of large amounts of individual acini in relatively short time.
 This opens up the possibility to efficiently estimate biological parameters like volume and surface of individual acini, number of acini in the mammalian lung using well established stereological methods.
 
-We know that we can correlate data obtained from synchrotron radiation based tomographic microscopy datasets to electron microscopy images, as shown before~\citep{Haberthur2009}.
-In this manuscript we show that it is also possible to extract meaningful biological parameters from samples imaged using ultrahigh resolution tomography without destroying the spatial information in the lung structure, \ie to perform a non-destructive analysis, something which is not possible with classic light microscopy imaging (see also \citep{Vasilescu2012}).
+We know that we can correlate data obtained from synchrotron radiation based tomographic microscopy datasets to electron microscopy images, as shown before \citep{Haberthuer2009}.
+In this manuscript we show that it is also possible to extract meaningful biological parameters from samples imaged using ultrahigh resolution tomography without destroying the spatial information in the lung structure, \ie to perform a non-destructive analysis, something which is not possible with classic light microscopy imaging.
 
-In the presented study, the segmentation of the individual acini was used to label the acinar structure on the virual sections  for stereological analysis , thus the segmentation and extraction of the individual acini is the prerequisite for the recognition of the acini.
-This step represents the main amount of time spent evaluating the data, the calculation of the volume of the extracted acini can automatically be performed in a very short time.
+In the presented study, the segmentation of the individual acini was used to label the acinar structure on the virtual sections for stereological analysis, thus the segmentation and extraction of the individual acini is the prerequisite for the recognition of the acini.
+This segmentation and extraction process represents the main amount of time spent evaluating the data, the calculation of the volume of the extracted acini can automatically be performed in a very short time.
 With a more advanced segmentation algorithm it would be possible to automatically and accurately estimate the volume of a very large amount of acini in a very short time, since our proposed method for estimating the volumes of isolated individual acini is by magnitudes faster than manual stereological counting.
 
-In the presented study, the segmentation of the individual acini was used to label the acinar structure on the virual sections  for stereological analysis , thus the segmentation and extraction of the individual acini is the prerequisite for the recognition of the acini.
-This step represents the main amount of time spent evaluating the data, the calculation of the volume of the extracted acini can automatically be performed in a very short time.
-With a more advanced segmentation algorithm it would be possible to automatically and accurately estimate the volume of a very large amount of acini in a very short time, since our proposed method for estimating the volumes of isolated individual acini is by magnitudes faster than manual stereological counting.
+In addition, our proposed method may also be used to estimate changes in the lung structure (\eg acinar volume, number of alveoli, etc.) during the development of the lung.
+We have only shown data for one time point in the lung development, but a stereological estimation of the presented parameters would also be possible for multiple time points during lung development or in different disease models like fibrosis or emphysemic lungs.
 
 \section{Acknowledgments}
 We thank Federica Marone, Christoph Hintermüller and Bernd Pinzer for their committed support at the TOMCAT beamline.
