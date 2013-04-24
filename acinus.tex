@@ -235,8 +235,6 @@ Since tomographic imaging of the lung tissue preserves the three-dimensional str
 The presented process makes a precise stereological analysis of the isolated acini easily feasible.
 In addition to the stereological analysis we performed a segmentation of individual acini and determined their volume by voxel counting using a visualization software.
 
-The presented method can isolate individual functional lung units, mark their extent on virtual two-dimensional slices and thus, for a first time make it possible easily feasible to perform a stereological characterization of biological parameters for large numbers of individual acini in the rat lung. 
-
 \section{Materials and Methods}
 \label{sec:materials and methods}
 \subsection{Rat lung samples}
@@ -641,12 +639,16 @@ The rat alveoli are ?? - ?? larger than the mice alveoli (own unpublished data).
 We indeed observed a mean of \meannumberofalveoli\xspace alveoli per rat acinus, which is nearly then times the number of alveoli in mice acini. 
 
 \subsection{Total number of acini}
-We did not directly estimate the number of acini, but divided the absolute airspace volume\citep{Tschanz2003} by the mean acinar volume. Even though our values are only valid if we assume the acini to possess a similar size throughout the different regions in the lung, our results are comparable to previously published results, showing the feasibility of our method.
+We did not directly estimate the number of acini, but calculated this number by dividing the total parenchymal airspace~\citep{Tschanz2003} and the total number of alveoli (own unpublished data of Tschanz and Schittny) by the corresponding mean acinar values. However, this calculation is  only valid if we assume the acini possess a similar size throughout the different regions in the lung.
 
-We found a mean number of \meantotalnumberofaciniVariant\xspace acini per rat lung for our three animals by dividing the estimated total number of alveoli by the number of alveoli per acinus.
+We found a mean number of \meantotalnumberofaciniVariant\xspace aacini per rat lung for our three animals by dividing the estimated total number of alveoli by the number of alveoli per acinus.
 A value of \meantotalnumberofacini\xspace acini per rat lung was obtained by dividing the absolute parenchymal volume by the mean acinar volume, as discussed in \autoref{sec:results:total number of acini}.
 
-We favor the first value of \meantotalnumberofaciniVariant\xspace acini per lung as representing a more reliable value which is also closer to previous published values. Reasons for this decision are a large variability for the second value, which stem from the biological reason that the alveolar size seems to vary to a larger extent than the alvolar number and from the technical reason that the filling of the lung during extraction varies regionally.
+We favor the first value of \meantotalnumberofaciniVariant\xspace acini per lung as representing a more reliable value which is also closer to previous published values (see below).
+First, the biological variation of the acinar volume appears larger than the variation of the acinar number of alveoli.
+Second, the estimation of the volume is heavily depending on the state of inflation of the lung during analysis.
+For methodical reasons the filling/inflation of a particular region of the lung is fluctuation to some extend and furthermore the filling/inflation vary a bit between different samples.
+Counting the number of alveoli is independent of these methodical variations. 
 
 \citet{Rodriguez1987} found a total of 4023 acini in the whole lungs for one rat, while \citet{Mercer1987a} found \blockquote{an estimate of 2020 terminal bronchioles as well as acini per lung}.
 \citeauthor{Mercer1987a} mention that differences in these numbers appear to be due the different definition of the acinus, \ie that one ventilatory unit does not correspond to one acinus in their definition.
@@ -671,10 +673,13 @@ Due to inevitable segmentation inaccuracies (dark spots inside the segmented aci
 In some extracted acini we have seen differences in grey values in the z-direction of the stack.
 Since the region growing segmentation method uses the same threshold throughout the region of interest, slices were sometimes heavily under-estimated in terms of included voxels, one such example is shown in \autoref{subfig:60e_acinus38}.
 
-An imprecise segmentation, \ie if we add one voxel layer more or less to the segmented acinar volume, influences the segmented volume.
-This so-called edge effect at the border of the segmented volume leads to a relatively large variability of the automatically grey level based threshold segmented volumes.
-Since we were using an iterative method to choose the segmentation threshold we expect an underestimation of the acinar volume through the automatic volume extraction workflow.
-In order to suppress an overflowing of the segmentation into neighboring regions, we had to choose a lower threshold than desired for certain acini, which lead to an incomplete segmentation.
+In addition the so-called edge effect may lead to a large underestimation of the volumes.
+The alveolar septa at the boundary of the acini are used as border for the segmentation.
+First, the border between the tissue (septum) and the airspace does not represent an absolute sharp step but looks more like a ??.
+Therefore, the most peripheral grey values of the airspace are a bit higher than the inner ones.
+The threshold had to be chosen insuring that neighboring acini are separated.
+As a result the most peripheral voxels may not be included in the segmented volume.
+Because these voxels represent the outermost layer of the segmentation they represent a quite large volume.
 We thus expect the automatic volume estimation through grey level based threshold segmentation to show a larger variability.
 As soon as better segmentation methods are becoming available the automated method will become more reliable and accurate.
 
