@@ -2,7 +2,7 @@
 \newif\ifJCS
 %\JCStrue
 \ifJCS
-	\documentclass[final,a4paper,DIV=calc,abstract,english]{scrartcl}
+	\documentclass[final,paper=a4,DIV=calc,abstract,english]{scrartcl}
 		\usepackage{setspace} % Change spacing
 			%\singlespacing
 			%\onehalfspacing
@@ -12,7 +12,7 @@
 		\usepackage{endfloat}
 		\usepackage{natbib}
 \else
-	\documentclass[draft,a4paper,twocolumn=true,DIV=calc,abstract,english]{scrartcl}
+	\documentclass[final,paper=a4,twocolumn=true,DIV=calc,abstract,english]{scrartcl}
 		\usepackage[numbers,sort&compress]{natbib}
 \fi
 %%%%%%%%%%%% Für Johannes %%%%%%%%%%%%
@@ -231,7 +231,7 @@ This well recognizable transition from the conducting to the gas-exchanging airw
 
 Extracting individual acini from physical sections of lung tissue for an analysis of the acinar volume is extremely time-consuming, since the acini could not be identified on the any kind of two-dimensional sections without the information stored in the third dimension.
 \citet{Woodward2005} achieved three-dimensional reconstructions of three adult duck lungs using intense manual effort to trace serial sections of the tissue.
-\citet{Rodriguez1987} \added[id=st]{claimed to have done the} \blockquote{first attempted serial-section reconstructions but realized the limitations of this very tedious although precise method} and finally switched to casting of airways with silicon to assess the acini in rat and rabbits.
+\citet{Rodriguez1987} claimed to have done the \blockquote{first attempted serial-section reconstructions but realized the limitations of this very tedious although precise method} and finally switched to casting of airways with silicon to assess the acini in rat and rabbits.
 They analyzed acini of one animal for each species.
 
 \citet{Mercer1987a} manually traced several acini on photographs of serial sections with a thickness of \SI{3}{\micro\meter} each.
@@ -260,7 +260,7 @@ After instillation the lung was removed from the chest cavity and the pressure w
 
 \begin{table*}[htb]
 	\centering
-	\caption{Biological parameters of the animals, from \citep{Tschanz2003}}
+	\caption{Biological parameters of the animals, from~\citep{Tschanz2003}}
 	\noindent\makebox[\textwidth]{
 	\begin{tabular}{rccccc}
 	\toprule
@@ -551,7 +551,7 @@ The estimation of a surface area \added[id=st]{, which corresponds to the diffus
 \replaced[id=dh,remark={moved to discussion}]{Without going for more elaborate methods, an automatic extraction of the surface area of the individual acini may be subjected to considerable bias.}{To automatically extract the surface area of the individual acini one would need to perform a three-dimensional triangulation of the alveolar surface by mapping the edges of voxels to adjoining triangles in the three-dimensional space.
 While various methods of triangulating a surface do exist, limitations in our computing power would have required a binning of the data which represents a reduction of the resolution.}
 
-\deleted[id=dh,remark={moved to discussion}]{There are several methods for triangulation of three-dimensional surfaces \citep{Lorensen1987}\citep{Schneiders1996}, nonetheless all these methods cannot overcome the problem of the coastline paradox. We thus did not assess the acinar surface \added[id=dh]{automatically} by triangulation (e.g. using MeVisLab).}
+\deleted[id=dh,remark={moved to discussion}]{There are several methods for triangulation of three-dimensional surfaces~\citep{Lorensen1987}\citep{Schneiders1996}, nonetheless all these methods cannot overcome the problem of the coastline paradox. We thus did not assess the acinar surface \added[id=dh]{automatically} by triangulation (e.g. using MeVisLab).}
 
 \replaced[id=dh]{We therefore used}{Instead of the triangulation method, we preferred} a classical stereological to estimate the surface area of the acini by counting interception of test lines with the alveolar septa~\citep{Hsia2010} at the original resolution of our datasets, which was approximately equal to light microscopical images take with a \(10\times\) lens.
 
@@ -645,7 +645,7 @@ Our calculations resulted in a volume of \SI{\meanacinarvolume}{\milli\meter\cub
 If we take in account that \citet{Mercer1987a} measured the volume of ventilatory units that have been defined differently (they define the transitory bronchioles as conducting airways, \ie their acinus is about two times smaller than our acinus), our stereologically estimated mean acinar volume is in the range of previously published data.
 
 \subsection{Total number of acini}
-We did not directly estimate the number of acini, but calculated this number by dividing the total parenchymal airspace \citep{Tschanz2003} and the total number of alveoli (own unpublished data of Tschanz and Schittny) by the corresponding mean acinar values.
+We did not directly estimate the number of acini, but calculated this number by dividing the total parenchymal airspace~\citep{Tschanz2003} and the total number of alveoli (own unpublished data of Tschanz and Schittny) by the corresponding mean acinar values.
 However, this calculation is only valid if we assume the acini possess a similar size throughout the different regions in the lung.
 
 We found a mean number of \meantotalnumberofaciniVariant acini per rat lung for our three animals by dividing the estimated total number of alveoli by the number of alveoli per acinus.
@@ -661,11 +661,22 @@ For methodical reasons the filling of a particular region of the lung is fluctua
 \citeauthor{Mercer1987a} mention that differences in these numbers appear to be due \added[id=sb]{to} the different definition of the acinus, \ie that one ventilatory unit does not correspond to one acinus in their definition.
 
 \subsection{Number of alveoli per acinus}
-\citet{Vasilescu2012} found that the \blockquote{mean number of alveoli per acinus was 596\(\pm\)326 in the young mice and 936\(\pm\)254 in the old mice}.
-Rat lungs are obviously larger than \replaced[id=st][{mouse}{mice} lungs.
-Based on the strains we studied (SV 127 mice versus Sprague-Dawley rats \citep{Mund2008, Schittny2008}) an 60 days old rat possesses an approximately \(20\times\) larger parenchymal volume than a mouse of the same age (8932 vs.\ \SI{444}{\cubic\milli\meter} \citep{Tschanz2003} vs.\ \citep{Mund2008}).
-We hypothesized that parts of the additional volume of the rat lungs is filled with alveoli---resulting in a larger number of alveoli per acinus.
-We indeed observed a mean of \meannumberofalveoli alveoli per rat acinus, which is nearly ten times the number of alveoli in mice acini.
+\added[id=dh]{The \meannumberofalveoli of alveoli per acinus we observed seems rather large.
+Nonetheless we believe that the numbers are valid and in relation to other data.
+
+\citet{Vasilescu2012} found 3883 acini per lung in old mice, we found \meantotalnumberofaciniVariant acini for 60 days old rats, a value \(1.4\times\) %really 1.41
+higher.
+Based on the strains we studied (SV 127 mice versus Sprague-Dawley rats~\citep{Mund2008, Schittny2008}) an 60 days old rat possesses an \(20.1\times\) larger parenchymal volume than a mouse of the same age (8932~\citep{Tschanz2003} vs.\ \SI{444}{\cubic\milli\meter}~\citep{Mund2008}).
+The acinar volume for old mice is \SI{0.36}{\cubic\milli\meter}~\citep{Vasilescu2012}, while we found \SI{\meanacinarvolume}{\milli\meter\cubed} for our rats, a value 
+\(3.2\times\) larger.
+
+For each of these parameters we see larger values for rat compared to mice.
+We hypothesized that the additional volume of the rat lungs is filled with substantially more and slightly larger alveoli---resulting in a larger number of alveoli per acinus in rats.
+Since the acinar volume does not change substantially between rats and mice we need to have substantially more alveoli to fill each acinus.
+Indeed we observed a mean of \meannumberofalveoli alveoli per rat acinus, which is \(9\times\) the number of alveoli in mice acini (936\(\pm\)254 in old mice~\citep{Vasilescu2012}).
+
+We see that the species difference lies above all in the relative volume change of the acini. It would be very interesting to estimate how the acinar volume of humans fits into this relation.
+}
 
 \subsection{Acinar surface area}
 \added[id=dh]{To automatically extract the surface area of the individual acini one would need to perform a three-dimensional triangulation of the alveolar surface by mapping the edges of voxels to adjoining triangles in the three-dimensional space.
