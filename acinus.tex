@@ -12,7 +12,7 @@
 		\usepackage{endfloat}
 		\usepackage{natbib}
 \else
-	\documentclass[paper=a4,twocolumn=true,DIV=calc,abstract,english]{scrartcl}
+	\documentclass[draft,paper=a4,twocolumn=true,DIV=calc,abstract,english]{scrartcl}
 		\usepackage[numbers,sort&compress]{natbib}
 \fi
 %%%%%%%%%%%% Für Johannes %%%%%%%%%%%%
@@ -118,20 +118,20 @@
 \fi
 
 % Data
-\newcommand{\shrinkagefactor}{0.61} % Shrinkagefactor used for the calculation
+\newcommand{\shrinkagefactor}{0.61\xspace} % Shrinkagefactor used for the calculation
 \newcommand{\numberofacini}{43\xspace}
-\newcommand{\numberofaciniB}{24}
-\newcommand{\numberofaciniD}{10}
-\newcommand{\numberofaciniE}{9}
-\newcommand{\numberofoutliers}{4} % Number of Outliers removed
-\newcommand{\biggerthan}{2} % Outliers bigger/smaller than mean +- BiggerThan * STD have been removed
+\newcommand{\numberofaciniB}{24\xspace}
+\newcommand{\numberofaciniD}{10\xspace}
+\newcommand{\numberofaciniE}{9\xspace}
+\newcommand{\numberofoutliers}{4\xspace} % Number of Outliers removed
+\newcommand{\biggerthan}{2\xspace} % Outliers bigger/smaller than mean +- BiggerThan * STD have been removed
 
-\newcommand{\totalnumberofaciniB}{9197\xspace}
-\newcommand{\totalnumberofaciniD}{5257\xspace}
-\newcommand{\totalnumberofaciniE}{4845\xspace}
-\newcommand{\meantotalnumberofacini}{6433\xspace}
-\newcommand{\meantotalnumberofaciniSTD}{1962\xspace} % add "ddof=1" to get the same STD as with "=STDEV()" in Excel
-\newcommand{\meantotalnumberofacinirounded}{6400\xspace}
+\newcommand{\totalnumberofaciniB}{12145\xspace}
+\newcommand{\totalnumberofaciniD}{6914\xspace}
+\newcommand{\totalnumberofaciniE}{6865\xspace}
+\newcommand{\meantotalnumberofacini}{8641\xspace}
+\newcommand{\meantotalnumberofaciniSTD}{2478\xspace} % add "ddof=1" to get the same STD as with "=STDEV()" in Excel
+\newcommand{\meantotalnumberofacinirounded}{8600\xspace}
 
 \newcommand{\totalnumberofaciniBVariant}{6052\xspace}
 \newcommand{\totalnumberofaciniDVariant}{6066\xspace}
@@ -139,49 +139,49 @@
 \newcommand{\meantotalnumberofaciniVariant}{5470\xspace}
 \newcommand{\meantotalnumberofaciniSTDVariant}{833\xspace} % add "ddof=1" to get the same STD as with "=STDEV()" in Excel
 
-\newcommand{\acinarvolumeB}{0.693} % mm^3 (changed from cm^3 to mm^3 in ReadVolumeSurfaceAndAlveaolarNumber.py) http://is.gd/Z3fUjF
-\newcommand{\acinarvolumeD}{1.361} % mm^3
-\newcommand{\acinarvolumeE}{1.389} % mm^3
-\newcommand{\meanacinarvolume}{1.148} % mm^3, (mean acinar volume)
-\newcommand{\meanacinarvolumeSTD}{0.322} % (Standard deviation of acinar volumes), add "ddof=1" to get the same STD as with "=STDEV()" in Excel
+\newcommand{\acinarvolumeB}{0.693\xspace} % mm^3 (changed from cm^3 to mm^3 in ReadVolumeSurfaceAndAlveaolarNumber.py) http://is.gd/Z3fUjF
+\newcommand{\acinarvolumeD}{1.361\xspace} % mm^3
+\newcommand{\acinarvolumeE}{1.389\xspace} % mm^3
+\newcommand{\meanacinarvolume}{1.148\xspace} % mm^3, (mean acinar volume)
+\newcommand{\meanacinarvolumeSTD}{0.322\xspace} % (Standard deviation of acinar volumes), add "ddof=1" to get the same STD as with "=STDEV()" in Excel
 
-\newcommand{\numberofalveoliB}{6505}
-\newcommand{\numberofalveoliD}{9330}
-\newcommand{\numberofalveoliE}{12750}
+\newcommand{\numberofalveoliB}{6505\xspace}
+\newcommand{\numberofalveoliD}{9330\xspace}
+\newcommand{\numberofalveoliE}{12750\xspace}
 \newcommand{\meannumberofalveoli}{8470\xspace} % (Mean number of alveoli per acinus)
 \newcommand{\meannumberofalveoliSTD}{5979\xspace}
-\newcommand{\difference}{2.661} % X times bigger (acinar volumes STEPanizer/MeVisLab-volumes)
+\newcommand{\difference}{2.661\xspace} % X times bigger (acinar volumes STEPanizer/MeVisLab-volumes)
 
-\newcommand{\acinarsurfaceB}{45.8} % mm^2
-\newcommand{\acinarsurfaceD}{69.0} % mm^2
-\newcommand{\acinarsurfaceE}{106.9} % mm^2
-\newcommand{\meanacinarsurface}{73.9} % mm^2 (changed from cm^2 to mm^2 in ReadVolumeSurfaceAndAlveaolarNumber.py) http://is.gd/99Sa9v
+\newcommand{\acinarsurfaceB}{45.8\xspace} % mm^2
+\newcommand{\acinarsurfaceD}{69.0\xspace} % mm^2
+\newcommand{\acinarsurfaceE}{106.9\xspace} % mm^2
+\newcommand{\meanacinarsurface}{73.9\xspace} % mm^2 (changed from cm^2 to mm^2 in ReadVolumeSurfaceAndAlveaolarNumber.py) http://is.gd/99Sa9v
 \newcommand{\meanacinarsurfaceSTD}{25.2\xspace}
 
-\newcommand{\airspacesurfaceB}{4214} % cm^2
-\newcommand{\airspacesurfaceD}{3628} % cm^2
-\newcommand{\airspacesurfaceE}{5177} % cm^2
-\newcommand{\meanairspacesurface}{4340} % cm^2
+\newcommand{\airspacesurfaceB}{5565\xspace} % cm^2
+\newcommand{\airspacesurfaceD}{4772\xspace} % cm^2
+\newcommand{\airspacesurfaceE}{7335\xspace} % cm^2
+\newcommand{\meanairspacesurface}{5891\xspace} % cm^2
 
-\newcommand{\airspacedifference}{1.848} % times
+\newcommand{\airspacedifference}{1.362\xspace} % times
 
-\newcommand{\bodyweightB}{400} % g
-\newcommand{\bodyweightD}{460} % g
-\newcommand{\bodyweightE}{420} % g
-\newcommand{\meanbodyweight}{427} % g
-\newcommand{\meanbodyweightSTD}{24.944}
+\newcommand{\bodyweightB}{400\xspace} % g
+\newcommand{\bodyweightD}{460\xspace} % g
+\newcommand{\bodyweightE}{420\xspace} % g
+\newcommand{\meanbodyweight}{427\xspace} % g
+\newcommand{\meanbodyweightSTD}{24.944\xspace}
 
-\newcommand{\totallungvolumeB}{9579} % mm^3
-\newcommand{\totallungvolumeD}{10690} % mm^3
-\newcommand{\totallungvolumeE}{10920} % mm^3
-\newcommand{\meantotallungvolume}{10397} % mm^3
-\newcommand{\meantotallungvolumeSTD}{585.055}
+\newcommand{\totallungvolumeB}{9579\xspace} % mm^3
+\newcommand{\totallungvolumeD}{10690\xspace} % mm^3
+\newcommand{\totallungvolumeE}{10920\xspace} % mm^3
+\newcommand{\meantotallungvolume}{10397\xspace} % mm^3
+\newcommand{\meantotallungvolumeSTD}{585.055\xspace}
 
-\newcommand{\parenchymalvolumeB}{8415} % mm^3
-\newcommand{\parenchymalvolumeD}{9412} % mm^3
-\newcommand{\parenchymalvolumeE}{9537} % mm^3
-\newcommand{\meanparenchymalvolume}{9121} % mm^3
-\newcommand{\meanparenchymalvolumeSTD}{501.972}
+\newcommand{\parenchymalvolumeB}{8415\xspace} % mm^3
+\newcommand{\parenchymalvolumeD}{9412\xspace} % mm^3
+\newcommand{\parenchymalvolumeE}{9537\xspace} % mm^3
+\newcommand{\meanparenchymalvolume}{9121\xspace} % mm^3
+\newcommand{\meanparenchymalvolumeSTD}{501.972\xspace}
 
 \begin{document}
 
@@ -551,7 +551,8 @@ The estimation of a surface area \added[id=st]{, which corresponds to the diffus
 \replaced[id=dh,remark={moved to discussion}]{Without going for more elaborate methods, an automatic extraction of the surface area of the individual acini may be subjected to considerable bias.}{To automatically extract the surface area of the individual acini one would need to perform a three-dimensional triangulation of the alveolar surface by mapping the edges of voxels to adjoining triangles in the three-dimensional space.
 While various methods of triangulating a surface do exist, limitations in our computing power would have required a binning of the data which represents a reduction of the resolution.}
 
-\deleted[id=dh,remark={moved to discussion}]{There are several methods for triangulation of three-dimensional surfaces~\citep{Lorensen1987}\citep{Schneiders1996}, nonetheless all these methods cannot overcome the problem of the coastline paradox. We thus did not assess the acinar surface \added[id=dh]{automatically} by triangulation (e.g. using MeVisLab).}
+\deleted[id=dh,remark={moved to discussion}]{There are several methods for triangulation of three-dimensional surfaces~\citep{Lorensen1987}\citep{Schneiders1996}, nonetheless all these methods cannot overcome the problem of the coastline paradox.
+We thus did not assess the acinar surface \added[id=dh]{automatically} by triangulation (\eg using MeVisLab).}
 
 \replaced[id=dh]{We therefore used}{Instead of the triangulation method, we preferred} a classical stereological to estimate the surface area of the acini by counting interception of test lines with the alveolar septa~\citep{Hsia2010} at the original resolution of our datasets, which was approximately equal to light microscopical images take with a \(10\times\) lens.
 
@@ -625,7 +626,11 @@ Values larger than the mean of the volumes \(\pm\biggerthan\times\) the standard
 \end{figure*}
 
 \section{Discussion}\label{sec:discussion}
-An estimation of the volume, surface area as well as number of contained alveoli and septal length \replaced[id=st]{assigned to one particular acinus}{length for individual acini} is not possible using light microscopy on classic tissue sections.
+\added[id=st]{The functional relevant parenchyma in the mammalian lung is grouped into acini.
+These ventilatory end-units contain all alveoli aerated by a terminal bronchus.
+With respect to lung development growth and regeneration acini are a particularly important structural entity.}
+
+An estimation of the volume, \added[id=st]{the} surface area as well as \added[id=st]{the} number of contained alveoli \deleted[id=dh]{and septal length} \replaced[id=st]{assigned to one particular acinus}{length for individual acini} is not possible using light microscopy on classic tissue sections.
 \replaced[id=st]{Losing}{This is the case because} the three-dimensional context \replaced[id=st]{of a supposed acinus on sections prevents an unbiased assignment to an individual acinus}{is destroyed and features on one slice cannot easily be assigned to individual acini}.
 
 With our proposed method we can extract individual acini from three-dimensional tomographic datasets without destroying the three-dimensional context.
@@ -634,48 +639,62 @@ With our proposed method we can extract individual acini from three-dimensional 
 \added[id=st,remark={moved from results}]{To our best knowledge, an extraction of such a high number of rat lung acini from high resolution tomographic datasets has never been achieved before.
 \replaced[id=dh]{The extraction we performed}{It} \replaced[id=sb]{allows}{enabled} us to obtain statistical data on acinar volume, surface area and numbers of alveoli per acinus.}
 
-The volume of the acini can be extracted automatically, parameters like surface area as well as number of contained alveoli and septal length per acinus (not shown) can be extracted with simple stereological counting, requiring manual labor.
+The volume of the acini can be extracted automatically, parameters like surface area as well as number of contained alveoli \deleted[id=dh]{and septal length per acinus (not shown)} can be extracted with simple stereological counting, requiring manual labor.
 
 With the proposed method we can additionally analyze structural changes in the acinus during postnatal development, like disease or differences between wild-type and knock-out animals.
 
 \subsection{Acinar volume}
 \citet{Rodriguez1987} found that the right upper lobe of one rat contains 613 acini with a mean volume of \SI{1.98}{\milli\meter\cubed} (\SIrange{0.5}{5}{\milli\meter\cubed}).
-\citet{Mercer1987a} state that the total volume of \blockquote{alveoli + ducts} \eg ventilatory units is \SI{0.522(56)}{\milli\meter\cubed} (mean of 8). % http://is.gd/qpMEV5
+\citet{Mercer1987a} state\added[id=st]{d} that the total volume of \added[id=st]{ventilatory units, defined as} \blockquote{alveoli + ducts} \replaced[id=st]{was}{\eg ventilatory units is} \SI{0.522(56)}{\milli\meter\cubed} (mean of 8). % http://is.gd/qpMEV5
 Our calculations resulted in a volume of \SI{\meanacinarvolume}{\milli\meter\cubed} with a standard deviation of \SI{\meanacinarvolumeSTD}{\milli\meter\cubed}.
-If we take in account that \citet{Mercer1987a} measured the volume of ventilatory units that have been defined differently (they define the transitory bronchioles as conducting airways, \ie their acinus is about two times smaller than our acinus), our stereologically estimated mean acinar volume is in the range of previously published data.
+\replaced[id=st]{\citeauthor{Mercer1987a} assigned the the transitory bronchioles to the conducting airways.
+Thus, the start of their acini was one generation deeper resulting in a volume about two times smaller than our acinus.
+In that light our stereologically estimated mean acinar volume is in the range of both previously published data.}{If we take in account that \cite{Mercer1987a} measured the volume of ventilatory units that have been defined differently (they define the transitory bronchioles as conducting airways, \ie their acinus is about two times smaller than our acinus), our stereologically estimated mean acinar volume is in the range of previously published data.}
 
 \subsection{Total number of acini}
-We did not directly estimate the number of acini, but calculated this number by dividing the total parenchymal airspace~\citep{Tschanz2003} and the total number of alveoli (own unpublished data of Tschanz and Schittny) by the corresponding mean acinar values.
-However, this calculation is only valid if we assume the acini possess a similar size throughout the different regions in the lung.
+We did not directly estimate the number of acini, but calculated this number by \added[id=st]{two different approaches: (i) by dividing the total number of alveoli (own unpublished data of Tschanz and Schittny) by the mean number of alveoli per acinus and (ii)} by dividing the total parenchymal airspace~\citep{Tschanz2003} \replaced[id=st]{by the mean accinar volume (see above)}{and the total number of alveoli (own unpublished data of Tschanz and Schittny) by the corresponding mean acinar values}.
+However, \replaced[id=st]{these calculations are}{this calculation is} only valid if we assume the acini \replaced[id=st]{showing}{possess} a similar size throughout the different regions in the lung.
 
-We found a mean number of \meantotalnumberofaciniVariant acini per rat lung for our three animals by dividing the estimated total number of alveoli by the number of alveoli per acinus.
+We found \added[id=st]{differing values with} a mean number of \meantotalnumberofaciniVariant acini per rat lung for our three animals by dividing the estimated total number of alveoli by the number of alveoli per acinus.
 A value of \meantotalnumberofacini acini per rat lung was obtained by dividing the total parenchymal volume by the mean acinar volume, as discussed in \autoref{sec:results:total number of acini}.
 
-We favor the first value of \meantotalnumberofaciniVariant acini per lung as representing a more reliable value which is also closer to previous published values (see below).
+We favor the \replaced[id=st]{alveolar number based value of \meantotalnumberofaciniVariant acini per lung due to a more reliable assessment and being closer to previous published data (see below).
+The estimation of the volume is depending on the state of inflation of the lung during analysis.
+For methodical reasons the filling of a particular region of the lung is fluctuating to some extend and furthermore the filling vary a bit between different samples.
+Instead, counting the number of alveoli is independent of volumetric variations.}{first value of \meantotalnumberofaciniVariant acini per lung as representing a more reliable value which is also closer to previous published values (see below).
 First, the biological variation of the acinar volume appears larger than the variation of the acinar number of alveoli.
 Second, the estimation of the volume is heavily depending on the state of inflation of the lung during analysis.
-For methodical reasons the filling of a particular region of the lung is fluctuating to some extend and furthermore the filling vary a bit between different samples. 
-\replaced[id=st]{Though, c}{C}ounting the number of alveoli is independent of these methodical variations.
+For methodical reasons the filling of a particular region of the lung is fluctuating to some extend and furthermore the filling vary a bit between different samples.
+\replaced[id=st]{Though, c}{C}ounting the number of alveoli is independent of these methodical variations.}
 
 \citet{Rodriguez1987} found a total of 4023 acini in the whole lungs for one rat, while \citet{Mercer1987a} found \blockquote{an estimate of 2020 terminal bronchioles as well as acini per lung}.
 \citeauthor{Mercer1987a} mention that differences in these numbers appear to be due \added[id=sb]{to} the different definition of the acinus, \ie that one ventilatory unit does not correspond to one acinus in their definition.
 
 \subsection{Number of alveoli per acinus}
-\added[id=dh]{The \meannumberofalveoli of alveoli per acinus we observed seems rather large.
-Nonetheless we believe that the numbers are valid and in relation to other data.
+\replaced[id=st]{We found \(\meannumberofalveoli\pm\meannumberofalveoliSTD\) alveoli per acinus showing a considerable high deviation.
+This clearly indicates that acini not only differ in size (see deviations in volumetric data of us and others above) but also in the degree of alveolar content.
+While our volumetric values showed a deviation of about \SI{28}{\percent} the deviation of alveolar number in the same sample of alveoli was at impressive \SI{70}{\percent}.
+Obviously the variation of alveolar number in acini is superior to variations in their volume.
+As alveolar number is inverse proportional to alveolar size we can also conclude that size variation of alveoli must be important.
 
-\citet{Vasilescu2012} found 3883 acini per lung in old mice, we found \meantotalnumberofaciniVariant acini for 60 days old rats, a value \(1.4\times\) %really 1.41
+Comparing the number of alveoli per acinus in this rat study with data published for the mouse acinus by \citet{Vasilescu2012} seems striking.
+Their values of \(936\pm254\) in old mice was almost 9 times higher than our results.
+Nevertheless}{The \meannumberofalveoli of alveoli per acinus we observed seems rather large.
+Nonetheless} we believe that the numbers are valid and in relation to other data.
+
+\added[id=dh]{\citet{Vasilescu2012} found 3883 acini per lung in old mice, we found \meantotalnumberofaciniVariant acini for 60 days old rats, a value \(1.4\times\) %really 1.41
 higher.
 Based on the strains we studied (SV 127 mice versus Sprague-Dawley rats~\citep{Mund2008, Schittny2008}) an 60 days old rat possesses an \(20.1\times\) larger parenchymal volume than a mouse of the same age (8932~\citep{Tschanz2003} vs.\ \SI{444}{\cubic\milli\meter}~\citep{Mund2008}).
 The acinar volume for old mice is \SI{0.36}{\cubic\milli\meter}~\citep{Vasilescu2012}, while we found \SI{\meanacinarvolume}{\milli\meter\cubed} for our rats, a value 
 \(3.2\times\) larger.
 
-For each of these parameters we see larger values for rat compared to mice.
+\replaced[id=st]{On each level}{For each} of these parameters we see larger values for rat compared to mice.
 We hypothesized that the additional volume of the rat lungs is filled with substantially more and slightly larger alveoli---resulting in a larger number of alveoli per acinus in rats.
 Since the alveolar volume does not change substantially between rats and mice \added[id=js]{(approximately 2 to \(3\times\))}, we need to have substantially more alveoli to fill each acinus.
 Indeed we observed a mean of \meannumberofalveoli alveoli per rat acinus, which is \(9\times\) the number of alveoli in mice acini (936\(\pm\)254 in old mice~\citep{Vasilescu2012}).
 
-We see that the species difference lies above all in the relative volume change of the acini. It would be very interesting to estimate how the acinar volume of humans fits into this relation.
+We see that the species difference lies above all in the relative volume change of the acini.
+It would be very interesting to estimate how the acinar volume of humans fits into this relation.
 }
 
 \subsection{Acinar surface area}
