@@ -12,7 +12,7 @@
 		\usepackage{endfloat}
 		\usepackage{natbib}
 \else
-	\documentclass[final,paper=a4,twocolumn=true,DIV=calc,abstract,english]{scrartcl}
+	\documentclass[paper=a4,twocolumn=true,DIV=calc,abstract,english]{scrartcl}
 		\usepackage[numbers,sort&compress]{natbib}
 \fi
 %%%%%%%%%%%% Für Johannes %%%%%%%%%%%%
@@ -415,10 +415,10 @@ To guarantee accurate and unbiased results, we standardized each step of tissue 
 A MATLAB\textsuperscript{\textregistered} script was used to perform a systematic random sampling of slices of each individual acinus and to export the selected slices as JPG sequences for stereological analysis.
 
 Using the web-based stereology freeware STEPanizer~\cite[\url{http://stepanizer.com}]{Tschanz2011} we analyzed the volume, surface area and number of alveoli of the extracted acini.
-\added[id=st]{The volume was estimated according to the Cavalieri principle: profile area on equidistant serial sections of acini was estimated by simple point cointing.
+\added[id=st]{The volume was estimated according to the Cavalieri principle: profile area on equidistant serial sections of acini was estimated by simple point counting.
 The volume was calculated by multiplying the area estimate by the distance of the serial sections.}
 Intersection\added[id=st]{ count}s of the acinar surface with geometric line probes were counted to estimate the \added[id=st]{internal} acinar surface \added[id=st]{area} (\autoref{fig:STEPanizer David})\deleted[id=st]{, while simple point counting was used to estimate the volume of the extracted acini.}
-Alveolar number was estimated by counting the number of entrance rings in paired sections by using the disector\replaced[id=st]{~\cite{Sterio1984} accomplished with the STEPanizer (experimental feature).}{mode of the STEPanizer~\citep{Hsia2010}} (\autoref{fig:STEPanizer Eveline}).
+Alveolar number was estimated by counting the number of entrance rings in paired sections by using the disector\replaced[id=st]{~\citep{Sterio1984} accomplished with the STEPanizer (experimental feature).}{mode of the STEPanizer~\citep{Hsia2010}} (\autoref{fig:STEPanizer Eveline}).
 
 \renewcommand{\imsize}{\linewidth}%
 \pgfmathsetlength{\imagewidth}{\imsize}%
@@ -626,7 +626,7 @@ Values larger than the mean of the volumes \(\pm\biggerthan\times\) the standard
 
 \section{Discussion}\label{sec:discussion}
 An estimation of the volume, surface area as well as number of contained alveoli and septal length \replaced[id=st]{assigned to one particular acinus}{length for individual acini} is not possible using light microscopy on classic tissue sections.
-\replaced[id=st]{Losing}{This is the case because} the three-dimensional context \replaced[id=st]{of a supposed acinus on sections prevents an unbiased assignment to an indivisual acinus.}{is destroyed and features on one slice cannot easily be assigned to individual acini}.
+\replaced[id=st]{Losing}{This is the case because} the three-dimensional context \replaced[id=st]{of a supposed acinus on sections prevents an unbiased assignment to an individual acinus}{is destroyed and features on one slice cannot easily be assigned to individual acini}.
 
 With our proposed method we can extract individual acini from three-dimensional tomographic datasets without destroying the three-dimensional context.
 \replaced[id=dh]{W}{The three-dimensional structure of the lung samples is preserved during the tomographic imaging, w}e can thus extract individual acini and assess all the biologically interesting parameters mentioned above for each acinus individually.
@@ -672,7 +672,7 @@ The acinar volume for old mice is \SI{0.36}{\cubic\milli\meter}~\citep{Vasilescu
 
 For each of these parameters we see larger values for rat compared to mice.
 We hypothesized that the additional volume of the rat lungs is filled with substantially more and slightly larger alveoli---resulting in a larger number of alveoli per acinus in rats.
-Since the acinar volume does not change substantially between rats and mice we need to have substantially more alveoli to fill each acinus.
+Since the alveolar volume does not change substantially between rats and mice \added[id=js]{(approximately 2 to \(3\times\))}, we need to have substantially more alveoli to fill each acinus.
 Indeed we observed a mean of \meannumberofalveoli alveoli per rat acinus, which is \(9\times\) the number of alveoli in mice acini (936\(\pm\)254 in old mice~\citep{Vasilescu2012}).
 
 We see that the species difference lies above all in the relative volume change of the acini. It would be very interesting to estimate how the acinar volume of humans fits into this relation.
@@ -681,9 +681,9 @@ We see that the species difference lies above all in the relative volume change 
 \subsection{Acinar surface area}
 \added[id=dh]{To automatically extract the surface area of the individual acini one would need to perform a three-dimensional triangulation of the alveolar surface by mapping the edges of voxels to adjoining triangles in the three-dimensional space.
 While various methods of triangulating a surface do exist, limitations in our computing power would have required a binning of the data which represents a reduction of the resolution.
-There are several methods for triangulation of three-dimensional surfaces [Lorensen and Cline, 1987, Schneiders, 1996], nonetheless all these methods cannot overcome the problem of the coastline paradox.}
+There are several methods for triangulation of three-dimensional surfaces \citep{Lorensen1987, Schneiders1996}, nonetheless all these methods cannot overcome the problem of the coastline paradox.}
 
-\added[id=dh]{We thus did not assess the acinar surface by triangulation, but used a a classic stereological way to estimate the surface area of the acini.}
+\added[id=dh]{We thus did not assess the acinar surface by triangulation, but used a \deleted[id=js]{a} classic stereological \replaced[id=js]{approach}{way} to estimate the surface area of the acini.}
 Because to our best knowledge the surface area of rat acini have not been \replaced[id=dh]{analyzed}{analysis} so far, we can only relate the estimated surface area to total numbers obtained for rat lungs.
 
 The measuring method presented in this manuscript has approximately the same resolution as light microscopy.
