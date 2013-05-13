@@ -12,7 +12,7 @@
 		\usepackage{endfloat}
 		\usepackage{natbib}
 \else
-	\documentclass[paper=a4,twocolumn=true,DIV=calc,abstract,english]{scrartcl}
+	\documentclass[final,paper=a4,twocolumn=true,DIV=calc,abstract,english]{scrartcl}
 		\usepackage[numbers,sort&compress]{natbib}
 \fi
 %%%%%%%%%%%% Für Johannes %%%%%%%%%%%%
@@ -36,8 +36,8 @@
 \usepackage{xspace}
 \usepackage[autostyle=true]{csquotes}
 \usepackage{microtype}
-%\usepackage[pdftex,active,tightpage,floats]{preview} % only typeset floats
-\usepackage{changes} %try using [final] if the changes bother you.
+% \usepackage[pdftex,active,tightpage,floats]{preview} % typeset only the floats
+\usepackage{changes} % try using [final] if the changes bother you.
 \usepackage[backref,hidelinks]{hyperref}
 
 % Display options
@@ -289,7 +289,7 @@ As a result, the voxel size was \SI{1.48}{\micro\meter} and the exposure time wa
 Alveolar septa in rats have a mean thickness of \SIrange{5}{10}{\micro\meter} (calculated from data by \citet{Burri1974}).
 To unambiguously segment the alveolar septa in our datasets, a resolution of about two microns was required.
 To extract a large amount of individual acini, we needed to acquire high resolution tomographic scans covering large volume.
-Since our samples were larger than the classic field of view of TOMCAT at the aforementioned optical properties (\(1.52\times1.52\times\SI{1.52}{\milli\meter}\)) we used the so-called wide field scanning method~\citep{Haberthuer2010a}, where three independently acquired tomographic scans perpendicular to the rotation axis of the sample are merged to cover the desired field of view.
+Since our samples were larger than the classic field of view of TOMCAT at the aforementioned optical properties (\(1.52\times1.52\times\SI{1.52}{\milli\meter}\)) we used the so-called wide field scanning method~\citep{Haberthuer2010}, where three independently acquired tomographic scans perpendicular to the rotation axis of the sample are merged to cover the desired field of view.
 Additionally, several wide field scans were stacked parallel to the rotation axis of the sample.
 The resulting tomographic datasets covered a field of view of approximately \(4.5\times4.5\times\SI{4.5}{\milli\meter\cubed}\) (\(3000\times3000\times3072\) voxels at \SI{1.48}{\micro\meter} side length).
 
@@ -370,8 +370,8 @@ The only manual work needed for the final extraction of the volume of each acinu
 			\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/ManholeCover/R108C60B_2010c_Sample}};
 			% 570px = 4.363mm > 100px = 765um > 65px = 500um, 13px = 100um
 			\draw[|-|,thick] (\x,\y) -- (\x+65,\y) node [right] {\SI{500}{\micro\meter}};
-			\draw[dashed,green,thick] (777,460) -- (662,466) -- (84,394);
-			\draw[dashed,green,thick] (723,223) -- (181,201);
+			\draw[dashed, green, ultra thick] (777,460) -- (662,466) -- (84,394);
+			\draw[dashed, green, ultra thick] (723,223) -- (181,201);
 		\end{tikzpicture}%
 		\label{subfig:sample}%
 		}%
@@ -429,7 +429,7 @@ Alveolar number was estimated by counting the number of entrance rings in paired
 	\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 		\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/STEPanizer_2010_R108C60B_acinus08_Slice36}};
 		% 914px = 0.1mm > 100px = 11um > 4568px = 500um, 914px = 100um
-		\draw[dashed,green,thick] (719,207) -- (937,207) -- (932,270) -- (723,270) -- cycle ;
+		\draw[dashed, green, ultra thick] (719,207) -- (937,207) -- (932,270) -- (723,270) -- cycle ;
 	\end{tikzpicture}%
 	\caption{Screenshot from the STEPanizer counting window.
 		The segmented acinus is visible in light grey, the manhole cover which was used to separate this acinus is marked with a dashed green line.
@@ -556,7 +556,7 @@ We thus did not assess the acinar surface \added[id=dh]{automatically} by triang
 
 \replaced[id=dh]{We therefore used}{Instead of the triangulation method, we preferred} a classical stereological to estimate the surface area of the acini by counting interception of test lines with the alveolar septa~\citep{Hsia2010} at the original resolution of our datasets, which was approximately equal to light microscopical images take with a \(10\times\) lens.
 
-For the three different animals we calculated a mean acinar surface of \SI{\meanacinarsurface}{\milli\meter\squared} with a standard deviation of \meanacinarsurfaceSTD (see \autoref{tab:results} for details).
+For the three different animals we calculated a mean acinar surface of \SI{\meanacinarsurface}{\milli\meter\squared} with a standard deviation of \meanacinarsurfaceSTD\xspace (see \autoref{tab:results} for details).
 
 \subsection{Number of alveoli per acinus}
 \replaced[id=st]{By applying the disector principle we counted the new appearance of alveolar entrance rings corresponding to the number of alveoli~\citep{Sterio1984,Hyde2004,Ochs2003}.
@@ -566,7 +566,7 @@ In practice the presence or absence of a tissue bridge connecting the free edges
 We estimated \replaced[id=st]{the}{an} total number of acini per lung by dividing the total parenchymal volume by the mean acinar volume.
 For the three lung investigated we calculated \totalnumberofaciniB, \totalnumberofaciniD and \totalnumberofaciniE acini per lung, respectively, resulting in a mean of \meantotalnumberofacini with a standard deviation of \meantotalnumberofaciniSTD.
 
-The absolute number of acini per lung can also be estimated by dividing the estimated total number of alveoli \added[id=st]{in the entire lung} (\added[id=dh]{calculated based on} personal communication Stefan Tschanz and Johannes Schittny) by the number of alveoli per acinus.
+The absolute number of acini per lung can also be estimated by dividing the estimated total number of alveoli \added[id=st]{in the entire lung} (\added[id=dh]{calculated based on} Stefan Tschanz and Johannes Schittny, personal communication) by the number of alveoli per acinus.
 For the three lung investigated we calculated \totalnumberofaciniBVariant, \totalnumberofaciniDVariant and \totalnumberofaciniEVariant acini per lung, respectively, resulting in a mean of \meantotalnumberofaciniVariant with a standard deviation of \meantotalnumberofaciniSTDVariant.
 
 \begin{table*}[htb]
@@ -652,10 +652,10 @@ Thus, the start of their acini was one generation deeper resulting in a volume a
 In that light our stereologically estimated mean acinar volume is in the range of both previously published data.}{If we take in account that \cite{Mercer1987a} measured the volume of ventilatory units that have been defined differently (they define the transitory bronchioles as conducting airways, \ie their acinus is about two times smaller than our acinus), our stereologically estimated mean acinar volume is in the range of previously published data.}
 
 \subsection{Total number of acini}
-We did not directly estimate the number of acini, but calculated this number by \added[id=st]{two different approaches: (i) by dividing the total number of alveoli (own unpublished data of Tschanz and Schittny) by the mean number of alveoli per acinus and (ii)} by dividing the total parenchymal volume~\citep{Tschanz2003} \replaced[id=st]{by the mean acinar volume (see above)}{and the total number of alveoli (own unpublished data of Tschanz and Schittny) by the corresponding mean acinar values}.
+We did not directly estimate the number of acini, but calculated this number by \added[id=st]{two different approaches: (i) by dividing the total number of alveoli (\replaced[id=dh]{Tschanz and Schittny, personal communication}{own unpublished data of Tschanz and Schittny}) by the mean number of alveoli per acinus and (ii)} by dividing the total parenchymal volume~\citep{Tschanz2003} \replaced[id=st]{by the mean acinar volume (see above)}{and the total number of alveoli (own unpublished data of Tschanz and Schittny) by the corresponding mean acinar values}.
 However, \replaced[id=st]{these calculations are}{this calculation is} only valid if we assume the acini \replaced[id=st]{showing}{possess} a similar size throughout the different regions in the lung.
 
-We found a mean number of \meantotalnumberofaciniVariant acini per rat lung for our three animals by \replaced[id=dh]{by the alveolar number based on calculation and a value of \meantotalnumberofacini by the volumetric approach, respectively}{dividing the estimated total number of alveoli by the number of alveoli per acinus.}
+We found a mean number of \meantotalnumberofaciniVariant acini per rat lung for our three animals by \replaced[id=dh]{by the alveolar number based on calculation and a value of \meantotalnumberofacini by the volumetric approach, respectively.}{dividing the estimated total number of alveoli by the number of alveoli per acinus.}
 \deleted[id=dh]{A value of \meantotalnumberofacini acini per rat lung was obtained by dividing the total parenchymal volume by the mean acinar volume, as discussed in section \ref{sec:results:total number of acini}.}
 
 We favor the \replaced[id=st]{alveolar number based value of \meantotalnumberofaciniVariant acini per lung due to a more reliable assessment and being closer to previous published data (see below).
@@ -681,6 +681,7 @@ Comparing the number of alveoli per acinus in this rat study with data published
 Their values of \(936\pm254\) in old mice was \(9\times\) lower than our results.
 Nevertheless}{The \meannumberofalveoli of alveoli per acinus we observed seems rather large.
 Nonetheless} we believe that the numbers are valid and in relation to other data.
+\added[id=dh]{A summary of the parameters mentioned in this section is found in \autoref{tab:volumes}.}
 
 \added[id=dh]{When looking at this species comparison the interesting question arises weather there is a particular site of changes in size and/or number where these differences in lung parenchyma originate, \ie can we see a particular level of adaptation?
 
@@ -689,8 +690,10 @@ The three levels are:
 	\item[Lung] Total lung volume in adult animals showed a difference of \(7.4\times\) from mice to rats (\SI{\meantotallungvolume}{\cubic\milli\meter} vs.\ \citep[\SI{1398}{\cubic\milli\meter}]{Vasilescu2012}) or, taking the parenchymal volume even \(20\times\) (\citep[\SI{8932}{\cubic\milli\meter}]{Tschanz2003} vs,\ \citep[\SI{444}{\cubic\milli\meter}]{Mund2008}).
 	\item[Acinus] Comparing the volumetric values on acinar level resulted in \(3.2\times\) larger acini in rats (\SI{\meanacinarvolume}{\cubic\milli\meter} vs.\ \citep[\SI{0.36}{\cubic\milli\meter}]{Vasilescu2012}).
 We found \meantotalnumberofaciniVariant acini per lung of 60 days old rats, while \citet{Vasilescu2012} found 3883 acini per lung of \blockquote{old} mice, a value \(1.4\times\) higher.
-	\item[Alveoli] We calculated the mean alveolar volume by dividing the mean acinar volume by the mean number of alveoli per acinus. The mean acinar volume was corrected by \SI{65}{\percent}, the ratio of alveolar vs.\ ductal volume, calculated from \citep{Salm2013}.
-The mean alveolar volume is \SI{88099}{\cubic\micro\meter} for rats. The alveolar volume in mice was found \SIlist{59500;250000}{\cubic\micro\meter} \cite{Knust2009,Vasilescu2013}, a value \numlist{1.48;0.35}\(\times\) larger.
+	\item[Alveoli] We calculated the mean alveolar volume by dividing the mean acinar volume by the mean number of alveoli per acinus. The mean acinar volume was corrected for the ratio of alveolar vs.\ ductal volume.
+The mean alveolar volume is \SI{88099}{\cubic\micro\meter} for rats.
+The alveolar volume in mice was found \SI{59500}{\cubic\micro\meter} \cite{Knust2009}, a value \(1.48\times\) larger.
+%The alveolar volume in mice was found \SIlist{59500;250000}{\cubic\micro\meter} \cite{Knust2009,Vasilescu2013}, a value \numlist{1.48;0.35}\(\times\) larger.
 % Haberthuer: 1.148 * 0.65 / 8470 > 8.8099173553719008264462809917355e-5 mm^3 > 8.8099e4 um^3 > 88099 um^3
 % Vasilescu: 0.36 * 0.65 / 936 Vasilescu > 0.00025 mm^3 > 250000 um^3
 \end{description}}
@@ -701,16 +704,16 @@ The mean alveolar volume is \SI{88099}{\cubic\micro\meter} for rats. The alveola
 	\noindent\makebox[\textwidth]{
 	\begin{tabular}{r S[table-format=5.3] S[table-format=4.3] S[table-format=1.2]}
 		\toprule
-																	& {Rat}									& {Mouse} 															& {Relative Difference[\(\times\)]}\\
+																	& {Rat}									& {Mouse} 						& {Relative Difference [\(\times\)]}\\
 		\midrule
 		Age [\si{\day}]											& 60										& {\blockquote{old}\citep{Vasilescu2012}, \numrange{46}{69} \citep{Knust2009}} & \\
-		Lung volume [\si{\cubic\milli\meter}]				& \meantotallungvolume					& 1398 \citep{Vasilescu2012}										& 7.44\\
-		Mean acinar volume [\si{\cubic\milli\meter}]		& \meanacinarvolume						& 0.36 \citep{Vasilescu2012}										& 3.19\\
-		Acinar number											& \meantotalnumberofaciniVariant	& 3883 \citep{Vasilescu2012}										& 1.41\\
-		Mean alveolar number per acinus						& \meannumberofalveoli					& 936 \citep{Vasilescu2012}										& 9.05\\
-		Total aleolar number [\num{1e6}]					& 46.3										& \numlist{2.31;1.65}~\citep{Knust2009,Vasilescu2013}		& \numlist{20.04;28.06}\\
-		% Total aleolar number Lilian	50.6 Mio
-		Mean alveolar volume [\si{\cubic\micro\meter}]	& 88099									& \numlist{59500;250000}~\cite{Knust2009,Vasilescu2013}	& \numlist{1.48;0.35}\\
+		Lung volume [\si{\cubic\milli\meter}]				& \meantotallungvolume					& 1398 \citep{Vasilescu2012}	& 7.44\\
+		Mean acinar volume [\si{\cubic\milli\meter}]		& \meanacinarvolume						& 0.36 \citep{Vasilescu2012}	& 3.19\\
+		Acinar number											& \meantotalnumberofaciniVariant	& 3883 \citep{Vasilescu2012}	& 1.41\\
+		Mean alveolar number per acinus						& \meannumberofalveoli					& 936 \citep{Vasilescu2012}	& 9.05\\
+		%Total aleolar number [\num{1e6}]					& 46.3										& \numlist{2.31;1.65}~\citep{Knust2009,Vasilescu2013}		& \numlist{20.04;28.06}\\ % Total aleolar number Lilian	50.6 Mio
+		Mean alveolar volume [\si{\cubic\micro\meter}]	& 88099									& 59500 \citep{Knust2009}		& 1.48\\
+		% Mean alveolar volume [\si{\cubic\micro\meter}]	& 88099									& \numlist{59500;250000}~\cite{Knust2009,Vasilescu2013}	& \numlist{1.48;0.35}\\
 		\bottomrule
 	\end{tabular}
 	}
@@ -719,7 +722,7 @@ The mean alveolar volume is \SI{88099}{\cubic\micro\meter} for rats. The alveola
 
 \replaced[id=st]{On each level}{For each} of these parameters we see larger values for rat compared to mice, the exception being the mean alveolar volume of mice found by \citet{Vasilescu2012}, which was found to be \(2.84\times\) larger in mice compared to rats.
 
-\added[id=dh]{The alveolar number changes dramatically between the species (\numlist{20;28}\(\times\)), while the lung volume changes considerably (\(7\times\)) and the mean alveolar volume only slightly (\(1.5\times\)). We hypothesized that the additional volume of the rat lungs is filled with substantially more and slightly larger alveoli---resulting in a larger number of alveoli per acinus in rats (\(9\times\) more than in mice).}
+\added[id=dh]{The lung volume changes substantially between the species (\(7\times\)) while the alveolar volume changes only slightly (\(1.5\times\)). We hypothesized that the additional volume of the rat lungs is filled with substantially more and slightly larger alveoli---resulting in a larger number of alveoli per acinus in rats (\(9\times\) more than in mice).}
 
 \subsection{Acinar surface area}
 \added[id=dh]{To automatically extract the surface area of the individual acini one would need to perform a three-dimensional triangulation of the alveolar surface by mapping the edges of voxels to adjoining triangles in the three-dimensional space.
