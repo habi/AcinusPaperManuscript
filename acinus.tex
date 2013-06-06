@@ -13,7 +13,8 @@
 		\usepackage{natbib}
 \else
 	\documentclass[final,paper=a4,twocolumn=true,DIV=calc,abstract,english]{scrartcl}
-		\usepackage[numbers,sort&compress]{natbib}
+		\usepackage[numbers,round,sort&compress]{natbib}
+		\usepackage{setspace}
 \fi
 %%%%%%%%%%%% Für Johannes %%%%%%%%%%%%
 \usepackage[utf8]{inputenc}
@@ -210,16 +211,6 @@ Assuming that the acini are similarly sized throughout different regions of the 
 We conclude that our novel approach is well suited for the fast and reliable characterization of a large number of individual acini in healthy, diseased, or transgenic lungs of different species including humans.
 \end{abstract}
 
-\section*{Running title}
-Stereological characterization of individual acini
-
-\section*{Keywords}
-\begin{itemize}
-	\item synchrotron radiation 
-	\item microCT
-	\item (number of) alveoli
-\end{itemize}
-
 \section{Introduction}
 \subsection{Lung structure and the acini}
 The airway structure of the human lung is largely formed by dichotomous branched airway starting at the trachea~\citep{Weibel1991}.
@@ -265,7 +256,7 @@ The lungs of the animals were instilled with \SI{2.5}{\percent} glutaraldehyde i
 At this pressure, the rat lung reaches its mid-respiratory volume~\deleted[id=st]{\citep{Schittny1998}}.
 After instillation the lung was removed from the chest cavity and the pressure was maintained during fixation in order to prevent a recoiling of the lung~\replaced[id=st]{\citep{Weibel1970,Weibel1984}}{\citep{Mund2008}}.
 
-\begin{table*}[htb]
+\begin{table*}
 	\centering
 	\caption{Biological parameters of the animals, from~\citep{Tschanz2003}}
 	\noindent\makebox[\textwidth]{
@@ -436,7 +427,7 @@ Alveolar number was estimated by counting the number of entrance rings in paired
 \pgfmathsetlength{\imagewidth}{\imsize}%
 \pgfmathsetlength{\imagescale}{\imagewidth/1280}%
 \pgfmathsetlength{\imagescale}{\imagewidth/1280}%
-\begin{figure}[htb]
+\begin{figure}
 	\centering
 	\begin{tikzpicture}[x=\imagescale,y=-\imagescale]
 		\node[anchor=north west, inner sep=0pt, outer sep=0pt] at (0,0) {\includegraphics[width=\imagewidth]{img/STEPanizer_2010_R108C60B_acinus08_Slice36}};
@@ -452,13 +443,13 @@ Alveolar number was estimated by counting the number of entrance rings in paired
 	\label{fig:STEPanizer David}
 \end{figure}
 
-\renewcommand{\imsize}{\linewidth}
-\begin{figure}[htb]
+\renewcommand{\imsize}{0.5\linewidth}
+\begin{figure*}[htb]
 	\centering
 	\subfloat[Disector mode, Image a: sampling]{%
 		\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingA_crop_edit}%
 		\label{subfig:sampling}%
-		}\\
+		}
 	\subfloat[Disector mode, Image b: look-up]{%
 		\includegraphics[width=\imsize]{img/R108C60B_B1_mrg-acinus10_EntranceCountingB_crop_edit}%
 		\label{subfig:lookup}%
@@ -467,7 +458,7 @@ Alveolar number was estimated by counting the number of entrance rings in paired
 		The segmented acinus is visible in light grey, appearing and disappearing bridges corresponding to alveolar entrance rings are counted and marked by yellow circles.
 		Scale bar: \SI{100}{\micro\meter}.}
 	\label{fig:STEPanizer Eveline}
-\end{figure}
+\end{figure*}
 
 \section{Results}
 \label{sec:results}
@@ -581,7 +572,7 @@ For the three lung investigated we calculated \totalnumberofaciniB, \totalnumber
 The absolute number of acini per lung can also be estimated by dividing the estimated total number of alveoli \added[id=st]{in the entire lung} (Tschanz and Schittny, personal communication) by the number of alveoli per acinus.
 For the three lung investigated we calculated \totalnumberofaciniBVariant, \totalnumberofaciniDVariant and \totalnumberofaciniEVariant acini per lung, respectively, resulting in a mean of \meantotalnumberofaciniVariant with a standard deviation of \meantotalnumberofaciniSTDVariant.
 
-\begin{table*}[htb]
+\begin{table*}
 	\centering
 	\caption{Summary of results}
 	\noindent\makebox[\textwidth]{
@@ -630,10 +621,10 @@ Values larger than the mean of the volumes \(\pm\biggerthan\times\) the standard
 	\subfloat{
 		\input{plots/plot_stepanizervolume_R108C60Et-mrg-edit.tikz}
 		}%
-	\caption{Plot of the estimated acinar volumes of each sample, extracted with MeVisLab \added[id=st]{(automatic method)} and estimated using the STEPanizer \added[id=st]{(manual assessment)}.
-		The line corresponds to the mean, the dashed lines correspond to the mean \ifJCS plus or minus \biggerthan x\xspace\else\(\pm\biggerthan\times\)\xspace\fi the standard deviation.
+	\caption{Plot of the estimated acinar volumes of each sample, extracted with MeVisLab (automatic method) and estimated using the STEPanizer (manual assessment).
+		The line corresponds to the mean, the dashed lines correspond to the mean $\pm\biggerthan\times$ times the standard deviation.
 		Red dots represent outliers and were not used for calculating the mean.
-		Top row: \replaced[id=st]{Automatically assessed}{MeVisLab} volumes, bottom row: \replaced[id=st]{Manually assessed}{STEPanizer} volumes.
+		Top row: Automatically assessed volumes, bottom row: Manually assessed volumes.
 		From left to right: animal one, two and three.}
 	\label{fig:Volume plots}
 \end{figure*}
@@ -782,7 +773,7 @@ Manually estimating the volume of the individual acini using the STEPanizer took
 As soon as the segmentation stopper are defined in the sample, the automatic volume calculation \deleted[id=dh]{with MeVisLab }can be performed in less than a minute per acinus.
 
 \renewcommand{\imsize}{0.56\linewidth}%
-\begin{figure}[htb]
+\begin{figure}
 	\centering
 	\hfill%
 	%\subfloat[Animal 2, Acinus 32, Slice 45]{%
@@ -827,8 +818,25 @@ We thank Federica Marone, Christoph Hintermüller and Bernd Pinzer for their com
 Milo Hindennach from Fraunhofer MEVIS provided the \href{http://www.mevis-research.de/cgi-bin/discus/board-auth.cgi?lm=1282233250&file=/839/11760.html}{Manhole cover module in MeVisLab}.
 We thank Mohammed Ouanella for expert technical assistance and embedding of the samples.
 
-\section{Grants}
 This work has been supported by the grants 3100A0-109874 and 310030-125397 of the Swiss National Science Foundation.
+
+\ifJCS
+	\singlespacing
+\else
+\fi
+
+\clearpage
+\onecolumn
+
+\section*{Running title}
+Stereological characterization of individual acini
+
+\section*{Keywords}
+\begin{itemize}
+	\item synchrotron radiation 
+	\item microCT
+	\item (number of) alveoli
+\end{itemize}
 
 \section*{Contributions}
 \begin{itemize}
@@ -840,15 +848,15 @@ This work has been supported by the grants 3100A0-109874 and 310030-125397 of th
 	\item Johannes C. Schittny conceived and designed the study, obtained the samples, performed the data acquisition and contributed to writing.
 \end{itemize}
 
-\section{Disclosures}
+\section*{Disclosures}
 No \href{http://www.the-aps.org/mm/Publications/Preparing-Your-Manuscript#conflicts}{conflicts of interest} exist for any author of this manuscript.
 
-\ifJCS
-	\singlespacing
-\else
-\fi
+\clearpage
+\listoffigures
 
-\bibliographystyle{plainnat}
+\clearpage
+\doublespacing
+\bibliographystyle{abbrvnat}
 \bibliography{../library}
 
 \end{document}
