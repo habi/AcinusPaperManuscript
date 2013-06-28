@@ -1,33 +1,16 @@
-%%%%%%%%%%%% Für Johannes %%%%%%%%%%%%
-\newif\ifJCS
-%\JCStrue
-\ifJCS
-	\documentclass[paper=a4,DIV=calc,abstract,english]{scrartcl}
-		\usepackage{setspace} % Change spacing
-			%\singlespacing
-			%\onehalfspacing
-			\doublespacing
-		\usepackage[none]{hyphenat}\raggedright % No hyphenation, but ugly output
-		\setlength{\parindent}{10pt}
-		\usepackage{endfloat}
-		\usepackage{natbib}
-\else
-	\documentclass[paper=a4,twocolumn=true,DIV=calc,abstract,english]{scrartcl}
-		\usepackage[numbers,round,sort&compress]{natbib}
-		\usepackage{setspace}
-\fi
-%%%%%%%%%%%% Für Johannes %%%%%%%%%%%%
+\documentclass[paper=a4,twocolumn=true,DIV=calc,abstract,english]{scrartcl}
+
 \usepackage[utf8]{inputenc}
-\usepackage{babel}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[numbers,round,sort&compress]{natbib}
+\usepackage{babel}
+\usepackage{svn-multi}
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{todonotes}
 \usepackage[binary-units=true]{siunitx}
 	\DeclareSIUnit\Molar{\textsc{m}}
 	\sisetup{separate-uncertainty}
-\usepackage{textcomp} % to suppress warnings from microtype
-\usepackage{svn-multi}
 \usepackage{subfig}
 \usepackage{fancyhdr}
 \usepackage{tikz}
@@ -37,10 +20,12 @@
 \usepackage[switch]{lineno}
 	\linenumbers
 \usepackage{xspace}
+\usepackage{setspace} % to double-space the references
 \usepackage[autostyle=true]{csquotes}
 \usepackage{microtype}
+\usepackage{textcomp} % to suppress warnings from microtype
+\usepackage{changes} % try using [final] if the visible changes bother you.
 % \usepackage[pdftex,active,tightpage,floats]{preview} % typeset only the floats
-\usepackage{changes} % try using [final] if the changes bother you.
 \usepackage[backref,hidelinks]{hyperref}
 
 % Document tuning
@@ -126,11 +111,7 @@
 \pagestyle{fancy}
 \fancyhead[R]{\thepage}
 \fancyhead[L]{Stereological characterization of individual acini}
-\ifJCS
-	\fancyfoot[C]{}
-\else
-	\fancyfoot[C]{\href{\svnkw{HeadURL}}{SVN-Revision \svnkw{LastChangedRevision}}, typeset on \today\ at \thistime}
-\fi
+\fancyfoot[C]{\href{\svnkw{HeadURL}}{SVN-Revision \svnkw{LastChangedRevision}}, typeset on \today\ at \thistime}
 
 % Data
 \newcommand{\shrinkagefactor}{0.61\xspace} % Shrinkagefactor used for the calculation
@@ -367,7 +348,6 @@ The location and direction of the segmentation stoppers was exported as XML data
 \end{figure*}
 
 Once all acinar entrance points were defined, we extracted the volume of each isolated acinus (shown as yellow volumes in \autoref{subfig:extracted acini}) in an automated third step.
-%
 
 We extracted the volume of the individual acini using an additional region growing module.
 A point along the surface normal defining the manhole cover was used as seed point for this region growing segmentation.
@@ -478,7 +458,7 @@ Alveolar number was estimated by counting the number of entrance rings in paired
 The novel method described in \autoref{sec:manhole covers} was used to extract individual functional units of three rat lungs from high-resolution synchrotron radiation based tomographic datasets.
 Based on morphological criteria (thickness of the wall of the airways and appearance of the most distal alveoli) we placeed segmentation stoppers into the airways at the transition of purely conducting to gas-exchanging airways (\autoref{fig:ManholeCoverExplanation}).
 As a result we were able to isolate individual acini (two acini are shown in \autoref{fig:acini}).
-%
+
 In the next step we performed a segmentation of \numberofacini individual acini (see \autoref{tab:results}) using a grey level threshold based region growing algorithm.
 
 \subsection{Acinar volume}
@@ -561,8 +541,6 @@ We removed four outliers from the volume data because their value was larger tha
 \subsection{Acinar surface area}\label{sec:results:acinar surface area}
 The estimation of a surface area, which corresponds to the diffusion relevant gas exchange surface, causes the classic coastline paradox where a measurement of a length or surface area heavily depends on the scale of the measurement~\citep{Mandelbrot1967a}.
 Without going for more elaborate methods, an automatic extraction of the surface area of the individual acini may be subjected to considerable bias.
-
-
 
 We therefore used a classical stereological approach to estimate the surface area of the acini by counting interception of test lines with the alveolar septa~\citep{Hsia2010} at the original resolution of our datasets, which was approximately equal to light microscopical images taken with a \(10\times\) lens.
 
@@ -814,7 +792,7 @@ This segmentation and extraction process represents the main amount of time spen
 With a more advanced segmentation algorithm it would be possible to automatically and accurately estimate the volume of a very large amount of acini in a very short time, since our proposed method for estimating the volumes of isolated individual acini is by magnitudes faster than manual stereological counting.
 
 In addition, our proposed method may also be used to estimate changes in the lung structure (\eg acinar volume, number of alveoli, etc.) during the development of the lung.
-We have only shown data for one time point in the lung development, but a stereological estimation of the presented parameters would also be possible for multiple time points during lung development or in different disease models like fibrosis or \replaced[id=rev1]{emphzsematous}{emphysematic} lungs.
+We have only shown data for one time point in the lung development, but a stereological estimation of the presented parameters would also be possible for multiple time points during lung development or in different disease models like fibrosis or \replaced[id=rev1]{emphysematous}{emphysematic} lungs.
 
 \section{Acknowledgments}
 We thank Federica Marone, Christoph Hintermüller and Bernd Pinzer for their committed support at the TOMCAT beamline.
@@ -822,11 +800,6 @@ Milo Hindennach from Fraunhofer MEVIS provided the \href{http://www.mevis-resear
 We thank Mohammed Ouanella for expert technical assistance and embedding of the samples.
 
 This work has been supported by the grants 3100A0-109874 and 310030-125397 of the Swiss National Science Foundation.
-
-\ifJCS
-	\singlespacing
-\else
-\fi
 
 \clearpage
 \onecolumn
