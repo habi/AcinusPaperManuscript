@@ -1,4 +1,4 @@
-\documentclass[english,paper=a4]{scrartcl}
+\documentclass[english,paper=a4,DIV=calc]{scrartcl}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -10,6 +10,8 @@
 \usepackage{enumitem}
 \usepackage[autostyle=true,threshold=5,thresholdtype=words]{csquotes}
 	\SetBlockEnvironment{quotation}
+\usepackage{tikz}
+	\usetikzlibrary{spy}
 \usepackage{hyperref}
 
 \makeatletter
@@ -56,10 +58,29 @@ To overcome these constraints, we employed a single-step method to provide both 
 
 With other methods available to us (Skyscan microCT available at the Institute of Anatomy, University of Bern), we would not have been able to reach our goal, since the resolution of the tomographic scans is not high enough to unambiguously segment the dataset down to the level of single alveoli, as shown in \autoref{fig:uct}.
 
-\begin{figure}[htb]
-	%\includegraphics[width=\imsize]{%
-		\missingfigure{Slice from \si{\micro}CT, to show that acinus segmentation is not really possible with this resolution.}
-	%	}
+\renewcommand{\imsize}{\linewidth}
+% \\anatera7\MicroCT\R253C60A\R253C60A_2um_StackedWideField__rec00002800.tif
+\begin{figure}
+	\centering
+	\pgfmathsetlength{\imagewidth}{\imsize}%
+	\pgfmathsetlength{\imagescale}{\imagewidth/6168}
+	\def\x{3500}
+	\def\y{3272}
+	\begin{tikzpicture}[%
+		x=\imagescale,%
+		y=-\imagescale,
+		spy using outlines={red, circle, magnification=4, size=25 * 4, connect spies}
+		]
+		\clip (0,0) rectangle (6168,3636);
+		\node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,0) {%
+			\includegraphics[width=\imagewidth]{img/R253C60A_2um_StackedWideField__rec00002800_crop_enhanced}
+			};
+		\draw[|-|,white, thick] (\x,\y) -- (\x+338,\y) node [midway, above] {some arbitrary length};
+		\spy on (1800,2800) in node at (800, 1000);
+		\spy on (2500,1000) in node at (5000, 800);
+		\spy on (3000,2500) in node at (5000, 2500);
+	\end{tikzpicture}%
+		%\missingfigure{Slice from \si{\micro}CT, to show that acinus segmentation is not really possible with this resolution.}
 	\caption{Slice obtained from Skyscan \si{\micro}CT by Sébastien Barré}
 	\label{fig:uct}
 \end{figure}
