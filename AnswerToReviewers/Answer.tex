@@ -1,0 +1,107 @@
+\documentclass[english,paper=a4]{scrartcl}
+\usepackage{lmodern}
+\usepackage{doi}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[numbers]{natbib}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{todonotes}
+\usepackage[autostyle=true]{csquotes}
+\usepackage{hyperref}
+
+\makeatletter
+\let\@fnsymbol\@arabic
+\makeatother
+
+\title{JAPPL-00642-2013\\Answer to reviewers}	
+\author{%
+	David Haberthür\footremember{psi}{Swiss Light Source, Paul Scherrer Institute, Villigen, Switzerland}
+	\and Sébastien F. Barré\footremember{ana}{Institute of Anatomy, University of Bern, Switzerland}
+	\and Stefan A. Tschanz\footrecall{ana}
+	\and Eveline Yao\footrecall{ana}
+	\and Marco Stampanoni\footrecall{psi}\ \superscript{, }\footremember{eth}{Institute for Biomedical Engineering, Swiss Federal Institute of Technology and University of Zürich, Switzerland}
+	\and Johannes C. Schittny
+		\footrecall{ana}\ \superscript{, }\footremember{contact}{Corresponding Author: Prof.\ Dr.\ Johannes C.\ Schittny, Institute of Anatomy, University of Bern, Baltzerstrasse 2, CH-3012 Bern, +41 31 631 46 35, \href{mailto:schittny@ana.unibe.ch}{schittny@ana.unibe.ch}}%
+	}
+\date{\today}
+
+% Setup
+\newcommand{\imsize}{\linewidth}
+\newlength\imagewidth		% needed for scale bars
+\newlength\imagescale		% ditto
+\newcommand{\footremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}
+\newcommand{\footrecall}[1]{\footnotemark[\value{#1}]}
+\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\begin{document}
+\maketitle
+
+We thank both the reviewers for their thorough work and appreciate their helpful advice. In the following we answer their requests and explain our updates to the manuscript in more details.
+
+\section{Reviewer one}
+\blockquote{
+The authors present a well perfomed, interesting an relevant study by providing morphometric data on rat lung acini based on the analysis of X-ray tomography microscopic datasets. The morphometric measurements were partly done by automated image analysis algorithms and partly by manual stereology.}
+
+\subsection{Major comments}
+\blockquote{Although I appreciate the study in general, the approach has one severe limitation: applicability. The use of a synchrotron light source makes it impossible that this method will ever become routine. Looking at the imaging datasets I am wondering whether the whole study could not have been done with much less effort by using alternative (smaller, cheaper) imaging modalities, e.g. microCT? This point certainly deserves discussion.}
+
+Das stimmt natürlich, ist aber meines Erachtens kein Ablehnungs-Grund.
+Praktisch alle Forschung an Synchrotronen wird gemacht, weil die Bildgebung anders nicht möglich ist, deshalb könnte mensch das bei jeder Publikation aus der SLS ankreiden. Dass wir diesen Punkt diskutieren können, stimmt aber. Was meint ihr dazu?
+Wenn Du willst, können wir ihn nicht nur diskutieren, sondern eine mikroCT-Bild von Sebastien noch in die Diskussion einfügen, an dem Du zeigen kannst, dass die Segmentierung der Acini hier praktisch unmöglich ist.
+
+\begin{figure}[htb]
+	%\includegraphics[width=\imsize]{%
+		\missingfigure{Slice from \si{\micro}CT, to show that acinus segmentation is not really possible on that}
+	%	}
+	\caption{Slice obtained from Skyscan \si{\micro}CT by Sébastien Barré}
+	\label{fig:uct}
+\end{figure}
+ 
+\blockquote{Looking at the imaging datasets I am wondering whether the whole study could  not have been done with much less effort by using alternative (smaller, cheaper) imaging modalities, e.g. microCT? This point certainly 
+deserves discussion.}
+
+Eigentlich versuchten wir das zu erklären, im Zusammenhang mit Voxelgrösse/Auflösung und Sichtfeld. Offensichtlich wurde das nicht klar genug, das versuche ich zu präzisieren.
+Vielleicht ist es ein mikroCT-Typ und wollte es nicht verstehen. Deshalb nochmals überarbeiten, klarer schreiben und das oben genannte Bild einfügen.
+ 
+\subsection{Minor comments}
+We implemented all of the suggested changes and excuse ourselves for the typographic errors. Some of the suggestions merit a detailed explanation, which follows:
+
+\blockquote{Why was paraffin (which is known to induce tissue shrinkage) used? Was shrinkage measured?}
+\begin{itemize}
+	\item Paraffing was used for historic reasons
+	\item Shrinkage was measured and corrected for, where applicable
+\end{itemize}
+
+\blockquote{Although the statement that an estimation of morphometric parameters assigned to one particular acinus is not possible by LM is correct, a LM-based stereological method for estimation of the number of ventilatory units (defined by bronchiolo-alveolar duct junctions and therefore equivalent to acini in species that do not contain respiratory bronchioles) from which other parameters (e.g. the number of alveoli per acinus) can be derived exists: Authors should consult (and discuss) a paper by Wulfsohn D et al.: J Microsc 2010; 238:75-89.}
+
+Das Paper, welches der Reviewer erwähnt, ist das hier von \citet{Wulfsohn2010}.
+Mir ist klar, dass diese Methode existierte, ich kann versuchen, das auch noch zu diskutieren.
+Wenn wir Vasilescu in der Tabelle mit der Anzahl der Acini zitieren, sollten wir Wulfsohn auch zitieren. Sie liegen ja nicht so weit auseinander. Es wurden hier aber auch nur sehr wenig Tiere (Tag 21 = 3, Tag 69 = 2) verwendet. Ob sich hiermit überhaupt Statistik machen lässt wage ich zu bezweifeln (brauchen wir hier aber nicht diskutieren, da der Reviewer eventuell aus Ochs/Gunderson Zusammenarbeit stammt).
+
+\section{Reviewer two}
+\subsection{Overview}
+\subsection{Major comments}
+\enquote{Although studies with high-resolution lung imaging are not that common, the authors are missing some recent and relevant articles about acinar level imaging in small animals:
+\begin{itemize}
+	\item \cite{Kumar2013}
+	\item \cite{Sera2013}
+	\item \cite{Xiao2013}
+\end{itemize}
+Although these studies are performed with different species, I would like to see the authors to comment in their discussion about these findings as well.}
+
+We thank for suggesting these studies, two of which were previously unknown to us. We added to add a discussion of these results into our manuscript.
+
+\subsection{Minor comments}
+Additionally to some minor clarifications in the text, this reviewer also suggests that we equally scale the images in Figure 6, which would make them easier to compare. As far as we see it, the y-scale (Volume) of the plots is equal for all six subplots. The x-position of the acini only specifies their bijective index number. We feel that equally scaling the x-axis range (index number of acinus) for all six plots would not add any information, since we have a different amount of extracted acini for each animal (24, 10 and 9). We thus did not change the scaling.
+
+Maybe we misunderstood the request, in this case we ask the second reviewer to clarify it.
+
+\bibliographystyle{unsrtnat}
+\bibliography{../../library}
+%\bibliography{/afs/psi.ch/user/h/haberthuer/Documents/library}
+
+\end{document}
+
