@@ -36,14 +36,15 @@
 \setcapindent{0pt} % no indent for captions
 
 % Changes options
-\definecolor{david}{RGB}{159,88,69}
-\definecolor{rev1}{RGB}{144,186,109}
-\definecolor{rev2}{RGB}{150,111,173}
+\definecolor{rev1}{RGB}{159,94,171}
+\definecolor{rev2}{RGB}{149,189,86}
+\definecolor{david}{RGB}{163,85,64}
+\definecolor{johannes}{RGB}{126,154,153}
 %\definecolor{david}{RGB}{152,107,194}
 \definecolor{sebastien}{RGB}{148,194,84}
 \definecolor{stefan}{RGB}{195,108,60}
 \definecolor{marco}{RGB}{150,188,180}
-\definecolor{johannes}{RGB}{78,70,62}
+%\definecolor{johannes}{RGB}{78,70,62}
 \definecolor{eveline}{RGB}{185,79,120}
 \definechangesauthor[name={David Haberthür}, color=david]{dh}
 \definechangesauthor[name={Sebastien Barre}, color=sebastien]{sb}
@@ -208,7 +209,7 @@ The following respiratory bronchioles contain the first alveoli and mark the beg
 The change between purely conducting and gas-exchanging airways is identified by the appearance of alveoli, structural modifications of the airway wall and of the lining epithelium (see \autoref{fig:ManholeCoverExplanation}).
 Beyond this point, the following airways form one functional lung unit, the so-called pulmonary acinus.
 The total volume of all acini thus corresponds to the volume of the gas-exchange area of the lung which is ventilated by the most distal generation of purely conducting bronchioles~\citep{Rodriguez1987}.
-In humans the acini possess approximately four respiratory bronchioles each owing four alveolar ducts.
+In humans the acini possess approximately four \added[id=js]{generations of} respiratory bronchioles each owing four \added[id=js]{generations of} alveolar ducts.
 While the walls of the respiratory bronchioles contain a limited number of alveoli alternating with bronchiolar epithelium, the walls of the alveolar duct entirely consist of the entrance rings of the alveoli~\citep{Schittny2007}.
 
 In the rat lung the start of the gas-exchange region is not marked by respiratory bronchioles, but by one generation of transitory bronchioles.
@@ -279,7 +280,7 @@ As a result, the voxel \replaced[id=rev2]{side length}{size} was \SI{1.48}{\micr
 Alveolar septa in rats have a mean thickness of \SIrange{5}{10}{\micro\meter} (calculated from data by \citet{Burri1974}).
 To unambiguously segment the alveolar septa in our datasets, a resolution of about two microns was required.
 To extract a large amount of individual acini, we needed to acquire high-resolution tomographic scans covering a large volume.
-\added[id=dh]{Matching both the constraint in high resolution and large sample volume is relatively straightforward with the imaging capabilities of TOMCAT, as described below. Using a microCT imaging system, we would have needed to employ a cumbersome multi-step process (overview scan, segmentation of region of interest (ROI) and subsequent high-resolution scan of this ROI) to achieve the same result.}
+\added[id=dh]{Matching both the constraint in high resolution and large sample volume is relatively straightforward with the imaging capabilities of TOMCAT, as described below. Using a microCT imaging system, we would have needed to employ a cumbersome multi-step process (overview scan, segmentation of region of interest (ROI), cutting of the sample and subsequent high-resolution scan of this ROI) to achieve a comparable result, but with a lower resolution and contrast.}
 
 Since our samples were larger than the field of view of TOMCAT at the aforementioned optical properties (\(1.52\times1.52\times\SI{1.52}{\milli\meter}\)) we used the so-called wide field scanning method~\citep{Haberthuer2010}, where three independently acquired tomographic scans perpendicular to the rotation axis of the sample are merged to cover the desired field of view.
 Additionally, several wide field scans were stacked parallel to the rotation axis of the sample.
@@ -555,7 +556,7 @@ We estimated the total number of acini per lung by dividing the total parenchyma
 For the three lung investigated we calculated \totalnumberofaciniB, \totalnumberofaciniD and \totalnumberofaciniE acini per lung, respectively, resulting in a mean of \meantotalnumberofacini with a standard deviation of \meantotalnumberofaciniSTD.
 
 The absolute number of acini per lung can also be estimated by dividing the estimated total number of alveoli in the entire lung (Tschanz and Schittny, personal communication) by the number of alveoli per acinus.
-For the three lung investigated we calculated \totalnumberofaciniBVariant, \totalnumberofaciniDVariant and \totalnumberofaciniEVariant acini per lung, respectively, resulting in a mean of \meantotalnumberofaciniVariant with a standard deviation of \meantotalnumberofaciniSTDVariant.
+For the three lung\added[id=js]{s} investigated we calculated \totalnumberofaciniBVariant, \totalnumberofaciniDVariant and \totalnumberofaciniEVariant acini per lung, respectively, resulting in a mean of \meantotalnumberofaciniVariant with a standard deviation of \meantotalnumberofaciniSTDVariant.
 
 \begin{table*}
 	\centering
@@ -606,10 +607,10 @@ Values larger than the mean of the volumes \(\pm\biggerthan\times\) the standard
 	\subfloat{
 		\input{plots/plot_stepanizervolume_R108C60Et-mrg-edit.tikz}
 		}%
-	\caption{Plot of the estimated acinar volumes of each sample, extracted with MeVisLab (automatic method) and estimated using the STEPanizer (manual assessment).
+	\caption{Plot of the estimated acinar volumes of each sample, extracted with MeVisLab (automatic method\added[id=js]{, top row}) and estimated using the STEPanizer (manual assessment\added[id=js]{, bottom row}).
 		The line corresponds to the mean, the dashed lines correspond to the mean $\pm\biggerthan\times$ times the standard deviation.
 		Red dots represent outliers and were not used for calculating the mean.
-		Top row: Automatically assessed volumes, bottom row: Manually assessed volumes.
+		\deleted[id=js]{Top row: Automatically assessed volumes, bottom row: Manually assessed volumes.}
 		From left to right: animal one, two and three.}
 	\label{fig:Volume plots}
 \end{figure*}
@@ -620,7 +621,7 @@ These ventilatory end-units contain all alveoli aerated by a terminal \replaced[
 With respect to lung development growth and regeneration acini are a particularly important structural entity.
 
 An estimation of the volume, the surface area as well as the number of contained alveoli assigned to one particular acinus is not possible using light microscopy on classic tissue sections.
-\replaced[id=dh]{Methods for estimating the total number of ventilatory units (equivalent to acini in species without respiratory bronchioles) do exist~\citep{Wulfsohn2010}, but they only permit an estimation of the global number for full samples.
+\replaced[id=dh]{Methods for estimating the total number of ventilatory units (equivalent to acini in species without respiratory bronchioles) do exist~\citep{Wulfsohn2010}, but they only permit an estimation of the global number of acini.
 This is due to the loss of}{Losing} the three-dimensional context of a supposed acinus on sections \added[id=dh]{which} prevents an unbiased assignment to an individual acinus.
 
 With our proposed method we can extract individual acini from three-dimensional tomographic datasets without destroying the three-dimensional context.
@@ -673,7 +674,7 @@ When looking at this species comparison the interesting question arises weather 
 
 The three levels are:
 \begin{description}
-	\item[Lung] Total lung volume in adult animals showed a difference of \(7.4\times\) from mice to rats (\SI{\meantotallungvolume}{\cubic\milli\meter} vs.\ \citep[\SI{1398}{\cubic\milli\meter}]{Vasilescu2012}) or, taking the parenchymal volume even \(20\times\) (\citep[\SI{8932}{\cubic\milli\meter}]{Tschanz2003} vs,\ \citep[\SI{444}{\cubic\milli\meter}]{Mund2008}).
+	\item[Lung] Total lung volume in adult animals showed a difference of \(7.4\times\) from mice to rats (\SI{\meantotallungvolume}{\cubic\milli\meter} vs.\ \citep[\SI{1398}{\cubic\milli\meter}]{Vasilescu2012})\deleted[id=js]{ or, taking the parenchymal volume even \(20\times\) (23, 8932 mm3 vs.\ 14, 444 mm3)}.
 	\item[Acinus] Comparing the volumetric values on acinar level resulted in 3.2, \added[id=dh]{7.5 and 7}\(\times\) larger acini in rats (\SI{\meanacinarvolume}{\cubic\milli\meter} vs.\ \citep[\SI{0.36}{\cubic\milli\meter}]{Vasilescu2012}\added[id=dh]{, \citep[\SI{0.15}{\cubic\milli\meter}]{Sera2013} and 
 \citep[\SI{0.16}{\cubic\milli\meter}]{Kumar2013}}).
 We found \meantotalnumberofaciniVariant acini per lung of 60 days old rats, while \citet{Vasilescu2012} found 3883 acini per lung of \blockquote{old} mice, a value \(1.4\times\) larger \added[id=dh]{while the other researchers do not mention the total number of acini per lung}.
@@ -709,7 +710,7 @@ The alveolar volume in mice was found \SI{59500}{\cubic\micro\meter}~\citep{Knus
 
 On each level of these parameters we see larger values for rat compared to mice.
 
-The lung volume changes substantially between the species (\(7\times\)) while the alveolar volume changes only slightly (\(1.5\times\)). We hypothesize that the additional volume of the rat lungs is filled with substantially more and slightly larger alveoli---resulting in a larger number of alveoli per acinus in rats (\(9\times\) more than in mice).
+The lung volume \added[id=js]{and the acinar volume} changes substantially between the species (\added[id=js]{approximately} \(7\times\)) while the alveolar volume changes only slightly (\(1.5\times\)). We hypothesize that the additional volume of the rat lungs is filled with substantially more and slightly larger alveoli---resulting in a larger number of alveoli per acinus in rats (\(9\times\) more than in mice).
 
 \subsection{Acinar surface area}
 To automatically extract the surface area of the individual acini one would need to perform a three-dimensional triangulation of the alveolar surface by mapping the edges of voxels to adjoining triangles in the three-dimensional space.
@@ -769,7 +770,7 @@ As soon as the segmentation stopper are defined in the sample, the automatic vol
 		\label{subfig:60e_acinus38}%		
 	}%
 	\hfill%
-	\caption{Typical sections of two acini showing large differences between the automatic and manual volume assessment.
+	\caption{\replaced[id=js]{S}{Typical s}ections of two acini showing large differences between the automatic and manual volume assessment.
 		The inaccurate segmentation represents the reason why the automatically derived volume was significantly smaller for these two acini than the volume estimated stereologically.
 		Panel \protect\subref{subfig:60d_acinus32} shows minor segmentation errors due to noise observed in the airspace (dark spots inside grey region).
 		Panel \protect\subref{subfig:60e_acinus38} shows large segmentation errors.
